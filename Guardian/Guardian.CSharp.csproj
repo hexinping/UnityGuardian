@@ -263,6 +263,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Animation\readMe.txt" />
+    <None Include="Assets\Plugin\codeandweb.com\Editor\SettingsTexturePackerImporter.txt" />
     <None Include="Assets\Resources\Materials\readMe.txt" />
     <None Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\BlurEffectConeTaps.shader" />
@@ -332,7 +333,6 @@
     <None Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
     <None Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
     <None Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
-    <None Include="Assets\Resources\MyAtlas\readMe.txt" />
     <None Include="Assets\Scripts\Control\readMe.txt" />
     <None Include="Assets\Scripts\Global\readMe.txt" />
     <None Include="Assets\Scripts\Kernal\readMe.txt" />
