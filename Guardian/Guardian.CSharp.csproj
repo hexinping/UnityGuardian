@@ -237,6 +237,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Plugin\TexturePacker\AtlasData.cs" />
+    <Compile Include="Assets\Plugin\TexturePacker\TexturePacker.cs" />
     <Compile Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Scripts\ActivateEffects.cs" />
     <Compile Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Scripts\FollowTrackingCamera.cs" />
     <Compile Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Scripts\HashIDs.cs" />
@@ -261,9 +263,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Animation\readMe.txt" />
-    <None Include="Assets\Plugin\readMe.txt" />
-    <None Include="Assets\Resources\Audio\readMe.txt" />
-    <None Include="Assets\Resources\Font\readMe.txt" />
     <None Include="Assets\Resources\Materials\readMe.txt" />
     <None Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\BlurEffectConeTaps.shader" />
@@ -334,7 +333,6 @@
     <None Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
     <None Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
     <None Include="Assets\Resources\MyAtlas\readMe.txt" />
-    <None Include="Assets\Resources\ParticleProps\readMe.txt" />
     <None Include="Assets\Scripts\Control\readMe.txt" />
     <None Include="Assets\Scripts\Global\readMe.txt" />
     <None Include="Assets\Scripts\Kernal\readMe.txt" />
