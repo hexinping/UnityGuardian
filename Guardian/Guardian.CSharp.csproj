@@ -260,6 +260,8 @@
     <Compile Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\SSAOEffect.cs" />
     <Compile Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\TwirlEffect.cs" />
     <Compile Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\VortexEffect.cs" />
+    <Compile Include="Assets\Scripts\Control\Scenes\StartView_Ctrl.cs" />
+    <Compile Include="Assets\Scripts\View\Scenes\StartView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Animation\readMe.txt" />
@@ -333,14 +335,24 @@
     <None Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
     <None Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
     <None Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
-    <None Include="Assets\Scripts\Control\readMe.txt" />
+    <None Include="Assets\Scripts\Control\Enemy\readMe.txt" />
+    <None Include="Assets\Scripts\Control\NPC\readMe.txt" />
+    <None Include="Assets\Scripts\Control\Player\readMe.txt" />
+    <None Include="Assets\Scripts\Control\Prop\readMe.txt" />
     <None Include="Assets\Scripts\Global\readMe.txt" />
     <None Include="Assets\Scripts\Kernal\readMe.txt" />
-    <None Include="Assets\Scripts\Model\readMe.txt" />
+    <None Include="Assets\Scripts\Model\Enemy\readMe.txt" />
+    <None Include="Assets\Scripts\Model\NPC\readMe.txt" />
+    <None Include="Assets\Scripts\Model\Player\readMe.txt" />
+    <None Include="Assets\Scripts\Model\Prop\readMe.txt" />
+    <None Include="Assets\Scripts\Model\Scenes\readMe.txt" />
     <None Include="Assets\Scripts\NetWork\readMe.txt" />
     <None Include="Assets\Scripts\Persistence\readMe.txt" />
     <None Include="Assets\Scripts\Test\readMe.txt" />
-    <None Include="Assets\Scripts\View\readMe.txt" />
+    <None Include="Assets\Scripts\View\Enemy\readMe.txt" />
+    <None Include="Assets\Scripts\View\NPC\readMe.txt" />
+    <None Include="Assets\Scripts\View\Player\readMe.txt" />
+    <None Include="Assets\Scripts\View\Prop\readMe.txt" />
     <None Include="Assets\StreamingAssets\readMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
