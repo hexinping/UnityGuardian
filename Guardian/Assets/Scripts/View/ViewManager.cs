@@ -21,7 +21,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ViewManager
+public class ViewManager : MonoBehaviour
 {
 
     public Dictionary<string, BaseView> _viewDict = null;
@@ -31,26 +31,22 @@ public class ViewManager
     public GameObject _viewLayer;
 
 
-    public ViewManager()
+    public void Awake()
     {
+        _instance = this;
         _viewDict = new Dictionary<string, BaseView>();
     }
 
     static public ViewManager getInstance()
     {
-        if (_instance == null)
-        {
-            _instance = new ViewManager();
-        }
         return _instance;
     }
 
-    public void showView(GameObject prefab, string viewName)
+    public void showView(string prefabName, string viewName)
     {
         BaseView view = new BaseView();
-        view.initUI(prefab, viewName);
-        GameObject viewRootNode = view.getViewRoot();
-        viewRootNode.transform.parent = _viewLayer.transform;
+        GameObject obj = (GameObject)Resources.Load(prefabName);
+        view.initUI(obj, viewName);
 
         //页面管理
         _viewDict[viewName] = view;

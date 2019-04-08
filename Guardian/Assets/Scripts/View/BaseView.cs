@@ -37,57 +37,30 @@ public class BaseView : MonoBehaviour
 
     private ViewManager _viewManager;
 
-    //public BaseView()
-    //{ 
-    
-    //}
-
-    public void Awake()
-    {
-        //_rootViewGameObject = new GameObject("rootViewNode");
-        //_rootDialogGameObject = new GameObject("rootDialogNode");
-        ////默认取屏幕中点
-        //Vector3 displayPos = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0);
-        //setPos(displayPos);
-
-        //_viewManager = ViewManager.getInstance();
-
-    }
-
-    //public void Start()
-    //{
-    //    initUI();
-    //}
-
     public void initUI(GameObject prefab, string name)
     {
-        _rootViewGameObject = new GameObject("rootViewNode");
-        _rootDialogGameObject = new GameObject("rootDialogNode");
-        //默认取屏幕中点
-        Vector3 displayPos = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0);
-        setPos(displayPos);
 
         _viewManager = ViewManager.getInstance();
+
+        GameObject viewLayer = _viewManager._viewLayer;
 
         _name = name;
         _prefab = prefab;
         GameObject view = Instantiate(_prefab);
-        view.transform.parent = _rootViewGameObject.transform;
+        view.transform.parent = viewLayer.transform;
+
+        //默认取屏幕中点
+        Vector3 displayPos = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0);
+        view.transform.localPosition = displayPos;
+
+        view.name = name;
 
         //页面dailog的层级要高于View
-        _rootDialogGameObject.transform.parent = _rootViewGameObject.transform;
+        _rootDialogGameObject = new GameObject("rootDialogNode");
+        _rootDialogGameObject.transform.parent = view.transform;
 
     }
 
-    public void setPos(Vector3 displayPos)
-    {
-        _rootViewGameObject.transform.localPosition = displayPos;
-    }
-
-    public GameObject getViewRoot()
-    {
-        return _rootViewGameObject;
-    }
 
     public string getViewName()
     {
