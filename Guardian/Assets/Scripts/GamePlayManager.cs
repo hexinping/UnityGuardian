@@ -26,14 +26,16 @@ public class GamePlayManager : MonoBehaviour {
 	// Use this for initialization
     private ViewManager _viewManager;
 
+    private static GamePlayManager _instance = null;
+
     public void Awake()
     {
-       
+        _instance = this;
     }
 	void Start () 
     {
         _viewManager = ViewManager.getInstance();
-        //_viewManager.showView("Prefabs/View/StartView", "StartView");
+        //_viewManager.showView("StartView");
 	}
 	
 	// Update is called once per frame
@@ -45,22 +47,38 @@ public class GamePlayManager : MonoBehaviour {
 
     public void showView1()
     {
-        _viewManager.showView("Prefabs/View/View1", "View1");
+        _viewManager.showView("View1");
     }
 
     public void showView2()
     {
-        _viewManager.showView("Prefabs/View/View2", "View2");
+        _viewManager.showView("View2");
     }
 
     public void showView3()
     {
-        _viewManager.showView("Prefabs/View/View3", "View3");
+        _viewManager.showView("View3");
     }
 
-    public void showView4()
+
+    public void popView()
     {
-        _viewManager.showView("Prefabs/View/View4", "View4");
+        _viewManager.popView();
+    }
+
+    public void switchView1()
+    {
+        _viewManager.swithView("View1");
+    }
+
+    public void switchView2()
+    {
+        _viewManager.swithView("View2");
+    }
+
+    public void switchView3()
+    {
+        _viewManager.swithView("View3");
     }
 
 

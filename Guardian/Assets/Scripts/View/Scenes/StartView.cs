@@ -21,7 +21,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StartView : MonoBehaviour {
+public class StartView : MonoBehaviour
+{
 
 
     private StartView_Ctrl _ctrl;
@@ -42,4 +43,6 @@ public class StartView : MonoBehaviour {
         Debug.Log("click the ContinueBtn :" + this.GetType());
         _ctrl.onClickContinueBtn();
     }
+
+
 }

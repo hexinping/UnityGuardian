@@ -21,7 +21,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BaseView : MonoBehaviour
+public class BaseView:MonoBehaviour
 {
 
     private string _name;            
@@ -38,6 +38,9 @@ public class BaseView : MonoBehaviour
 
     private ViewManager _viewManager;
 
+    public int _index;
+
+
     public void initUI(GameObject prefab, string name)
     {
 
@@ -47,7 +50,7 @@ public class BaseView : MonoBehaviour
 
         _name = name;
         _prefab = prefab;
-        GameObject view = Instantiate(_prefab);
+        GameObject view = GameObject.Instantiate(_prefab);
 
         view.transform.parent = viewLayer.transform;
 
@@ -71,6 +74,35 @@ public class BaseView : MonoBehaviour
         return _name;
     }
 
+    public GameObject getViewRoot()
+    {
+        return _viewRoot;
+    }
+
+    public void setActive(bool active)
+    {
+        _viewRoot.SetActive(active);
+    }
+
+    public void destory()
+    {
+        GameObject.DestroyImmediate(_viewRoot);
+    }
+
+    public void onHide()
+    {
+        Debug.Log("hide viewName:" + _name);
+    }
+
+    public void onTop()
+    {
+        Debug.Log("top viewName:" + _name);
+    }
+
+    //virtual public void addListener()
+    //{
+
+    //}
     
 
 }
