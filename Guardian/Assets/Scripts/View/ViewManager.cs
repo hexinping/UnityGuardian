@@ -21,7 +21,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ViewManager
+public class ViewManager : MonoBehaviour
 {
 
     public Dictionary<string, BaseView> _viewDict = null;
