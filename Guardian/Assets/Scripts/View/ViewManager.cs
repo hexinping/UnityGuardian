@@ -50,25 +50,20 @@ public class ViewManager : MonoBehaviour
 
         if (!_viewDict.ContainsKey(viewName))
         {
-            BaseView view = new BaseView();
-
-            //BaseView view = this.gameObject.AddComponent<BaseView>();
+            
+            BaseView view = this.gameObject.AddComponent<BaseView>();
 
             string prefabName = "Prefabs/View/" + viewName;
             GameObject obj = (GameObject)Resources.Load(prefabName);
             view.initUI(obj, viewName);
 
-            //view.addListener();
-
             _curShowView = view;
 
             //页面管理
             _viewDict.Add(viewName, view);
-       
         }
         else
         {
-           
             BaseView view = _viewDict[viewName];
             string name = view.getViewName();
             if (name == viewName)
@@ -117,10 +112,11 @@ public class ViewManager : MonoBehaviour
             _curShowView.onHide();
             _curShowView.destory();
             _viewDict.Remove(name);
-            _curShowView = null;
 
-
+            //删除当前脚本组件
             Destroy(_curShowView);
+            _curShowView = null;
+           
              Transform parentTransform = _viewLayer.transform;
              foreach (Transform transform in parentTransform)
             {

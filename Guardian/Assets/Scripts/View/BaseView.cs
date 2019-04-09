@@ -21,7 +21,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BaseView
+public class BaseView:MonoBehaviour
 {
 
     private string _name;            
@@ -89,20 +89,14 @@ public class BaseView
         GameObject.DestroyImmediate(_viewRoot);
     }
 
-    public void onHide()
+    virtual public void onHide()
     {
         Debug.Log("hide viewName:" + _name);
     }
 
-    public void onTop()
+    virtual public void onTop()
     {
         Debug.Log("top viewName:" + _name);
     }
-
-    //virtual public void addListener()
-    //{
-
-    //}
-    
 
 }

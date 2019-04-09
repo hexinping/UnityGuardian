@@ -21,7 +21,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StartView : MonoBehaviour
+public class StartView : BaseView
 {
 
 
