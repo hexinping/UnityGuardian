@@ -21,7 +21,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BaseView:MonoBehaviour
+public class BaseView
 {
 
     private string _name;            
