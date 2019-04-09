@@ -33,11 +33,35 @@ public class GamePlayManager : MonoBehaviour {
 	void Start () 
     {
         _viewManager = ViewManager.getInstance();
-        _viewManager.showView("Prefabs/StartView", "StartView");
+        //_viewManager.showView("Prefabs/View/StartView", "StartView");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    //test code
+
+    public void showView1()
+    {
+        _viewManager.showView("Prefabs/View/View1", "View1");
+    }
+
+    public void showView2()
+    {
+        _viewManager.showView("Prefabs/View/View2", "View2");
+    }
+
+    public void showView3()
+    {
+        _viewManager.showView("Prefabs/View/View3", "View3");
+    }
+
+    public void showView4()
+    {
+        _viewManager.showView("Prefabs/View/View4", "View4");
+    }
+
+
 }

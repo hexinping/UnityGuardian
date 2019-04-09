@@ -44,12 +44,41 @@ public class ViewManager : MonoBehaviour
 
     public void showView(string prefabName, string viewName)
     {
-        BaseView view = new BaseView();
-        GameObject obj = (GameObject)Resources.Load(prefabName);
-        view.initUI(obj, viewName);
 
-        //页面管理
-        _viewDict[viewName] = view;
+        if (!_viewDict.ContainsKey(viewName))
+        {
+            BaseView view = new BaseView();
+            GameObject obj = (GameObject)Resources.Load(prefabName);
+            view.initUI(obj, viewName);
+
+            //页面管理
+            _viewDict[viewName] = view;
+        }
+        else
+        {
+            Debug.Log("已经打开过" + viewName + " 调整到最顶层");
+
+
+            BaseView view = _viewDict[viewName];
+            
+            Transform parentTransform = _viewLayer.transform;
+
+            int count = parentTransform.childCount;
+            Transform childTransform = view._viewRoot.transform;
+            view._viewRoot.SetActive(false);
+            //int zorder = 0;
+            //for (int i = 0; i < count;i++ )
+            //{
+            //    Transform  t = parentTransform.GetChild(i);
+               
+            //}
+            //参数为物体在当前所在的子物体列表中的顺序
+            //count-1指把child物体在当前子物体列表的顺序设置为最后一个，0为第一个
+            childTransform.SetSiblingIndex(count - 1);
+            view._viewRoot.SetActive(true);
+
+        }
+      
 
     }
 

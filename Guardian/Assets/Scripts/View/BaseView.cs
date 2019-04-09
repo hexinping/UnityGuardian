@@ -28,6 +28,7 @@ public class BaseView : MonoBehaviour
     private string _prefabName;
 
     private GameObject _prefab;
+    public GameObject _viewRoot;
 
     //view的根节点
     private GameObject _rootViewGameObject;
@@ -47,6 +48,7 @@ public class BaseView : MonoBehaviour
         _name = name;
         _prefab = prefab;
         GameObject view = Instantiate(_prefab);
+
         view.transform.parent = viewLayer.transform;
 
         //默认取屏幕中点
@@ -58,6 +60,8 @@ public class BaseView : MonoBehaviour
         //页面dailog的层级要高于View
         _rootDialogGameObject = new GameObject("rootDialogNode");
         _rootDialogGameObject.transform.parent = view.transform;
+
+        _viewRoot = view;
 
     }
 
