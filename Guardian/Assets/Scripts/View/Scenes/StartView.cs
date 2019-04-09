@@ -26,10 +26,19 @@ public class StartView : BaseView
 
 
     private StartView_Ctrl _ctrl;
+    private GameObject _scene;
 
-    void Awake()
+    void Start()
     {
-        _ctrl = new StartView_Ctrl();
+        _scene = GameObject.Find("_Manager/_ViewManager/_Scene/Module_08_BaseScene");
+        _ctrl = StartView_Ctrl._instance;
+        this.Invoke("setTimeOut", 0.5f);
+    }
+
+    public void setTimeOut()
+    {
+        _scene.SetActive(true);
+        FadeInOut._instance.FadeIn();
     }
 
     public void onClickNewBtn()

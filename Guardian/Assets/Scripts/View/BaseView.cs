@@ -28,7 +28,7 @@ public class BaseView:MonoBehaviour
     private string _prefabName;
 
     private GameObject _prefab;
-    public GameObject _viewRoot;
+    private GameObject _viewRoot;
 
     //view的根节点
     private GameObject _rootViewGameObject;

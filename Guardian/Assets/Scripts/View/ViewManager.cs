@@ -76,7 +76,8 @@ public class ViewManager : MonoBehaviour
             Transform parentTransform = _viewLayer.transform;
 
             int count = parentTransform.childCount;
-            Transform childTransform = view._viewRoot.transform;
+            GameObject _viewRoot = view.getViewRoot();
+            Transform childTransform = _viewRoot.transform;
 
 
             view.setActive(false);
