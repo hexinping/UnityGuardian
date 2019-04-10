@@ -30,13 +30,13 @@ public class BaseView:MonoBehaviour
     private GameObject _prefab;
     private GameObject _viewRoot;
 
+    protected ViewManager _viewManager;
+
     //view的根节点
     private GameObject _rootViewGameObject;
 
     //dialog的根节点，dialog是基于view的
     private GameObject _rootDialogGameObject;
-
-    private ViewManager _viewManager;
 
     public int _index;
 
@@ -44,9 +44,9 @@ public class BaseView:MonoBehaviour
     public void initUI(GameObject prefab, string name)
     {
 
-        _viewManager = ViewManager.getInstance();
+        ViewManager viewManager = ViewManager.getInstance();
 
-        GameObject viewLayer = _viewManager._viewLayer;
+        GameObject viewLayer = viewManager._viewLayer;
 
         _name = name;
         _prefab = prefab;

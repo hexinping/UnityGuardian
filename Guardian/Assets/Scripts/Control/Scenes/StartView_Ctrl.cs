@@ -51,12 +51,12 @@ public class StartView_Ctrl : MonoBehaviour
     public void Update()
     {
 
-        //if (FadeInOut._instance.fadeoutEnd)
-        //{
-        //    //nextScene.SetActive(true);
-        //    FadeInOut._instance.fadeoutEnd = false;
-        //    FadeInOut._instance.setRawImageEnable(false);
-        //}
+        if (FadeInOut._instance.fadeoutEnd)
+        {
+            //nextScene.SetActive(true);
+            FadeInOut._instance.fadeoutEnd = false;
+            ViewManager.getInstance().swithView("LoginView");
+        }
     
     }
 }

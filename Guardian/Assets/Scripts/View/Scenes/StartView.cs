@@ -30,7 +30,7 @@ public class StartView : BaseView
 
     private GameObject _rootScene;
 
-
+    
     void Start()
     {
         GameObject obj = (GameObject)Resources.Load("Prefabs/Module_08_BaseScene");
@@ -41,6 +41,8 @@ public class StartView : BaseView
         _scene.transform.localPosition = new Vector3(-1.54f,-13.22f,-107.0f);
        
         _ctrl = StartView_Ctrl._instance;
+
+        _viewManager = ViewManager.getInstance();
         this.Invoke("setTimeOut", 0.5f);
     }
 
@@ -53,7 +55,9 @@ public class StartView : BaseView
     public void onClickNewBtn()
     {
         Debug.Log("click the NewBtn :"+ this.GetType());
-        _ctrl.onClickNewBtn();
+        //_ctrl.onClickNewBtn();
+
+        _viewManager.swithView("LoginView");
     }
 
     public void onClickContinueBtn()

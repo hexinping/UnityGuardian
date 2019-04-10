@@ -36,6 +36,8 @@ public class LoginView : BaseView {
         _rootScene = ViewManager.getInstance()._rootScene;
         _scene.transform.parent = _rootScene.transform;
         _scene.transform.localPosition = new Vector3(-5.3f, -9.0f, -117.0f);
+
+        _viewManager = ViewManager.getInstance();
 	}
 
     void OnDestroy()
