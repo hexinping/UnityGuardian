@@ -40,7 +40,7 @@ public class LoginView : BaseView {
 
     void OnDestroy()
     {
-        DestroyImmediate(_scene);
+        Destroy(_scene);
     }
 	
 }

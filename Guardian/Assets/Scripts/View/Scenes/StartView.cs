@@ -64,7 +64,7 @@ public class StartView : BaseView
 
     void OnDestroy()
     {
-        DestroyImmediate(_scene);
+        Destroy(_scene);
     }
 
 
