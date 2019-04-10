@@ -28,6 +28,8 @@ public class StartView : BaseView
     private StartView_Ctrl _ctrl;
     private GameObject _scene;
 
+    
+
     void Start()
     {
         _scene = GameObject.Find("_Manager/_ViewManager/_Scene/Module_08_BaseScene");

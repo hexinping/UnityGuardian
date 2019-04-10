@@ -29,6 +29,9 @@ public class FadeInOut : MonoBehaviour {
 
     public float speed = 0.2f;
 
+    public bool fadeoutEnd = false;
+    public bool fadeinEnd = false;
+
     public void Awake()
     {
         _rawImage = this.GetComponent<RawImage>();
@@ -38,11 +41,15 @@ public class FadeInOut : MonoBehaviour {
 
     public void FadeIn()
     {
+        fadeinEnd = false;
+        StopCoroutine("fadeInAction");
         StartCoroutine("fadeInAction");
     }
 
     public void FadeOut()
     {
+        fadeoutEnd = false;
+        StopCoroutine("fadeOutAction");
         StartCoroutine("fadeOutAction");
     }
 
@@ -54,7 +61,8 @@ public class FadeInOut : MonoBehaviour {
             if (_rawImage.color.a <= 0.05)
             {
                 _rawImage.color = Color.clear;
-                _rawImage.enabled = false;
+                setRawImageEnable(false);
+                fadeinEnd = true;
                 break;
             }
             yield return null;
@@ -64,18 +72,25 @@ public class FadeInOut : MonoBehaviour {
 
     IEnumerator fadeOutAction()
     {
-        _rawImage.enabled = true;
+        setRawImageEnable(true);
         while (true)
         {
             _rawImage.color = Color.Lerp(_rawImage.color, Color.black, Time.deltaTime * speed);
             if (_rawImage.color.a >=0.95)
             {
                 _rawImage.color = Color.black;
+                fadeoutEnd = true;
                 break;
             }
             yield return null;
         }
 
+    }
+
+    public void setRawImageEnable(bool isEnable)
+    {
+
+        _rawImage.enabled = isEnable;
     }
 
 }
