@@ -62,5 +62,10 @@ public class StartView : BaseView
         _ctrl.onClickContinueBtn();
     }
 
+    void OnDestroy()
+    {
+        DestroyImmediate(_scene);
+    }
+
 
 }
