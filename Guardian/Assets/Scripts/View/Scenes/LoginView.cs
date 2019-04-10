@@ -35,9 +35,12 @@ public class LoginView : BaseView {
         _scene.name = "Module_02_LevelOne";
         _rootScene = ViewManager.getInstance()._rootScene;
         _scene.transform.parent = _rootScene.transform;
-        _scene.transform.localPosition = new Vector3(-5.3f, -9.0f, -117.0f);
+        //_scene.transform.localPosition = new Vector3(-5.3f, -9.0f, -117.0f);
 
         _viewManager = ViewManager.getInstance();
+
+        _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        _mainCamera.transform.position = new Vector3(77.3f, -10.7f, -42.6f);
 	}
 
     void OnDestroy()

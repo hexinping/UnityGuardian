@@ -31,6 +31,7 @@ public class BaseView:MonoBehaviour
     private GameObject _viewRoot;
 
     protected ViewManager _viewManager;
+    protected GameObject _mainCamera;
 
     //view的根节点
     private GameObject _rootViewGameObject;
