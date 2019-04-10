@@ -32,6 +32,8 @@ public class ViewManager : MonoBehaviour
 
     private BaseView _curShowView;
 
+    public GameObject _rootScene;
+
     public int viewIndex = 0;
 
     public void Awake()

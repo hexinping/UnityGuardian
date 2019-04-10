@@ -30,12 +30,11 @@ public class StartView_Ctrl : MonoBehaviour
     public void Awake()
     {
         _instance = this;
-        nextScene = GameObject.Find("_Manager/_ViewManager/_Scene/Module_02_LevelOne");
     }
 
     public void Start()
     {
-        nextScene.SetActive(false);
+      
     }
 	// Use this for initialization
     public void onClickNewBtn()
@@ -52,12 +51,12 @@ public class StartView_Ctrl : MonoBehaviour
     public void Update()
     {
 
-        if (FadeInOut._instance.fadeoutEnd)
-        {
-            nextScene.SetActive(true);
-            FadeInOut._instance.fadeoutEnd = false;
-            FadeInOut._instance.setRawImageEnable(false);
-        }
+        //if (FadeInOut._instance.fadeoutEnd)
+        //{
+        //    //nextScene.SetActive(true);
+        //    FadeInOut._instance.fadeoutEnd = false;
+        //    FadeInOut._instance.setRawImageEnable(false);
+        //}
     
     }
 }

@@ -28,11 +28,18 @@ public class StartView : BaseView
     private StartView_Ctrl _ctrl;
     private GameObject _scene;
 
-    
+    private GameObject _rootScene;
+
 
     void Start()
     {
-        _scene = GameObject.Find("_Manager/_ViewManager/_Scene/Module_08_BaseScene");
+        GameObject obj = (GameObject)Resources.Load("Prefabs/Module_08_BaseScene");
+        _scene = GameObject.Instantiate(obj);
+
+        _rootScene = ViewManager.getInstance()._rootScene;
+        _scene.transform.parent = _rootScene.transform;
+        _scene.transform.localPosition = new Vector3(-1.54f,-13.22f,-107.0f);
+       
         _ctrl = StartView_Ctrl._instance;
         this.Invoke("setTimeOut", 0.5f);
     }
