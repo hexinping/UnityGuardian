@@ -35,7 +35,7 @@ public class StartView : BaseView
     {
         GameObject obj = (GameObject)Resources.Load("Prefabs/Module_08_BaseScene");
         _scene = GameObject.Instantiate(obj);
-
+        _scene.name = "Module_08_BaseScene";
         _rootScene = ViewManager.getInstance()._rootScene;
         _scene.transform.parent = _rootScene.transform;
         _scene.transform.localPosition = new Vector3(-1.54f,-13.22f,-107.0f);

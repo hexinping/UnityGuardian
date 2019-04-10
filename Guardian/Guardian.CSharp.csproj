@@ -260,10 +260,12 @@
     <Compile Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\SSAOEffect.cs" />
     <Compile Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\TwirlEffect.cs" />
     <Compile Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\VortexEffect.cs" />
+    <Compile Include="Assets\Scripts\Control\Scenes\LoginView_Ctrl.cs" />
     <Compile Include="Assets\Scripts\Control\Scenes\StartView_Ctrl.cs" />
     <Compile Include="Assets\Scripts\GamePlayManager.cs" />
     <Compile Include="Assets\Scripts\Global\FadeInOut.cs" />
     <Compile Include="Assets\Scripts\View\BaseView.cs" />
+    <Compile Include="Assets\Scripts\View\Scenes\LoginView.cs" />
     <Compile Include="Assets\Scripts\View\Scenes\StartView.cs" />
     <Compile Include="Assets\Scripts\View\ViewManager.cs" />
   </ItemGroup>
