@@ -283,7 +283,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 206735512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.236379, y: 1.835563, z: -1.3716698}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 266997114}
@@ -736,7 +736,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 688985033}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: _LockLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -944,7 +944,7 @@ GameObject:
   - component: {fileID: 1119629444}
   m_Layer: 0
   m_Name: UICamera
-  m_TagString: Untagged
+  m_TagString: UICamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1216,7 +1216,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1222811847}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: _ViewLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1244,7 +1244,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1317463243}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: _TipsLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1272,7 +1272,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1505346715}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: _GlobalDialogLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1561,7 +1561,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1726451055}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: _NetWorkLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1589,7 +1589,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1735597653}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: _RootLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2128,7 +2128,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2114030783}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: _NoticeLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

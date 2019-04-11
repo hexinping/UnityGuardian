@@ -32,6 +32,7 @@ public class BaseView:MonoBehaviour
 
     protected ViewManager _viewManager;
     protected GameObject _mainCamera;
+    protected GameObject _uiCamera;
     protected GameObject _sceneNode;
 
     public void Awake()
@@ -39,6 +40,7 @@ public class BaseView:MonoBehaviour
         _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         _viewManager = ViewManager.getInstance();
         _sceneNode = _viewManager._rootScene;
+        _uiCamera = GameObject.FindGameObjectWithTag("UICamera");
     }
 
     virtual public void onHide()
@@ -72,5 +74,12 @@ public class BaseView:MonoBehaviour
         scene.name = "Module_02_LevelOne";
         scene.transform.parent = _sceneNode.transform;
         return scene;
+    }
+
+    public void setUICamera(GameObject obj, string canvasName)
+    {
+        Canvas canvas = obj.transform.Find(canvasName).GetComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceCamera;
+        canvas.worldCamera = _uiCamera.GetComponent<Camera>();
     }
 }

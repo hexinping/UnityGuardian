@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 222009854482279336}
   - component: {fileID: 114874883579513152}
   - component: {fileID: 114131993442340920}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Btn_NewGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4399446130289224}
   - component: {fileID: 114566691708769750}
   - component: {fileID: 114048847515479414}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: StartView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 222484077608475296}
   - component: {fileID: 114159349279215406}
   - component: {fileID: 114608789712598032}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: RawImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 114507121918283072}
   - component: {fileID: 114909461995112822}
   - component: {fileID: 114557431407285530}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 222659685165159362}
   - component: {fileID: 114383179290580844}
   - component: {fileID: 114788770190196364}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Btn_Continue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4928553100992986}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: _BaseView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 224677809009152520}
   - component: {fileID: 222231467983120772}
   - component: {fileID: 114043837973733234}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BgPaner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 223961411677833492}
   - component: {fileID: 114286331601467872}
   - component: {fileID: 114606995746813632}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 114888560994475662}
   - component: {fileID: 114349549885007522}
   - component: {fileID: 114523793780986526}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 114304214082533142}
   - component: {fileID: 114440435464378642}
   - component: {fileID: 114742377858575352}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1135348796662376}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -515,8 +515,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fca605694a71156429556a0c2fcc77c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _index: 0
-  _rootScene: {fileID: 0}
+  _name: 
+  _prefabName: 
+  _rootDialogGameObject: {fileID: 0}
 --- !u!114 &114606995746813632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -737,10 +738,10 @@ Canvas:
   m_GameObject: {fileID: 1801107296101446}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -805,7 +806,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5.4, y: 0}
+  m_AnchoredPosition: {x: -5.4000015, y: 0}
   m_SizeDelta: {x: -10.8, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224566917964071314
@@ -879,7 +880,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5.4, y: 0}
+  m_AnchoredPosition: {x: -5.4000015, y: 0}
   m_SizeDelta: {x: -10.8, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224677809009152520

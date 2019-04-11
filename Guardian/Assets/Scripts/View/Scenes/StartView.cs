@@ -36,6 +36,7 @@ public class StartView : BaseView
         _scene = initScene("Module_08_BaseScene");
         _mainCamera.transform.position = new Vector3(10.8f, -8.5f, -85.0f);
         _ctrl = StartView_Ctrl._instance;
+        setUICamera(gameObject, "_BaseView/Canvas");
 
         this.Invoke("setTimeOut", 0.5f);
     }

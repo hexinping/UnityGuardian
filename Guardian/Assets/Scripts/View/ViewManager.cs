@@ -62,11 +62,12 @@ public class ViewManager : MonoBehaviour
             viewObj.name = viewName;
 
             //默认取屏幕中点
-            Vector3 displayPos = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0);
-            viewObj.transform.localPosition = displayPos;
+            //Vector3 displayPos = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0);
+            //viewObj.transform.localPosition = displayPos;
 
             GameObject rootDialogGameObject = new GameObject("rootDialogNode");
             rootDialogGameObject.transform.parent = viewObj.transform;
+            rootDialogGameObject.layer = 5;  //UI 层
 
             BaseView baseView = viewObj.GetComponent<BaseView>();
             baseView._name = viewName;
