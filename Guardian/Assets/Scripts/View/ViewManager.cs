@@ -65,14 +65,10 @@ public class ViewManager : MonoBehaviour
             //Vector3 displayPos = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0);
             //viewObj.transform.localPosition = displayPos;
 
-            GameObject rootDialogGameObject = new GameObject("rootDialogNode");
-            rootDialogGameObject.transform.parent = viewObj.transform;
-            rootDialogGameObject.layer = 5;  //UI 层
-
             BaseView baseView = viewObj.GetComponent<BaseView>();
             baseView._name = viewName;
             baseView._prefabName = prefabName;
-            baseView._rootDialogGameObject = rootDialogGameObject;
+
 
             _curShowView = baseView;
             _curShowView.onTop();

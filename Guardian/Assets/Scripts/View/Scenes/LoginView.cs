@@ -30,10 +30,9 @@ public class LoginView : BaseView {
 
 	// Use this for initialization
 	void Start () {
+        base.Start();
         _scene = initScene("Module_02_LevelOne");
         _mainCamera.transform.position = new Vector3(77.3f, -10.7f, -42.6f);
-
-        setUICamera(gameObject, "Canvas");
 	}
 
     void OnDestroy()

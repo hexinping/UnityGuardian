@@ -43,6 +43,11 @@ public class BaseView:MonoBehaviour
         _uiCamera = GameObject.FindGameObjectWithTag("UICamera");
     }
 
+
+    public void Start()
+    {
+        setUICamera(gameObject, "Canvas");
+    }
     virtual public void onHide()
     {
         Debug.Log("hide viewName:  " + _name);
@@ -71,7 +76,7 @@ public class BaseView:MonoBehaviour
     {
         GameObject obj = (GameObject)Resources.Load("Prefabs/" + name);
         GameObject scene = GameObject.Instantiate(obj); //初始化是世界坐标位置是随机的
-        scene.name = "Module_02_LevelOne";
+        scene.name = name;
         scene.transform.parent = _sceneNode.transform;
         return scene;
     }
