@@ -33,19 +33,10 @@ public class StartView : BaseView
     
     void Start()
     {
-        GameObject obj = (GameObject)Resources.Load("Prefabs/Module_08_BaseScene");
-        _scene = GameObject.Instantiate(obj); //初始化是世界坐标位置是随机的
-        _scene.name = "Module_08_BaseScene";
-        _rootScene = ViewManager.getInstance()._rootScene;
-        _scene.transform.parent = _rootScene.transform;
-        //_scene.transform.localPosition = new Vector3(-1.54f,-13.22f,-107.0f);
-
-
-        _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        _scene = initScene("Module_08_BaseScene");
         _mainCamera.transform.position = new Vector3(10.8f, -8.5f, -85.0f);
         _ctrl = StartView_Ctrl._instance;
 
-        _viewManager = ViewManager.getInstance();
         this.Invoke("setTimeOut", 0.5f);
     }
 
@@ -59,7 +50,8 @@ public class StartView : BaseView
     {
         Debug.Log("click the NewBtn :"+ this.GetType());
         //_ctrl.onClickNewBtn();
-
+        DestroyImmediate(_scene);
+        _scene = null;
         _viewManager.swithView("LoginView");
     }
 
@@ -71,8 +63,9 @@ public class StartView : BaseView
 
     void OnDestroy()
     {
-        Destroy(_scene);
+        base.OnDestory();
+        if (_scene)
+            Destroy(_scene);
     }
-
 
 }

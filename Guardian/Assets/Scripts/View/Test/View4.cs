@@ -21,24 +21,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LoginView : BaseView {
-
-
-    private GameObject _scene;
-
-    //private GameObject _rootScene;
+public class View4 : BaseView {
 
 	// Use this for initialization
 	void Start () {
-        _scene = initScene("Module_02_LevelOne");
-        _mainCamera.transform.position = new Vector3(77.3f, -10.7f, -42.6f);
+		
 	}
-
-    void OnDestroy()
-    {
-        base.OnDestory();
-        if (_scene)
-            Destroy(_scene);
-    }
 	
+	// Update is called once per frame
+	void Update () {
+		
+	}
 }

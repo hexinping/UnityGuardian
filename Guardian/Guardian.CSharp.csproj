@@ -267,6 +267,10 @@
     <Compile Include="Assets\Scripts\View\BaseView.cs" />
     <Compile Include="Assets\Scripts\View\Scenes\LoginView.cs" />
     <Compile Include="Assets\Scripts\View\Scenes\StartView.cs" />
+    <Compile Include="Assets\Scripts\View\Test\View1.cs" />
+    <Compile Include="Assets\Scripts\View\Test\View2.cs" />
+    <Compile Include="Assets\Scripts\View\Test\View3.cs" />
+    <Compile Include="Assets\Scripts\View\Test\View4.cs" />
     <Compile Include="Assets\Scripts\View\ViewManager.cs" />
   </ItemGroup>
   <ItemGroup>

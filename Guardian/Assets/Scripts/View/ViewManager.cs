@@ -28,13 +28,9 @@ public class ViewManager : MonoBehaviour
 
     private static ViewManager _instance = null;
 
-    public GameObject _viewLayer;
-
     private BaseView _curShowView;
-
+    public GameObject _viewLayer;
     public GameObject _rootScene;
-
-    public int viewIndex = 0;
 
     public void Awake()
     {
@@ -52,22 +48,42 @@ public class ViewManager : MonoBehaviour
 
         if (!_viewDict.ContainsKey(viewName))
         {
-            
-            BaseView view = this.gameObject.AddComponent<BaseView>();
 
+            if (_curShowView)
+            {
+                _curShowView.onHide();
+            }
+            
             string prefabName = "Prefabs/View/" + viewName;
             GameObject obj = (GameObject)Resources.Load(prefabName);
-            view.initUI(obj, viewName);
+            GameObject viewObj = GameObject.Instantiate(obj);
+            viewObj.transform.parent = _viewLayer.transform;
 
-            _curShowView = view;
+            viewObj.name = viewName;
 
+            //默认取屏幕中点
+            Vector3 displayPos = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0);
+            viewObj.transform.localPosition = displayPos;
+
+            GameObject rootDialogGameObject = new GameObject("rootDialogNode");
+            rootDialogGameObject.transform.parent = viewObj.transform;
+
+            BaseView baseView = viewObj.GetComponent<BaseView>();
+            baseView._name = viewName;
+            baseView._prefabName = prefabName;
+            baseView._rootDialogGameObject = rootDialogGameObject;
+
+            _curShowView = baseView;
+            _curShowView.onTop();
             //页面管理
-            _viewDict.Add(viewName, view);
+            _viewDict.Add(viewName, baseView);
+           
+          
         }
         else
         {
             BaseView view = _viewDict[viewName];
-            string name = view.getViewName();
+            string name = _curShowView._name;
             if (name == viewName)
             {
                 Debug.Log("已经打开过" + viewName + " 已经在最顶层");
@@ -78,11 +94,13 @@ public class ViewManager : MonoBehaviour
             Transform parentTransform = _viewLayer.transform;
 
             int count = parentTransform.childCount;
-            GameObject _viewRoot = view.getViewRoot();
-            Transform childTransform = _viewRoot.transform;
 
 
-            view.setActive(false);
+            GameObject _viewObj = view.gameObject;
+            Transform childTransform = _viewObj.transform;
+
+            _curShowView.onHide();
+            _viewObj.SetActive(false);
             int zorder = 0;
             for (int i = 0; i < count; i++)
             {
@@ -98,8 +116,9 @@ public class ViewManager : MonoBehaviour
             }
             //参数为物体在当前所在的子物体列表中的顺序
             childTransform.SetSiblingIndex(count - 1);
-            view.setActive(true);
+            _viewObj.SetActive(true);
             _curShowView = view;
+            _curShowView.onTop();
 
         }
       
@@ -111,13 +130,11 @@ public class ViewManager : MonoBehaviour
         //把顶部那个view给pop调
         if (_curShowView != null)
         {
-            string name = _curShowView.getViewName();
-            _curShowView.onHide();
-            _curShowView.destory();
+            string name = _curShowView._name;
             _viewDict.Remove(name);
 
-            //删除当前脚本组件
-            Destroy(_curShowView);
+            //立即删除当前脚本组件，回调用gameobjec上组件的OnDestroy方法
+            DestroyImmediate(_curShowView.gameObject);
             _curShowView = null;
            
              Transform parentTransform = _viewLayer.transform;
@@ -133,7 +150,6 @@ public class ViewManager : MonoBehaviour
                  Transform t = parentTransform.GetChild(count - 1);
                  string topViewName = t.gameObject.name;
                  _curShowView = _viewDict[topViewName];
-                 _curShowView.onTop();
 
              }
         }
@@ -141,7 +157,17 @@ public class ViewManager : MonoBehaviour
     }
 
     public void swithView(string showViewName)
-    { 
+    {
+        if (_curShowView)
+        {
+            string name = _curShowView._name;
+            if (name == showViewName)
+            {
+                Debug.Log(GetType() + ":swithView " + showViewName + " 已经在最顶层");
+                return;
+            }
+        }
+        
         popView();
         showView(showViewName);
     }

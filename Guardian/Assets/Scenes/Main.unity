@@ -336,7 +336,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _viewLayer: {fileID: 1222811846}
   _rootScene: {fileID: 941030190}
-  viewIndex: 0
 --- !u!1 &419077191
 GameObject:
   m_ObjectHideFlags: 0

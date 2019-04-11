@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 223583782648407200}
   - component: {fileID: 114674002988459898}
   - component: {fileID: 114547288194251510}
+  - component: {fileID: 114889351949494964}
   m_Layer: 0
   m_Name: View4
   m_TagString: Untagged
@@ -127,6 +128,19 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114889351949494964
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1561634409204826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 402c9c75e5fce7c40982b6aade49d93b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: 
+  _prefabName: 
 --- !u!114 &114924376436073388
 MonoBehaviour:
   m_ObjectHideFlags: 1

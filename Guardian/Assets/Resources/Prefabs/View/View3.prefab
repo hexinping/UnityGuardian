@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 223876245913014288}
   - component: {fileID: 114073818304549694}
   - component: {fileID: 114703507917689244}
+  - component: {fileID: 114670613507492296}
   m_Layer: 0
   m_Name: View3
   m_TagString: Untagged
@@ -144,6 +145,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u9875\u97623\n"
+--- !u!114 &114670613507492296
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1271978396043716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f56c0d4f2b699146a20d95bd541ea6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: 
+  _prefabName: 
 --- !u!114 &114703507917689244
 MonoBehaviour:
   m_ObjectHideFlags: 1
