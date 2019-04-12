@@ -30,6 +30,7 @@ public class StartView : BaseView
 
     private GameObject _rootScene;
 
+    private bool _isFadeOutEnd = false;
     
     void Start()
     {
@@ -47,13 +48,22 @@ public class StartView : BaseView
         FadeInOut._instance.FadeIn();
     }
 
-    public void onClickNewBtn()
+    void onFadeInEnd()
     {
-        Debug.Log("click the NewBtn :"+ this.GetType());
-        //_ctrl.onClickNewBtn();
+       
+    }
+
+    void onFadeOutEnd()
+    {
         DestroyImmediate(_scene);
         _scene = null;
         _viewManager.swithView("LoginView");
+    }
+
+    public void onClickNewBtn()
+    {
+        Debug.Log("click the NewBtn :"+ this.GetType());
+        FadeInOut._instance.FadeOut(onFadeOutEnd);
     }
 
     public void onClickContinueBtn()
@@ -68,5 +78,6 @@ public class StartView : BaseView
         if (_scene)
             Destroy(_scene);
     }
+
 
 }

@@ -48,15 +48,15 @@ public class StartView_Ctrl : MonoBehaviour
         Debug.Log("click the ContinueBtn :" + this.GetType());
         FadeInOut._instance.FadeOut();
     }
-    public void Update()
-    {
+    //public void Update()
+    //{
 
-        if (FadeInOut._instance.fadeoutEnd)
-        {
-            //nextScene.SetActive(true);
-            FadeInOut._instance.fadeoutEnd = false;
-            ViewManager.getInstance().swithView("LoginView");
-        }
+    //    if (FadeInOut._instance.fadeoutEnd)
+    //    {
+    //        //nextScene.SetActive(true);
+    //        FadeInOut._instance.fadeoutEnd = false;
+    //        ViewManager.getInstance().swithView("LoginView");
+    //    }
     
-    }
+    //}
 }

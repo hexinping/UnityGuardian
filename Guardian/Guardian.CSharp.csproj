@@ -265,6 +265,7 @@
     <Compile Include="Assets\Scripts\GamePlayManager.cs" />
     <Compile Include="Assets\Scripts\Global\FadeInOut.cs" />
     <Compile Include="Assets\Scripts\View\BaseView.cs" />
+    <Compile Include="Assets\Scripts\View\Scenes\LoadingView.cs" />
     <Compile Include="Assets\Scripts\View\Scenes\LoginView.cs" />
     <Compile Include="Assets\Scripts\View\Scenes\StartView.cs" />
     <Compile Include="Assets\Scripts\View\Test\View1.cs" />

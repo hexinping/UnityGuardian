@@ -35,7 +35,7 @@ public class GamePlayManager : MonoBehaviour {
 	void Start () 
     {
         _viewManager = ViewManager.getInstance();
-        _viewManager.showView("StartView");
+        _viewManager.showView("LoginView");
 
        // _viewManager.showView("LoginView");
 	}

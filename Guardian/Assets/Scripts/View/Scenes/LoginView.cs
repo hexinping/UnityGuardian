@@ -32,8 +32,17 @@ public class LoginView : BaseView {
 	void Start () {
         base.Start();
         _scene = initScene("Module_02_LevelOne");
+     
         _mainCamera.transform.position = new Vector3(77.3f, -10.7f, -42.6f);
+        //FadeInOut._instance.FadeOut();
+        //this.Invoke("setTimeOut", 1.0f);
 	}
+
+    public void setTimeOut()
+    {
+        _scene.SetActive(true);
+        
+    }
 
     void OnDestroy()
     {
