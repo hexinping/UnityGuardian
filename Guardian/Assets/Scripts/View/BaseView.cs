@@ -35,6 +35,10 @@ public class BaseView:MonoBehaviour
     protected GameObject _uiCamera;
     protected GameObject _sceneNode;
 
+    //参数列表
+    protected object[] paramsValue;
+
+
     public void Awake()
     {
         _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
@@ -87,4 +91,11 @@ public class BaseView:MonoBehaviour
         canvas.renderMode = RenderMode.ScreenSpaceCamera;
         canvas.worldCamera = _uiCamera.GetComponent<Camera>();
     }
+
+    public void setViewParams(params object[] values)
+    {
+        paramsValue = values;
+    }
+
+
 }

@@ -20,6 +20,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+
 
 public class StartView : BaseView
 {
@@ -32,6 +34,8 @@ public class StartView : BaseView
     private bool _isFadeOutEnd = false;
 
     private FadeInOut _fadeInOut;
+
+    public Action _loadEndCallBack;
 
     public void Awake()
     {
@@ -48,6 +52,13 @@ public class StartView : BaseView
         _scene = initScene("Module_08_BaseScene");
         _mainCamera.transform.position = new Vector3(10.8f, -8.5f, -85.0f);
         this.Invoke("setTimeOut", 0.5f);
+
+        _loadEndCallBack = gotoNextView;
+    }
+
+    void gotoNextView()
+    {
+         _viewManager.swithView("LoginView");
     }
 
     public void setTimeOut()
@@ -65,7 +76,7 @@ public class StartView : BaseView
     {
         DestroyImmediate(_scene);
         _scene = null;
-        _viewManager.swithView("LoginView");
+        _viewManager.swithView("LoadingView",_loadEndCallBack);
     }
 
     public void onClickNewBtn()

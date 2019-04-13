@@ -371,6 +371,7 @@ MonoBehaviour:
   _name: 
   _prefabName: 
   _rootDialogGameObject: {fileID: 0}
+  _slider: {fileID: 114506476062873208}
 --- !u!114 &114506476062873208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -635,7 +636,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -4.1, y: 80}
+  m_AnchoredPosition: {x: -4.0999756, y: 80}
   m_SizeDelta: {x: 29, y: 84.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224723910103642196

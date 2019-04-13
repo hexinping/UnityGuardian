@@ -43,7 +43,7 @@ public class ViewManager : MonoBehaviour
         return _instance;
     }
 
-    public void showView(string viewName)
+    public void showView(string viewName, params object[] values)
     {
 
         if (!_viewDict.ContainsKey(viewName))
@@ -68,6 +68,7 @@ public class ViewManager : MonoBehaviour
             BaseView baseView = viewObj.GetComponent<BaseView>();
             baseView._name = viewName;
             baseView._prefabName = prefabName;
+            baseView.setViewParams(values);
 
 
             _curShowView = baseView;
@@ -153,7 +154,7 @@ public class ViewManager : MonoBehaviour
 
     }
 
-    public void swithView(string showViewName)
+    public void swithView(string showViewName, params object[] values)
     {
         if (_curShowView)
         {
@@ -166,7 +167,7 @@ public class ViewManager : MonoBehaviour
         }
         
         popView();
-        showView(showViewName);
+        showView(showViewName, values);
     }
 
 
