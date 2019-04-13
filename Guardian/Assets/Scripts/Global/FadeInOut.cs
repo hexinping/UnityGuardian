@@ -25,8 +25,6 @@ public class FadeInOut : MonoBehaviour {
 
     private RawImage _rawImage; //RawImage组件
 
-    public static FadeInOut  _instance;
-
     public float speed = 0.2f;
 
     public bool fadeoutEnd = false;
@@ -43,7 +41,7 @@ public class FadeInOut : MonoBehaviour {
     public void Awake()
     {
         _rawImage = this.GetComponent<RawImage>();
-        _instance = this;
+       
     }
 	// Use this for initialization
 

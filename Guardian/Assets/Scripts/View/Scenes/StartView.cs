@@ -25,27 +25,35 @@ public class StartView : BaseView
 {
 
 
-    private StartView_Ctrl _ctrl;
     private GameObject _scene;
 
     private GameObject _rootScene;
 
     private bool _isFadeOutEnd = false;
+
+    private FadeInOut _fadeInOut;
+
+    public void Awake()
+    {
+        base.Awake();
+
+        GameObject rawImage  = gameObject.transform.Find("Canvas/RawImage").gameObject;
+        _fadeInOut = rawImage.GetComponent<FadeInOut>();
+
+    }
     
     void Start()
     {
         base.Start();
         _scene = initScene("Module_08_BaseScene");
         _mainCamera.transform.position = new Vector3(10.8f, -8.5f, -85.0f);
-        _ctrl = StartView_Ctrl._instance;
-     
         this.Invoke("setTimeOut", 0.5f);
     }
 
     public void setTimeOut()
     {
         _scene.SetActive(true);
-        FadeInOut._instance.FadeIn();
+        _fadeInOut.FadeIn();
     }
 
     void onFadeInEnd()
@@ -63,13 +71,13 @@ public class StartView : BaseView
     public void onClickNewBtn()
     {
         Debug.Log("click the NewBtn :"+ this.GetType());
-        FadeInOut._instance.FadeOut(onFadeOutEnd);
+        _fadeInOut.FadeOut(onFadeOutEnd);
     }
 
     public void onClickContinueBtn()
     {
         Debug.Log("click the ContinueBtn :" + this.GetType());
-        _ctrl.onClickContinueBtn();
+
     }
 
     void OnDestroy()

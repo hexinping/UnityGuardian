@@ -26,23 +26,25 @@ public class LoginView : BaseView {
 
     private GameObject _scene;
 
-    //private GameObject _rootScene;
+    private FadeInOut _fadeInOut;
 
+    public void Awake()
+    {
+        base.Awake();
+
+        GameObject rawImage  = gameObject.transform.Find("Canvas/RawImage").gameObject;
+        _fadeInOut = rawImage.GetComponent<FadeInOut>();
+
+    }
 	// Use this for initialization
 	void Start () {
         base.Start();
         _scene = initScene("Module_02_LevelOne");
      
         _mainCamera.transform.position = new Vector3(77.3f, -10.7f, -42.6f);
-        //FadeInOut._instance.FadeOut();
-        //this.Invoke("setTimeOut", 1.0f);
+        _fadeInOut.FadeIn();
 	}
 
-    public void setTimeOut()
-    {
-        _scene.SetActive(true);
-        
-    }
 
     void OnDestroy()
     {
