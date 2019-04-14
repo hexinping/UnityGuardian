@@ -31,6 +31,7 @@ public class BaseView:MonoBehaviour
 
 
     protected ViewManager _viewManager;
+    protected AudioManager _audioManager;
     protected GameObject _mainCamera;
     protected GameObject _uiCamera;
     protected GameObject _sceneNode;
@@ -43,6 +44,7 @@ public class BaseView:MonoBehaviour
     {
         _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         _viewManager = ViewManager.getInstance();
+        _audioManager = AudioManager.getInstance();
         _sceneNode = _viewManager._rootScene;
         _uiCamera = GameObject.FindGameObjectWithTag("UICamera");
     }

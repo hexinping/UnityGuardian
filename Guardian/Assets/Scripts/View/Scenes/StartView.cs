@@ -35,7 +35,9 @@ public class StartView : BaseView
 
     private FadeInOut _fadeInOut;
 
-    public Action _loadEndCallBack;
+    private Action _loadEndCallBack;
+
+    public AudioClip _backGroundAudioClip;
 
     public void Awake()
     {
@@ -60,6 +62,8 @@ public class StartView : BaseView
         particleObj.name = name;
         particleObj.transform.localPosition = new Vector3(-13.0f,-5.0f,-43.0f);
         
+
+        _audioManager.playMusic(_backGroundAudioClip);
 
         this.Invoke("setTimeOut", 0.5f);
 
@@ -98,7 +102,6 @@ public class StartView : BaseView
     public void onClickContinueBtn()
     {
         Debug.Log("click the ContinueBtn :" + this.GetType());
-
     }
 
     void OnDestroy()
@@ -106,6 +109,8 @@ public class StartView : BaseView
         base.OnDestory();
         if (_scene)
             Destroy(_scene);
+
+        _audioManager.destoryClip(_backGroundAudioClip);
     }
 
 
