@@ -47,6 +47,7 @@ public class LoadingView : BaseView {
 	//参数的赋值要放到start里
 	public void Start()
 	{
+		base.Start();
 		_callBack = (Action)paramsValue[0];
 	}
 

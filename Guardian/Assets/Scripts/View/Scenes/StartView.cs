@@ -62,7 +62,8 @@ public class StartView : BaseView
         particleObj.name = name;
         particleObj.transform.localPosition = new Vector3(-13.0f,-5.0f,-43.0f);
         
-
+        //监听场景中其他的声音 调整音频监听器的位置
+        _audioManager.transform.localPosition = new Vector3(10.8f,-11.2f,-104.0f);
         _audioManager.playMusic(_backGroundAudioClip);
 
         this.Invoke("setTimeOut", 0.5f);

@@ -53,6 +53,7 @@ public class BaseView:MonoBehaviour
     public void Start()
     {
         setUICamera(gameObject, "Canvas");
+        _audioManager.transform.localPosition = new Vector3(0,0,0);
     }
     virtual public void onHide()
     {
