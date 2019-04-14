@@ -51,6 +51,16 @@ public class StartView : BaseView
         base.Start();
         _scene = initScene("Module_08_BaseScene");
         _mainCamera.transform.position = new Vector3(10.8f, -8.5f, -85.0f);
+
+        //粒子系统
+        string name = "ParticlePiao";
+        GameObject obj = (GameObject)Resources.Load("ParticleProps/" + name);
+        GameObject particleObj = GameObject.Instantiate(obj); 
+        particleObj.transform.parent = _scene.transform;
+        particleObj.name = name;
+        particleObj.transform.localPosition = new Vector3(-13.0f,-5.0f,-43.0f);
+        
+
         this.Invoke("setTimeOut", 0.5f);
 
         _loadEndCallBack = gotoNextView;
