@@ -260,10 +260,10 @@
     <Compile Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\SSAOEffect.cs" />
     <Compile Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\TwirlEffect.cs" />
     <Compile Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\VortexEffect.cs" />
-    <Compile Include="Assets\Scripts\Control\Scenes\LoginView_Ctrl.cs" />
-    <Compile Include="Assets\Scripts\Control\Scenes\StartView_Ctrl.cs" />
     <Compile Include="Assets\Scripts\GamePlayManager.cs" />
     <Compile Include="Assets\Scripts\Global\FadeInOut.cs" />
+    <Compile Include="Assets\Scripts\GlobalParams.cs" />
+    <Compile Include="Assets\Scripts\Kernal\AudioManager.cs" />
     <Compile Include="Assets\Scripts\View\BaseView.cs" />
     <Compile Include="Assets\Scripts\View\Scenes\LoadingView.cs" />
     <Compile Include="Assets\Scripts\View\Scenes\LoginView.cs" />
@@ -350,7 +350,6 @@
     <None Include="Assets\Scripts\Control\NPC\readMe.txt" />
     <None Include="Assets\Scripts\Control\Player\readMe.txt" />
     <None Include="Assets\Scripts\Control\Prop\readMe.txt" />
-    <None Include="Assets\Scripts\Kernal\readMe.txt" />
     <None Include="Assets\Scripts\Model\Enemy\readMe.txt" />
     <None Include="Assets\Scripts\Model\NPC\readMe.txt" />
     <None Include="Assets\Scripts\Model\Player\readMe.txt" />
