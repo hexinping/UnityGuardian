@@ -35,9 +35,11 @@ public class StartView : BaseView
 
     private FadeInOut _fadeInOut;
 
-    private Action _loadEndCallBack;
+    //private Action _loadEndCallBack;
 
     public AudioClip _backGroundAudioClip;
+
+    private LoadingEndCallback _loadEndCallBack;
 
     public void Awake()
     {
@@ -91,7 +93,7 @@ public class StartView : BaseView
     {
         DestroyImmediate(_scene);
         _scene = null;
-        _viewManager.swithView("LoadingView",_loadEndCallBack);
+        _viewManager.swithView("LoadingView", _loadEndCallBack);
     }
 
     public void onClickNewBtn()

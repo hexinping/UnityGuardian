@@ -22,6 +22,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
+
+
+
+//放到外面定义的委托，其他文件也可以使用
+public delegate void LoadingEndCallback(); //定义回调函数
+
+/*
+    不同c#文件之间传递委托函数有几种方法
+ * 1 定义全局的委托类型，public delegate XXXX
+ * 2 两个类都用Action 类型定义委托
+ 
+ */
+
 public class LoadingView : BaseView {
 
 
@@ -31,11 +44,10 @@ public class LoadingView : BaseView {
 
 	private bool _isEnd = false;
 
-	//public delegate void LoadingEndCallback(); //定义回调函数
-	
-	//private LoadingEndCallback _callBack;
 
-	public Action _callBack;
+	private LoadingEndCallback _callBack;
+
+	//public Action _callBack;
 
 	public void Awake()
 	{
@@ -48,7 +60,8 @@ public class LoadingView : BaseView {
 	public void Start()
 	{
 		base.Start();
-		_callBack = (Action)paramsValue[0];
+        _callBack = (LoadingEndCallback)paramsValue[0];
+        //_callBack = (Action)paramsValue[0];
 	}
 
 	// Update is called once per frame
