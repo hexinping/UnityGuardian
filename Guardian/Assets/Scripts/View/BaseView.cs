@@ -35,6 +35,13 @@ public class BaseView:MonoBehaviour
     protected GameObject _mainCamera;
     protected GameObject _uiCamera;
     protected GameObject _sceneNode;
+       
+    //场景节点
+    protected GameObject _sceneBgNode;                //场景背景层
+    protected GameObject _sceneSkillGroundNode;       //场景地面技能效果层
+    protected GameObject _sceneDecorateNode;          //场景装饰物层
+    protected GameObject _sceneRoleNode;              //场景人物物层
+    protected GameObject _sceneSkillNode;             //场景技能效果层
 
     //参数列表
     protected object[] paramsValue;
@@ -47,6 +54,12 @@ public class BaseView:MonoBehaviour
         _audioManager = AudioManager.getInstance();
         _sceneNode = _viewManager._rootScene;
         _uiCamera = GameObject.FindGameObjectWithTag("UICamera");
+
+        _sceneBgNode            = _sceneNode.transform.Find("BG").gameObject;
+        _sceneSkillGroundNode   = _sceneNode.transform.Find("SkillGround").gameObject;
+        _sceneDecorateNode      = _sceneNode.transform.Find("Decorate").gameObject;
+        _sceneRoleNode          = _sceneNode.transform.Find("Role").gameObject;
+        _sceneSkillNode         = _sceneNode.transform.Find("Skill").gameObject;
     }
 
 
@@ -84,7 +97,7 @@ public class BaseView:MonoBehaviour
         GameObject obj = (GameObject)Resources.Load("Prefabs/" + name);
         GameObject scene = GameObject.Instantiate(obj); //初始化是世界坐标位置是随机的
         scene.name = name;
-        scene.transform.parent = _sceneNode.transform;
+        scene.transform.parent = _sceneBgNode.transform;
         return scene;
     }
 
