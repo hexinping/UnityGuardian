@@ -78,6 +78,7 @@ public class LoadingView : BaseView {
 				if(_callBack!=null)
 				{
 					_callBack();
+                    _callBack = null;
 				}
 			}
 			
@@ -88,5 +89,7 @@ public class LoadingView : BaseView {
 	void OnDestroy()
     {
         base.OnDestory();
+        //清除委托
+        _callBack = null;
     }
 }

@@ -113,6 +113,8 @@ public class StartView : BaseView
         if (_scene)
             Destroy(_scene);
 
+        //清除委托
+        _loadEndCallBack = null;
         _audioManager.destoryClip(_backGroundAudioClip);
     }
 
