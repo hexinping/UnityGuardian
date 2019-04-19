@@ -113,5 +113,46 @@ public class BaseView:MonoBehaviour
         paramsValue = values;
     }
 
+    virtual public void onClick(Button btn)
+    {
+        
+    }
+
+    public void addBtnListener()
+    {
+        //拿到该对象上（包括子对象）所有的按钮
+        Button[] btns = gameObject.GetComponentsInChildren<Button>();
+
+        foreach (Button btn in btns)
+        {
+            btn.onClick.AddListener(delegate()
+            {
+                this.onClick(btn);
+            });
+        }
+
+    }
+
+    public GameObject initGameObject(string prefabPath, string name, GameObject parent, Vector3 pos)
+    {
+        if (prefabPath == null || prefabPath.Length == 0)
+        {
+            return null;
+        }
+        string prefabName = prefabPath;
+        GameObject obj = (GameObject)Resources.Load(prefabName);
+        GameObject objClone = GameObject.Instantiate(obj);
+        objClone.transform.parent = parent.transform;
+        objClone.transform.localPosition = pos;
+
+        if (name.Length != 0)
+        {
+            objClone.name = name;
+        }
+
+        return objClone;
+
+    }
+
 
 }
