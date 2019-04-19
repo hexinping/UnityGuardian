@@ -57,27 +57,49 @@ public class LoginView : BaseView {
         _fadeInOut.FadeIn();
 
         this.Invoke("setTimeOut", 0.5f);
+        StartCoroutine("initSwordsManPlayersMode");
+
         
 	}
+
 
     public void setTimeOut()
     {
         addBtnListener();
-        initPlayersModes(); ;
+        //StartCoroutine("initMagicPlayersMode");
+        _magicianObj = initGameObject("Models/Magician/CreateMage", "CreateMage", _sceneRoleNode, new Vector3(76.9f, -13.62f, -50.4f));
+        _magicianObj.SetActive(false);
+       
     }
 
+    //IEnumerator initMagicPlayersMode()
+    //{
+    //    string path = "Models/Magician/CreateMage";
+    //    ResourceRequest rr = Resources.LoadAsync<GameObject>(path);
+    //    yield return rr;
+    //    _magicianObj = Instantiate(rr.asset) as GameObject;
+    //    _magicianObj.name = "CreateMage";
+    //    _magicianObj.transform.parent = _sceneRoleNode.transform;
+    //    _magicianObj.transform.localPosition = new Vector3(76.9f, -13.62f, -50.4f);
+    //    _magicianObj.SetActive(false);
 
+    //}
 
-    public void initPlayersModes()
+    IEnumerator initSwordsManPlayersMode()
     {
 
-        _magicianObj = initGameObject("Models/Magician/CreateMage", "CreateMage", _sceneRoleNode, new Vector3(76.9f, -13.62f, -50.4f));
-        _swordsManObj = initGameObject("Models/SwordsMan/GreateWarrior", "GreateWarrior", _sceneRoleNode, new Vector3(76.9f, -13.02f, -48.27f));
-        _magicianObj.SetActive(false);
+        string path = "Models/SwordsMan/GreateWarrior";
+        ResourceRequest rr = Resources.LoadAsync<GameObject>(path);
+        yield return rr;
+        _swordsManObj = Instantiate(rr.asset) as GameObject;
+        _swordsManObj.name = "GreateWarrior";
+        _swordsManObj.transform.parent = _sceneRoleNode.transform;
+        _swordsManObj.transform.localScale = new Vector3(30.0f, 30.0f, 30.0f);
+        _swordsManObj.transform.localPosition = new Vector3(76.9f, -13.02f, -48.27f);
         _swordsManObj.SetActive(true);
-        _swordsManObj.transform.localScale = new Vector3(30.0f, 30.0f,30.0f);
- 
+
     }
+
     override public void onClick(Button btn)
     {
         Debug.Log("btn.name========" + btn.name);

@@ -1912,29 +1912,6 @@ Animation:
   - {fileID: 7400000, guid: 40cc649cbd0fc73408eb99514dc91db0, type: 2}
   - {fileID: 7400000, guid: 69ef477afedfc754ea3122efbb4f3c7c, type: 2}
   - {fileID: 7400000, guid: 4a2a814615f3b9f4f9a159ec4f6d69b6, type: 2}
-  - {fileID: 7400000, guid: f40f0bbf90a4c8b489bac853a5e1b573, type: 2}
-  - {fileID: 7400000, guid: b686b2da4daa0a74ea05e2a6e9db1769, type: 2}
-  - {fileID: 7400000, guid: f28fe9fb6b458b04d97c3add699b2b42, type: 2}
-  - {fileID: 7400000, guid: 7bc762ac8cac8534f9e9f28b08c60cbf, type: 2}
-  - {fileID: 7400000, guid: b641952de7bbf014ea46b2693c0a250e, type: 2}
-  - {fileID: 7400000, guid: 374a88906b2092749a67cacc259be386, type: 2}
-  - {fileID: 7400000, guid: 357db30f8f64966469195c117b62f71b, type: 2}
-  - {fileID: 7400000, guid: 828a66dde5b31df4db6a8ca13aa4918c, type: 2}
-  - {fileID: 7400000, guid: aa5fcc825d071254aa2594fd4b0c79ab, type: 2}
-  - {fileID: 7400000, guid: 934bbecc4de6a52429777927b972e5e9, type: 2}
-  - {fileID: 7400000, guid: 9a349ea304ec5674bafa19162bcc949e, type: 2}
-  - {fileID: 7400000, guid: 644a99b907b8a2444adb4c94f4b4e4a8, type: 2}
-  - {fileID: 7400000, guid: 6953e085509d43f4ca2b624dbf25752a, type: 2}
-  - {fileID: 7400000, guid: 4cf7ec68087caf54782078c405d8c7c6, type: 2}
-  - {fileID: 7400000, guid: 205b715c38bdfbc41be20b3e70f9b811, type: 2}
-  - {fileID: 7400000, guid: 6feeb02cd70afef4699e84df50376951, type: 2}
-  - {fileID: 7400000, guid: 7361f5aa6083bff408196dbc230a2ddd, type: 2}
-  - {fileID: 7400000, guid: 5f77a57fa9e2d9944ba61ab0a2290949, type: 2}
-  - {fileID: 7400000, guid: 050451f6580053c4bbe11f2d8ba9ba0a, type: 2}
-  - {fileID: 7400000, guid: 3163d5e422c24f041aab62c9ed4b9e68, type: 2}
-  - {fileID: 7400000, guid: 6d5186c9b6f367441a14d3021675ef9e, type: 2}
-  - {fileID: 7400000, guid: 05e707b6225a3804fbd8f67f0003f192, type: 2}
-  - {fileID: 7400000, guid: 6d1d5e8769dd6fc4f86cd8f219d05495, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0

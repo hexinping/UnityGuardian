@@ -40,7 +40,7 @@ public class LoadingView : BaseView {
 
 	public Slider _slider;
 
-	private float _speed = 0.003f;
+	private float _speed = 0.01f;
 
 	private bool _isEnd = false;
 

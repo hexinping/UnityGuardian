@@ -2070,24 +2070,7 @@ Animation:
   - {fileID: 7400000, guid: dcd2c918a7cc5794d86583ab49df5dce, type: 3}
   - {fileID: 7400000, guid: 2162b737ad9659e48bbd03d6a92e44af, type: 3}
   - {fileID: 7400000, guid: 032f02be750774145a7973c0d3444947, type: 3}
-  - {fileID: 7400000, guid: 46b5b8d468b1359499aa3acfe03898b7, type: 3}
-  - {fileID: 7400000, guid: 4f20f7b31cac0554a85f5066cb96ef7f, type: 3}
-  - {fileID: 7400000, guid: 287f7a675e0f5e0479d682b36579fc17, type: 3}
-  - {fileID: 7400000, guid: 1b578bbd6ece32147acfb239363b8781, type: 3}
-  - {fileID: 7400000, guid: 41a7c42b8b5f0c74db900d54820a98fa, type: 3}
-  - {fileID: 7400000, guid: c6ed83bce8130624093208ea2280f66a, type: 3}
-  - {fileID: 7400000, guid: 535fd25e367e71640be8212b8c35cfdc, type: 3}
   - {fileID: 7400000, guid: fcad2351825f155458374e44b77c9224, type: 3}
-  - {fileID: 7400000, guid: 866c89fb7694b0742be51272fec51be8, type: 3}
-  - {fileID: 7400000, guid: 2e833f0fcad55ad4cbb83ccbadff390b, type: 3}
-  - {fileID: 7400000, guid: f747adc7bb30f7041bfecd7125e88563, type: 3}
-  - {fileID: 7400000, guid: 58b8e22a6a9d25f4d8013a138896297b, type: 3}
-  - {fileID: 7400000, guid: 630ba0e812276d64c9535693f5119152, type: 3}
-  - {fileID: 7400000, guid: f10f96d8356dbab43884dbc32eb78203, type: 3}
-  - {fileID: 7400000, guid: 3702370cb09283a4fbb9d68c330c172e, type: 3}
-  - {fileID: 7400000, guid: 3f726b19a3ad68a44930d181bc8f3b07, type: 3}
-  - {fileID: 7400000, guid: 8a1c1539bf0bcf64193967555229c0d7, type: 3}
-  - {fileID: 7400000, guid: fab1990a3d5c62f46891511b093e245d, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
