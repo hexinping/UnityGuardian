@@ -56,9 +56,16 @@ public class LoginView : BaseView {
         _mainCamera.transform.position = new Vector3(77.3f, -11.46f, -42.96f);
         _fadeInOut.FadeIn();
 
-        addBtnListener();
-        initPlayersModes();
+        this.Invoke("setTimeOut", 0.5f);
+        
 	}
+
+    public void setTimeOut()
+    {
+        addBtnListener();
+        initPlayersModes(); ;
+    }
+
 
 
     public void initPlayersModes()

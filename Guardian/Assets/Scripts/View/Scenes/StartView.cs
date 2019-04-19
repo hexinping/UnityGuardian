@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using System.Diagnostics;
 
 
 public class StartView : BaseView
@@ -75,7 +76,7 @@ public class StartView : BaseView
 
     void gotoNextView()
     {
-         _viewManager.swithView("LoginView");
+        _viewManager.swithView("LoginView");  
     }
 
     public void setTimeOut()
@@ -98,7 +99,7 @@ public class StartView : BaseView
 
     public void onClickNewBtn()
     {
-        Debug.Log("click the NewBtn :"+ this.GetType());
+        Debug.Log("click the NewBtn :" + this.GetType());
         _fadeInOut.FadeOut(onFadeOutEnd);
     }
 
