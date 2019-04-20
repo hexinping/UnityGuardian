@@ -36,14 +36,25 @@ public class LoginView : BaseView {
     private GameObject _magicianObj;
     private GameObject _swordsManObj;
 
-    
 
+    //动作相关
+    private Animation _curAnimation;
+    private int _curIndex = 0;
+    private int _maxIndex = 0;
+    private float _passTime = 0.0f;
+    private float _totalTime = 2.0f;
+
+    private List<string> _nameList;
+
+  
     public void Awake()
     {
         base.Awake();
 
         GameObject rawImage  = gameObject.transform.Find("Canvas/RawImage").gameObject;
         _fadeInOut = rawImage.GetComponent<FadeInOut>();
+
+        _nameList = new List<string>();
 
     }
 
@@ -63,7 +74,7 @@ public class LoginView : BaseView {
 	}
 
 
-    public void setTimeOut()
+    public void setTimeOut() 
     {
         addBtnListener();
         //StartCoroutine("initMagicPlayersMode");
@@ -98,6 +109,22 @@ public class LoginView : BaseView {
         _swordsManObj.transform.localPosition = new Vector3(76.9f, -13.02f, -48.27f);
         _swordsManObj.SetActive(true);
 
+        //设置动作相关信息
+        setCurAnimationState(_swordsManObj);
+    }
+
+    public void setCurAnimationState(GameObject obj)
+    {
+        _curIndex = 0;
+        _passTime = 0;
+        _nameList.Clear();
+        Animation animation = obj.GetComponent<Animation>();
+        _curAnimation = animation;
+        _maxIndex = _curAnimation.GetClipCount();
+        foreach (AnimationState state in _curAnimation)
+        {
+            _nameList.Add(state.name);
+        }
     }
 
     override public void onClick(Button btn)
@@ -127,7 +154,7 @@ public class LoginView : BaseView {
         magicIntroduce.enabled = true;
         _swordsManObj.SetActive(false);
         swordIntroduce.enabled = false;
-       
+        setCurAnimationState(_magicianObj);
     }
 
     public void clickSwordBtn()
@@ -136,6 +163,7 @@ public class LoginView : BaseView {
         magicIntroduce.enabled = false;
         _swordsManObj.SetActive(true);
         swordIntroduce.enabled = true;
+        setCurAnimationState(_swordsManObj);
     }
 
 
@@ -160,6 +188,23 @@ public class LoginView : BaseView {
 
 
 
+    void Update()
+    {
+        _passTime += Time.deltaTime;
+        if (_passTime >= _totalTime)
+        {
+            Debug.Log("开始播动作===============");
+            _passTime = 0;
+            _curIndex++;
+            if (_curIndex >= _maxIndex)
+            {
+                _curIndex = 0;
+            }
+            _curAnimation.CrossFade(_nameList[_curIndex]);
+         
+        }
+    
+    }
 
 
     void OnDestroy()
@@ -167,6 +212,9 @@ public class LoginView : BaseView {
         base.OnDestory();
         if (_scene)
             Destroy(_scene);
+
+        Destroy(_magicianObj);
+        Destroy(_swordsManObj);
     }
 	
 }
