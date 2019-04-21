@@ -67,21 +67,10 @@ public class LoginView : BaseView {
         _mainCamera.transform.position = new Vector3(77.3f, -11.46f, -42.96f);
         _fadeInOut.FadeIn();
 
-        this.Invoke("setTimeOut", 0.5f);
         StartCoroutine("initSwordsManPlayersMode");
-
+        addBtnListener();
         
 	}
-
-
-    public void setTimeOut() 
-    {
-        addBtnListener();
-        //StartCoroutine("initMagicPlayersMode");
-        _magicianObj = initGameObject("Models/Magician/CreateMage", "CreateMage", _sceneRoleNode, new Vector3(76.9f, -13.62f, -50.4f));
-        _magicianObj.SetActive(false);
-       
-    }
 
     //IEnumerator initMagicPlayersMode()
     //{
@@ -93,7 +82,6 @@ public class LoginView : BaseView {
     //    _magicianObj.transform.parent = _sceneRoleNode.transform;
     //    _magicianObj.transform.localPosition = new Vector3(76.9f, -13.62f, -50.4f);
     //    _magicianObj.SetActive(false);
-
     //}
 
     IEnumerator initSwordsManPlayersMode()
@@ -150,11 +138,17 @@ public class LoginView : BaseView {
 
     public void clickMaginBtn()
     {
+
+        if (_magicianObj == null)
+        {
+            _magicianObj = initGameObject("Models/Magician/CreateMage", "CreateMage", _sceneRoleNode, new Vector3(76.9f, -13.62f, -50.4f));
+        }
         _magicianObj.SetActive(true);
         magicIntroduce.enabled = true;
         _swordsManObj.SetActive(false);
         swordIntroduce.enabled = false;
         setCurAnimationState(_magicianObj);
+
     }
 
     public void clickSwordBtn()
