@@ -826,6 +826,8 @@ MonoBehaviour:
   magicIntroduce: {fileID: 114009294406309742}
   swordIntroduce: {fileID: 114676896577803826}
   inputField: {fileID: 114855040566424468}
+  _backGroundAudioClip: {fileID: 8300000, guid: c5c75c9cfd215e04696f09774b20b1b9,
+    type: 3}
 --- !u!114 &114341918136878914
 MonoBehaviour:
   m_ObjectHideFlags: 1

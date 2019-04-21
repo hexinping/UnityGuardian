@@ -48,6 +48,8 @@ public class LoginView : BaseView {
 
     private PlayerManager _playerManager;
 
+    public AudioClip _backGroundAudioClip;
+
   
     public void Awake()
     {
@@ -73,6 +75,8 @@ public class LoginView : BaseView {
 
         StartCoroutine("initSwordsManPlayersMode");
         addBtnListener();
+
+        _audioManager.playMusic(_backGroundAudioClip,true,0.5f);
         
 	}
 
@@ -109,6 +113,7 @@ public class LoginView : BaseView {
     {
         _curIndex = 0;
         _passTime = 0;
+        _curAnimation = null;
         _nameList.Clear();
         Animation animation = obj.GetComponent<Animation>();
         _curAnimation = animation;
@@ -141,26 +146,35 @@ public class LoginView : BaseView {
 
     public void clickMaginBtn()
     {
-
+        
         if (_magicianObj == null)
         {
             _magicianObj = initGameObject("Models/Magician/CreateMage", "CreateMage", _sceneRoleNode, new Vector3(76.9f, -13.62f, -50.4f));
         }
+        if (_curAnimation == _magicianObj.GetComponent<Animation>()) return;
         _magicianObj.SetActive(true);
         magicIntroduce.enabled = true;
         _swordsManObj.SetActive(false);
         swordIntroduce.enabled = false;
         setCurAnimationState(_magicianObj);
+        _audioManager.playSoundEffect("2_Roar_MagicHero",false,0.5f);
 
     }
 
     public void clickSwordBtn()
     {
-        _magicianObj.SetActive(false);
-        magicIntroduce.enabled = false;
+        if (_curAnimation == _swordsManObj.GetComponent<Animation>()) return;
+        if (_magicianObj!=null)
+        {
+            _magicianObj.SetActive(false);
+            magicIntroduce.enabled = false;
+        }
+       
         _swordsManObj.SetActive(true);
         swordIntroduce.enabled = true;
         setCurAnimationState(_swordsManObj);
+        _audioManager.playSoundEffect("1_LightSword_SwordHero");
+
     }
 
 
@@ -189,20 +203,24 @@ public class LoginView : BaseView {
 
     void Update()
     {
-        _passTime += Time.deltaTime;
-        if (_passTime >= _totalTime)
+        if (_curAnimation)
         {
-           
-            _passTime = 0;
-            _curIndex++;
-            if (_curIndex >= _maxIndex)
+            _passTime += Time.deltaTime;
+            if (_passTime >= _totalTime)
             {
-                _curIndex = 0;
+
+                _passTime = 0;
+                _curIndex++;
+                if (_curIndex >= _maxIndex)
+                {
+                    _curIndex = 0;
+                }
+                Debug.Log("_curIndex========" + _curIndex + "/" + _nameList[_curIndex]);
+                _curAnimation.CrossFade(_nameList[_curIndex]);
+
             }
-            _curAnimation.CrossFade(_nameList[_curIndex]);
-         
         }
-    
+       
     }
 
 
@@ -214,6 +232,7 @@ public class LoginView : BaseView {
 
         Destroy(_magicianObj);
         Destroy(_swordsManObj);
+        _audioManager.destoryClip(_backGroundAudioClip);
     }
 	
 }

@@ -161,7 +161,7 @@ public class AudioManager : MonoBehaviour
     }
 
     //使用这个方法一定要提前缓存过
-    public  void playSoundEffect(string name, bool isLoop = true, float volume = 1.0f)
+    public  void playSoundEffect(string name, bool isLoop = false, float volume = 1.0f)
     {
         //判断是否提前缓存
         AudioSource souce;
