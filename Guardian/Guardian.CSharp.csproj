@@ -295,10 +295,13 @@
     <Compile Include="Assets\Resources\ParticleProps\IGSoft_Resources\Scripts\NcEffect\NcSpriteTexture.cs" />
     <Compile Include="Assets\Resources\ParticleProps\IGSoft_Resources\Scripts\NcEffect\NcTilingTexture.cs" />
     <Compile Include="Assets\Resources\ParticleProps\SkillThunders\thunderDestory.cs" />
+    <Compile Include="Assets\Scripts\Control\Player\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\GamePlayManager.cs" />
     <Compile Include="Assets\Scripts\Global\FadeInOut.cs" />
     <Compile Include="Assets\Scripts\GlobalParams.cs" />
     <Compile Include="Assets\Scripts\Kernal\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\Model\BaseModel.cs" />
+    <Compile Include="Assets\Scripts\Model\Player\PlayerModel.cs" />
     <Compile Include="Assets\Scripts\View\BaseView.cs" />
     <Compile Include="Assets\Scripts\View\Scenes\LoadingView.cs" />
     <Compile Include="Assets\Scripts\View\Scenes\LoginView.cs" />
@@ -384,11 +387,9 @@
     <None Include="Assets\Resources\ParticleProps\FireBall\ToolResources\EffectShader\FXMaker_Mask Additive Tint.shader" />
     <None Include="Assets\Scripts\Control\Enemy\readMe.txt" />
     <None Include="Assets\Scripts\Control\NPC\readMe.txt" />
-    <None Include="Assets\Scripts\Control\Player\readMe.txt" />
     <None Include="Assets\Scripts\Control\Prop\readMe.txt" />
     <None Include="Assets\Scripts\Model\Enemy\readMe.txt" />
     <None Include="Assets\Scripts\Model\NPC\readMe.txt" />
-    <None Include="Assets\Scripts\Model\Player\readMe.txt" />
     <None Include="Assets\Scripts\Model\Prop\readMe.txt" />
     <None Include="Assets\Scripts\Model\Scenes\readMe.txt" />
     <None Include="Assets\Scripts\NetWork\readMe.txt" />

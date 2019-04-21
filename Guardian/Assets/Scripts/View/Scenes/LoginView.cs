@@ -46,6 +46,8 @@ public class LoginView : BaseView {
 
     private List<string> _nameList;
 
+    private PlayerManager _playerManager;
+
   
     public void Awake()
     {
@@ -55,6 +57,8 @@ public class LoginView : BaseView {
         _fadeInOut = rawImage.GetComponent<FadeInOut>();
 
         _nameList = new List<string>();
+
+        _playerManager = PlayerManager.getInstance();
 
     }
 
@@ -117,7 +121,6 @@ public class LoginView : BaseView {
 
     override public void onClick(Button btn)
     {
-        Debug.Log("btn.name========" + btn.name);
         switch (btn.name)
         { 
             case "BtnMagic":
@@ -177,9 +180,11 @@ public class LoginView : BaseView {
 
     public void clickSubmitBtn()
     {
+        string name = inputField.text;
+        _playerManager.setPlayerName(name);
 
+        _viewManager.swithView("LoadingView");
     }
-
 
 
     void Update()
@@ -187,7 +192,7 @@ public class LoginView : BaseView {
         _passTime += Time.deltaTime;
         if (_passTime >= _totalTime)
         {
-            Debug.Log("开始播动作===============");
+           
             _passTime = 0;
             _curIndex++;
             if (_curIndex >= _maxIndex)

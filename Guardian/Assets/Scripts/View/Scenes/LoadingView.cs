@@ -60,8 +60,10 @@ public class LoadingView : BaseView {
 	public void Start()
 	{
 		base.Start();
-        _callBack = (LoadingEndCallback)paramsValue[0];
-        //_callBack = (Action)paramsValue[0];
+        if (paramsValue.Length > 0)
+        {
+            _callBack = (LoadingEndCallback)paramsValue[0];
+        }
 	}
 
 	// Update is called once per frame
