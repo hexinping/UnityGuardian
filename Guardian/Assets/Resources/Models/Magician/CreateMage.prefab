@@ -1909,7 +1909,7 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 69ef477afedfc754ea3122efbb4f3c7c, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: 40cc649cbd0fc73408eb99514dc91db0, type: 2}
+  - {fileID: 7400000, guid: 3163d5e422c24f041aab62c9ed4b9e68, type: 2}
   - {fileID: 7400000, guid: 69ef477afedfc754ea3122efbb4f3c7c, type: 2}
   - {fileID: 7400000, guid: 4a2a814615f3b9f4f9a159ec4f6d69b6, type: 2}
   m_WrapMode: 0
