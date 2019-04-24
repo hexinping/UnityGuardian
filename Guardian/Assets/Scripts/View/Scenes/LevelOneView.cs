@@ -47,7 +47,11 @@ public class LevelOneView : BaseView {
         base.Start();
         _scene = initScene("Module_02_LevelOne");
      
-        _mainCamera.transform.position = new Vector3(77.3f, -11.46f, -42.96f);
+        _mainCamera.transform.position = new Vector3(76.9f, -8.8f, -41.3f);
+        _mainCamera.transform.eulerAngles = (new Vector3(10.9f, 180.0f, 0.0f));
+        
+        //_mainCamera.transform.rotation = new Quaternion(10.9f, -180.0f, 0.0f,1.0f);
+
         _fadeInOut.FadeIn();
 
         StartCoroutine("initSwordsManPlayersMode");
@@ -71,6 +75,13 @@ public class LevelOneView : BaseView {
 
         //挂载脚本
         _swordsManObj.AddComponent<HeroMovingByET>();
+
+         //添加摄像机跟谁脚本
+        _mainCamera.AddComponent<CameraFollow>();
+
+        CameraFollow _cameFollow = _mainCamera.GetComponent<CameraFollow>();
+        _cameFollow.distance = 10.0f;
+
     }
   
     void OnDestroy()
