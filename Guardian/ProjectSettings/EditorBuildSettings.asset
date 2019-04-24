@@ -8,3 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: c9ea71e1bce904c4dbf7b29b3a326c70
+  - enabled: 0
+    path: Assets/Plugin/EasyTouch/Example/C# Example/StartMenu.unity
+    guid: fd3d502e42b606d448890e94e7f7af49

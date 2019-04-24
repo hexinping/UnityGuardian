@@ -50,7 +50,7 @@ public class LoginView : BaseView {
 
     public AudioClip _backGroundAudioClip;
 
-  
+    private LoadingEndCallback _loadEndCallBack;
     public void Awake()
     {
         base.Awake();
@@ -77,8 +77,14 @@ public class LoginView : BaseView {
         addBtnListener();
 
         _audioManager.playMusic(_backGroundAudioClip,true,0.5f);
-        
+
+        _loadEndCallBack = gotoNextView;
 	}
+
+    void gotoNextView()
+    {
+        _viewManager.swithView("LevelOneView");
+    }
 
     //IEnumerator initMagicPlayersMode()
     //{
@@ -197,7 +203,7 @@ public class LoginView : BaseView {
         string name = inputField.text;
         _playerManager.setPlayerName(name);
 
-        _viewManager.swithView("LoadingView");
+        _viewManager.swithView("LoadingView", _loadEndCallBack);
     }
 
 
@@ -230,8 +236,10 @@ public class LoginView : BaseView {
         if (_scene)
             Destroy(_scene);
 
-        Destroy(_magicianObj);
-        Destroy(_swordsManObj);
+        if (_magicianObj != null)
+            Destroy(_magicianObj);
+        if (_swordsManObj != null)
+            Destroy(_swordsManObj);
         _audioManager.destoryClip(_backGroundAudioClip);
     }
 	
