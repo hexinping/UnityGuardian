@@ -273,6 +273,7 @@ MonoBehaviour:
   _name: 
   _prefabName: 
   _rootDialogGameObject: {fileID: 0}
+  _easyTouch: {fileID: 0}
 --- !u!114 &114977519769372066
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -29,6 +29,8 @@ public class LevelOneView : BaseView {
     private FadeInOut _fadeInOut;
 
     private GameObject _swordsManObj;
+
+    private GameObject _easyTouchObj;
   
     public void Awake()
     {
@@ -49,6 +51,9 @@ public class LevelOneView : BaseView {
         _fadeInOut.FadeIn();
 
         StartCoroutine("initSwordsManPlayersMode");
+
+        _easyTouchObj = GameObject.Find("_Environment").transform.Find("EasyTouch").gameObject;
+        _easyTouchObj.SetActive(true);
         
 	}
     IEnumerator initSwordsManPlayersMode()
@@ -64,11 +69,8 @@ public class LevelOneView : BaseView {
         _swordsManObj.transform.localPosition = new Vector3(76.9f, -13.02f, -48.27f);
         _swordsManObj.SetActive(true);
 
-
         //挂载脚本
         _swordsManObj.AddComponent<HeroMovingByET>();
-
-     
     }
   
     void OnDestroy()
