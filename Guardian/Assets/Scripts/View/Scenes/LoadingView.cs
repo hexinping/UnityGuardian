@@ -24,10 +24,6 @@ using System;
 
 
 
-
-//放到外面定义的委托，其他文件也可以使用
-public delegate void LoadingEndCallback(); //定义回调函数
-
 /*
     不同c#文件之间传递委托函数有几种方法
  * 1 定义全局的委托类型，public delegate XXXX
