@@ -30,9 +30,14 @@ public class HeroMovingByET : MonoBehaviour {
 
     private float _speed = 10.0f;
 
+    private CharacterController _CC;
+
+    private float _gravity = 1.0f;
+
     void Awake()
     {
-        _animation = gameObject.GetComponent<Animation>();
+        _animation = this.GetComponent<Animation>();
+        _CC = this.GetComponent<CharacterController>();
     }
 
 	 void OnEnable()  
@@ -82,7 +87,12 @@ public class HeroMovingByET : MonoBehaviour {
              //设置角色的朝向（朝向当前坐标+摇杆偏移量）  
              transform.LookAt(new Vector3(transform.position.x - joyPositionX, transform.position.y, transform.position.z - joyPositionY));
              //移动玩家的位置（按朝向位置移动）  
-             transform.Translate(Vector3.forward * Time.deltaTime * _speed);
+             //transform.Translate(Vector3.forward * Time.deltaTime * _speed);
+             Vector3 movement = transform.forward * Time.deltaTime * _speed;
+
+             //添加模拟重力
+             movement.y -= _gravity;
+             _CC.Move(movement); //transform.forward * Time.deltaTime * _speed
              //播放奔跑动画  
              _animation.CrossFade("Run");
          }  
