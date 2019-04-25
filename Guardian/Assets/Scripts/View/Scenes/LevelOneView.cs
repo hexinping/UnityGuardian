@@ -48,7 +48,7 @@ public class LevelOneView : BaseView {
         _scene = initScene("Module_02_LevelOne");
      
         _mainCamera.transform.position = new Vector3(76.9f, -8.8f, -41.3f);
-        _mainCamera.transform.eulerAngles = (new Vector3(10.9f, 180.0f, 0.0f));
+        //_mainCamera.transform.eulerAngles = (new Vector3(10.9f, 180.0f, 0.0f));
         
         //_mainCamera.transform.rotation = new Quaternion(10.9f, -180.0f, 0.0f,1.0f);
 
@@ -80,7 +80,8 @@ public class LevelOneView : BaseView {
         _mainCamera.AddComponent<CameraFollow>();
 
         CameraFollow _cameFollow = _mainCamera.GetComponent<CameraFollow>();
-        _cameFollow.distance = 10.0f;
+        _cameFollow.setHeight(5.0f);
+        _cameFollow.setDistance(10.0f);
 
     }
   

@@ -68,4 +68,23 @@ using System.Collections;
 
             }
         }
+
+
+        public void reset()
+        { 
+            distance = 6.0f;  //原来 6
+            height = 8.0f;//原来 8
+            heightDamping = 4.0f;
+            rotationDamping = 0.0f;
+        }
+
+        public void setHeight(float targetHeight)
+        {
+            height = targetHeight;
+        }
+
+        public void setDistance(float targetDistance)
+        {
+            distance = targetDistance;
+        }
     }//class_end
