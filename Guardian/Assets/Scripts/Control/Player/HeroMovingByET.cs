@@ -34,10 +34,17 @@ public class HeroMovingByET : MonoBehaviour {
 
     private float _gravity = 1.0f;
 
+    private PlayerEnitity _playerEnitity;
+
     void Awake()
     {
         _animation = this.GetComponent<Animation>();
         _CC = this.GetComponent<CharacterController>();
+    }
+
+    public void setPlayerEnitity(PlayerEnitity enitity)
+    {
+        _playerEnitity = enitity;
     }
 
 	 void OnEnable()  
@@ -65,7 +72,12 @@ public class HeroMovingByET : MonoBehaviour {
             //停止时，角色恢复idle  
          if (move.joystickName == MoveJoystickName)  
         {
-            _animation.CrossFade("Idle");  
+           // _animation.CrossFade("Idle");
+            if (_playerEnitity != null)
+            {
+                //切换成IDLE状态
+                _playerEnitity.changeStateByIndex(0, 1.0f, true);
+            }
         }  
      }  
  
@@ -93,8 +105,16 @@ public class HeroMovingByET : MonoBehaviour {
              //添加模拟重力
              movement.y -= _gravity;
              _CC.Move(movement); //transform.forward * Time.deltaTime * _speed
+
+             if (_playerEnitity != null)
+             {
+                  //切换成移动状态
+                 _playerEnitity.changeStateByIndex(1, 1.0f, false);
+             }
              //播放奔跑动画  
-             _animation.CrossFade("Run");
+             //_animation.CrossFade("Run");
+             //BaseState state = _playerEnitity._stateList[1];
+            
          }  
      }  
    

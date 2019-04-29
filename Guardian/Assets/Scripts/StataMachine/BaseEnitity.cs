@@ -17,6 +17,8 @@ public class BaseEnitity  {
 
     public BaseMode _mode;
 
+    public GameObject _rootObj;
+
     public BaseEnitity()
     {
         _id = GlobalParams.gameObjId;
@@ -28,6 +30,11 @@ public class BaseEnitity  {
 
         //注册消息机制
         MessageDispatcher.getInstance().registerEntity(this);
+    }
+
+    public void setRootObj(GameObject rootObj)
+    {
+        _rootObj = rootObj;
     }
 
     //初始化数据

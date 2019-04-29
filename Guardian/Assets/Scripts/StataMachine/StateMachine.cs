@@ -44,10 +44,10 @@ public class StateMachine  {
 
     public void changeState(BaseState state, params object[] values)
     {
-        if (_curState == state)
-        {
-            return;
-        }
+        //if (_curState == state)
+        //{
+        //    return;
+        //}
 
         //保存之前状态
         _previousState = _curState;

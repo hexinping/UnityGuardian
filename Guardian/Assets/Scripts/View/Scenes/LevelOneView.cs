@@ -23,6 +23,10 @@ using UnityEngine.UI;
 
 public class LevelOneView : BaseView {
 
+    private Dictionary<int, BaseEnitity> _enitityDic;
+
+    // private float _interval = 0.033f;
+    private MessageDispatcher _msgDispatcher;
 
     private GameObject _scene;
 
@@ -31,13 +35,20 @@ public class LevelOneView : BaseView {
     private GameObject _swordsManObj;
 
     private GameObject _easyTouchObj;
+
+    private PlayerEnitity _playerEnitity;
   
     public void Awake()
     {
         base.Awake();
 
+        _enitityDic = new Dictionary<int, BaseEnitity>();
+        _msgDispatcher = MessageDispatcher.getInstance();
+
         GameObject rawImage  = gameObject.transform.Find("Canvas/RawImage").gameObject;
         _fadeInOut = rawImage.GetComponent<FadeInOut>();
+
+
 
     }
 
@@ -63,18 +74,31 @@ public class LevelOneView : BaseView {
     IEnumerator initSwordsManPlayersMode()
     {
 
-        string path = "Models/SwordsMan/GreateWarrior";
-        ResourceRequest rr = Resources.LoadAsync<GameObject>(path);
-        yield return rr;
-        _swordsManObj = Instantiate(rr.asset) as GameObject;
-        _swordsManObj.name = "GreateWarrior";
-        _swordsManObj.transform.parent = _sceneRoleNode.transform;
-        _swordsManObj.transform.localScale = new Vector3(30.0f, 30.0f, 30.0f);
-        _swordsManObj.transform.localPosition = new Vector3(76.9f, -13.02f, -48.27f);
-        _swordsManObj.SetActive(true);
+
+        PlayerEnitity enitity = new PlayerEnitity();
+        _enitityDic.Add(enitity._id, enitity);
+        _playerEnitity = enitity;
+        enitity.setRootObj(_sceneRoleNode);
+
+        //初始化显示对象
+        enitity.initGameObject();
+
+        //string path = "Models/SwordsMan/GreateWarrior";
+        //ResourceRequest rr = Resources.LoadAsync<GameObject>(path);
+        //yield return rr;
+        //_swordsManObj = Instantiate(rr.asset) as GameObject;
+        //_swordsManObj.name = "GreateWarrior";
+        //_swordsManObj.transform.parent = _sceneRoleNode.transform;
+        //_swordsManObj.transform.localScale = new Vector3(30.0f, 30.0f, 30.0f);
+        //_swordsManObj.transform.localPosition = new Vector3(76.9f, -13.02f, -48.27f);
+        //_swordsManObj.SetActive(true);
 
         //挂载脚本
+        _swordsManObj = enitity._gameObject;
         _swordsManObj.AddComponent<HeroMovingByET>();
+
+        HeroMovingByET _moveET = _swordsManObj.GetComponent<HeroMovingByET>();
+        _moveET.setPlayerEnitity(enitity);
 
          //添加摄像机跟谁脚本
         _mainCamera.AddComponent<CameraFollow>();
@@ -83,6 +107,40 @@ public class LevelOneView : BaseView {
         _cameFollow.setHeight(5.0f);
         _cameFollow.setDistance(10.0f);
 
+        yield return null;
+
+    }
+
+
+    public PlayerEnitity getPlayer()
+    {
+        if (_playerEnitity != null)
+            return _playerEnitity;
+        return null;
+    }
+
+    void FixedUpdate()
+    {
+        //使用逻辑时间
+        GlobalParams.frameCount++;
+        GlobalParams.totalTime += Time.deltaTime;
+        {
+            foreach (KeyValuePair<int, BaseEnitity> obj in _enitityDic)
+            {
+
+                int id = obj.Key;
+                BaseEnitity enitity = obj.Value;
+                enitity._stateMachine.update(GlobalParams.interval);
+            }
+
+            //消息发送
+            _msgDispatcher.dispatchDelayedMessages();
+
+            //事件调用
+            GlobalParams.update(GlobalParams.totalTime);
+
+        }
+
     }
   
     void OnDestroy()
@@ -90,8 +148,6 @@ public class LevelOneView : BaseView {
         base.OnDestory();
         if (_scene)
             Destroy(_scene);
-
-
     }
 	
 }
