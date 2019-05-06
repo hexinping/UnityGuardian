@@ -76,7 +76,7 @@ public class HeroMovingByET : MonoBehaviour {
             if (_playerEnitity != null)
             {
                 //切换成IDLE状态
-                _playerEnitity.changeStateByIndex(0, 1.0f, true);
+                _playerEnitity.changeStateByIndex(PlayerStateEnum.IDLE, 1.0f, true);
             }
         }  
      }  
@@ -109,7 +109,7 @@ public class HeroMovingByET : MonoBehaviour {
              if (_playerEnitity != null)
              {
                   //切换成移动状态
-                 _playerEnitity.changeStateByIndex(1, 1.0f, false);
+                 _playerEnitity.changeStateByIndex(PlayerStateEnum.RUN, 1.0f, false);
              }
              //播放奔跑动画  
              //_animation.CrossFade("Run");

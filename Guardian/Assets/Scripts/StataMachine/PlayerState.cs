@@ -2,12 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
-        //_animationNameList.Add("Idle");
-        //_animationNameList.Add("Run");
-        //_animationNameList.Add("Attack2");
-        //_animationNameList.Add("Death");
 public enum PlayerStateEnum
 {
     IDLE            = 0,

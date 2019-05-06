@@ -115,8 +115,9 @@ public class PlayerEnitity:BaseEnitity  {
         
     }
 
-    public void changeStateByIndex(int stateIndex, float tSpeed = 1.0f, bool tIsLoop = false)
+    public void changeStateByIndex(PlayerStateEnum playerstateEm, float tSpeed = 1.0f, bool tIsLoop = false)
     {
+        int stateIndex = System.Convert.ToInt32(playerstateEm);
         BaseState state = _stateList[stateIndex];
         string name = _animationNameList[stateIndex];
         changeState(state, name, tSpeed, tIsLoop);
