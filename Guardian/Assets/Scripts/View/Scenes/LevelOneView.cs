@@ -98,6 +98,9 @@ public class LevelOneView : BaseView {
         HeroMovingByET _moveET = _swordsManObj.AddComponent<HeroMovingByET>();
         _moveET.setPlayerEnitity(enitity);
 
+        HeroMovingByKey moveKey = _swordsManObj.AddComponent<HeroMovingByKey>();
+        moveKey.setPlayerEnitity(enitity);
+
          //添加摄像机跟谁脚本
         _mainCamera.AddComponent<CameraFollow>();
 
