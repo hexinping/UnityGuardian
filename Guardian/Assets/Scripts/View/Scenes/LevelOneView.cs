@@ -83,16 +83,6 @@ public class LevelOneView : BaseView {
         //初始化显示对象
         enitity.initGameObject();
 
-        //string path = "Models/SwordsMan/GreateWarrior";
-        //ResourceRequest rr = Resources.LoadAsync<GameObject>(path);
-        //yield return rr;
-        //_swordsManObj = Instantiate(rr.asset) as GameObject;
-        //_swordsManObj.name = "GreateWarrior";
-        //_swordsManObj.transform.parent = _sceneRoleNode.transform;
-        //_swordsManObj.transform.localScale = new Vector3(30.0f, 30.0f, 30.0f);
-        //_swordsManObj.transform.localPosition = new Vector3(76.9f, -13.02f, -48.27f);
-        //_swordsManObj.SetActive(true);
-
         //挂载脚本
         _swordsManObj = enitity._gameObject;
         HeroMovingByET _moveET = _swordsManObj.AddComponent<HeroMovingByET>();
@@ -101,8 +91,8 @@ public class LevelOneView : BaseView {
         HeroMovingByKey moveKey = _swordsManObj.AddComponent<HeroMovingByKey>();
         moveKey.setPlayerEnitity(enitity);
 
-        //HeroAttackByKey attackKey = _swordsManObj.AddComponent<HeroAttackByKey>();
-        //attackKey.setPlayerEnitity(enitity);
+        HeroAttackByKey attackKey = _swordsManObj.AddComponent<HeroAttackByKey>();
+        attackKey.setPlayerEnitity(enitity);
 
          //添加摄像机跟谁脚本
         _mainCamera.AddComponent<CameraFollow>();

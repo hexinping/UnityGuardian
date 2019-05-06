@@ -40,27 +40,43 @@ public class HeroAttackByKey : MonoBehaviour {
 
     void heroAttackInputByKey(PlayerStateEnum stateEnum)
     {
-        if (stateEnum == PlayerStateEnum.NORMALATTACK)
-        {   
-            //普通攻击
-            //多个攻击动作区分或者整合 todo
-            print(GetType() + "/heroAttackInputByKey Attack");
-        }
-        else if (stateEnum == PlayerStateEnum.MAGICTRICKA)
+        switch (stateEnum)
         {
-            //普通技能
-            print(GetType() + "/heroAttackInputByKey MagicTrickA");
-        }
-        else if (stateEnum == PlayerStateEnum.MAGICTRICKB)
-        {
-            //大招技能
-            print(GetType() + "/heroAttackInputByKey MagicTrickB");
+            case PlayerStateEnum.NORMALATTACK:
+                heroNormalAttack();
+                break;
+            case PlayerStateEnum.MAGICTRICKA:
+                heroMagicTrickA();
+                break;
+            case PlayerStateEnum.MAGICTRICKB:
+                heroMagicTrickB();
+                break;
+            default:
+                break;
         }
     }
+
+    void heroNormalAttack()
+    {
+        //普通攻击
+        //多个攻击动作区分或者整合 todo
+        print(GetType() + "/heroNormalAttack Attack");
+    }
+
+    void heroMagicTrickA()
+    {
+        //普通技能
+        print(GetType() + "/heroMagicTrickA MagicTrickA");
+    }
+
+    void heroMagicTrickB()
+    {
+        //大招技能
+        print(GetType() + "/heroMagicTrickB MagicTrickB");
+    }
+
 	// Update is called once per frame
 	void Update () {
-        //float h = Input.GetAxis("Horizontal");
-        //float v = Input.GetAxis("Vertical");
 
         if (Input.GetButtonDown(GlobalParams.NormalAttack))
         {
