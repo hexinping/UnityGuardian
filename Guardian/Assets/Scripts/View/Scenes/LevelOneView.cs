@@ -101,6 +101,9 @@ public class LevelOneView : BaseView {
         HeroMovingByKey moveKey = _swordsManObj.AddComponent<HeroMovingByKey>();
         moveKey.setPlayerEnitity(enitity);
 
+        //HeroAttackByKey attackKey = _swordsManObj.AddComponent<HeroAttackByKey>();
+        //attackKey.setPlayerEnitity(enitity);
+
          //添加摄像机跟谁脚本
         _mainCamera.AddComponent<CameraFollow>();
 

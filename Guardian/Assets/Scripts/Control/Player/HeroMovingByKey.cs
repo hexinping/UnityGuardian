@@ -27,9 +27,13 @@ public class HeroMovingByKey : MonoBehaviour {
     private CharacterController _CC;
     private float _gravity = 1.0f;
     private PlayerEnitity _playerEnitity;
+    private HeroMovingByET _moveEt;
+
 	// Use this for initialization
 	void Start () {
         _CC = GetComponent<CharacterController>();
+        _moveEt = GetComponent<HeroMovingByET>();
+
 	}
 
     public void setPlayerEnitity(PlayerEnitity enitity)
@@ -39,6 +43,7 @@ public class HeroMovingByKey : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        if (_moveEt.isRunning) return;
         /*
             speed 是控制人物移动的速度
             float h 获取的是操纵杆输入和键盘输入，值为（-1到1）的值，x轴正方向为1，负方向为-1，也就是说A键为-1，D键为1
@@ -48,8 +53,10 @@ public class HeroMovingByKey : MonoBehaviour {
             transform.forward 是让目标向正前方移动
 
          */
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+
+        
+        float h = Input.GetAxis(GlobalParams.Horizontal);
+        float v = Input.GetAxis(GlobalParams.Vertical);
         if (Mathf.Abs(h) > 0.1f || Mathf.Abs(v) > 0.1)
         {
             Vector3 targetDir = new Vector3(h, 0, v);
@@ -63,7 +70,7 @@ public class HeroMovingByKey : MonoBehaviour {
 
             if (_playerEnitity != null)
             {
-                //切换成移动状态
+                //切换成移动状态 因为每一帧都会切换成run状态，所有设置成不循环
                 _playerEnitity.changeStateByIndex(PlayerStateEnum.RUN, 1.0f, false);
             }
         }

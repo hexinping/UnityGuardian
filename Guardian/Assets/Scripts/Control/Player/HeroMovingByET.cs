@@ -36,6 +36,8 @@ public class HeroMovingByET : MonoBehaviour {
 
     private PlayerEnitity _playerEnitity;
 
+    public bool isRunning = false;
+
     void Awake()
     {
         _animation = this.GetComponent<Animation>();
@@ -47,14 +49,17 @@ public class HeroMovingByET : MonoBehaviour {
         _playerEnitity = enitity;
     }
 
+
 	 void OnEnable()  
-     {  
+     {
+        isRunning = false;
         EasyJoystick.On_JoystickMove += OnJoystickMove;  
         EasyJoystick.On_JoystickMoveEnd += OnJoystickMoveEnd;  
      }  
 
     void OnDisable()
     {
+        isRunning = false;
         EasyJoystick.On_JoystickMove -= OnJoystickMove;  
         EasyJoystick.On_JoystickMoveEnd -= OnJoystickMoveEnd;  
     }
@@ -75,6 +80,7 @@ public class HeroMovingByET : MonoBehaviour {
            // _animation.CrossFade("Idle");
             if (_playerEnitity != null)
             {
+                isRunning = false;
                 //切换成IDLE状态
                 _playerEnitity.changeStateByIndex(PlayerStateEnum.IDLE, 1.0f, true);
             }
@@ -96,6 +102,8 @@ public class HeroMovingByET : MonoBehaviour {
 
          if (joyPositionY != 0 || joyPositionX != 0)
          {
+             isRunning = true;
+
              //设置角色的朝向（朝向当前坐标+摇杆偏移量）  
              transform.LookAt(new Vector3(transform.position.x - joyPositionX, transform.position.y, transform.position.z - joyPositionY));
              //移动玩家的位置（按朝向位置移动）  

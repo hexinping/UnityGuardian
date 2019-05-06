@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//定义全局委托
-public delegate void delayFunc(BaseEnitity enity);
+/*定义全局委托*/
 
-public delegate void LoadingEndCallback(); //定义进度条结束回调函数
+public delegate void delayFunc(BaseEnitity enity);
+public delegate void LoadingEndCallback();                                      //定义进度条结束回调函数
+public delegate void HeroAttackInputHandle(PlayerStateEnum stateEnum);          //定义英雄的攻击输入委托
 
 
 public class DelayCall
@@ -39,6 +40,16 @@ public static class GlobalParams
     public static List<DelayCall> _delayCallList = new List<DelayCall>();
 
     public static bool isWindow = Application.platform == RuntimePlatform.WindowsPlayer;
+
+    //Input输入常量定义
+    public static string Horizontal     = "Horizontal";
+    public static string Vertical       = "Vertical";
+    public static string NormalAttack   = "NormalAttack";
+    public static string MagicTrickA    = "MagicTrickA";
+    public static string MagicTrickB    = "MagicTrickB";
+
+
+
 
     public static void addDelayCall(DelayCall delayCall)
     {
