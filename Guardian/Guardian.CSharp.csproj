@@ -339,7 +339,10 @@
     <Compile Include="Assets\Resources\ParticleProps\IGSoft_Resources\Scripts\NcEffect\NcSpriteTexture.cs" />
     <Compile Include="Assets\Resources\ParticleProps\IGSoft_Resources\Scripts\NcEffect\NcTilingTexture.cs" />
     <Compile Include="Assets\Resources\ParticleProps\SkillThunders\thunderDestory.cs" />
+    <Compile Include="Assets\Scripts\Control\Player\HeroAttackByET.cs" />
+    <Compile Include="Assets\Scripts\Control\Player\HeroAttackByKey.cs" />
     <Compile Include="Assets\Scripts\Control\Player\HeroMovingByET.cs" />
+    <Compile Include="Assets\Scripts\Control\Player\HeroMovingByKey.cs" />
     <Compile Include="Assets\Scripts\Control\Player\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\GamePlayManager.cs" />
     <Compile Include="Assets\Scripts\Global\FadeInOut.cs" />

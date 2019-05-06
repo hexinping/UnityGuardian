@@ -4,10 +4,12 @@ using UnityEngine;
 
 public enum PlayerStateEnum
 {
-    IDLE            = 0,
-    RUN             = 1,
-    ATTACK          = 2,
-    DEAD            = 3,
+    IDLE            = 0,       //待机
+    RUN             = 1,       //移动
+    DEAD            = 2,       //死亡
+    ATTACK          = 3,       //普通攻击 （3个攻击动作，下一个动作起始下标为6）
+    MAGICTRICKA     = 6,       //普通技能
+    //MAGICTRICKB     = 5,     //大招技能
 }
 
 
@@ -152,6 +154,35 @@ public class PlayerDeadState : PlayerState
         : base(enity)
     {
         stateIndex = PlayerStateEnum.DEAD;
+    }
+
+    override public void enter(params object[] values)
+    {
+        base.enter(values);
+
+    }
+
+    override public void excute(params object[] values)
+    {
+
+    }
+
+
+    override public void exit(params object[] values)
+    {
+
+    }
+
+}
+
+//玩家使用技能状态
+public class PlayerMagicTrickState : PlayerState
+{
+
+    public PlayerMagicTrickState(BaseEnitity enity)
+        : base(enity)
+    {
+        stateIndex = PlayerStateEnum.MAGICTRICKA;
     }
 
     override public void enter(params object[] values)

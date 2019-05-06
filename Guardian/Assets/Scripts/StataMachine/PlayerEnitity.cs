@@ -85,8 +85,16 @@ public class PlayerEnitity:BaseEnitity  {
     {
         _animationNameList.Add("Idle");
         _animationNameList.Add("Run");
-        _animationNameList.Add("Attack2");
         _animationNameList.Add("Death");
+
+        //攻击动作
+        _animationNameList.Add("Attack3-1");
+        _animationNameList.Add("Attack3-2");
+        _animationNameList.Add("Attack3-3");
+
+        //技能动作
+        _animationNameList.Add("Attack1");
+        _animationNameList.Add("Attack4");
     }
 
     public void onClick(Button btn)

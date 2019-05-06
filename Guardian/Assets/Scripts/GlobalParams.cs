@@ -38,6 +38,8 @@ public static class GlobalParams
 
     public static List<DelayCall> _delayCallList = new List<DelayCall>();
 
+    public static bool isWindow = Application.platform == RuntimePlatform.WindowsPlayer;
+
     public static void addDelayCall(DelayCall delayCall)
     {
         _delayCallList.Add(delayCall);

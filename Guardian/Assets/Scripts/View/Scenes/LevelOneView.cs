@@ -95,9 +95,7 @@ public class LevelOneView : BaseView {
 
         //挂载脚本
         _swordsManObj = enitity._gameObject;
-        _swordsManObj.AddComponent<HeroMovingByET>();
-
-        HeroMovingByET _moveET = _swordsManObj.GetComponent<HeroMovingByET>();
+        HeroMovingByET _moveET = _swordsManObj.AddComponent<HeroMovingByET>();
         _moveET.setPlayerEnitity(enitity);
 
          //添加摄像机跟谁脚本
