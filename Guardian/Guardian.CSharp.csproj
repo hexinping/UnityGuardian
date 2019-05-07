@@ -347,10 +347,13 @@
     <Compile Include="Assets\Scripts\GamePlayManager.cs" />
     <Compile Include="Assets\Scripts\Global\FadeInOut.cs" />
     <Compile Include="Assets\Scripts\GlobalParams.cs" />
+    <Compile Include="Assets\Scripts\Kernal\AltasManager.cs" />
     <Compile Include="Assets\Scripts\Kernal\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Kernal\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Kernal\iTween.cs" />
+    <Compile Include="Assets\Scripts\Kernal\ResourcesManager.cs" />
     <Compile Include="Assets\Scripts\Kernal\SmoothFollow.cs" />
+    <Compile Include="Assets\Scripts\Kernal\SpriteAnimatin.cs" />
     <Compile Include="Assets\Scripts\Kernal\XmlOperation.cs" />
     <Compile Include="Assets\Scripts\Model\BaseModel.cs" />
     <Compile Include="Assets\Scripts\Model\Player\PlayerModel.cs" />
