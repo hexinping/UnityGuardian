@@ -22,6 +22,8 @@ public class BaseEnitity  {
     public bool isMove = false;
     public float moveSpeed = 10.0f;
 
+    public bool isAttacking = false;
+
     public BaseEnitity()
     {
         _id = GlobalParams.gameObjId;
@@ -77,11 +79,11 @@ public class BaseEnitity  {
         return false;
     }
 
-    public void changeState(BaseState state, params object[] values)
+    public void changeState(BaseState state, bool isCheckSameState = true, params object[] values)
     {
         if (_stateMachine != null)
         {
-            _stateMachine.changeState(state, values);
+            _stateMachine.changeState(state, isCheckSameState, values);
         }
     }
 }

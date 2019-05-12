@@ -21,11 +21,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+/*
+    持续按 ，普通按
+ */
 public class HeroAttack : MonoBehaviour {
 
     private PlayerEnitity _playerEnitity;
     private Coroutine _resetIdleCor;
-	// Use this for initialization
+
+
+    private float delayTime = 2.0f;
+    public float _lastPressTime = 0.0f;
+    public bool _isLongPrees = false;
+
+    private bool isSingle = false;
 	
     public void setPlayerEnitity(PlayerEnitity enitity)
     {
@@ -35,6 +45,19 @@ public class HeroAttack : MonoBehaviour {
 
     public void heroNormalAttack()
     {
+        if (_lastPressTime == 0.0f)
+        {
+            _lastPressTime = Time.time;
+        }
+        if (Time.time - _lastPressTime >= delayTime)
+        {
+            _isLongPrees = true;
+        }
+        if (isSingle) return;
+        if (!isSingle)
+        {
+            isSingle = true;
+        }
         //普通攻击
         //多个攻击动作区分或者整合 todo
         print(GetType() + "/heroNormalAttack Attack");
@@ -42,11 +65,17 @@ public class HeroAttack : MonoBehaviour {
         {
             _playerEnitity.changeStateByIndex(PlayerStateEnum.NORMALATTACK, 1.0f, false);
             startResetIdle(PlayerStateEnum.NORMALATTACK);
+            _playerEnitity.AddComobIndex();
         }
     }
 
     public void heroMagicTrickA()
     {
+        if (isSingle) return;
+        if (!isSingle)
+        {
+            isSingle = true;
+        }
         //普通技能
         print(GetType() + "/heroMagicTrickA MagicTrickA");
         if (_playerEnitity != null)
@@ -58,12 +87,18 @@ public class HeroAttack : MonoBehaviour {
 
     public void heroMagicTrickB()
     {
+        if (isSingle) return;
+        if (!isSingle)
+        {
+            isSingle = true;
+        }
         //大招技能
         print(GetType() + "/heroMagicTrickB MagicTrickB");
         if (_playerEnitity != null)
         {
             _playerEnitity.changeStateByIndex(PlayerStateEnum.MAGICTRICKB, 1.0f, false);
             startResetIdle(PlayerStateEnum.MAGICTRICKB);
+           
         }
     }
 
@@ -72,16 +107,24 @@ public class HeroAttack : MonoBehaviour {
         yield return new WaitForSeconds(delayTime);
         if(_playerEnitity != null)
         {
-            _playerEnitity.changeStateByIndex(PlayerStateEnum.IDLE, 1.0f, true);
+            if (!_isLongPrees)
+            {
+                _playerEnitity.changeStateByIndex(PlayerStateEnum.IDLE, 1.0f, true);
+              
+            }
+            isSingle = false;
+           
+            
         }
     }
 
-    void startResetIdle(PlayerStateEnum playstateEM)
+    public void startResetIdle(PlayerStateEnum playstateEM)
     {
         if (_resetIdleCor != null)
         {
             StopCoroutine(_resetIdleCor);
         }
+        
         float time = _playerEnitity.getAnimaitionPlayTime(playstateEM);
         _resetIdleCor = StartCoroutine(resetIdleState(time));
     }

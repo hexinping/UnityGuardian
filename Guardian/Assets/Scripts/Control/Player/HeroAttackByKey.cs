@@ -41,8 +41,11 @@ public class HeroAttackByKey : MonoBehaviour {
 
     void heroAttackInputByKey(PlayerStateEnum stateEnum)
     {
-        _attack = this.GetComponent<HeroAttack>();
-        if (_attack == null) return;
+        
+        if (_attack == null)
+        {
+            _attack = this.GetComponent<HeroAttack>();
+        }
         switch (stateEnum)
         {
             case PlayerStateEnum.NORMALATTACK:
@@ -63,7 +66,7 @@ public class HeroAttackByKey : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetButtonDown(GlobalParams.NormalAttack))
+        if (Input.GetButton(GlobalParams.NormalAttack))
         {
             _heroAttackInputHandle(PlayerStateEnum.NORMALATTACK);
         }
@@ -74,6 +77,27 @@ public class HeroAttackByKey : MonoBehaviour {
         else if (Input.GetButtonDown(GlobalParams.MagicTrickB))
         {
             _heroAttackInputHandle(PlayerStateEnum.MAGICTRICKB);
+        }
+        else
+        {
+            if (_playerEnitity.isAttacking)
+            {
+                if (_attack != null)
+                {
+                    _attack._lastPressTime = 0.0f;
+                    if (_attack._isLongPrees)
+                    {
+                        _attack._isLongPrees = false;
+
+                        Debug.Log("攻击长按 退出===========");
+                        _playerEnitity.reduceComobIndex();
+                        _attack.startResetIdle(PlayerStateEnum.NORMALATTACK);
+                        _playerEnitity.AddComobIndex();
+                       
+                    }
+                }
+            }
+
         }
 	}
 }

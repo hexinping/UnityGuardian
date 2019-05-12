@@ -42,9 +42,9 @@ public class StateMachine  {
         }
     }
 
-    public void changeState(BaseState state, params object[] values)
+    public void changeState(BaseState state,bool isCheckSameState = true, params object[] values)
     {
-        if (_curState == state)
+        if (isCheckSameState && _curState == state)
         {
            return;
         }

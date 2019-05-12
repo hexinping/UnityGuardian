@@ -7,9 +7,9 @@ public enum PlayerStateEnum
     IDLE                    = 0,       //待机
     RUN                     = 1,       //移动
     DEAD                    = 2,       //死亡
-    NORMALATTACK            = 3,       //普通攻击 
-    MAGICTRICKA             = 4,       //普通技能
-    MAGICTRICKB             = 5,       //大招技能
+    MAGICTRICKA             = 3,       //普通技能
+    MAGICTRICKB             = 4,       //大招技能
+    NORMALATTACK            = 5,       //普通攻击 具有组合动画放到最后
 }
 
 
@@ -132,6 +132,7 @@ public class PlayerAttackState : PlayerState
     {
         Debug.Log("attack enter=============");
         base.enter(values);
+        _enitity.isAttacking = true;
 
     }
 
@@ -144,6 +145,7 @@ public class PlayerAttackState : PlayerState
     override public void exit(params object[] values)
     {
         Debug.Log("attack exit=============");
+        _enitity.isAttacking = false;
     }
 
 

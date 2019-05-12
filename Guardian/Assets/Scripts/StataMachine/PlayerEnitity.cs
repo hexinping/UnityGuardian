@@ -12,10 +12,14 @@ public class PlayerEnitity:BaseEnitity  {
     public GameObject _gameObject;
 
     private List<string> _animationNameList;
+    private List<string> _comobAnimationNameList; //组合动作
 
     public List<BaseState> _stateList;
 
     private Animation _animation;
+
+    private int _nomarlAttackComobIndex = 0;  //组合动作的序号
+
 
     public PlayerEnitity()
     {
@@ -35,16 +39,17 @@ public class PlayerEnitity:BaseEnitity  {
         _stateList.Add(playerIdleState);
         _stateList.Add(playerRunState);
         _stateList.Add(playerDeadState);
-
-        _stateList.Add(playerAttackState);
         _stateList.Add(playerMagicTrickAState);
         _stateList.Add(playerMagicTrickBState);
+
+        _stateList.Add(playerAttackState);
 
         //状态机设置
         //changeState(playerIdleState);
         _stateMachine.setCurrentState(playerIdleState);
         
         _animationNameList = new List<string>();
+        _comobAnimationNameList = new List<string>();
         
      
     }
@@ -79,6 +84,14 @@ public class PlayerEnitity:BaseEnitity  {
                 _animation.AddClip(clip, clipName);
             }
 
+            //组合动作
+            foreach (string clipName in _comobAnimationNameList)
+            {
+                string path = "Models/SwordsMan/SwordsManResources/Animations/StoneKing@" + clipName;
+                AnimationClip clip = Resources.Load<AnimationClip>(path);
+                _animation.AddClip(clip, clipName);
+            }
+
             _gameObject.AddComponent<PlayerEvent>(); //动画帧事件要放到一个与Animation同级的脚本里
             changeAniamtion(_animationNameList[0], 1.0f, true);
 
@@ -92,50 +105,54 @@ public class PlayerEnitity:BaseEnitity  {
         _animationNameList.Add("Run");
         _animationNameList.Add("Death");
 
-        //攻击动作
-        _animationNameList.Add("Attack3-1");
-        _animationNameList.Add("Attack3-2");
-        _animationNameList.Add("Attack3-3");
-
         //技能动作
         _animationNameList.Add("Attack1");
         _animationNameList.Add("Attack4");
+
+        //普通攻击组合动作
+        _comobAnimationNameList.Add("Attack3-1");
+        _comobAnimationNameList.Add("Attack3-2");
+        _comobAnimationNameList.Add("Attack3-3");
     }
 
-    public void onClick(Button btn)
-    { 
-        //点击按钮切换不同的状态
-        string name = btn.name;
-        int stateIndex = 0;
-        bool[] isLoopArr = { true, true ,false, false};
-        float[] speedArr = { 1.0f, 1.0f, 1.0f, 1.0f };
-        for (int i = 0; i < _animationNameList.Count; i++)
-        {
-            if (name.Equals(_animationNameList[i]))
-            {
-                stateIndex = i;
-
-                break;
-            }
-        }
-
-
-        //切换状态
-        BaseState state = _stateList[stateIndex];
-        float speed = speedArr[stateIndex];
-        bool isloop = isLoopArr[stateIndex];
-        changeState(state, name, speed, isloop);
-        
-    }
 
     public void changeStateByIndex(PlayerStateEnum playerstateEm, float tSpeed = 1.0f, bool tIsLoop = false)
     {
         int stateIndex = (int)playerstateEm;
         BaseState state = _stateList[stateIndex];
-        string name = _animationNameList[stateIndex];
-        changeState(state, name, tSpeed, tIsLoop);
+        string name = getAnimationName(playerstateEm);
+
+        bool isCheckSameState = true;
+        if (playerstateEm == PlayerStateEnum.NORMALATTACK)
+        {
+            isCheckSameState = false;
+            Debug.Log("_nomarlAttackComobIndex===========" + _nomarlAttackComobIndex);
+        }
+        
+        changeState(state, isCheckSameState, name, tSpeed, tIsLoop);
+
     }
 
+
+    private string getAnimationName(PlayerStateEnum playerstateEm)
+    {
+        string resultName = string.Empty;
+       
+        if (playerstateEm != PlayerStateEnum.NORMALATTACK)
+        {
+            int stateIndex = (int)playerstateEm;
+            resultName = _animationNameList[stateIndex];
+            //return resultName;
+        }
+        else
+        { 
+            //给普通攻击添加多个动作
+            resultName = _comobAnimationNameList[_nomarlAttackComobIndex];
+            Debug.Log("resultName=======" + resultName);
+        }
+        return resultName;
+    
+    }
 
     public void changeAniamtion(string animatinName, float speed = 1.0f, bool isLoop = false)
     {
@@ -189,9 +206,16 @@ public class PlayerEnitity:BaseEnitity  {
     public float getAnimaitionPlayTime(PlayerStateEnum playerstateEm)
     {
         float time = 0.0f;
-        int stateIndex = (int)playerstateEm;
-        string name = _animationNameList[stateIndex];
-
+        string name = string.Empty;
+        if (playerstateEm == PlayerStateEnum.NORMALATTACK)
+        {
+            name = _comobAnimationNameList[_nomarlAttackComobIndex];
+        }
+        else
+        {
+            name = getAnimationName(playerstateEm);
+        }
+        
         foreach (AnimationState state in _animation)
         {
             if (state.name == name)
@@ -202,6 +226,27 @@ public class PlayerEnitity:BaseEnitity  {
         
         }
         return time;
+    }
+
+    public int getCurrComIndex()
+    {
+        return _nomarlAttackComobIndex;
+      
+    }
+
+    public void AddComobIndex()
+    {
+        //组合动作序号+1
+        _nomarlAttackComobIndex++;
+        int count = _comobAnimationNameList.Count;
+        if (_nomarlAttackComobIndex == count) _nomarlAttackComobIndex = 0;
+    }
+
+    public void reduceComobIndex()
+    {
+        _nomarlAttackComobIndex--;
+        int count = _comobAnimationNameList.Count;
+        if (_nomarlAttackComobIndex <= 0) _nomarlAttackComobIndex = count -1;
     }
 
 
