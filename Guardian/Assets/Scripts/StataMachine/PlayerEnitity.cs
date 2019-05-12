@@ -130,7 +130,7 @@ public class PlayerEnitity:BaseEnitity  {
 
     public void changeStateByIndex(PlayerStateEnum playerstateEm, float tSpeed = 1.0f, bool tIsLoop = false)
     {
-        int stateIndex = System.Convert.ToInt32(playerstateEm);
+        int stateIndex = (int)playerstateEm;
         BaseState state = _stateList[stateIndex];
         string name = _animationNameList[stateIndex];
         changeState(state, name, tSpeed, tIsLoop);
@@ -184,6 +184,24 @@ public class PlayerEnitity:BaseEnitity  {
 
 
         
+    }
+
+    public float getAnimaitionPlayTime(PlayerStateEnum playerstateEm)
+    {
+        float time = 0.0f;
+        int stateIndex = (int)playerstateEm;
+        string name = _animationNameList[stateIndex];
+
+        foreach (AnimationState state in _animation)
+        {
+            if (state.name == name)
+            {
+                time = state.clip.length;
+                break;
+            }
+        
+        }
+        return time;
     }
 
 

@@ -24,19 +24,13 @@ using UnityEngine.UI;
 public class HeroAttack : MonoBehaviour {
 
     private PlayerEnitity _playerEnitity;
+    private Coroutine _resetIdleCor;
 	// Use this for initialization
-	void Start () {
-		
-	}
-
+	
     public void setPlayerEnitity(PlayerEnitity enitity)
     {
         _playerEnitity = enitity;
     }
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 
     public void heroNormalAttack()
@@ -47,6 +41,7 @@ public class HeroAttack : MonoBehaviour {
         if (_playerEnitity != null)
         {
             _playerEnitity.changeStateByIndex(PlayerStateEnum.NORMALATTACK, 1.0f, false);
+            startResetIdle(PlayerStateEnum.NORMALATTACK);
         }
     }
 
@@ -57,6 +52,7 @@ public class HeroAttack : MonoBehaviour {
         if (_playerEnitity != null)
         {
             _playerEnitity.changeStateByIndex(PlayerStateEnum.MAGICTRICKA, 1.0f, false);
+            startResetIdle(PlayerStateEnum.MAGICTRICKA);
         }
     }
 
@@ -67,6 +63,26 @@ public class HeroAttack : MonoBehaviour {
         if (_playerEnitity != null)
         {
             _playerEnitity.changeStateByIndex(PlayerStateEnum.MAGICTRICKB, 1.0f, false);
+            startResetIdle(PlayerStateEnum.MAGICTRICKB);
         }
+    }
+
+    IEnumerator resetIdleState(float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+        if(_playerEnitity != null)
+        {
+            _playerEnitity.changeStateByIndex(PlayerStateEnum.IDLE, 1.0f, true);
+        }
+    }
+
+    void startResetIdle(PlayerStateEnum playstateEM)
+    {
+        if (_resetIdleCor != null)
+        {
+            StopCoroutine(_resetIdleCor);
+        }
+        float time = _playerEnitity.getAnimaitionPlayTime(playstateEM);
+        _resetIdleCor = StartCoroutine(resetIdleState(time));
     }
 }

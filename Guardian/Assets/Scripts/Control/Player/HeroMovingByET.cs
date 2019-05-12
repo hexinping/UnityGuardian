@@ -117,7 +117,7 @@ public class HeroMovingByET : MonoBehaviour {
              if (_playerEnitity != null)
              {
                   //切换成移动状态
-                 _playerEnitity.changeStateByIndex(PlayerStateEnum.RUN, 1.0f, false);
+                 _playerEnitity.changeStateByIndex(PlayerStateEnum.RUN, 1.0f, true);
              }
              //播放奔跑动画  
              //_animation.CrossFade("Run");

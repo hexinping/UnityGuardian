@@ -47,9 +47,10 @@ public class PlayerIdleState : PlayerState
 
     override public  void enter(params object[] values)
     {
+        Debug.Log("idle enter=============");
         //切换动作
         base.enter(values);
-        //changeAniamtion(animatinName);
+        
         
     }
 
@@ -61,7 +62,7 @@ public class PlayerIdleState : PlayerState
 
     override public void exit(params object[] values)
     {
-        
+        Debug.Log("idle exit=============");
     }
 
     override public bool onMessage(BaseEnitity enitity, Message msg)
@@ -95,6 +96,7 @@ public class PlayerRunState : PlayerState
 
     override public void enter(params object[] values)
     {
+        Debug.Log("run enter=============");
         base.enter(values);
         _enitity.isMove = true;
 
@@ -108,6 +110,7 @@ public class PlayerRunState : PlayerState
 
     override public void exit(params object[] values)
     {
+        Debug.Log("run exit=============");
         _enitity.isMove = false;
     }
 
@@ -127,19 +130,20 @@ public class PlayerAttackState : PlayerState
 
     override public void enter(params object[] values)
     {
+        Debug.Log("attack enter=============");
         base.enter(values);
 
     }
 
     override public void excute(params object[] values)
     {
-
+        //Debug.Log("attack excute=============");
     }
 
 
     override public void exit(params object[] values)
     {
-
+        Debug.Log("attack exit=============");
     }
 
 
@@ -159,6 +163,7 @@ public class PlayerDeadState : PlayerState
 
     override public void enter(params object[] values)
     {
+        Debug.Log("dead enter=============");
         base.enter(values);
 
     }
@@ -171,7 +176,7 @@ public class PlayerDeadState : PlayerState
 
     override public void exit(params object[] values)
     {
-
+        Debug.Log("dead exietr=============");
     }
 
 }
@@ -188,6 +193,7 @@ public class PlayerMagicTrickAState : PlayerState
 
     override public void enter(params object[] values)
     {
+        Debug.Log("magicTrickA enter=============");
         base.enter(values);
 
     }
@@ -200,7 +206,7 @@ public class PlayerMagicTrickAState : PlayerState
 
     override public void exit(params object[] values)
     {
-
+        Debug.Log("magicTrickA exit=============");
     }
 
 }
@@ -217,6 +223,7 @@ public class PlayerMagicTrickBState : PlayerState
 
     override public void enter(params object[] values)
     {
+        Debug.Log("magicTrickB enter=============");
         base.enter(values);
 
     }
@@ -229,7 +236,7 @@ public class PlayerMagicTrickBState : PlayerState
 
     override public void exit(params object[] values)
     {
-
+        Debug.Log("magicTrickB exit=============");
     }
 
 }

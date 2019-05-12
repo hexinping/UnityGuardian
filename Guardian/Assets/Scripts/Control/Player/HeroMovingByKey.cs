@@ -70,8 +70,8 @@ public class HeroMovingByKey : MonoBehaviour {
             
             if (_playerEnitity != null)
             {
-                //切换成移动状态 因为每一帧都会切换成run状态，所有设置成不循环
-                _playerEnitity.changeStateByIndex(PlayerStateEnum.RUN, 1.0f, false);
+                //切换成移动状态
+                _playerEnitity.changeStateByIndex(PlayerStateEnum.RUN, 1.0f, true);
             }
         }
         else
