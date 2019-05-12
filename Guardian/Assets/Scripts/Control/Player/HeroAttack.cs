@@ -63,7 +63,7 @@ public class HeroAttack : MonoBehaviour {
         print(GetType() + "/heroNormalAttack Attack");
         if (_playerEnitity != null)
         {
-            _playerEnitity.changeStateByIndex(PlayerStateEnum.NORMALATTACK, 1.0f, false);
+            _playerEnitity.changeStateByIndex(PlayerStateEnum.NORMALATTACK, 2.0f, false);
             startResetIdle(PlayerStateEnum.NORMALATTACK);
             _playerEnitity.AddComobIndex();
         }

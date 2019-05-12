@@ -220,7 +220,7 @@ public class PlayerEnitity:BaseEnitity  {
         {
             if (state.name == name)
             {
-                time = state.clip.length;
+                time = state.clip.length/state.speed;
                 break;
             }
         
