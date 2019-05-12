@@ -19,6 +19,9 @@ public class BaseEnitity  {
 
     public GameObject _rootObj;
 
+    public bool isMove = false;
+    public float moveSpeed = 10.0f;
+
     public BaseEnitity()
     {
         _id = GlobalParams.gameObjId;

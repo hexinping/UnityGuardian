@@ -28,7 +28,7 @@ public class HeroMovingByET : MonoBehaviour {
 
     private Animation _animation;
 
-    private float _speed = 10.0f;
+    //private float _speed = 10.0f;
 
     private CharacterController _CC;
 
@@ -108,7 +108,7 @@ public class HeroMovingByET : MonoBehaviour {
              transform.LookAt(new Vector3(transform.position.x - joyPositionX, transform.position.y, transform.position.z - joyPositionY));
              //移动玩家的位置（按朝向位置移动）  
              //transform.Translate(Vector3.forward * Time.deltaTime * _speed);
-             Vector3 movement = transform.forward * Time.deltaTime * _speed;
+             Vector3 movement = transform.forward * Time.deltaTime * _playerEnitity.moveSpeed;
 
              //添加模拟重力
              movement.y -= _gravity;

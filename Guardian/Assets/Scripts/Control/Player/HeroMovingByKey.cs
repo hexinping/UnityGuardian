@@ -22,7 +22,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HeroMovingByKey : MonoBehaviour {
-    public float speed = 8.0f;
+    //public float speed = 8.0f;
 
     private CharacterController _CC;
     private float _gravity = 1.0f;
@@ -62,12 +62,12 @@ public class HeroMovingByKey : MonoBehaviour {
             Vector3 targetDir = new Vector3(h, 0, v);
             transform.LookAt(-targetDir + transform.position);
 
-            Vector3 movement = transform.forward * Time.deltaTime * speed;
+            Vector3 movement = transform.forward * Time.deltaTime * _playerEnitity.moveSpeed;
 
             //添加模拟重力
             movement.y -= _gravity;
             _CC.Move(movement);
-
+            
             if (_playerEnitity != null)
             {
                 //切换成移动状态 因为每一帧都会切换成run状态，所有设置成不循环
@@ -76,7 +76,7 @@ public class HeroMovingByKey : MonoBehaviour {
         }
         else
         {
-            if (_playerEnitity != null)
+            if (_playerEnitity != null && _playerEnitity.isMove)
             {
                 //切换成IDLE状态
                 _playerEnitity.changeStateByIndex(PlayerStateEnum.IDLE, 1.0f, true);

@@ -29,11 +29,16 @@ public class PlayerEnitity:BaseEnitity  {
         BaseState playerRunState = new PlayerRunState(this);
         BaseState playerAttackState = new PlayerAttackState(this);
         BaseState playerDeadState = new PlayerDeadState(this);
+        BaseState playerMagicTrickAState = new PlayerMagicTrickAState(this);
+        BaseState playerMagicTrickBState = new PlayerMagicTrickBState(this);
 
         _stateList.Add(playerIdleState);
         _stateList.Add(playerRunState);
-        _stateList.Add(playerAttackState);
         _stateList.Add(playerDeadState);
+
+        _stateList.Add(playerAttackState);
+        _stateList.Add(playerMagicTrickAState);
+        _stateList.Add(playerMagicTrickBState);
 
         //状态机设置
         //changeState(playerIdleState);

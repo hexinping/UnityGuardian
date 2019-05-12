@@ -7,9 +7,9 @@ public enum PlayerStateEnum
     IDLE                    = 0,       //待机
     RUN                     = 1,       //移动
     DEAD                    = 2,       //死亡
-    NORMALATTACK            = 3,       //普通攻击 （3个攻击动作，下一个动作起始下标为6）
-    MAGICTRICKA             = 6,       //普通技能
-    MAGICTRICKB             = 7,       //大招技能
+    NORMALATTACK            = 3,       //普通攻击 
+    MAGICTRICKA             = 4,       //普通技能
+    MAGICTRICKB             = 5,       //大招技能
 }
 
 
@@ -96,6 +96,7 @@ public class PlayerRunState : PlayerState
     override public void enter(params object[] values)
     {
         base.enter(values);
+        _enitity.isMove = true;
 
     }
 
@@ -107,7 +108,7 @@ public class PlayerRunState : PlayerState
 
     override public void exit(params object[] values)
     {
-
+        _enitity.isMove = false;
     }
 
 

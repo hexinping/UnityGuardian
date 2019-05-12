@@ -24,6 +24,7 @@ using UnityEngine.UI;
 public class HeroAttackByKey : MonoBehaviour {
 
     private PlayerEnitity _playerEnitity;
+    private HeroAttack _attack;
 
     //利用event 进行多播委托
     private static event HeroAttackInputHandle _heroAttackInputHandle;
@@ -40,40 +41,24 @@ public class HeroAttackByKey : MonoBehaviour {
 
     void heroAttackInputByKey(PlayerStateEnum stateEnum)
     {
+        _attack = this.GetComponent<HeroAttack>();
+        if (_attack == null) return;
         switch (stateEnum)
         {
             case PlayerStateEnum.NORMALATTACK:
-                heroNormalAttack();
+                _attack.heroNormalAttack();
                 break;
             case PlayerStateEnum.MAGICTRICKA:
-                heroMagicTrickA();
+                _attack.heroMagicTrickA();
                 break;
             case PlayerStateEnum.MAGICTRICKB:
-                heroMagicTrickB();
+                _attack.heroMagicTrickB();
                 break;
             default:
                 break;
         }
     }
 
-    void heroNormalAttack()
-    {
-        //普通攻击
-        //多个攻击动作区分或者整合 todo
-        print(GetType() + "/heroNormalAttack Attack");
-    }
-
-    void heroMagicTrickA()
-    {
-        //普通技能
-        print(GetType() + "/heroMagicTrickA MagicTrickA");
-    }
-
-    void heroMagicTrickB()
-    {
-        //大招技能
-        print(GetType() + "/heroMagicTrickB MagicTrickB");
-    }
 
 	// Update is called once per frame
 	void Update () {
