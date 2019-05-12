@@ -60,7 +60,7 @@ public class HeroAttack : MonoBehaviour {
         }
         //普通攻击
         //多个攻击动作区分或者整合 todo
-        print(GetType() + "/heroNormalAttack Attack");
+        //print(GetType() + "/heroNormalAttack Attack");
         if (_playerEnitity != null)
         {
             _playerEnitity.changeStateByIndex(PlayerStateEnum.NORMALATTACK, 2.0f, false);
@@ -77,10 +77,10 @@ public class HeroAttack : MonoBehaviour {
             isSingle = true;
         }
         //普通技能
-        print(GetType() + "/heroMagicTrickA MagicTrickA");
+        //print(GetType() + "/heroMagicTrickA MagicTrickA");
         if (_playerEnitity != null)
         {
-            _playerEnitity.changeStateByIndex(PlayerStateEnum.MAGICTRICKA, 1.0f, false);
+            _playerEnitity.changeStateByIndex(PlayerStateEnum.MAGICTRICKA, 2.0f, false);
             startResetIdle(PlayerStateEnum.MAGICTRICKA);
         }
     }
@@ -93,10 +93,10 @@ public class HeroAttack : MonoBehaviour {
             isSingle = true;
         }
         //大招技能
-        print(GetType() + "/heroMagicTrickB MagicTrickB");
+        //print(GetType() + "/heroMagicTrickB MagicTrickB");
         if (_playerEnitity != null)
         {
-            _playerEnitity.changeStateByIndex(PlayerStateEnum.MAGICTRICKB, 1.0f, false);
+            _playerEnitity.changeStateByIndex(PlayerStateEnum.MAGICTRICKB, 2.0f, false);
             startResetIdle(PlayerStateEnum.MAGICTRICKB);
            
         }

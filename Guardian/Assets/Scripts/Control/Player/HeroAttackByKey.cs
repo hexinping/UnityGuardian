@@ -65,7 +65,10 @@ public class HeroAttackByKey : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
+        if (_playerEnitity != null && _playerEnitity.isMove)
+        {
+            return;
+        }
         if (Input.GetButton(GlobalParams.NormalAttack))
         {
             _heroAttackInputHandle(PlayerStateEnum.NORMALATTACK);

@@ -104,6 +104,13 @@ public class LevelOneView : BaseView {
         _cameFollow.setHeight(5.0f);
         _cameFollow.setDistance(10.0f);
 
+        //测试索敌代码
+        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        cube.name = "EnimyTest";
+        cube.tag = "Enimy";
+        cube.transform.parent = _sceneRoleNode.transform;
+        cube.transform.position = _swordsManObj.transform.position + new Vector3(0.0f, 0.0f, 2.0f);
+
         yield return null;
 
     }
