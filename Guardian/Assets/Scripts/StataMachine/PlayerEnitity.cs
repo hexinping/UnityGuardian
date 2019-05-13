@@ -20,7 +20,7 @@ public class PlayerEnitity:BaseEnitity  {
 
     private int _nomarlAttackComobIndex = 0;  //组合动作的序号
 
-   
+    private Transform _playerTransform;
     public PlayerEnitity()
     {
         _mode = new PlayerMode();
@@ -61,7 +61,8 @@ public class PlayerEnitity:BaseEnitity  {
             _gameObject = getGameObject(_mode._file, "GreateWarrior", _rootObj, Vector3.zero);
             _gameObject.transform.localScale = new Vector3(30.0f, 30.0f, 30.0f);
             _gameObject.transform.localPosition = new Vector3(76.9f, -13.02f, -48.27f);
-    
+
+            _playerTransform = _gameObject.transform;
 
         }
 
@@ -253,7 +254,8 @@ public class PlayerEnitity:BaseEnitity  {
     {
         if (attackTarget != null)
         {
-          _gameObject.transform.LookAt(attackTarget.transform);
+          //_gameObject.transform.LookAt(attackTarget.transform);
+           _playerTransform.rotation = Quaternion.Slerp(_playerTransform.rotation, Quaternion.LookRotation(attackTarget.transform.position - _playerTransform.position),1.0f);
         }
     }
 
