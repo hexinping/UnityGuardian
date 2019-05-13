@@ -17,7 +17,8 @@ public class BaseEnitity  {
 
     public BaseMode _mode;
 
-    public GameObject _rootObj;
+    public GameObject _rootObj;      //父节点
+    public GameObject _gameObject;   //自身节点
 
     public bool isMove = false;
     public float moveSpeed = 10.0f;
@@ -26,9 +27,8 @@ public class BaseEnitity  {
 
     public BaseView rootView;
 
-    //先以gameObject代替
-    public GameObject moveTarget;
-    public GameObject attackTarget;
+    public BaseEnitity moveTarget;
+    public BaseEnitity attackTarget;
 
     public BaseEnitity()
     {

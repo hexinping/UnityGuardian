@@ -46,14 +46,14 @@ public class LevelOneView : BaseView {
         
      */
 
-    private List<GameObject> _listEnimy;
+    private List<BaseEnitity> _listEnimy;
   
     public void Awake()
     {
         base.Awake();
 
         _enitityDic = new Dictionary<int, BaseEnitity>();
-        _listEnimy = new List<GameObject>();
+        _listEnimy = new List<BaseEnitity>();
         _msgDispatcher = MessageDispatcher.getInstance();
 
         GameObject rawImage  = gameObject.transform.Find("Canvas/RawImage").gameObject;
@@ -117,12 +117,12 @@ public class LevelOneView : BaseView {
         _cameFollow.setDistance(10.0f);
 
         //测试索敌代码
-        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        cube.name = "EnimyTest";
-        cube.tag = "Enimy";
-        cube.transform.parent = _sceneRoleNode.transform;
-        cube.transform.position = _swordsManObj.transform.position + new Vector3(0.0f, 0.0f, 2.0f);
-        _listEnimy.Add(cube);
+        EnimyEnitity enimy = new EnimyEnitity();
+        enimy.setRootObj(_sceneRoleNode);
+        enimy.setRootView(this);
+        enimy.setPlayerEnitity(enitity);
+        enimy.initGameObject();
+        _listEnimy.Add(enimy);
         yield return null;
 
     }
@@ -170,16 +170,17 @@ public class LevelOneView : BaseView {
             GameObject playerGameObject = _playerEnitity._gameObject;
             Vector3 playerPos = playerGameObject.transform.position;
             float minDis = 1000.0f;
-            foreach(GameObject enimy in _listEnimy)
+            foreach (BaseEnitity enimy in _listEnimy)
             {
-                Vector3 enimyPos = enimy.transform.position;
+                GameObject obj = enimy._gameObject;
+                Vector3 enimyPos = obj.transform.position;
                 float dis = (playerPos - enimyPos).sqrMagnitude;  //距离的平方
                 if (dis <= 100)  //搜索范围
                 {
                     //找到搜索范围内最近的敌人
                     if (dis < minDis)
                     {
-                        minDis = minDis;
+                        minDis = dis;
                         _playerEnitity.attackTarget = enimy;
                     }
                 }

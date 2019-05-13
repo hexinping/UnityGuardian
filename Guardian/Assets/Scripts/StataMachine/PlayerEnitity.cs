@@ -8,9 +8,7 @@ public class PlayerEnitity:BaseEnitity  {
 
 
     public PlayerMode _mode;
-    //private GameObject _rootObj;
-    public GameObject _gameObject;
-
+    
     private List<string> _animationNameList;
     private List<string> _comobAnimationNameList; //组合动作
 
@@ -255,7 +253,8 @@ public class PlayerEnitity:BaseEnitity  {
         if (attackTarget != null)
         {
           //_gameObject.transform.LookAt(attackTarget.transform);
-           _playerTransform.rotation = Quaternion.Slerp(_playerTransform.rotation, Quaternion.LookRotation(attackTarget.transform.position - _playerTransform.position),1.0f);
+            GameObject tarObj = attackTarget._gameObject;
+            _playerTransform.rotation = Quaternion.Slerp(_playerTransform.rotation, Quaternion.LookRotation(tarObj.transform.position - _playerTransform.position), 1.0f);
         }
     }
 
