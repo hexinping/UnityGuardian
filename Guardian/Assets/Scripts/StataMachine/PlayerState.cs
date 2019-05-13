@@ -50,9 +50,7 @@ public class PlayerIdleState : PlayerState
         Debug.Log("idle enter=============");
         //切换动作
         base.enter(values);
-
-        PlayerEnitity enitity = (PlayerEnitity)_enitity;
-        enitity.faceToTarget();
+        _enitity.faceToTarget();
         
         
     }
@@ -137,6 +135,11 @@ public class PlayerAttackState : PlayerState
         Debug.Log("attack enter=============");
         base.enter(values);
         _enitity.isAttacking = true;
+        if(_enitity.attackTarget != null)
+        {
+            _enitity.attackTargetHurt(_enitity.attackTarget);
+        }
+        
 
     }
 

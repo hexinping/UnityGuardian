@@ -30,11 +30,13 @@ public class PlayerModel : BaseModel
     public string name;
     public int level;
 
+
     public PlayerModel()
     {
         playerId = "";
         name = "";
         level = 1;
+ 
     }
 
     public void setName(string playerName)

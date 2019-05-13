@@ -165,30 +165,31 @@ public class LevelOneView : BaseView {
 
     private void playerFindTarget()
     {
+        _playerEnitity.attackTarget = null;
         if (_listEnimy != null && _listEnimy.Count > 0)
         { 
             GameObject playerGameObject = _playerEnitity._gameObject;
             Vector3 playerPos = playerGameObject.transform.position;
             float minDis = 1000.0f;
-            foreach (BaseEnitity enimy in _listEnimy)
+            for (int i = 0; i < _listEnimy.Count; i++ )
             {
-                GameObject obj = enimy._gameObject;
-                Vector3 enimyPos = obj.transform.position;
-                float dis = (playerPos - enimyPos).sqrMagnitude;  //距离的平方
-                if (dis <= 100)  //搜索范围
+                BaseEnitity enimy = _listEnimy[i];
+                if (!enimy.isDead)
                 {
-                    //找到搜索范围内最近的敌人
-                    if (dis < minDis)
+                    GameObject obj = enimy._gameObject;
+                    Vector3 enimyPos = obj.transform.position;
+                    float dis = (playerPos - enimyPos).sqrMagnitude;  //距离的平方
+                    if (dis <= 100)  //搜索范围
                     {
-                        minDis = dis;
-                        _playerEnitity.attackTarget = enimy;
+                        //找到搜索范围内最近的敌人
+                        if (dis < minDis)
+                        {
+                            minDis = dis;
+                            _playerEnitity.attackTarget = enimy;
+                        }
                     }
                 }
-                else
-                {
-                    _playerEnitity.attackTarget = null;
-                }
-                
+               
             }
         }
     } 
@@ -198,6 +199,18 @@ public class LevelOneView : BaseView {
         base.OnDestory();
         if (_scene)
             Destroy(_scene);
+    }
+
+    public void removeFromEnimyList(BaseEnitity tarEnimiy)
+    {
+        if (tarEnimiy != null)
+        {
+            if (_listEnimy.Contains(tarEnimiy))
+            {
+                _listEnimy.Remove(tarEnimiy);
+            }
+
+        }
     }
 	
 }

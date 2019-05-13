@@ -368,12 +368,12 @@
     <Compile Include="Assets\Scripts\StataMachine\BaseMode.cs" />
     <Compile Include="Assets\Scripts\StataMachine\BaseState.cs" />
     <Compile Include="Assets\Scripts\StataMachine\Enimiy\EnimyEnitity.cs" />
-    <Compile Include="Assets\Scripts\StataMachine\Enimiy\EnimyMode.cs" />
+    <Compile Include="Assets\Scripts\StataMachine\Enimiy\EnimyEnitiyMode.cs" />
     <Compile Include="Assets\Scripts\StataMachine\Message.cs" />
     <Compile Include="Assets\Scripts\StataMachine\MessageDispatcher.cs" />
     <Compile Include="Assets\Scripts\StataMachine\PlayerEnitity.cs" />
+    <Compile Include="Assets\Scripts\StataMachine\PlayerEnitityMode.cs" />
     <Compile Include="Assets\Scripts\StataMachine\PlayerEvent.cs" />
-    <Compile Include="Assets\Scripts\StataMachine\PlayerMode.cs" />
     <Compile Include="Assets\Scripts\StataMachine\PlayerState.cs" />
     <Compile Include="Assets\Scripts\StataMachine\StartGame.cs" />
     <Compile Include="Assets\Scripts\StataMachine\StateMachine.cs" />

@@ -24,11 +24,16 @@ public class BaseEnitity  {
     public float moveSpeed = 10.0f;
 
     public bool isAttacking = false;
+    public bool isDead = false;
 
     public BaseView rootView;
 
     public BaseEnitity moveTarget;
     public BaseEnitity attackTarget;
+
+    public float maxHp;
+    public float hp;
+    public float atk;
 
     public BaseEnitity()
     {
@@ -97,5 +102,34 @@ public class BaseEnitity  {
         {
             _stateMachine.changeState(state, isCheckSameState, values);
         }
+    }
+
+     virtual public void faceToTarget()
+    {
+        
+    }
+
+    public void attackTargetHurt(BaseEnitity target)
+    {
+        Debug.Log("attackTargetHurt=====attackerID:"+this._id + "targetID:"+target._id);
+        target.beDamage(this.atk);
+
+    }
+    public void beDamage(float damamge)
+    {
+        Debug.Log("受到伤害 id:" + this._id );
+        damamge = Mathf.Abs(damamge);
+        hp = Mathf.Max(0, hp - damamge);
+
+        if (hp <= 0)
+        {
+            isDead = true;
+            onDestory();
+        }
+    }
+
+    virtual public void onDestory()
+    {
+
     }
 }

@@ -5,14 +5,17 @@ using UnityEngine;
 public class EnimyEnitity : BaseEnitity {
 
 
-    public EnimyMode _mode;
+    public EnimyEnitiyMode _mode;
 
     private PlayerEnitity _playerEnitiy;
     public EnimyEnitity()
     {
-        _mode = new EnimyMode();
+        _mode = new EnimyEnitiyMode();
 
-      
+        maxHp = _mode.maxHp;
+        hp = maxHp;
+        atk = _mode.atk;
+        
 
         //状态机todo
     }
@@ -40,6 +43,13 @@ public class EnimyEnitity : BaseEnitity {
             _gameObject = cube;
 
         }
+    }
+
+    override public void onDestory()
+    {
+        GameObject.Destroy(_gameObject);
+        LevelOneView view = (LevelOneView)rootView;
+        view.removeFromEnimyList(this);
     }
 
 }

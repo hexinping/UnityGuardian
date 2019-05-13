@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerEnitity:BaseEnitity  {
 
 
-    public PlayerMode _mode;
+    public PlayerEnitityMode _mode;
     
     private List<string> _animationNameList;
     private List<string> _comobAnimationNameList; //组合动作
@@ -21,8 +21,11 @@ public class PlayerEnitity:BaseEnitity  {
     private Transform _playerTransform;
     public PlayerEnitity()
     {
-        _mode = new PlayerMode();
-        _mode._file = "Models/SwordsMan/GreateWarrior";
+        _mode = new PlayerEnitityMode();
+
+        atk = _mode.atk;
+        maxHp = _mode.maxHp;
+        hp = maxHp;
 
         _stateList = new List<BaseState>();
 
@@ -56,7 +59,7 @@ public class PlayerEnitity:BaseEnitity  {
         //_rootObj = GameObject.Find("_Manager/_ViewManager/_Scene/Role");
         if (_rootObj)
         {
-            _gameObject = getGameObject(_mode._file, "GreateWarrior", _rootObj, Vector3.zero);
+            _gameObject = getGameObject(_mode.file, "GreateWarrior", _rootObj, Vector3.zero);
             _gameObject.transform.localScale = new Vector3(30.0f, 30.0f, 30.0f);
             _gameObject.transform.localPosition = new Vector3(76.9f, -13.02f, -48.27f);
 
@@ -257,6 +260,5 @@ public class PlayerEnitity:BaseEnitity  {
             _playerTransform.rotation = Quaternion.Slerp(_playerTransform.rotation, Quaternion.LookRotation(tarObj.transform.position - _playerTransform.position), 1.0f);
         }
     }
-
 
 }
