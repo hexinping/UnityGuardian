@@ -20,7 +20,7 @@ public class PlayerEnitity:BaseEnitity  {
 
     private int _nomarlAttackComobIndex = 0;  //组合动作的序号
 
-
+   
     public PlayerEnitity()
     {
         _mode = new PlayerMode();
@@ -247,6 +247,14 @@ public class PlayerEnitity:BaseEnitity  {
         _nomarlAttackComobIndex--;
         int count = _comobAnimationNameList.Count;
         if (_nomarlAttackComobIndex <= 0) _nomarlAttackComobIndex = count -1;
+    }
+
+    public  void faceToTarget()
+    {
+        if (attackTarget != null)
+        {
+          _gameObject.transform.LookAt(attackTarget.transform);
+        }
     }
 
 

@@ -50,6 +50,9 @@ public class PlayerIdleState : PlayerState
         Debug.Log("idle enter=============");
         //切换动作
         base.enter(values);
+
+        PlayerEnitity enitity = (PlayerEnitity)_enitity;
+        enitity.faceToTarget();
         
         
     }
@@ -104,7 +107,8 @@ public class PlayerRunState : PlayerState
 
     override public void excute(params object[] values)
     {
-       
+
+
     }
 
 

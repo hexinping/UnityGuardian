@@ -37,12 +37,23 @@ public class LevelOneView : BaseView {
     private GameObject _easyTouchObj;
 
     private PlayerEnitity _playerEnitity;
+
+    //敌人相关
+    /*
+        容器存放
+     *  寻找一定范围内的敌人，寻找最近的敌人，面向敌人
+     *  移动时按照条件寻找符合搜索条件的敌人，当停止移动时若存在符合条件的敌人就面向敌人
+        
+     */
+
+    private List<GameObject> _listEnimy;
   
     public void Awake()
     {
         base.Awake();
 
         _enitityDic = new Dictionary<int, BaseEnitity>();
+        _listEnimy = new List<GameObject>();
         _msgDispatcher = MessageDispatcher.getInstance();
 
         GameObject rawImage  = gameObject.transform.Find("Canvas/RawImage").gameObject;
@@ -79,6 +90,7 @@ public class LevelOneView : BaseView {
         _enitityDic.Add(enitity._id, enitity);
         _playerEnitity = enitity;
         enitity.setRootObj(_sceneRoleNode);
+        enitity.setRootView(this);
 
         //初始化显示对象
         enitity.initGameObject();
@@ -110,7 +122,7 @@ public class LevelOneView : BaseView {
         cube.tag = "Enimy";
         cube.transform.parent = _sceneRoleNode.transform;
         cube.transform.position = _swordsManObj.transform.position + new Vector3(0.0f, 0.0f, 2.0f);
-
+        _listEnimy.Add(cube);
         yield return null;
 
     }
@@ -129,6 +141,9 @@ public class LevelOneView : BaseView {
         GlobalParams.frameCount++;
         GlobalParams.totalTime += Time.deltaTime;
         {
+
+            playerFindTarget();
+
             foreach (KeyValuePair<int, BaseEnitity> obj in _enitityDic)
             {
 
@@ -136,6 +151,7 @@ public class LevelOneView : BaseView {
                 BaseEnitity enitity = obj.Value;
                 enitity._stateMachine.update(GlobalParams.interval);
             }
+
 
             //消息发送
             _msgDispatcher.dispatchDelayedMessages();
@@ -146,6 +162,35 @@ public class LevelOneView : BaseView {
         }
 
     }
+
+    private void playerFindTarget()
+    {
+        if (_listEnimy != null && _listEnimy.Count > 0)
+        { 
+            GameObject playerGameObject = _playerEnitity._gameObject;
+            Vector3 playerPos = playerGameObject.transform.position;
+            float minDis = 1000.0f;
+            foreach(GameObject enimy in _listEnimy)
+            {
+                Vector3 enimyPos = enimy.transform.position;
+                float dis = (playerPos - enimyPos).sqrMagnitude;  //距离的平方
+                if (dis <= 100)  //搜索范围
+                {
+                    //找到搜索范围内最近的敌人
+                    if (dis < minDis)
+                    {
+                        minDis = minDis;
+                        _playerEnitity.attackTarget = enimy;
+                    }
+                }
+                else
+                {
+                    _playerEnitity.attackTarget = null;
+                }
+                
+            }
+        }
+    } 
   
     void OnDestroy()
     {

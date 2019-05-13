@@ -24,6 +24,12 @@ public class BaseEnitity  {
 
     public bool isAttacking = false;
 
+    public BaseView rootView;
+
+    //先以gameObject代替
+    public GameObject moveTarget;
+    public GameObject attackTarget;
+
     public BaseEnitity()
     {
         _id = GlobalParams.gameObjId;
@@ -40,6 +46,12 @@ public class BaseEnitity  {
     public void setRootObj(GameObject rootObj)
     {
         _rootObj = rootObj;
+    }
+
+    public void setRootView(BaseView view)
+    {
+        rootView = view;
+        
     }
 
     //初始化数据
