@@ -1,0 +1,211 @@
+fileFormatVersion: 2
+guid: 18d0c432eec48c34b88cb43cbf105dfe
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: BackpackBalckBG
+    21300002: BackpackBG1
+    21300004: ET_In
+    21300006: ET_Out
+    21300008: ET_Out2
+    21300010: NPCBW_1
+    21300012: NPCBW_2
+    21300014: NPCTrue_1
+    21300016: NPCTrue_2
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BackpackBalckBG
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1225
+        width: 487
+        height: 254
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: BackpackBG1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 815
+        width: 294
+        height: 408
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ET_In
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 343
+        width: 76
+        height: 76
+      alignment: 9
+      pivot: {x: 0.5065789, y: 0.49342105}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ET_Out
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 2
+        width: 201
+        height: 202
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ET_Out2
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 206
+        width: 208
+        height: 213
+      alignment: 9
+      pivot: {x: 0.49519232, y: 0.48826292}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: NPCBW_1
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 823
+        width: 206
+        height: 400
+      alignment: 9
+      pivot: {x: 0.46601942, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: NPCBW_2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 417
+        width: 208
+        height: 396
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.5050505}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: NPCTrue_1
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 421
+        width: 206
+        height: 400
+      alignment: 9
+      pivot: {x: 0.46601942, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: NPCTrue_2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 19
+        width: 208
+        height: 396
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.5050505}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

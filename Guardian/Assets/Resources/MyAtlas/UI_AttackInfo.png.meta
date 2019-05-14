@@ -1,0 +1,451 @@
+fileFormatVersion: 2
+guid: 22690ca51bddbd647b7595449746a874
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: empty
+    21300002: MagicATK1
+    21300004: MagicATK1_gray
+    21300006: MagicATK1_small
+    21300008: MagicATK2
+    21300010: MagicATK2_gray
+    21300012: MagicATK2_small
+    21300014: MagicATK3
+    21300016: MagicATK3_gray
+    21300018: MagicATK3_small
+    21300020: MagicATK4
+    21300022: MagicATK4_gray
+    21300024: MagicATK4_small
+    21300026: SwordHeroATK1
+    21300028: SwordHeroATK1_gray
+    21300030: SwordHeroATK1_small
+    21300032: SwordHeroATK2
+    21300034: SwordHeroATK2_gray
+    21300036: SwordHeroATK2_small
+    21300038: SwordHeroATK3
+    21300040: SwordHeroATK3_gray
+    21300042: SwordHeroATK3_small
+    21300044: SwordHeroATK4
+    21300046: SwordHeroATK4_gray
+    21300048: SwordHeroATK4_small
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: empty
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 216
+        width: 89
+        height: 95
+      alignment: 9
+      pivot: {x: 0.49438202, y: 0.48421052}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MagicATK1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 415
+        width: 100
+        height: 96
+      alignment: 9
+      pivot: {x: 0.535, y: 0.47916666}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MagicATK1_gray
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 415
+        width: 100
+        height: 96
+      alignment: 9
+      pivot: {x: 0.535, y: 0.47916666}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MagicATK1_small
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 120
+        width: 86
+        height: 95
+      alignment: 9
+      pivot: {x: 0.50581396, y: 0.4631579}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MagicATK2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 127
+        width: 89
+        height: 95
+      alignment: 9
+      pivot: {x: 0.49438202, y: 0.48421052}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MagicATK2_gray
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 219
+        width: 89
+        height: 95
+      alignment: 9
+      pivot: {x: 0.49438202, y: 0.48421052}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MagicATK2_small
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 30
+        width: 85
+        height: 88
+      alignment: 9
+      pivot: {x: 0.49411765, y: 0.5113636}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MagicATK3
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 123
+        width: 89
+        height: 95
+      alignment: 9
+      pivot: {x: 0.49438202, y: 0.48421052}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MagicATK3_gray
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 30
+        width: 89
+        height: 95
+      alignment: 9
+      pivot: {x: 0.49438202, y: 0.48421052}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MagicATK3_small
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 23
+        width: 85
+        height: 95
+      alignment: 9
+      pivot: {x: 0.5176471, y: 0.48421052}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MagicATK4
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 217
+        width: 89
+        height: 95
+      alignment: 9
+      pivot: {x: 0.49438202, y: 0.47368422}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MagicATK4_gray
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 122
+        width: 89
+        height: 95
+      alignment: 9
+      pivot: {x: 0.49438202, y: 0.47368422}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MagicATK4_small
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 412
+        width: 97
+        height: 99
+      alignment: 9
+      pivot: {x: 0.5051546, y: 0.5050505}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SwordHeroATK1
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 314
+        width: 94
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5212766, y: 0.48958334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SwordHeroATK1_gray
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 313
+        width: 94
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5212766, y: 0.48958334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SwordHeroATK1_small
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 129
+        width: 82
+        height: 85
+      alignment: 9
+      pivot: {x: 0.4878049, y: 0.5058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SwordHeroATK2
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 26
+        width: 89
+        height: 95
+      alignment: 9
+      pivot: {x: 0.49438202, y: 0.48421052}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SwordHeroATK2_gray
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 25
+        width: 89
+        height: 95
+      alignment: 9
+      pivot: {x: 0.49438202, y: 0.48421052}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SwordHeroATK2_small
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 415
+        width: 99
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5050505, y: 0.47916666}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SwordHeroATK3
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 316
+        width: 95
+        height: 97
+      alignment: 9
+      pivot: {x: 0.5263158, y: 0.48453608}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SwordHeroATK3_gray
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 316
+        width: 95
+        height: 97
+      alignment: 9
+      pivot: {x: 0.5263158, y: 0.48453608}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SwordHeroATK3_small
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 224
+        width: 90
+        height: 87
+      alignment: 9
+      pivot: {x: 0.53333336, y: 0.51724136}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SwordHeroATK4
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 411
+        width: 95
+        height: 100
+      alignment: 9
+      pivot: {x: 0.5263158, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SwordHeroATK4_gray
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 313
+        width: 95
+        height: 100
+      alignment: 9
+      pivot: {x: 0.5263158, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SwordHeroATK4_small
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 220
+        width: 91
+        height: 94
+      alignment: 9
+      pivot: {x: 0.53846157, y: 0.4787234}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

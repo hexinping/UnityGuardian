@@ -1,0 +1,286 @@
+fileFormatVersion: 2
+guid: b71c579bc392c3347963cd0221645342
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: a2
+    21300002: a3
+    21300004: a4
+    21300006: a7
+    21300008: a8
+    21300010: a15
+    21300012: a23
+    21300014: a24
+    21300016: a27
+    21300018: a28
+    21300020: a35
+    21300022: a36
+    21300024: a45
+    21300026: a46
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: a2
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 240
+        width: 33
+        height: 51
+      alignment: 9
+      pivot: {x: 0.46969697, y: 0.4509804}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a3
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 187
+        width: 31
+        height: 51
+      alignment: 9
+      pivot: {x: 0.5645161, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a4
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 135
+        width: 36
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.44}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a7
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 29
+        width: 37
+        height: 52
+      alignment: 9
+      pivot: {x: 0.45945945, y: 0.47115386}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a8
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 37
+        width: 37
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a15
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 202
+        width: 87
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a23
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 149
+        width: 23
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4318182}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a24
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 125
+        width: 23
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5652174, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a27
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 135
+        width: 56
+        height: 65
+      alignment: 9
+      pivot: {x: 0.51785713, y: 0.4923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a28
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 88
+        width: 53
+        height: 45
+      alignment: 9
+      pivot: {x: 0.49056605, y: 0.62222224}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a35
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 83
+        width: 39
+        height: 50
+      alignment: 9
+      pivot: {x: 0.525641, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a36
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 32
+        width: 36
+        height: 49
+      alignment: 9
+      pivot: {x: 0.44444445, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a45
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 173
+        width: 26
+        height: 27
+      alignment: 9
+      pivot: {x: 0.42307693, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a46
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 2
+        width: 36
+        height: 33
+      alignment: 9
+      pivot: {x: 0.4861111, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

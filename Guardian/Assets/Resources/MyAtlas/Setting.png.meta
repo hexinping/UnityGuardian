@@ -1,0 +1,436 @@
+fileFormatVersion: 2
+guid: fa3a68ad48277274580a390d2c9337ef
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: 00
+    21300002: 15
+    21300004: 16
+    21300006: 333
+    21300008: 555
+    21300010: 777
+    21300012: a01
+    21300014: a02
+    21300016: a19
+    21300018: a30
+    21300020: a31
+    21300022: a32
+    21300024: a33
+    21300026: a34
+    21300028: a50
+    21300030: a51
+    21300032: a52
+    21300034: a53
+    21300036: a54
+    21300038: a59
+    21300040: Info
+    21300042: skillbutton
+    21300044: windows1
+    21300046: windows2
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 00
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 506
+        width: 90
+        height: 125
+      alignment: 9
+      pivot: {x: 0.5, y: 0.504}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 15
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 24
+        width: 89
+        height: 80
+      alignment: 9
+      pivot: {x: 0.51123595, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 16
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 133
+        width: 121
+        height: 55
+      alignment: 9
+      pivot: {x: 0.4752066, y: 0.53636366}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 333
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 650
+        width: 48
+        height: 25
+      alignment: 9
+      pivot: {x: 0.4375, y: 0.44}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 555
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 469
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5285714, y: 0.47142857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 777
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 417
+        width: 17
+        height: 19
+      alignment: 9
+      pivot: {x: 0.5294118, y: 0.42105263}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a01
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 707
+        width: 74
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a02
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 436
+        width: 31
+        height: 31
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46774194}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a19
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 94
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5159575, y: 0.42857143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a30
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 506
+        width: 118
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5042373, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a31
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 190
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.495, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a32
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 213
+        width: 201
+        height: 22
+      alignment: 9
+      pivot: {x: 0.49751243, y: 0.45454547}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a33
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 655
+        width: 19
+        height: 20
+      alignment: 9
+      pivot: {x: 0.55263156, y: 0.525}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a34
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 633
+        width: 19
+        height: 20
+      alignment: 9
+      pivot: {x: 0.4473684, y: 0.525}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a50
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 29
+        width: 85
+        height: 75
+      alignment: 9
+      pivot: {x: 0.5, y: 0.50666666}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a51
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 677
+        width: 63
+        height: 28
+      alignment: 9
+      pivot: {x: 0.50793654, y: 0.48214287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a52
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 16
+        width: 110
+        height: 172
+      alignment: 9
+      pivot: {x: 0.5, y: 0.49709302}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a53
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 24
+        width: 95
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a54
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 524
+        width: 418
+        height: 136
+      alignment: 9
+      pivot: {x: 0.50119615, y: 0.5183824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: a59
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 662
+        width: 434
+        height: 73
+      alignment: 9
+      pivot: {x: 0.5046083, y: 0.5273973}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Info
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 106
+        width: 208
+        height: 330
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: skillbutton
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 25
+        width: 80
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: windows1
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 438
+        width: 230
+        height: 66
+      alignment: 9
+      pivot: {x: 0.50869566, y: 0.50757575}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: windows2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 237
+        width: 233
+        height: 285
+      alignment: 9
+      pivot: {x: 0.5064378, y: 0.48947367}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
