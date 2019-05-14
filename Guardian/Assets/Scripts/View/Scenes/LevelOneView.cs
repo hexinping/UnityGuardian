@@ -80,6 +80,13 @@ public class LevelOneView : BaseView {
 
         _easyTouchObj = GameObject.Find("_Environment").transform.Find("EasyTouch").gameObject;
         _easyTouchObj.SetActive(true);
+
+        GameObject playerInfo = GameObject.Find("PlayerInfo");
+        if (playerInfo != null)
+        {
+            setUICamera(playerInfo, "Canvas");
+        }
+        
         
 	}
     IEnumerator initSwordsManPlayersMode()
