@@ -15,7 +15,7 @@ public class BaseEnitity  {
 
     public StateMachine _stateMachine;
 
-    public BaseMode _mode;
+    //public BaseMode _mode;
 
     public GameObject _rootObj;      //父节点
     public GameObject _gameObject;   //自身节点
@@ -31,6 +31,8 @@ public class BaseEnitity  {
     public BaseEnitity moveTarget;
     public BaseEnitity attackTarget;
 
+    public Dictionary<string, object> _params;
+
     public BaseEnitity()
     {
         _id = GlobalParams.gameObjId;
@@ -42,6 +44,8 @@ public class BaseEnitity  {
 
         //注册消息机制
         MessageDispatcher.getInstance().registerEntity(this);
+
+        _params = new Dictionary<string,object>();
     }
 
     public void setRootObj(GameObject rootObj)
@@ -118,7 +122,8 @@ public class BaseEnitity  {
         damamge = Mathf.Abs(damamge);
         float curHp = getHpValue();
         curHp = Mathf.Max(0, curHp - damamge);
-        updateHp(curHp);
+        _params.Add(BaseMode.c_hp, curHp);
+        updateMode();
         if (curHp <= 0)
         {
             isDead = true;
@@ -127,72 +132,6 @@ public class BaseEnitity  {
     }
 
     virtual public void onDestory()
-    {
-
-    }
-
-
-    virtual public void updateHp(float value)
-    {
-        
-    }
-    virtual public void updateMaxHp(float value)
-    {
-
-    }
-
-    virtual public void updateAtk(float value)
-    {
-        
-    }
-
-    virtual public void updateMaxAtk(float value)
-    {
-
-    }
-
-
-    virtual public void updateMagic(float value)
-    {
-
-    }
-
-    virtual public void updateMaxMagic(float value)
-    {
-
-    }
-
-    virtual public void updateDefence(float value)
-    {
-
-    }
-
-    virtual public void updateMaxDefence(float value)
-    {
-
-    }
-
-    virtual public void updateDexterity(float value)
-    {
-
-    }
-
-    virtual public void updateMaxDexterity(float value)
-    {
-
-    }
-
-    virtual public void updateAtkByPro(float value)
-    {
-
-    }
-
-    virtual public void updateDefenceByPro(float value)
-    {
-
-    }
-
-    virtual public void updateDexterityByPro(float value)
     {
 
     }
@@ -215,6 +154,12 @@ public class BaseEnitity  {
     virtual public float getHpValue()
     {
         return 0;
+    }
+
+
+    virtual public void updateMode()
+    {
+        
     }
 
 

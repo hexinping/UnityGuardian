@@ -6,23 +6,6 @@ public class PlayerEnitityMode : BaseMode
 {
 
     public string file;
-
-    public float hp;
-    public float maxHp;
-    public float atk;  //攻击力
-    public float maxAtk;
-    public float magic; //魔法值
-    public float maxMagic;
-    public float defence; //防御力
-    public float maxDefence; 
-    public float dexterity; //敏捷度
-    public float maxDexterity;
-
-    public float atkByPro;          //道具攻击力
-    public float defenceByPro;      //道具防御力
-    public float dexterityByPro;    //道具敏捷度
-
-
     private PlayerManager _playerMgr;
 
 
@@ -61,74 +44,7 @@ public class PlayerEnitityMode : BaseMode
         return damage;
     }
 
-    public void updateHp(float fHp)
-    {
-        hp = fHp;
-    }
-
-    public void updateMaxHp(float fHp)
-    {
-        maxHp = fHp;
-    }
-
-    public void updateAtk(float fAtk)
-    {
-        atk = fAtk;
-    }
-
-    public void updateMaxAtk(float fAtk)
-    {
-        maxAtk = fAtk;
-    }
-
-    public void updateMagic(float fMagic)
-    {
-        magic = fMagic;
-    }
-
-    public void updateMaxMagic(float fMagic)
-    {
-        maxMagic = fMagic;
-    }
-
-    public void updateDefence(float fDefence)
-    {
-        defence = fDefence;
-    }
-
-    public void updateMaxDefence(float fDefence)
-    {
-        maxDefence = fDefence;
-    }
-
-    public void updateDexterity(float fDexterity)
-    {
-        dexterity = fDexterity;
-    }
-
-    public void updateMaxDexterity(float fDexterity)
-    {
-        maxDexterity = fDexterity;
-    }
-
-
-    public void updateAtkByPro(float fAtkByPro)
-    {
-        atkByPro = fAtkByPro;
-    }
-
-    public void updateDefenceByPro(float fDefenceByPro)
-    {
-        defenceByPro = fDefenceByPro;
-    }
-
-    public void updateDexterityByPro(float fDexterityByPro)
-    {
-        dexterityByPro = fDexterityByPro;
-    }
-
-
-
+  
 
     public float getAtkValue()
     {
@@ -142,10 +58,13 @@ public class PlayerEnitityMode : BaseMode
         return result;
     }
 
-    public float getHpValue()
+
+    public void update(Dictionary<string, object> values)
     {
-        float result = hp;
-        return result;
+        base.update(values);
+
+        //专有数据更新
+       
     }
 
 }

@@ -56,13 +56,6 @@ public class EnimyEnitity : BaseEnitity {
         return _mode.countDamage(target);
     }
 
-    override public void updateHp(float value)
-    {
-        if (_mode != null)
-        {
-            _mode.updateHp(value);
-        }
-    }
 
     override public float getAtkValue()
     {
@@ -77,6 +70,12 @@ public class EnimyEnitity : BaseEnitity {
     override public float getHpValue()
     {
         return _mode.getHpValue();
+    }
+
+    override public void updateMode()
+    {
+        _mode.update(_params);
+        _params.Clear();
     }
 
 

@@ -269,72 +269,6 @@ public class PlayerEnitity:BaseEnitity  {
         
     }
 
-    override public void updateHp(float value)
-    {
-        _mode.updateHp(value);
-    }
-
-
-    override public void updateMaxHp(float value)
-    {
-        _mode.updateMaxHp(value);
-    }
-
-    override public void updateAtk(float value)
-    {
-        _mode.updateAtk(value);
-    }
-
-    override public void updateMaxAtk(float value)
-    {
-        _mode.updateMaxAtk(value);
-    }
-
-    override public void updateMagic(float value)
-    {
-        _mode.updateMagic(value);
-    }
-
-    override public void updateMaxMagic(float value)
-    {
-        _mode.updateMaxMagic(value);
-    }
-
-    override public void updateDefence(float value)
-    {
-        _mode.updateDefence(value);
-    }
-
-    override public void updateMaxDefence(float value)
-    {
-        _mode.updateMaxDefence(value);
-    }
-
-    override public void updateDexterity(float value)
-    {
-        _mode.updateDexterity(value);
-    }
-
-    override public void updateMaxDexterity(float value)
-    {
-        _mode.updateMaxDexterity(value);
-    }
-
-    override public void updateAtkByPro(float value)
-    {
-        _mode.updateAtkByPro(value);
-    }
-
-    override public void updateDefenceByPro(float value)
-    {
-        _mode.updateDefenceByPro(value);
-    }
-
-    override public void updateDexterityByPro(float value)
-    {
-        _mode.updateDexterityByPro(value);
-    }
-
 
     override public float getAtkValue()
     {
@@ -349,6 +283,13 @@ public class PlayerEnitity:BaseEnitity  {
     override public float getHpValue()
     {
         return _mode.getHpValue();
+    }
+
+
+    override public void updateMode()
+    {
+        _mode.update(_params);
+        _params.Clear();
     }
 
 }

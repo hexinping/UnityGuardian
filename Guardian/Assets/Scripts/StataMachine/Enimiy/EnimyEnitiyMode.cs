@@ -4,19 +4,6 @@ using UnityEngine;
 
 public class EnimyEnitiyMode : BaseMode{
 
-    public float hp;
-    public float maxHp;
-    public float atk;  //攻击力
-    public float maxAtk;
-    public float defence; //防御力
-    public float maxDefence;
-    public float dexterity; //敏捷度
-    public float maxDexterity;
-
-    public float atkByPro;          //道具攻击力
-    public float defenceByPro;      //道具防御力
-    public float dexterityByPro;    //道具敏捷度
-
     public EnimyEnitiyMode()
     {
 
@@ -59,16 +46,15 @@ public class EnimyEnitiyMode : BaseMode{
         return result;
     }
 
-    public void updateHp(float fHp)
-    {
-        hp = fHp;
-    }
 
 
-    public float getHpValue()
+    public void update(Dictionary<string, object> values)
     {
-        float result = hp;
-        return result;
+        base.update(values);
+
+        //专有数据更新
+
     }
+
 
 }
