@@ -10,17 +10,16 @@ public class EnimyEnitity : BaseEnitity {
     private PlayerEnitity _playerEnitiy;
     public EnimyEnitity()
     {
-        _mode = new EnimyEnitiyMode();
-
-        maxHp = _mode.maxHp;
-        hp = maxHp;
-        atk = _mode.atk;
+        initDatas();
+      
         
-
         //状态机todo
     }
 
-
+    void initDatas()
+    {
+        _mode = new EnimyEnitiyMode();
+    }
     public void setPlayerEnitity(PlayerEnitity enitity)
     {
         _playerEnitiy = enitity;
@@ -51,5 +50,34 @@ public class EnimyEnitity : BaseEnitity {
         LevelOneView view = (LevelOneView)rootView;
         view.removeFromEnimyList(this);
     }
+
+    override public float countDamage(BaseEnitity target)
+    {
+        return _mode.countDamage(target);
+    }
+
+    override public void updateHp(float value)
+    {
+        if (_mode != null)
+        {
+            _mode.updateHp(value);
+        }
+    }
+
+    override public float getAtkValue()
+    {
+        return _mode.getAtkValue();
+    }
+
+    override public float getDefenceValue()
+    {
+        return _mode.getDefenceValue();
+    }
+
+    override public float getHpValue()
+    {
+        return _mode.getHpValue();
+    }
+
 
 }

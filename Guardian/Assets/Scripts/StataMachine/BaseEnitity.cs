@@ -31,10 +31,6 @@ public class BaseEnitity  {
     public BaseEnitity moveTarget;
     public BaseEnitity attackTarget;
 
-    public float maxHp;
-    public float hp;
-    public float atk;
-
     public BaseEnitity()
     {
         _id = GlobalParams.gameObjId;
@@ -111,17 +107,19 @@ public class BaseEnitity  {
 
     public void attackTargetHurt(BaseEnitity target)
     {
-        Debug.Log("attackTargetHurt=====attackerID:"+this._id + "targetID:"+target._id);
-        target.beDamage(this.atk);
+        //Debug.Log("attackTargetHurt=====attackerID:"+this._id + "targetID:"+target._id);
+        float damage = countDamage(target);
+        target.beDamage(damage);
 
     }
     public void beDamage(float damamge)
     {
-        Debug.Log("受到伤害 id:" + this._id );
+        //Debug.Log("受到伤害 id:" + this._id );
         damamge = Mathf.Abs(damamge);
-        hp = Mathf.Max(0, hp - damamge);
-
-        if (hp <= 0)
+        float curHp = getHpValue();
+        curHp = Mathf.Max(0, curHp - damamge);
+        updateHp(curHp);
+        if (curHp <= 0)
         {
             isDead = true;
             onDestory();
@@ -132,4 +130,93 @@ public class BaseEnitity  {
     {
 
     }
+
+
+    virtual public void updateHp(float value)
+    {
+        
+    }
+    virtual public void updateMaxHp(float value)
+    {
+
+    }
+
+    virtual public void updateAtk(float value)
+    {
+        
+    }
+
+    virtual public void updateMaxAtk(float value)
+    {
+
+    }
+
+
+    virtual public void updateMagic(float value)
+    {
+
+    }
+
+    virtual public void updateMaxMagic(float value)
+    {
+
+    }
+
+    virtual public void updateDefence(float value)
+    {
+
+    }
+
+    virtual public void updateMaxDefence(float value)
+    {
+
+    }
+
+    virtual public void updateDexterity(float value)
+    {
+
+    }
+
+    virtual public void updateMaxDexterity(float value)
+    {
+
+    }
+
+    virtual public void updateAtkByPro(float value)
+    {
+
+    }
+
+    virtual public void updateDefenceByPro(float value)
+    {
+
+    }
+
+    virtual public void updateDexterityByPro(float value)
+    {
+
+    }
+
+    virtual public float countDamage(BaseEnitity target)
+    {
+        return 0;
+    }
+
+    virtual public float getAtkValue()
+    {
+        return 0;
+    }
+
+    virtual public float getDefenceValue()
+    {
+        return 0;
+    }
+
+    virtual public float getHpValue()
+    {
+        return 0;
+    }
+
+
+
 }

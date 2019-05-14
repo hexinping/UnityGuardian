@@ -18,15 +18,12 @@ public class PlayerEnitity:BaseEnitity  {
 
     private int _nomarlAttackComobIndex = 0;  //组合动作的序号
 
+
     private Transform _playerTransform;
+
     public PlayerEnitity()
     {
-        _mode = new PlayerEnitityMode();
-
-        atk = _mode.atk;
-        maxHp = _mode.maxHp;
-        hp = maxHp;
-
+        initDatas();
         _stateList = new List<BaseState>();
 
         
@@ -53,6 +50,11 @@ public class PlayerEnitity:BaseEnitity  {
         _comobAnimationNameList = new List<string>();
         
      
+    }
+
+    void initDatas()
+    {
+        _mode = new PlayerEnitityMode();
     }
     override public void initGameObject()
     {
@@ -251,7 +253,7 @@ public class PlayerEnitity:BaseEnitity  {
         if (_nomarlAttackComobIndex <= 0) _nomarlAttackComobIndex = count -1;
     }
 
-    public  void faceToTarget()
+    override public  void faceToTarget()
     {
         if (attackTarget != null)
         {
@@ -259,6 +261,94 @@ public class PlayerEnitity:BaseEnitity  {
             GameObject tarObj = attackTarget._gameObject;
             _playerTransform.rotation = Quaternion.Slerp(_playerTransform.rotation, Quaternion.LookRotation(tarObj.transform.position - _playerTransform.position), 1.0f);
         }
+    }
+
+    override public float countDamage(BaseEnitity target)
+    {
+        return _mode.countDamage(target);
+        
+    }
+
+    override public void updateHp(float value)
+    {
+        _mode.updateHp(value);
+    }
+
+
+    override public void updateMaxHp(float value)
+    {
+        _mode.updateMaxHp(value);
+    }
+
+    override public void updateAtk(float value)
+    {
+        _mode.updateAtk(value);
+    }
+
+    override public void updateMaxAtk(float value)
+    {
+        _mode.updateMaxAtk(value);
+    }
+
+    override public void updateMagic(float value)
+    {
+        _mode.updateMagic(value);
+    }
+
+    override public void updateMaxMagic(float value)
+    {
+        _mode.updateMaxMagic(value);
+    }
+
+    override public void updateDefence(float value)
+    {
+        _mode.updateDefence(value);
+    }
+
+    override public void updateMaxDefence(float value)
+    {
+        _mode.updateMaxDefence(value);
+    }
+
+    override public void updateDexterity(float value)
+    {
+        _mode.updateDexterity(value);
+    }
+
+    override public void updateMaxDexterity(float value)
+    {
+        _mode.updateMaxDexterity(value);
+    }
+
+    override public void updateAtkByPro(float value)
+    {
+        _mode.updateAtkByPro(value);
+    }
+
+    override public void updateDefenceByPro(float value)
+    {
+        _mode.updateDefenceByPro(value);
+    }
+
+    override public void updateDexterityByPro(float value)
+    {
+        _mode.updateDexterityByPro(value);
+    }
+
+
+    override public float getAtkValue()
+    {
+        return _mode.getAtkValue();
+    }
+
+    override public float getDefenceValue()
+    {
+        return _mode.getAtkValue();
+    }
+
+    override public float getHpValue()
+    {
+        return _mode.getHpValue();
     }
 
 }

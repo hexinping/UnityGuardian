@@ -30,12 +30,21 @@ public class PlayerModel : BaseModel
     public string name;
     public int level;
 
+    public int exp;
+    public int killNum;
+    public int gold;
+    public int diamond;
+
 
     public PlayerModel()
     {
         playerId = "";
         name = "";
         level = 1;
+        exp = 0;
+        killNum = 0;
+        gold = 0;
+        diamond = 0;
  
     }
 
@@ -43,5 +52,4 @@ public class PlayerModel : BaseModel
     {
         name = playerName;
     }
-
 }
