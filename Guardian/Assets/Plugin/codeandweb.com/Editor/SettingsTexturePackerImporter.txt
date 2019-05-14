@@ -2,11 +2,32 @@ version: 2
 importPivots: 1
 tpsheetFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.tpsheet
+- Assets/Resources/MyAtlas/BackPicks.tpsheet
+- Assets/Resources/MyAtlas/Setting.tpsheet
 - Assets/Resources/MyAtlas/SmallScales.tpsheet
+- Assets/Resources/MyAtlas/UI_AttackInfo.tpsheet
+- Assets/Resources/MyAtlas/UI_BaseScenes.tpsheet
+- Assets/Resources/MyAtlas/UI_Dialogs.tpsheet
+- Assets/Resources/MyAtlas/UI_MajorCity.tpsheet
+- Assets/Resources/MyAtlas/UI_PersonInfo.tpsheet
 textureFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.png
+- Assets/Resources/MyAtlas/BackPicks.png
+- Assets/Resources/MyAtlas/Setting.png
 - Assets/Resources/MyAtlas/SmallScales.png
+- Assets/Resources/MyAtlas/UI_AttackInfo.png
+- Assets/Resources/MyAtlas/UI_BaseScenes.png
+- Assets/Resources/MyAtlas/UI_Dialogs.png
+- Assets/Resources/MyAtlas/UI_MajorCity.png
+- Assets/Resources/MyAtlas/UI_PersonInfo.png
 normalmapFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
+- 
+- 
+- 
+- 
+- 
+- 
 - 
 enableDebugOutput: 0
