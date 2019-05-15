@@ -37,6 +37,7 @@ public class LevelOneView : BaseView {
     private GameObject _easyTouchObj;
 
     private PlayerEnitity _playerEnitity;
+    private PlayerInfo _playerInfo;
 
     //敌人相关
     /*
@@ -76,13 +77,20 @@ public class LevelOneView : BaseView {
 
         _fadeInOut.FadeIn();
 
+
+        GameObject playerInfoObj = initGameObject("Prefabs/View/PlayerInfo", "PlayerInfo", this.gameObject, new Vector3(0, 0, 0));
+        setUICamera(playerInfoObj, "Canvas");
+
+        _playerInfo = playerInfoObj.GetComponent<PlayerInfo>();
+
+
         StartCoroutine("initSwordsManPlayersMode");
 
         _easyTouchObj = GameObject.Find("_Environment").transform.Find("EasyTouch").gameObject;
         _easyTouchObj.SetActive(true);
 
-        GameObject playerInfo = initGameObject("Prefabs/View/PlayerInfo", "PlayerInfo", this.gameObject, new Vector3(0, 0, 0));
-        setUICamera(playerInfo, "Canvas");
+       
+        
         
         
 	}
@@ -127,6 +135,8 @@ public class LevelOneView : BaseView {
         enimy.setPlayerEnitity(enitity);
         enimy.initGameObject();
         _listEnimy.Add(enimy);
+
+        _playerInfo.setPlayerEnitiy(enitity);
         yield return null;
 
     }

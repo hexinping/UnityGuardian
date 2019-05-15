@@ -45,4 +45,29 @@ public class PlayerManager {
         _mode.setName(name);
     }
 
+    public int getPlayerExp()
+    {
+        return _mode.exp;
+    }
+
+    public int getPlayerKillNum()
+    {
+        return _mode.killNum;
+    }
+
+    public int getPlayerCoin()
+    {
+        return _mode.gold;
+    }
+
+    public int getPlayerDiamond()
+    {
+        return _mode.diamond;
+    }
+
+    public int getPlayerLevel()
+    {
+        return _mode.level;
+    }
+
 }

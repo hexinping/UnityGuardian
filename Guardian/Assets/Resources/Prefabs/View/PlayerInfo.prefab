@@ -1540,6 +1540,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ffcf66f4ab87a14793417df1127adf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hpSlider: {fileID: 114228567880769246}
+  magicSlider: {fileID: 114587065050487280}
+  hpTxt: {fileID: 114267348975982668}
+  magicTxt: {fileID: 114892883267748078}
+  levelTxt: {fileID: 114136973546746968}
+  expTxt: {fileID: 114607645759602966}
+  coinTxt: {fileID: 114315149031548184}
+  diamondTxt: {fileID: 114601598552388348}
 --- !u!114 &114379532170750792
 MonoBehaviour:
   m_ObjectHideFlags: 1

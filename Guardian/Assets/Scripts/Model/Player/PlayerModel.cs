@@ -40,11 +40,11 @@ public class PlayerModel : BaseModel
     {
         playerId = "";
         name = "";
-        level = 1;
-        exp = 0;
+        level = 99;
+        exp = 200;
         killNum = 0;
-        gold = 0;
-        diamond = 0;
+        gold = 1000;
+        diamond = 1000;
  
     }
 

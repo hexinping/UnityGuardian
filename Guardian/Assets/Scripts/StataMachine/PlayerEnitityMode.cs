@@ -58,6 +58,12 @@ public class PlayerEnitityMode : BaseMode
         return result;
     }
 
+    public float getDexterityValue()
+    {
+        float result = dexterity + dexterityByPro;
+        return result;
+    }
+
 
     public void update(Dictionary<string, object> values)
     {

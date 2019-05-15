@@ -280,6 +280,11 @@ public class PlayerEnitity:BaseEnitity  {
         return _mode.getAtkValue();
     }
 
+    override public float getDexterityValue()
+    {
+        return _mode.getDexterityValue();
+    }
+
     override public float getHpValue()
     {
         return _mode.getHpValue();

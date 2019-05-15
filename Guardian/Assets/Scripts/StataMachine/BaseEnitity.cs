@@ -151,6 +151,11 @@ public class BaseEnitity  {
         return 0;
     }
 
+    virtual public float getDexterityValue()
+    {
+        return 0;
+    }
+
     virtual public float getHpValue()
     {
         return 0;
