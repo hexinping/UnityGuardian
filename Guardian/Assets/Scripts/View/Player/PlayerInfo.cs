@@ -23,15 +23,25 @@ using UnityEngine.UI;
 
 public class PlayerInfo : MonoBehaviour {
 
+    private GameObject _easyTouchObj;
 	// Use this for initialization
 	void Start () {
-		
+        _easyTouchObj = GameObject.Find("_Environment").transform.Find("EasyTouch").gameObject;
+        
 	}
 
 
     public void clickHeadIcon()
     {
         Debug.Log(GetType() + "/clickHeadIcon===");
+
+        string prefabName = "Prefabs/View/PlayerInfoDetail";
+        GameObject obj = (GameObject)Resources.Load(prefabName);
+        GameObject objClone = GameObject.Instantiate(obj);
+        objClone.transform.parent = this.gameObject.transform;
+        objClone.name = "PlayerInfoDetail";
+        objClone.transform.localPosition = new Vector3(0,0,0);
+        _easyTouchObj.SetActive(false);
     }
 
     public void clickSettingBtn()

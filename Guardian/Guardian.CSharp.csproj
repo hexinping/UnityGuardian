@@ -378,6 +378,7 @@
     <Compile Include="Assets\Scripts\View\Player\LoadingView.cs" />
     <Compile Include="Assets\Scripts\View\Player\LoginView.cs" />
     <Compile Include="Assets\Scripts\View\Player\PlayerInfo.cs" />
+    <Compile Include="Assets\Scripts\View\Player\PlayerInfoDetail.cs" />
     <Compile Include="Assets\Scripts\View\Player\StartView.cs" />
     <Compile Include="Assets\Scripts\View\Test\View1.cs" />
     <Compile Include="Assets\Scripts\View\Test\View2.cs" />
