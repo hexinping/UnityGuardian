@@ -1439,7 +1439,7 @@ MonoBehaviour:
   useFixedUpdate: 0
   isUseGuiLayout: 1
   dynamicJoystick: 1
-  area: 1
+  area: 7
   joyAnchor: 7
   joystickPositionOffset: {x: 0, y: 0}
   zoneRadius: 100

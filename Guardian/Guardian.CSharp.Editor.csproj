@@ -398,7 +398,6 @@
     <None Include="Assets\Scripts\Test\readMe.txt" />
     <None Include="Assets\Scripts\View\Enemy\readMe.txt" />
     <None Include="Assets\Scripts\View\NPC\readMe.txt" />
-    <None Include="Assets\Scripts\View\Player\readMe.txt" />
     <None Include="Assets\Scripts\View\Prop\readMe.txt" />
     <None Include="Assets\StreamingAssets\readMe.txt" />
   </ItemGroup>
