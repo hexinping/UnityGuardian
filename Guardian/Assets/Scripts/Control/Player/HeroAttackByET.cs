@@ -54,7 +54,7 @@ public class HeroAttackByET : MonoBehaviour {
         switch (stateEnum)
         {
             case PlayerStateEnum.NORMALATTACK:
-                _attack.heroNormalAttack();
+                _attack.heroNormalAttack(false);
                 break;
             case PlayerStateEnum.MAGICTRICKA:
                 _attack.heroMagicTrickA();

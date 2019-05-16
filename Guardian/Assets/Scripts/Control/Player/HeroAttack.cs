@@ -36,23 +36,30 @@ public class HeroAttack : MonoBehaviour {
     public bool _isLongPrees = false;
 
     private bool isSingle = false;
-	
+    private bool isSingleA = false;
+    private bool isSingleB = false;
+    private bool isSingleC = false;
+    private bool isSingleD = false;
     public void setPlayerEnitity(PlayerEnitity enitity)
     {
         _playerEnitity = enitity;
     }
 
 
-    public void heroNormalAttack()
+    public void heroNormalAttack(bool isCheckLongPrees = true)
     {
-        if (_lastPressTime == 0.0f)
+        if (isCheckLongPrees)
         {
-            _lastPressTime = Time.time;
+            if (_lastPressTime == 0.0f)
+            {
+                _lastPressTime = Time.time;
+            }
+            if (Time.time - _lastPressTime >= delayTime)
+            {
+                _isLongPrees = true;
+            }
         }
-        if (Time.time - _lastPressTime >= delayTime)
-        {
-            _isLongPrees = true;
-        }
+        
         if (isSingle) return;
         if (!isSingle)
         {
@@ -71,10 +78,10 @@ public class HeroAttack : MonoBehaviour {
 
     public void heroMagicTrickA()
     {
-        if (isSingle) return;
-        if (!isSingle)
+        if (isSingleA) return;
+        if (!isSingleA)
         {
-            isSingle = true;
+            isSingleA = true;
         }
         //普通技能
         //print(GetType() + "/heroMagicTrickA MagicTrickA");
@@ -87,10 +94,10 @@ public class HeroAttack : MonoBehaviour {
 
     public void heroMagicTrickB()
     {
-        if (isSingle) return;
-        if (!isSingle)
+        if (isSingleB) return;
+        if (!isSingleB)
         {
-            isSingle = true;
+            isSingleB = true;
         }
         //大招技能
         //print(GetType() + "/heroMagicTrickB MagicTrickB");
@@ -104,10 +111,10 @@ public class HeroAttack : MonoBehaviour {
 
     public void heroMagicTrickC()
     {
-        if (isSingle) return;
-        if (!isSingle)
+        if (isSingleC) return;
+        if (!isSingleC)
         {
-            isSingle = true;
+            isSingleC = true;
         }
         //大招技能
         //print(GetType() + "/heroMagicTrickB MagicTrickB");
@@ -121,10 +128,10 @@ public class HeroAttack : MonoBehaviour {
 
     public void heroMagicTrickD()
     {
-        if (isSingle) return;
-        if (!isSingle)
+        if (isSingleD) return;
+        if (!isSingleD)
         {
-            isSingle = true;
+            isSingleD = true;
         }
         //大招技能
         //print(GetType() + "/heroMagicTrickB MagicTrickB");
@@ -136,7 +143,7 @@ public class HeroAttack : MonoBehaviour {
         }
     }
 
-    IEnumerator resetIdleState(float delayTime)
+    IEnumerator resetIdleState(float delayTime, PlayerStateEnum preEnum)
     {
         yield return new WaitForSeconds(delayTime);
         if(_playerEnitity != null)
@@ -146,9 +153,27 @@ public class HeroAttack : MonoBehaviour {
                 _playerEnitity.changeStateByIndex(PlayerStateEnum.IDLE, 1.0f, true);
               
             }
-            isSingle = false;
-           
-            
+
+            switch (preEnum)
+            {
+                case PlayerStateEnum.NORMALATTACK:
+                    isSingle = false;
+                    break;
+                case PlayerStateEnum.MAGICTRICKA:
+                    isSingleA = false;
+                    break;
+                case PlayerStateEnum.MAGICTRICKB:
+                    isSingleB = false;
+                    break;
+                case PlayerStateEnum.MAGICTRICKC:
+                    isSingleC = false;
+                    break;
+                case PlayerStateEnum.MAGICTRICKD:
+                    isSingleD = false;
+                    break;
+                default:
+                    break;
+            }    
         }
     }
 
@@ -160,6 +185,6 @@ public class HeroAttack : MonoBehaviour {
         }
         
         float time = _playerEnitity.getAnimaitionPlayTime(playstateEM);
-        _resetIdleCor = StartCoroutine(resetIdleState(time));
+        _resetIdleCor = StartCoroutine(resetIdleState(time, playstateEM));
     }
 }
