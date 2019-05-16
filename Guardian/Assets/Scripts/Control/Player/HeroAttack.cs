@@ -102,6 +102,40 @@ public class HeroAttack : MonoBehaviour {
         }
     }
 
+    public void heroMagicTrickC()
+    {
+        if (isSingle) return;
+        if (!isSingle)
+        {
+            isSingle = true;
+        }
+        //大招技能
+        //print(GetType() + "/heroMagicTrickB MagicTrickB");
+        if (_playerEnitity != null)
+        {
+            _playerEnitity.changeStateByIndex(PlayerStateEnum.MAGICTRICKC, 2.0f, false);
+            startResetIdle(PlayerStateEnum.MAGICTRICKC);
+
+        }
+    }
+
+    public void heroMagicTrickD()
+    {
+        if (isSingle) return;
+        if (!isSingle)
+        {
+            isSingle = true;
+        }
+        //大招技能
+        //print(GetType() + "/heroMagicTrickB MagicTrickB");
+        if (_playerEnitity != null)
+        {
+            _playerEnitity.changeStateByIndex(PlayerStateEnum.MAGICTRICKD, 2.0f, false);
+            startResetIdle(PlayerStateEnum.MAGICTRICKD);
+
+        }
+    }
+
     IEnumerator resetIdleState(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);

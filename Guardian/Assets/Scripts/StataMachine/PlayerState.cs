@@ -9,7 +9,11 @@ public enum PlayerStateEnum
     DEAD                    = 2,       //死亡
     MAGICTRICKA             = 3,       //普通技能
     MAGICTRICKB             = 4,       //大招技能
-    NORMALATTACK            = 5,       //普通攻击 具有组合动画放到最后
+    MAGICTRICKC             = 5,       //普通技能
+    MAGICTRICKD             = 6,       //大招技能
+    NORMALATTACK            = 7,       //普通攻击
+
+
 }
 
 
@@ -250,3 +254,60 @@ public class PlayerMagicTrickBState : PlayerState
 
 }
 
+public class PlayerMagicTrickCState : PlayerState
+{
+
+    public PlayerMagicTrickCState(BaseEnitity enity)
+        : base(enity)
+    {
+        stateIndex = PlayerStateEnum.MAGICTRICKC;
+    }
+
+    override public void enter(params object[] values)
+    {
+        Debug.Log("magicTrickC enter=============");
+        base.enter(values);
+
+    }
+
+    override public void excute(params object[] values)
+    {
+
+    }
+
+
+    override public void exit(params object[] values)
+    {
+        Debug.Log("magicTrickC exit=============");
+    }
+
+}
+
+public class PlayerMagicTrickDState : PlayerState
+{
+
+    public PlayerMagicTrickDState(BaseEnitity enity)
+        : base(enity)
+    {
+        stateIndex = PlayerStateEnum.MAGICTRICKD;
+    }
+
+    override public void enter(params object[] values)
+    {
+        Debug.Log("magicTrickD enter=============");
+        base.enter(values);
+
+    }
+
+    override public void excute(params object[] values)
+    {
+
+    }
+
+
+    override public void exit(params object[] values)
+    {
+        Debug.Log("magicTrickD exit=============");
+    }
+
+}

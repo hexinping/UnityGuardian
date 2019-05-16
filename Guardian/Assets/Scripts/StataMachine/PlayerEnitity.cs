@@ -33,13 +33,16 @@ public class PlayerEnitity:BaseEnitity  {
         BaseState playerDeadState = new PlayerDeadState(this);
         BaseState playerMagicTrickAState = new PlayerMagicTrickAState(this);
         BaseState playerMagicTrickBState = new PlayerMagicTrickBState(this);
+        BaseState playerMagicTrickCState = new PlayerMagicTrickCState(this);
+        BaseState playerMagicTrickDState = new PlayerMagicTrickDState(this);
 
         _stateList.Add(playerIdleState);
         _stateList.Add(playerRunState);
         _stateList.Add(playerDeadState);
         _stateList.Add(playerMagicTrickAState);
         _stateList.Add(playerMagicTrickBState);
-
+        _stateList.Add(playerMagicTrickCState);
+        _stateList.Add(playerMagicTrickDState);
         _stateList.Add(playerAttackState);
 
         //状态机设置
@@ -111,6 +114,8 @@ public class PlayerEnitity:BaseEnitity  {
 
         //技能动作
         _animationNameList.Add("Attack1");
+        _animationNameList.Add("Attack4");
+        _animationNameList.Add("Attack1"); //临时
         _animationNameList.Add("Attack4");
 
         //普通攻击组合动作

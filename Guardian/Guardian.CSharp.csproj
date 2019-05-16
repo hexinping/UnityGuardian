@@ -346,6 +346,7 @@
     <Compile Include="Assets\Scripts\Control\Player\HeroMovingByKey.cs" />
     <Compile Include="Assets\Scripts\Control\Player\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\GamePlayManager.cs" />
+    <Compile Include="Assets\Scripts\Global\ChangAn.cs" />
     <Compile Include="Assets\Scripts\Global\FadeInOut.cs" />
     <Compile Include="Assets\Scripts\GlobalParams.cs" />
     <Compile Include="Assets\Scripts\Kernal\AltasManager.cs" />
