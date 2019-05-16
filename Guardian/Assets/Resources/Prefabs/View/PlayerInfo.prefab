@@ -434,6 +434,7 @@ GameObject:
   - component: {fileID: 222671751932897302}
   - component: {fileID: 114667703391132836}
   - component: {fileID: 114476023293610190}
+  - component: {fileID: 114819561964547530}
   m_Layer: 5
   m_Name: MagicTrick2Btn
   m_TagString: Untagged
@@ -486,6 +487,7 @@ GameObject:
   - component: {fileID: 222686543249932600}
   - component: {fileID: 114833490107209844}
   - component: {fileID: 114240941508013626}
+  - component: {fileID: 114426557755803640}
   m_Layer: 5
   m_Name: MagicTrick3Btn
   m_TagString: Untagged
@@ -778,6 +780,7 @@ GameObject:
   - component: {fileID: 222979595424306944}
   - component: {fileID: 114610987887727102}
   - component: {fileID: 114176543897465306}
+  - component: {fileID: 114924969331755674}
   m_Layer: 5
   m_Name: MagicTrick1Btn
   m_TagString: Untagged
@@ -847,6 +850,7 @@ GameObject:
   - component: {fileID: 222765644827579018}
   - component: {fileID: 114249191848966238}
   - component: {fileID: 114899158494742500}
+  - component: {fileID: 114576945035235642}
   m_Layer: 5
   m_Name: MagicTrick4Btn
   m_TagString: Untagged
@@ -1338,6 +1342,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 114924969331755674}
+        m_MethodName: startCd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114179188404995824
@@ -1508,6 +1523,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 114542419824579552}
         m_MethodName: clickMagicTrick3Btn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114426557755803640}
+        m_MethodName: startCd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1881,6 +1907,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114426557755803640
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1476095096325938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9736de6eee2366a468e119855744215e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cdImage: {fileID: 114954641716396040}
+  grayObj: {fileID: 1828522707295378}
+  btn: {fileID: 114240941508013626}
 --- !u!114 &114434453328147046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1955,6 +1995,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 114542419824579552}
         m_MethodName: clickMagicTrick2Btn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114819561964547530}
+        m_MethodName: startCd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2218,6 +2269,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114576945035235642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1859822175964862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9736de6eee2366a468e119855744215e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cdImage: {fileID: 114522066307864444}
+  grayObj: {fileID: 1922029477184756}
+  btn: {fileID: 114899158494742500}
 --- !u!114 &114583741197610448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2614,6 +2679,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114819561964547530
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1377604017673388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9736de6eee2366a468e119855744215e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cdImage: {fileID: 114765590510914444}
+  grayObj: {fileID: 1535586845933036}
+  btn: {fileID: 114476023293610190}
 --- !u!114 &114833490107209844
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2966,8 +3045,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 114576945035235642}
+        m_MethodName: startCd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114924969331755674
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1781363896522642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9736de6eee2366a468e119855744215e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cdImage: {fileID: 114874117989528564}
+  grayObj: {fileID: 1374875431620228}
+  btn: {fileID: 114176543897465306}
 --- !u!114 &114954641716396040
 MonoBehaviour:
   m_ObjectHideFlags: 1
