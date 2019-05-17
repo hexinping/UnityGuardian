@@ -34,8 +34,8 @@ public class AttackCtrl : MonoBehaviour {
 
     public void clickAtkBtn()
     {
-        Debug.Log(GetType() + "/clickAtkBtn===");
-        _instanceET.responseNormalAttack();
+        //Debug.Log(GetType() + "/clickAtkBtn===");
+        //_instanceET.responseNormalAttack();
     }
 
     public void clickMagicTrick1Btn()

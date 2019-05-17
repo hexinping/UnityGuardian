@@ -216,8 +216,13 @@ public class PlayerEnitity:BaseEnitity  {
     {
         float time = 0.0f;
         string name = string.Empty;
+        float delayTime = 0.0f;
         if (playerstateEm == PlayerStateEnum.NORMALATTACK)
         {
+            if (_nomarlAttackComobIndex == _comobAnimationNameList.Count - 1)
+            {
+                delayTime = 0.15f;
+            }
             name = _comobAnimationNameList[_nomarlAttackComobIndex];
         }
         else
@@ -234,7 +239,7 @@ public class PlayerEnitity:BaseEnitity  {
             }
         
         }
-        return time;
+        return time + delayTime;
     }
 
     public int getCurrComIndex()

@@ -16,8 +16,9 @@ public class AttackNormalPress : StateMachineBehaviour {
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _pressTime += Time.deltaTime;
-        //if (_pressTime >= _delayTime)
+        if (_pressTime >= _delayTime)
         {
+            Debug.Log("OnStateUpdate==========");
             _pressTime = 0.0f;
             HeroAttackByET.instance.responseNormalAttack();
         }
