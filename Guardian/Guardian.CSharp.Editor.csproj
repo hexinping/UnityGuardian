@@ -313,7 +313,6 @@
     <Compile Include="Assets\Plugin\EasyTouch\Plugins\Editor\HTGUILayout.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Animation\readMe.txt" />
     <None Include="Assets\Plugin\EasyTouch\Readme_first.txt" />
     <None Include="Assets\Plugin\codeandweb.com\Editor\SettingsTexturePackerImporter.txt" />
     <None Include="Assets\Resources\Materials\readMe.txt" />

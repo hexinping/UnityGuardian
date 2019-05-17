@@ -378,6 +378,7 @@
     <Compile Include="Assets\Scripts\View\LoadingView.cs" />
     <Compile Include="Assets\Scripts\View\LoginView.cs" />
     <Compile Include="Assets\Scripts\View\Player\AttackCtrl.cs" />
+    <Compile Include="Assets\Scripts\View\Player\AttackNormalPress.cs" />
     <Compile Include="Assets\Scripts\View\Player\CDCtrl.cs" />
     <Compile Include="Assets\Scripts\View\Player\PlayerInfo.cs" />
     <Compile Include="Assets\Scripts\View\Player\PlayerInfoDetail.cs" />
@@ -389,7 +390,6 @@
     <Compile Include="Assets\Scripts\View\ViewManager.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Animation\readMe.txt" />
     <None Include="Assets\Plugin\EasyTouch\Readme_first.txt" />
     <None Include="Assets\Plugin\codeandweb.com\Editor\SettingsTexturePackerImporter.txt" />
     <None Include="Assets\Resources\Materials\readMe.txt" />
