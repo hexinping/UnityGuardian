@@ -374,6 +374,7 @@
     <Compile Include="Assets\Scripts\StataMachine\StartGame.cs" />
     <Compile Include="Assets\Scripts\StataMachine\StateMachine.cs" />
     <Compile Include="Assets\Scripts\View\BaseView.cs" />
+    <Compile Include="Assets\Scripts\View\HpFollow.cs" />
     <Compile Include="Assets\Scripts\View\LevelOneView.cs" />
     <Compile Include="Assets\Scripts\View\LoadingView.cs" />
     <Compile Include="Assets\Scripts\View\LoginView.cs" />
