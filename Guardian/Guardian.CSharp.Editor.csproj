@@ -395,7 +395,6 @@
     <None Include="Assets\Scripts\Model\Scenes\readMe.txt" />
     <None Include="Assets\Scripts\NetWork\readMe.txt" />
     <None Include="Assets\Scripts\Persistence\readMe.txt" />
-    <None Include="Assets\Scripts\Test\readMe.txt" />
     <None Include="Assets\Scripts\View\Enemy\readMe.txt" />
     <None Include="Assets\Scripts\View\NPC\readMe.txt" />
     <None Include="Assets\Scripts\View\Prop\readMe.txt" />
