@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using kernal;
 
 /*
     实例基类
@@ -33,6 +33,8 @@ public class BaseEnitity  {
 
     public Dictionary<string, object> _params;
 
+    private GameObject _prefabDamageLabe1_1;
+
     public BaseEnitity()
     {
         _id = GlobalParams.gameObjId;
@@ -46,6 +48,8 @@ public class BaseEnitity  {
         MessageDispatcher.getInstance().registerEntity(this);
 
         _params = new Dictionary<string,object>();
+
+        _prefabDamageLabe1_1 = Resources.Load<GameObject>("Prefabs/View/DamageLabel");
     }
 
     public void setRootObj(GameObject rootObj)
@@ -116,10 +120,21 @@ public class BaseEnitity  {
         target.beDamage(damage);
 
     }
+
+    public void damageLabelMove(float value)
+    {
+        //使用缓冲池创建一个
+        GameObject obj = PoolManager.PoolsArray[GlobalParams.DamageLabelPool].GetGameObjectByPool(_prefabDamageLabe1_1,
+            _gameObject.transform.position, Quaternion.identity);
+        DamageLabelMove lableMove = obj.GetComponent<DamageLabelMove>();
+        lableMove.setTextValue(value);
+        lableMove.startMove(_gameObject);
+    }
     public void beDamage(float damamge)
     {
         //Debug.Log("受到伤害 id:" + this._id );
         damamge = Mathf.Abs(damamge);
+        damageLabelMove(damamge);
         float curHp = getHpValue();
         curHp = Mathf.Max(0, curHp - damamge);
         _params.Add(BaseMode.c_hp, curHp);

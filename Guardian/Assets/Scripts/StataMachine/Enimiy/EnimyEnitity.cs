@@ -8,14 +8,10 @@ public class EnimyEnitity : BaseEnitity {
 
 
     public EnimyEnitiyMode _mode;
-
-    private GameObject _prefabDamageLabe1_1;
-
     private PlayerEnitity _playerEnitiy;
     public EnimyEnitity()
     {
         initDatas();
-        _prefabDamageLabe1_1 = Resources.Load<GameObject>("Prefabs/View/DamageLabel");
 
         //状态机todo
     }
@@ -44,13 +40,6 @@ public class EnimyEnitity : BaseEnitity {
             cube.transform.position = playerGameObject.transform.position + new Vector3(0.0f, 0.0f, 2.0f);
             _gameObject = cube;
 
-
-            //使用缓冲池创建一个
-            GameObject obj = PoolManager.PoolsArray[GlobalParams.DamageLabelPool].GetGameObjectByPool(_prefabDamageLabe1_1,
-                cube.transform.position, Quaternion.identity);
-            DamageLabelMove lableMove = obj.GetComponent<DamageLabelMove>();
-            lableMove.startMove(cube);
- 
         }
     }
 
