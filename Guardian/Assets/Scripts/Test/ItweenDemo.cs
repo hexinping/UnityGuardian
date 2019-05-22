@@ -70,10 +70,11 @@ public class ItweenDemo : MonoBehaviour {
 
             //利用hash表调用 : 第一个参数是要移动的GameObject
             iTween.MoveTo(transform.gameObject, iTween.Hash(
-                    "x", initialPosition.x,
+                    "position", initialPosition,
                     "easetype", iTween.EaseType.easeInSine,
-                    "time", 0.5
-
+                    "time", 0.5,
+                    "oncomplete", "moveEndCallBack" //必须是目标身上的方法，这里就是transform.gameObject
+          
                 ));
 
             //利用hash表调用 ValueTo必须设置回调，在回调里设置
@@ -94,10 +95,10 @@ public class ItweenDemo : MonoBehaviour {
 
             //利用hash表调用
             iTween.MoveTo(transform.gameObject, iTween.Hash(
-               "x", activePosition.x,
+               "position", activePosition,
                "easetype", iTween.EaseType.easeInSine,
-               "time", 0.5
-
+               "time", 0.5,
+               "oncomplete", "moveEndCallBack"
              ));
 
              
@@ -118,6 +119,7 @@ public class ItweenDemo : MonoBehaviour {
     {
         transform.position = newCoordinates; 
     }
+
 
     void scaleDemo()
     { 

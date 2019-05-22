@@ -373,8 +373,10 @@
     <Compile Include="Assets\Scripts\StataMachine\PlayerState.cs" />
     <Compile Include="Assets\Scripts\StataMachine\StartGame.cs" />
     <Compile Include="Assets\Scripts\StataMachine\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\Test\ItweenCallBack.cs" />
     <Compile Include="Assets\Scripts\Test\ItweenDemo.cs" />
     <Compile Include="Assets\Scripts\View\BaseView.cs" />
+    <Compile Include="Assets\Scripts\View\DamageLabelMove.cs" />
     <Compile Include="Assets\Scripts\View\HpFollow.cs" />
     <Compile Include="Assets\Scripts\View\LevelOneView.cs" />
     <Compile Include="Assets\Scripts\View\LoadingView.cs" />
