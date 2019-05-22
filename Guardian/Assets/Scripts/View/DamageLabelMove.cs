@@ -24,73 +24,73 @@ using UnityEngine.UI;
 public class DamageLabelMove : MonoBehaviour {
 
 
-    private Vector3 _originPos;
-    private Text _labelTxt;
+    public Canvas canvas;
+    public Text labelTxt;
     private GameObject _uiCamera;
+    private GameObject _tarObj;
 
-    //public GameObject txtObj;
-	// Use this for initialization
-	void Start () 
-    {
-        initUI();
-        //gameObject.transform.localPosition = Vector3.zero;
+    private bool _isAction = false;
 
-       
-	}
-
-    void initUI()
+    public void initUI()
     {
         //设置UI摄像机
         _uiCamera = GameObject.FindGameObjectWithTag("UICamera");
-        GameObject parentObj = gameObject.transform.parent.gameObject;
-        Canvas canvas = parentObj.GetComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceCamera;
         canvas.worldCamera = _uiCamera.GetComponent<Camera>();
-
-        canvas.sortingOrder = -1;
-
-        _labelTxt = GetComponent<Text>();
-
+        canvas.sortingOrder = -2;
     }
 
 
-    public void setTxtPostion(Vector3 pos)
+    public void setTxtPostion(Vector3 wPos)
     {
-        if (_labelTxt == null)
-        { 
-            _labelTxt = GetComponent<Text>();
-        }
-        _labelTxt.rectTransform.position = new Vector3(pos.x, pos.y, 0);
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(wPos); 
+        Vector2 localPos;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, screenPos, canvas.worldCamera, out localPos);
+
+        labelTxt.transform.localPosition = new Vector3(localPos.x, localPos.y, 0);
     
     }
-    public void startMove(Vector3 tarPostion)
+    public void startMove()
     {
-        //RectTransform rectTrans = GetComponent<RectTransform>();
-        //Vector3 oldPos = rectTrans.position;
-        //float targetY = 1;                                           //为什么这个是米的概念
-        //Vector3 targetPos = new Vector3(oldPos.x, oldPos.y + 1, oldPos.z);
-        iTween.MoveTo(gameObject, iTween.Hash(
-                   //"y", targetY,
-                  "position", tarPostion,
-                  "easetype", iTween.EaseType.easeInSine,
-                  "time", 0.5,
-                   "islocal",true,
-                  "oncomplete", "moveEndCallBack" //必须是目标身上的方法，这里就是transform.gameObject
+        this.Invoke("setActionState",0.1f);
+    }
 
-              ));
+    void setActionState()
+    {
+        _isAction = true;
+        iTween.MoveTo(labelTxt.gameObject, iTween.Hash(
+           "y", 100,
+          "easetype", iTween.EaseType.easeInSine,
+          "time", 0.5,
+           "islocal", true,
+          "oncomplete", "moveEndCallBack", //必须是目标身上的方法，这里就是transform.gameObject
+          "oncompletetarget", gameObject
+
+       ));
     }
 
     void moveEndCallBack()
     {
         Debug.Log(GetType() + "/moveEndCallBack");
+        _isAction = false;
+        gameObject.SetActive(false);
+    }
+
+    public void setTarget(GameObject obj)
+    {
+        _tarObj = obj;
+
     }
 	// Update is called once per frame
 	void Update () {
-		
+        if (_tarObj != null && _isAction == false)
+        {
+            setTxtPostion(_tarObj.transform.position);
+        }
 	}
 
     public void setTextValue(float value)
     {
-        _labelTxt.text = value.ToString();
+        labelTxt.text = value.ToString();
     }
 }
