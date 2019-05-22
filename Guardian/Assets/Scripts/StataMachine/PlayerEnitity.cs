@@ -18,10 +18,12 @@ public class PlayerEnitity:BaseEnitity  {
 
     private int _nomarlAttackComobIndex = 0;  //组合动作的序号
 
-
     private Transform _playerTransform;
 
     private GameObject _prefabPlayerHp;
+
+    //动画帧事件集合
+    private Dictionary<string, List<int>> _animationEventDict;
 
     public PlayerEnitity()
     {
@@ -53,6 +55,7 @@ public class PlayerEnitity:BaseEnitity  {
         
         _animationNameList = new List<string>();
         _comobAnimationNameList = new List<string>();
+        _animationEventDict = new Dictionary<string, List<int>>();
         
      
     }
@@ -63,7 +66,7 @@ public class PlayerEnitity:BaseEnitity  {
     }
     override public void initGameObject()
     {
-        //_rootObj = GameObject.Find("_Manager/_ViewManager/_Scene/Role");
+       
         if (_rootObj)
         {
             _gameObject = getGameObject(_mode.file, "GreateWarrior", _rootObj, Vector3.zero);
@@ -82,10 +85,11 @@ public class PlayerEnitity:BaseEnitity  {
             hpFollow.setHpUIDatas(new Vector2(0, 170), _mode.hp, _mode.maxHp);
         }
 
+        addAinimainEvents();
         //动作添加
         if (_gameObject != null)
         {
-            AddAinimainClips();
+            addAinimainClips();
             Animation animation = _gameObject.GetComponent<Animation>();
             if(animation == null)
             {
@@ -116,7 +120,7 @@ public class PlayerEnitity:BaseEnitity  {
     }
 
 
-    public void AddAinimainClips()
+    void addAinimainClips()
     {
         _animationNameList.Add("Idle");
         _animationNameList.Add("Run");
@@ -134,6 +138,31 @@ public class PlayerEnitity:BaseEnitity  {
         _comobAnimationNameList.Add("Attack3-3");
     }
 
+    void addAinimainEvents()
+    {
+        //技能帧事件
+        List<int> attack1List = new List<int>();
+        attack1List.Add(21);
+        _animationEventDict["Attack1"] = attack1List;
+
+        List<int> attack4List = new List<int>();
+        attack4List.Add(40);
+        _animationEventDict["Attack4"] = attack4List;
+
+        //普通攻击帧事件
+        List<int> Attack3_1List = new List<int>();
+        Attack3_1List.Add(21);
+        _animationEventDict["Attack3_1"] = Attack3_1List;
+
+        List<int> Attack3_2List = new List<int>();
+        Attack3_2List.Add(21);
+        _animationEventDict["Attack3_2"] = Attack3_2List;
+
+        List<int> Attack3_3List = new List<int>();
+        Attack3_3List.Add(21);
+        _animationEventDict["Attack3_3"] = Attack3_3List;
+    }
+
 
     public void changeStateByIndex(PlayerStateEnum playerstateEm, float tSpeed = 1.0f, bool tIsLoop = false)
     {
@@ -145,7 +174,7 @@ public class PlayerEnitity:BaseEnitity  {
         if (playerstateEm == PlayerStateEnum.NORMALATTACK)
         {
             isCheckSameState = false;
-            Debug.Log("_nomarlAttackComobIndex===========" + _nomarlAttackComobIndex);
+            //Debug.Log("_nomarlAttackComobIndex===========" + _nomarlAttackComobIndex);
         }
         
         changeState(state, isCheckSameState, name, tSpeed, tIsLoop);
@@ -167,10 +196,59 @@ public class PlayerEnitity:BaseEnitity  {
         { 
             //给普通攻击添加多个动作
             resultName = _comobAnimationNameList[_nomarlAttackComobIndex];
-            Debug.Log("resultName=======" + resultName);
+            //Debug.Log("resultName=======" + resultName);
         }
         return resultName;
     
+    }
+
+    public void addDelayCall(string animatinName)
+    {
+        if (_animationEventDict.ContainsKey(animatinName))
+        {
+            AnimationClip clip = getAnimationClip(animatinName);
+            float frameRate = clip.frameRate; //1秒都少帧
+            float frameInterval = 1.0f / frameRate;
+
+            List<int> eventList = _animationEventDict[animatinName];
+
+            for (int i = 0; i < eventList.Count; i++)
+            {
+                int frameIndex = eventList[i];
+                float time = frameIndex * frameInterval;
+                float p = GlobalParams.totalTime + time;
+                //Debug.Log("注册时间：" + GlobalParams.totalTime + " / 预测回调时间：" + p + " 当前帧数：" + GlobalParams.frameCount + " 等待时间:" + time);
+                DelayCall delayCall = new DelayCall(time, GlobalParams.frameCount, eventCallBack, this);
+                GlobalParams.addDelayCall(delayCall);
+            }
+        }
+       
+    }
+
+    //attackTargetHurt
+    public void eventCallBack(BaseEnitity eniity)
+    {
+        //Debug.Log("testEvent======成功回调========" + GlobalParams.totalTime + " 当前帧数：" + GlobalParams.frameCount);
+        if (attackTarget != null && !attackTarget.isDead)
+        {
+            attackTargetHurt(attackTarget);
+        }
+        
+    }
+
+
+    public AnimationClip getAnimationClip(string animatinName)
+    {
+        AnimationClip clip = null;
+        foreach (AnimationState state in _animation)
+        {
+            if (animatinName.Equals(state.name))
+            {
+                clip = state.clip;
+                return clip;
+            }
+        }
+        return clip;
     }
 
     public void changeAniamtion(string animatinName, float speed = 1.0f, bool isLoop = false)
@@ -216,10 +294,7 @@ public class PlayerEnitity:BaseEnitity  {
                 }
             }
 
-        }
-
-
-        
+        }  
     }
 
     public float getAnimaitionPlayTime(PlayerStateEnum playerstateEm)

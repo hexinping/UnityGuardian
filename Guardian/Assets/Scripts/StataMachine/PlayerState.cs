@@ -35,6 +35,8 @@ public class PlayerState : BaseState {
         PlayerEnitity enitity = (PlayerEnitity)_enitity;
         enitity.changeAniamtion(animatinName, speed, isLoop);
 
+        //注册帧事件
+        enitity.addDelayCall(animatinName);
     } 
 }
 
@@ -137,14 +139,8 @@ public class PlayerAttackState : PlayerState
     override public void enter(params object[] values)
     {
         Debug.Log("attack enter=============");
-        base.enter(values);
         _enitity.isAttacking = true;
-        if(_enitity.attackTarget != null)
-        {
-            _enitity.attackTargetHurt(_enitity.attackTarget);
-        }
-        
-
+        base.enter(values);
     }
 
     override public void excute(params object[] values)
@@ -189,7 +185,7 @@ public class PlayerDeadState : PlayerState
 
     override public void exit(params object[] values)
     {
-        Debug.Log("dead exietr=============");
+        Debug.Log("dead exit=============");
     }
 
 }
