@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using kernal;
 
 public class PlayerEnitity:BaseEnitity  {
 
@@ -20,6 +20,8 @@ public class PlayerEnitity:BaseEnitity  {
 
 
     private Transform _playerTransform;
+
+    private GameObject _prefabPlayerHp;
 
     public PlayerEnitity()
     {
@@ -70,16 +72,14 @@ public class PlayerEnitity:BaseEnitity  {
 
             _playerTransform = _gameObject.transform;
 
-            //添加血条
-            GameObject prefab = Resources.Load<GameObject>("Prefabs/View/Hp");
-            GameObject obj = GameObject.Instantiate(prefab);
-            obj.name = "PlayerHp";
+            //使用缓冲池床创建血条
+            _prefabPlayerHp = Resources.Load<GameObject>("Prefabs/View/Hp");
+            GameObject obj = PoolManager.PoolsArray[GlobalParams.HPPool].GetGameObjectByPool(_prefabPlayerHp,
+                _gameObject.transform.position, Quaternion.identity);
 
-            
+            obj.name = "PlayerHp";
             HpFollow hpFollow = obj.GetComponent<HpFollow>();
             hpFollow.setHpUIDatas(new Vector2(0, 170), _mode.hp, _mode.maxHp);
-
-
         }
 
         //动作添加

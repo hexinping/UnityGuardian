@@ -50,6 +50,23 @@ public static class GlobalParams
 
 
 
+    //层级设定
+    public static int DamageLabelOrder      = -40;
+    public static int HPOrder               = -20;
+    public static int ViewOrder             = 0;
+    public static int GlobalDialogOrder     = 20;
+    public static int TipsOrder             = 40;
+    public static int NoticeOrder           = 60;
+    public static int LockOrder             = 80;
+    public static int NetWorkOrder          = 100;
+ 
+
+    //缓冲池名字
+    public static string DamageLabelPool = "_DamageLabelLayer";
+    public static string HPPool          = "_HpLayer";
+
+
+
 
     public static void addDelayCall(DelayCall delayCall)
     {

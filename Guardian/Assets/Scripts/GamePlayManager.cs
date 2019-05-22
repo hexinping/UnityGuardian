@@ -36,7 +36,7 @@ public class GamePlayManager : MonoBehaviour {
     {
 
         _viewManager = ViewManager.getInstance();
-        _viewManager.showView("LevelOneView");
+        _viewManager.showView("StartView");
 	}
 	
 	// Update is called once per frame

@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using kernal;
+
 public class EnimyEnitity : BaseEnitity {
 
 
     public EnimyEnitiyMode _mode;
 
+    private GameObject _prefabDamageLabe1_1;
+
     private PlayerEnitity _playerEnitiy;
     public EnimyEnitity()
     {
         initDatas();
-      
-        
+        _prefabDamageLabe1_1 = Resources.Load<GameObject>("Prefabs/View/DamageLabel");
+
         //状态机todo
     }
 
@@ -38,19 +42,14 @@ public class EnimyEnitity : BaseEnitity {
             cube.tag = "Enimy";
             cube.transform.parent = _rootObj.transform;
             cube.transform.position = playerGameObject.transform.position + new Vector3(0.0f, 0.0f, 2.0f);
-
             _gameObject = cube;
 
-            //测试文字
 
-            GameObject prefab = Resources.Load<GameObject>("Prefabs/View/DamageLabel");
-            GameObject obj = GameObject.Instantiate(prefab);
-            obj.name = "DamageLabel";
-            Vector3 tarPos = cube.transform.position;
+            //使用缓冲池创建一个
+            GameObject obj = PoolManager.PoolsArray[GlobalParams.DamageLabelPool].GetGameObjectByPool(_prefabDamageLabe1_1,
+                cube.transform.position, Quaternion.identity);
             DamageLabelMove lableMove = obj.GetComponent<DamageLabelMove>();
-            lableMove.initUI();
-            lableMove.setTarget(cube);
-            lableMove.startMove();
+            lableMove.startMove(cube);
  
         }
     }

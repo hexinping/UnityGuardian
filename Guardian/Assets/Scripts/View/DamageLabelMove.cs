@@ -20,6 +20,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using kernal;
 
 public class DamageLabelMove : MonoBehaviour {
 
@@ -37,7 +38,7 @@ public class DamageLabelMove : MonoBehaviour {
         _uiCamera = GameObject.FindGameObjectWithTag("UICamera");
         canvas.renderMode = RenderMode.ScreenSpaceCamera;
         canvas.worldCamera = _uiCamera.GetComponent<Camera>();
-        canvas.sortingOrder = -2;
+        canvas.sortingOrder = GlobalParams.DamageLabelOrder;
     }
 
 
@@ -50,8 +51,10 @@ public class DamageLabelMove : MonoBehaviour {
         labelTxt.transform.localPosition = new Vector3(localPos.x, localPos.y, 0);
     
     }
-    public void startMove()
+    public void startMove(GameObject targetObj)
     {
+        initUI();
+        setTarget(targetObj);
         this.Invoke("setActionState",0.1f);
     }
 
@@ -61,9 +64,9 @@ public class DamageLabelMove : MonoBehaviour {
         iTween.MoveTo(labelTxt.gameObject, iTween.Hash(
            "y", 100,
           "easetype", iTween.EaseType.easeInSine,
-          "time", 0.5,
+          "time", 1.5,
            "islocal", true,
-          "oncomplete", "moveEndCallBack", //必须是目标身上的方法，这里就是transform.gameObject
+          "oncomplete", "moveEndCallBack",
           "oncompletetarget", gameObject
 
        ));
@@ -73,7 +76,9 @@ public class DamageLabelMove : MonoBehaviour {
     {
         Debug.Log(GetType() + "/moveEndCallBack");
         _isAction = false;
-        gameObject.SetActive(false);
+
+        //加入到缓冲池的非活动集合
+        PoolManager.PoolsArray[GlobalParams.DamageLabelPool].RecoverGameObjectToPools(gameObject);
     }
 
     public void setTarget(GameObject obj)

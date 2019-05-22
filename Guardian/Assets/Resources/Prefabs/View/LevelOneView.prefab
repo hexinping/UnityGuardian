@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f4d9196020dc2b40a807502a579af7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
   fadeoutEnd: 0
   fadeinEnd: 0
 --- !u!114 &114292371147440112
@@ -273,7 +273,6 @@ MonoBehaviour:
   _name: 
   _prefabName: 
   _rootDialogGameObject: {fileID: 0}
-  _easyTouch: {fileID: 0}
 --- !u!114 &114977519769372066
 MonoBehaviour:
   m_ObjectHideFlags: 1

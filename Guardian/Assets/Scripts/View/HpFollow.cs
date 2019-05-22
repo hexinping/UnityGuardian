@@ -42,9 +42,6 @@ public class HpFollow : MonoBehaviour {
         hpSlider = GetComponentInChildren<Slider>();
         rectTrains = GetComponent<RectTransform>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
-        hpLayer = GameObject.Find("_Manager/_ViewManager/_RootLayer/_HpLayer");
-
-        this.gameObject.transform.parent = hpLayer.transform;
         initUI(); 
 	}
 
@@ -63,7 +60,7 @@ public class HpFollow : MonoBehaviour {
         canvas.renderMode = RenderMode.ScreenSpaceCamera;
         canvas.worldCamera = uiCamera.GetComponent<Camera>();
 
-        canvas.sortingOrder = -1;
+        canvas.sortingOrder = GlobalParams.HPOrder;
     
         GameObject onj = hpSlider.gameObject;
         RectTransform rect1 = onj.GetComponent<RectTransform>();

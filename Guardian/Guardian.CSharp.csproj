@@ -353,6 +353,8 @@
     <Compile Include="Assets\Scripts\Kernal\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Kernal\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Kernal\iTween.cs" />
+    <Compile Include="Assets\Scripts\Kernal\PoolManager.cs" />
+    <Compile Include="Assets\Scripts\Kernal\Pools.cs" />
     <Compile Include="Assets\Scripts\Kernal\ResourcesManager.cs" />
     <Compile Include="Assets\Scripts\Kernal\SmoothFollow.cs" />
     <Compile Include="Assets\Scripts\Kernal\SpriteAnimatin.cs" />
