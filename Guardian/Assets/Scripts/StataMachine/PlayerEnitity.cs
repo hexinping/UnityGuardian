@@ -152,15 +152,15 @@ public class PlayerEnitity:BaseEnitity  {
         //普通攻击帧事件
         List<int> Attack3_1List = new List<int>();
         Attack3_1List.Add(21);
-        _animationEventDict["Attack3_1"] = Attack3_1List;
+        _animationEventDict["Attack3-1"] = Attack3_1List;
 
         List<int> Attack3_2List = new List<int>();
         Attack3_2List.Add(21);
-        _animationEventDict["Attack3_2"] = Attack3_2List;
+        _animationEventDict["Attack3-2"] = Attack3_2List;
 
         List<int> Attack3_3List = new List<int>();
         Attack3_3List.Add(21);
-        _animationEventDict["Attack3_3"] = Attack3_3List;
+        _animationEventDict["Attack3-3"] = Attack3_3List;
     }
 
 
@@ -206,16 +206,18 @@ public class PlayerEnitity:BaseEnitity  {
     {
         if (_animationEventDict.ContainsKey(animatinName))
         {
-            AnimationClip clip = getAnimationClip(animatinName);
+            AnimationState state = getAnimationState(animatinName);
+            AnimationClip clip = state.clip;
             float frameRate = clip.frameRate; //1秒都少帧
             float frameInterval = 1.0f / frameRate;
+            float speed = state.speed;
 
             List<int> eventList = _animationEventDict[animatinName];
 
             for (int i = 0; i < eventList.Count; i++)
             {
                 int frameIndex = eventList[i];
-                float time = frameIndex * frameInterval;
+                float time = frameIndex * frameInterval / speed;
                 float p = GlobalParams.totalTime + time;
                 //Debug.Log("注册时间：" + GlobalParams.totalTime + " / 预测回调时间：" + p + " 当前帧数：" + GlobalParams.frameCount + " 等待时间:" + time);
                 DelayCall delayCall = new DelayCall(time, GlobalParams.frameCount, eventCallBack, this);
@@ -237,18 +239,18 @@ public class PlayerEnitity:BaseEnitity  {
     }
 
 
-    public AnimationClip getAnimationClip(string animatinName)
+    public AnimationState getAnimationState(string animatinName)
     {
-        AnimationClip clip = null;
+        AnimationState targetState = null;
         foreach (AnimationState state in _animation)
         {
             if (animatinName.Equals(state.name))
             {
-                clip = state.clip;
-                return clip;
+                targetState = state;
+                return targetState;
             }
         }
-        return clip;
+        return targetState;
     }
 
     public void changeAniamtion(string animatinName, float speed = 1.0f, bool isLoop = false)

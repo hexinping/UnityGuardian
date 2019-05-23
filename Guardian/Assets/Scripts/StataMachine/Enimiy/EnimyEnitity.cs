@@ -45,7 +45,8 @@ public class EnimyEnitity : BaseEnitity {
 
     override public void onDestory()
     {
-        GameObject.Destroy(_gameObject);
+        //暂时直接消失，后面要切到死亡状态 todo
+        GameObject.Destroy(_gameObject,0.2f);
         LevelOneView view = (LevelOneView)rootView;
         view.removeFromEnimyList(this);
     }
