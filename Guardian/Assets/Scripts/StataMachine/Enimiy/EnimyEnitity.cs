@@ -40,6 +40,16 @@ public class EnimyEnitity : BaseEnitity {
             cube.transform.position = playerGameObject.transform.position + new Vector3(0.0f, 0.0f, 2.0f);
             _gameObject = cube;
 
+            Shader dissoveS = Resources.Load<Shader>("Shaders/DissolveNoNormal");
+            Material material = new Material(dissoveS);
+            material.hideFlags = HideFlags.DontSave;
+            Texture burnN = Resources.Load<Texture>("Texture/burn_noise");
+            material.SetTexture("_BurnMap", burnN);
+
+            MeshRenderer meshRender = cube.GetComponent<MeshRenderer>();
+            meshRender.material = material;
+            
+
         }
     }
 

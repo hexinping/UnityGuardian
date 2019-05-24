@@ -469,6 +469,7 @@
     <None Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
     <None Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
     <None Include="Assets\Resources\ParticleProps\FireBall\ToolResources\EffectShader\FXMaker_Mask Additive Tint.shader" />
+    <None Include="Assets\Resources\Shaders\DissolveNoNormal.shader" />
     <None Include="Assets\Scripts\Control\Enemy\readMe.txt" />
     <None Include="Assets\Scripts\Control\NPC\readMe.txt" />
     <None Include="Assets\Scripts\Control\Prop\readMe.txt" />
