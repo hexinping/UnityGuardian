@@ -25,6 +25,9 @@ public class PlayerEnitity:BaseEnitity  {
     //动画帧事件集合
     private Dictionary<string, List<int>> _animationEventDict;
 
+    //动画状态
+    private Dictionary<string, AnimationState> _animationStateDict;
+
     public PlayerEnitity()
     {
         initDatas();
@@ -56,8 +59,8 @@ public class PlayerEnitity:BaseEnitity  {
         _animationNameList = new List<string>();
         _comobAnimationNameList = new List<string>();
         _animationEventDict = new Dictionary<string, List<int>>();
+        _animationStateDict = new Dictionary<string, AnimationState>();
         
-     
     }
 
     void initDatas()
@@ -112,13 +115,21 @@ public class PlayerEnitity:BaseEnitity  {
                 AnimationClip clip = Resources.Load<AnimationClip>(path);
                 _animation.AddClip(clip, clipName);
             }
-
+            saveAnimationState();
             _gameObject.AddComponent<PlayerEvent>(); //动画帧事件要放到一个与Animation同级的脚本里
             changeAniamtion(_animationNameList[0], 1.0f, true);
 
         }
     }
 
+
+    void saveAnimationState()
+    {
+        foreach (AnimationState state in _animation)
+        {
+            _animationStateDict[state.name] = state;
+        }
+    }
 
     void addAinimainClips()
     {
@@ -128,8 +139,8 @@ public class PlayerEnitity:BaseEnitity  {
 
         //技能动作
         _animationNameList.Add("Attack1");
-        _animationNameList.Add("Attack4");
-        _animationNameList.Add("Attack1"); //临时
+        _animationNameList.Add("Attack2");
+        _animationNameList.Add("Attack3"); 
         _animationNameList.Add("Attack4");
 
         //普通攻击组合动作
@@ -144,6 +155,14 @@ public class PlayerEnitity:BaseEnitity  {
         List<int> attack1List = new List<int>();
         attack1List.Add(21);
         _animationEventDict["Attack1"] = attack1List;
+
+        List<int> attack2List = new List<int>();
+        attack2List.Add(27);
+        _animationEventDict["Attack2"] = attack2List;
+
+        List<int> attack3List = new List<int>();
+        attack3List.Add(27);
+        _animationEventDict["Attack3"] = attack3List;
 
         List<int> attack4List = new List<int>();
         attack4List.Add(40);
@@ -242,13 +261,9 @@ public class PlayerEnitity:BaseEnitity  {
     public AnimationState getAnimationState(string animatinName)
     {
         AnimationState targetState = null;
-        foreach (AnimationState state in _animation)
+        if (_animationStateDict != null && _animationStateDict.ContainsKey(animatinName))
         {
-            if (animatinName.Equals(state.name))
-            {
-                targetState = state;
-                return targetState;
-            }
+            targetState = _animationStateDict[animatinName];
         }
         return targetState;
     }
@@ -273,29 +288,24 @@ public class PlayerEnitity:BaseEnitity  {
         if (_animation != null)
         {
             //_animation.CrossFade(animatinName);
-
-            foreach (AnimationState state in _animation)
+            _animation.Stop();
+            AnimationState state = getAnimationState(animatinName);
+            if (state != null)
             {
-                if (animatinName.Equals(state.name))
+                state.speed = speed;
+                AnimationClip clip = state.clip;
+
+                if (isLoop)
                 {
-                    state.speed = speed;
-                    AnimationClip clip = state.clip;
-
-                    if (isLoop)
-                    {
-                        //循环播放
-                        _animation.wrapMode = WrapMode.Loop;
-                    }
-                    else
-                    {
-                        _animation.wrapMode = WrapMode.Once;
-                    }
-                    _animation.CrossFade(animatinName);
-              
-                    break;
+                    //循环播放
+                    _animation.wrapMode = WrapMode.Loop;
                 }
+                else
+                {
+                    _animation.wrapMode = WrapMode.Once;
+                }
+                _animation.CrossFade(animatinName);
             }
-
         }  
     }
 
@@ -316,16 +326,9 @@ public class PlayerEnitity:BaseEnitity  {
         {
             name = getAnimationName(playerstateEm);
         }
-        
-        foreach (AnimationState state in _animation)
-        {
-            if (state.name == name)
-            {
-                time = state.clip.length/state.speed;
-                break;
-            }
-        
-        }
+
+        AnimationState state = getAnimationState(name);
+        time = state.clip.length / state.speed;
         return time + delayTime;
     }
 
