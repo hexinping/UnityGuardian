@@ -373,6 +373,7 @@
     <Compile Include="Assets\Scripts\StataMachine\BaseState.cs" />
     <Compile Include="Assets\Scripts\StataMachine\Enimiy\EnimyEnitity.cs" />
     <Compile Include="Assets\Scripts\StataMachine\Enimiy\EnimyEnitiyMode.cs" />
+    <Compile Include="Assets\Scripts\StataMachine\Enimiy\EnimyState.cs" />
     <Compile Include="Assets\Scripts\StataMachine\Message.cs" />
     <Compile Include="Assets\Scripts\StataMachine\MessageDispatcher.cs" />
     <Compile Include="Assets\Scripts\StataMachine\PlayerEnitity.cs" />

@@ -9,11 +9,26 @@ public class EnimyEnitity : BaseEnitity {
 
     public EnimyEnitiyMode _mode;
     private PlayerEnitity _playerEnitiy;
+    public List<BaseState> _stateList;
     public EnimyEnitity()
     {
         initDatas();
 
         //状态机todo
+        BaseState enimyIdleState = new EnimyIdleState(this);
+        BaseState enimyRunState = new EnimyRunState(this);
+        BaseState enimyDeadState = new EnimyDeadState(this);
+        BaseState enimyNormalAttackState = new EnimyNormalAttackState(this);
+        BaseState enimyHurtState = new EnimyHurtState(this);
+
+        _stateList.Add(enimyIdleState);
+        _stateList.Add(enimyRunState);
+        _stateList.Add(enimyDeadState);
+        _stateList.Add(enimyNormalAttackState);
+        _stateList.Add(enimyHurtState);
+
+        //状态机设置
+        _stateMachine.setCurrentState(enimyIdleState);
     }
 
     void initDatas()
@@ -43,24 +58,26 @@ public class EnimyEnitity : BaseEnitity {
         }
     }
 
+    public void changeStateByIndex(EnimyStateEnum enimyStateEm, float tSpeed = 1.0f, bool tIsLoop = false)
+    {
+        int stateIndex = (int)enimyStateEm;
+        BaseState state = _stateList[stateIndex];
+        //string name = getAnimationName(playerstateEm);
+
+        //changeState(state, true, name, tSpeed, tIsLoop);
+        changeState(state);
+
+    }
+
     override public void onDestory()
     {
 
-        //暂时直接消失，后面要切到死亡状态 todo
-
+  
         _gameObject.AddComponent<BurnHelper>();
+
+        changeStateByIndex(EnimyStateEnum.DEAD);
         LevelOneView view = (LevelOneView)rootView;
         view.removeFromEnimyList(this);
-    }
-
-    IEnumerator dissoveDead()
-    {
-        while (true)
-        {
-            yield return null;
-        
-        }
-        
     }
 
     override public float countDamage(BaseEnitity target)
