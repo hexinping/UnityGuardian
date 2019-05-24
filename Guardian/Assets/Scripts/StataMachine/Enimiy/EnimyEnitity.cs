@@ -9,12 +9,19 @@ public class EnimyEnitity : BaseEnitity {
 
     public EnimyEnitiyMode _mode;
     private PlayerEnitity _playerEnitiy;
-    public List<BaseState> _stateList;
     public EnimyEnitity()
     {
-        initDatas();
+       
+    }
 
-        //状态机todo
+    override public void initModeData()
+    {
+        _mode = new EnimyEnitiyMode();
+    }
+
+    override public void addBaseState()
+    {
+        //状态机
         BaseState enimyIdleState = new EnimyIdleState(this);
         BaseState enimyRunState = new EnimyRunState(this);
         BaseState enimyDeadState = new EnimyDeadState(this);
@@ -31,10 +38,6 @@ public class EnimyEnitity : BaseEnitity {
         _stateMachine.setCurrentState(enimyIdleState);
     }
 
-    void initDatas()
-    {
-        _mode = new EnimyEnitiyMode();
-    }
     public void setPlayerEnitity(PlayerEnitity enitity)
     {
         _playerEnitiy = enitity;

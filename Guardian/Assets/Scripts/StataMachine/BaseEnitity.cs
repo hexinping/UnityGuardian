@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +14,7 @@ public class BaseEnitity  {
     public string file;     //模型路径文件或者预设路径文件
 
     public StateMachine _stateMachine;
+    public List<BaseState> _stateList;
 
     //public BaseMode _mode;
 
@@ -40,9 +41,14 @@ public class BaseEnitity  {
         _id = GlobalParams.gameObjId;
         GlobalParams.gameObjId++;
 
+        initModeData();
+
         //创建状态机
         StateMachine stateMachine = new StateMachine(this);
         setStateMachine(stateMachine);
+
+        _stateList = new List<BaseState>();
+        addBaseState();
 
         //注册消息机制
         MessageDispatcher.getInstance().registerEntity(this);
@@ -50,6 +56,18 @@ public class BaseEnitity  {
         _params = new Dictionary<string,object>();
 
         _prefabDamageLabe1_1 = Resources.Load<GameObject>("Prefabs/View/DamageLabel");
+    }
+
+    //必须重载
+    virtual public void initModeData()
+    {
+
+    }
+
+    //必须重载
+    virtual public void addBaseState()
+    { 
+    
     }
 
     public void setRootObj(GameObject rootObj)

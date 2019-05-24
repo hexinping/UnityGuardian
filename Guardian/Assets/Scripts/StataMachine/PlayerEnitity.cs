@@ -12,8 +12,6 @@ public class PlayerEnitity:BaseEnitity  {
     private List<string> _animationNameList;
     private List<string> _comobAnimationNameList; //组合动作
 
-    public List<BaseState> _stateList;
-
     private Animation _animation;
 
     private int _nomarlAttackComobIndex = 0;  //组合动作的序号
@@ -30,10 +28,15 @@ public class PlayerEnitity:BaseEnitity  {
 
     public PlayerEnitity()
     {
-        initDatas();
-        _stateList = new List<BaseState>();
-
+        _animationNameList = new List<string>();
+        _comobAnimationNameList = new List<string>();
+        _animationEventDict = new Dictionary<string, List<int>>();
+        _animationStateDict = new Dictionary<string, AnimationState>();
         
+    }
+
+    override public void addBaseState()
+    {
         BaseState playerIdleState = new PlayerIdleState(this);
         BaseState playerRunState = new PlayerRunState(this);
         BaseState playerAttackState = new PlayerAttackState(this);
@@ -53,17 +56,11 @@ public class PlayerEnitity:BaseEnitity  {
         _stateList.Add(playerAttackState);
 
         //状态机设置
-        //changeState(playerIdleState);
         _stateMachine.setCurrentState(playerIdleState);
-        
-        _animationNameList = new List<string>();
-        _comobAnimationNameList = new List<string>();
-        _animationEventDict = new Dictionary<string, List<int>>();
-        _animationStateDict = new Dictionary<string, AnimationState>();
-        
     }
 
-    void initDatas()
+
+    override public void initModeData()
     {
         _mode = new PlayerEnitityMode();
     }
