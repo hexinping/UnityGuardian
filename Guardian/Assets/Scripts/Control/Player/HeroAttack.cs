@@ -154,27 +154,17 @@ public class HeroAttack : MonoBehaviour {
               
             }
 
-            switch (preEnum)
-            {
-                case PlayerStateEnum.NORMALATTACK:
-                    isSingle = false;
-                    break;
-                case PlayerStateEnum.MAGICTRICKA:
-                    isSingleA = false;
-                    break;
-                case PlayerStateEnum.MAGICTRICKB:
-                    isSingleB = false;
-                    break;
-                case PlayerStateEnum.MAGICTRICKC:
-                    isSingleC = false;
-                    break;
-                case PlayerStateEnum.MAGICTRICKD:
-                    isSingleD = false;
-                    break;
-                default:
-                    break;
-            }    
+            resetETState();
         }
+    }
+
+    public void resetETState()
+    {
+        isSingle = false;
+        isSingleA = false;
+        isSingleB = false;
+        isSingleC = false;
+        isSingleD = false;
     }
 
     public void startResetIdle(PlayerStateEnum playstateEM)
