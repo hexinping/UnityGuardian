@@ -78,7 +78,7 @@ public class HeroMovingByET : MonoBehaviour {
          if (move.joystickName == MoveJoystickName)  
         {
            // _animation.CrossFade("Idle");
-            if (_playerEnitity != null)
+            if (_playerEnitity != null && isRunning)
             {
                 isRunning = false;
                 //切换成IDLE状态
