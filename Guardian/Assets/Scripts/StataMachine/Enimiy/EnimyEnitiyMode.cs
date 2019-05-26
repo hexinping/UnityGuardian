@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnimyEnitiyMode : BaseMode{
 
+    public string file;
     public EnimyEnitiyMode()
     {
 
@@ -19,6 +20,8 @@ public class EnimyEnitiyMode : BaseMode{
         atkByPro = 0.0f;
         defenceByPro = 0.0f;
         dexterityByPro = 0.0f;
+
+        file = "Models/Enemys/Skeleton_Pack/Prefabs(chibi)/warrior/skeleton_warrior_green";
     }
 
     public float countDamage(BaseEnitity target)

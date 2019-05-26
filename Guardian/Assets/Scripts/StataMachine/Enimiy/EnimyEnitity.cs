@@ -50,14 +50,8 @@ public class EnimyEnitity : BaseEnitity {
         if (_rootObj)
         {
             GameObject playerGameObject = _playerEnitiy._gameObject;
-            //测试代码
-            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            cube.name = "EnimyTest";
-            cube.tag = "Enimy";
-            cube.transform.parent = _rootObj.transform;
-            cube.transform.position = playerGameObject.transform.position + new Vector3(0.0f, 0.0f, 2.0f);
-            _gameObject = cube;
-
+            _gameObject = getGameObject(_mode.file, "warrior_green", _rootObj, Vector3.zero);
+            _gameObject.transform.localPosition = playerGameObject.transform.position + new Vector3(2.0f, 0.0f, 2.0f);
         }
     }
 
