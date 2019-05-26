@@ -35,11 +35,6 @@ public class HeroAttack : MonoBehaviour {
     public float _lastPressTime = 0.0f;
     public bool _isLongPrees = false;
 
-    private bool isSingle = false;
-    private bool isSingleA = false;
-    private bool isSingleB = false;
-    private bool isSingleC = false;
-    private bool isSingleD = false;
     public void setPlayerEnitity(PlayerEnitity enitity)
     {
         _playerEnitity = enitity;
@@ -48,23 +43,7 @@ public class HeroAttack : MonoBehaviour {
 
     public void heroNormalAttack(bool isCheckLongPrees = true)
     {
-        if (isCheckLongPrees)
-        {
-            if (_lastPressTime == 0.0f)
-            {
-                _lastPressTime = Time.time;
-            }
-            if (Time.time - _lastPressTime >= delayTime)
-            {
-                _isLongPrees = true;
-            }
-        }
-        
-        if (isSingle) return;
-        if (!isSingle)
-        {
-            isSingle = true;
-        }
+
         //普通攻击
         //多个攻击动作区分或者整合 todo
         //print(GetType() + "/heroNormalAttack Attack");
@@ -78,11 +57,7 @@ public class HeroAttack : MonoBehaviour {
 
     public void heroMagicTrickA()
     {
-        if (isSingleA) return;
-        if (!isSingleA)
-        {
-            isSingleA = true;
-        }
+
         //普通技能
         //print(GetType() + "/heroMagicTrickA MagicTrickA");
         if (_playerEnitity != null)
@@ -94,11 +69,7 @@ public class HeroAttack : MonoBehaviour {
 
     public void heroMagicTrickB()
     {
-        if (isSingleB) return;
-        if (!isSingleB)
-        {
-            isSingleB = true;
-        }
+
         //大招技能
         //print(GetType() + "/heroMagicTrickB MagicTrickB");
         if (_playerEnitity != null)
@@ -111,11 +82,7 @@ public class HeroAttack : MonoBehaviour {
 
     public void heroMagicTrickC()
     {
-        if (isSingleC) return;
-        if (!isSingleC)
-        {
-            isSingleC = true;
-        }
+
         //大招技能
         //print(GetType() + "/heroMagicTrickB MagicTrickB");
         if (_playerEnitity != null)
@@ -128,11 +95,7 @@ public class HeroAttack : MonoBehaviour {
 
     public void heroMagicTrickD()
     {
-        if (isSingleD) return;
-        if (!isSingleD)
-        {
-            isSingleD = true;
-        }
+
         //大招技能
         //print(GetType() + "/heroMagicTrickB MagicTrickB");
         if (_playerEnitity != null)
@@ -148,24 +111,10 @@ public class HeroAttack : MonoBehaviour {
         yield return new WaitForSeconds(delayTime);
         if(_playerEnitity != null)
         {
-            if (!_isLongPrees)
-            {
-                _playerEnitity.changeStateByIndex(PlayerStateEnum.IDLE, 1.0f, true);
-              
-            }
-
-            resetETState();
+            _playerEnitity.changeStateByIndex(PlayerStateEnum.IDLE, 1.0f, true);
         }
     }
 
-    public void resetETState()
-    {
-        isSingle = false;
-        isSingleA = false;
-        isSingleB = false;
-        isSingleC = false;
-        isSingleD = false;
-    }
 
     public void startResetIdle(PlayerStateEnum playstateEM)
     {
