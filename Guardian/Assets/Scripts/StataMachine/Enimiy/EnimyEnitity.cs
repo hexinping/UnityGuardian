@@ -55,9 +55,48 @@ public class EnimyEnitity : BaseEnitity {
 
             _gameObject.AddComponent<EnimyEvent>();
             _animator = _gameObject.GetComponent<Animator>();
-            
+
         }
     }
+
+
+    public  float getClipLength(Animator animator, string clip)
+    {
+        if (null == animator || string.IsNullOrEmpty(clip) || null == animator.runtimeAnimatorController)
+            return 0;
+        RuntimeAnimatorController ac = animator.runtimeAnimatorController;
+        AnimationClip[] tAnimationClips = ac.animationClips;
+        if (null == tAnimationClips || tAnimationClips.Length <= 0) return 0;
+        AnimationClip tAnimationClip;
+        for (int tCounter = 0, tLen = tAnimationClips.Length; tCounter < tLen; tCounter++)
+        {
+            tAnimationClip = ac.animationClips[tCounter];
+            if (null != tAnimationClip && tAnimationClip.name == clip)
+            {
+                float speed = animator.speed;
+                return tAnimationClip.length * 1 / speed;
+            }
+               
+        }
+        return 0F;
+    }
+
+    public void addDelayCall(string animatinName)
+    {
+
+        float time = getClipLength(_animator, animatinName);
+        float p = GlobalParams.totalTime + time;
+        Debug.Log(GetType() + "注册时间：" + GlobalParams.totalTime + " / 预测回调时间：" + p + " 当前帧数：" + GlobalParams.frameCount + " 等待时间:" + time);
+        DelayCall delayCall = new DelayCall(time, GlobalParams.frameCount, eventCallBack, this);
+        GlobalParams.addDelayCall(delayCall);
+    }
+
+    public void eventCallBack(BaseEnitity eniity)
+    {
+        Debug.Log(GetType() + "testEvent======成功回调========" + GlobalParams.totalTime + " 当前帧数：" + GlobalParams.frameCount);
+        isHurt = false;
+    }
+
 
     public void changeStateByIndex(EnimyStateEnum enimyStateEm, float tSpeed = 1.0f, bool tIsLoop = false)
     {

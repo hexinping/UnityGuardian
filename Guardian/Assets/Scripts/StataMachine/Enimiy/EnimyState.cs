@@ -287,6 +287,8 @@ public class EnimyHurtState : EnimyState
         //切换动作
         base.enter(values);
 
+
+        
         _enitity.isHurt = true;
 
         //设置animatorctrl 条件
@@ -294,6 +296,8 @@ public class EnimyHurtState : EnimyState
         {
             _enitity._animator.SetBool("isHurt", _enitity.isHurt);
         }
+        EnimyEnitity e = (EnimyEnitity)_enitity;
+        e.addDelayCall("damage_right");
     }
 
     override public void excute(params object[] values)
