@@ -1,6 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
-
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 public class BurnHelper : MonoBehaviour {
 
 	private Material material;
@@ -10,59 +11,65 @@ public class BurnHelper : MonoBehaviour {
 
 	private float burnAmount = 0.0f;
 
+
+    private Texture _mainTexture = null;
+    private List<string> _gameObjectNameList = new List<string>();
+
     void Awake()
     { 
         Shader dissoveS = Resources.Load<Shader>("Shaders/DissolveNoNormal");
         material = new Material(dissoveS);
         material.hideFlags = HideFlags.DontSave;
         Texture burnN = Resources.Load<Texture>("Texture/burn_noise");
-        Texture mainT = Resources.Load<Texture>("Models/Enemys/Skeleton_Pack/Textures/warrior/skeleton_warrior__variant5");
         material.SetTexture("_BurnMap", burnN);
-        material.SetTexture("_MainTex", mainT);
-
-
-        //armor
-        GameObject armorObj = null;
-        Recursive(gameObject, "armor", ref armorObj);
-        Renderer armorRender = armorObj.GetComponent<Renderer>();
-        armorRender.material = material;
-
-        //eyes
-        GameObject eyesObj = null;
-        Recursive(gameObject, "eyes", ref eyesObj);
-        Renderer eyesRender = eyesObj.GetComponent<Renderer>();
-        eyesRender.material = material;
-
-        //helmet
-        GameObject helmetObj = null;
-        Recursive(gameObject, "helmet", ref helmetObj);
-        Renderer helmetRender = helmetObj.GetComponent<Renderer>();
-        helmetRender.material = material;
-
-
-        //Skeletonl_base
-        GameObject Skeletonl_baseObj = null;
-        Recursive(gameObject, "Skeletonl_base", ref Skeletonl_baseObj);
-        Renderer Skeletonl_baseRender = Skeletonl_baseObj.GetComponent<Renderer>();
-        Skeletonl_baseRender.material = material;
-
-
-        //shield
-        GameObject shieldObj = null;
-        Recursive(gameObject, "shield", ref shieldObj);
-        Renderer shieldRender = shieldObj.GetComponent<Renderer>();
-        shieldRender.material = material;
-
-        //sword
-        GameObject swordObj = null;
-        Recursive(gameObject, "sword", ref swordObj);
-        Renderer swordRender = swordObj.GetComponent<Renderer>();
-        swordRender.material = material;
-       
-
     }
 
 
+    void initDatas()
+    {
+        if (_mainTexture != null)
+        {
+            material.SetTexture("_MainTex", _mainTexture);
+        }
+
+        if (_gameObjectNameList != null && _gameObjectNameList.Count > 0)
+        {
+            for (int i = 0; i < _gameObjectNameList.Count; i++)
+            {
+                string name = _gameObjectNameList[i];
+                GameObject obj = null;
+                Recursive(gameObject, name, ref obj);
+                Renderer render = obj.GetComponent<Renderer>();
+                render.material = material;
+            }
+        }
+        else
+        { 
+            //直接把自身的material替换
+            Renderer render = gameObject.GetComponent<Renderer>();
+            render.material = material;
+        }
+    }
+
+    public void setNameList(params object[] values)
+    {
+        if (values != null && values.Length > 0)
+        {
+            for (int i = 0; i < values.Length;i++ )
+            {
+                string name = (string)values[i];
+                _gameObjectNameList.Add(name);
+            }
+        }
+
+    }
+
+    public void setMainTex(Texture main)
+    {
+        _mainTexture = main;
+    }
+
+    
     //递归查找子物体
     private void Recursive(GameObject parentGameObject, string name, ref GameObject targetObj)
     {
@@ -71,6 +78,7 @@ public class BurnHelper : MonoBehaviour {
             if (child.gameObject.name == name)
             {
                 targetObj = child.gameObject;
+                return;
             }
             Recursive(child.gameObject, name, ref targetObj);
         }
@@ -84,6 +92,8 @@ public class BurnHelper : MonoBehaviour {
 		} else {
 			material.SetFloat("_BurnAmount", 0.0f);
 		}
+
+        initDatas();
 	}
 	
 	// Update is called once per frame

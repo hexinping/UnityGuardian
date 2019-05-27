@@ -72,9 +72,10 @@ public class EnimyEnitity : BaseEnitity {
 
     override public void onDestory()
     {
-
-  
-        _gameObject.AddComponent<BurnHelper>();
+        BurnHelper burn = _gameObject.AddComponent<BurnHelper>();
+        Texture mainT = Resources.Load<Texture>("Models/Enemys/Skeleton_Pack/Textures/warrior/skeleton_warrior__variant5");
+        burn.setMainTex(mainT);
+        burn.setNameList("armor", "eyes", "helmet", "Skeletonl_base", "shield", "sword");
 
         changeStateByIndex(EnimyStateEnum.DEAD);
         LevelOneView view = (LevelOneView)rootView;
