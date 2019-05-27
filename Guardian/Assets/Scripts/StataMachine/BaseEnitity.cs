@@ -26,6 +26,7 @@ public class BaseEnitity  {
 
     public bool isAttacking = false;
     public bool isDead = false;
+    public bool isHurt = false;
 
     public BaseView rootView;
 
@@ -35,6 +36,8 @@ public class BaseEnitity  {
     public Dictionary<string, object> _params;
 
     private GameObject _prefabDamageLabe1_1;
+
+    public Animator _animator;
 
     public BaseEnitity()
     {

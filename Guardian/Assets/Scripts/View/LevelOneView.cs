@@ -131,13 +131,14 @@ public class LevelOneView : BaseView {
         _cameFollow.setHeight(5.0f);
         _cameFollow.setDistance(10.0f);
 
-        //测试索敌代码
+       
         EnimyEnitity enimy = new EnimyEnitity();
         enimy.setRootObj(_sceneRoleNode);
         enimy.setRootView(this);
         enimy.setPlayerEnitity(enitity);
         enimy.initGameObject();
         _listEnimy.Add(enimy);
+        _enitityDic.Add(enimy._id, enimy);
 
         _playerInfo.setPlayerEnitiy(enitity);
         yield return null;
@@ -176,6 +177,31 @@ public class LevelOneView : BaseView {
             //事件调用
             GlobalParams.update(GlobalParams.totalTime);
 
+        }
+
+        //测试代码
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            EnimyEnitity enimy = (EnimyEnitity)_listEnimy[0];
+            enimy.isMove = !enimy.isMove;
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            EnimyEnitity enimy = (EnimyEnitity)_listEnimy[0];
+            enimy.isAttacking = !enimy.isAttacking;
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            EnimyEnitity enimy = (EnimyEnitity)_listEnimy[0];
+            enimy.isHurt = !enimy.isHurt;
+        }
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            EnimyEnitity enimy = (EnimyEnitity)_listEnimy[0];
+            enimy.isDead = !enimy.isDead;
         }
 
     }

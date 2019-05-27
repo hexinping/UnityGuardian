@@ -46,6 +46,7 @@ public class EnimyIdleState : EnimyState
         : base(enity)
     {
         stateIndex = EnimyStateEnum.IDLE;
+
     }
 
     override public void enter(params object[] values)
@@ -53,14 +54,46 @@ public class EnimyIdleState : EnimyState
         Debug.Log("EnimyIdleState enter=============");
         //切换动作
         base.enter(values);
-        
+
+        _enitity.isMove = false;
+        _enitity.isAttacking = false;
+        _enitity.isDead = false;
+        _enitity.isHurt = false;
+
+        //设置animatorctrl 条件
+        if (_enitity._animator != null)
+        {
+            _enitity._animator.SetBool("isMove", _enitity.isMove);
+            _enitity._animator.SetBool("isAttack", _enitity.isAttacking);
+            _enitity._animator.SetBool("isHurt", _enitity.isHurt);
+            _enitity._animator.SetBool("isDead", _enitity.isDead);
+        }
 
 
     }
 
     override public void excute(params object[] values)
     {
-       
+        EnimyEnitity e = (EnimyEnitity)_enitity;
+        if (_enitity.isMove)
+        {
+            //切换到移动状态
+          
+           e.changeStateByIndex(EnimyStateEnum.RUN);
+        }
+        else if (_enitity.isAttacking)
+        {
+            e.changeStateByIndex(EnimyStateEnum.NORMALATTACK);
+        }
+        else if (_enitity.isHurt)
+        {
+            e.changeStateByIndex(EnimyStateEnum.HURT);
+        }
+        else if (_enitity.isDead)
+        {
+            e.changeStateByIndex(EnimyStateEnum.DEAD);
+        }
+
     }
 
 
@@ -79,6 +112,7 @@ public class EnimyRunState : EnimyState
         : base(enity)
     {
         stateIndex = EnimyStateEnum.RUN;
+        
     }
 
     override public void enter(params object[] values)
@@ -87,19 +121,45 @@ public class EnimyRunState : EnimyState
         //切换动作
         base.enter(values);
 
+        _enitity.isMove = true;
 
+        //设置animatorctrl 条件
+        if (_enitity._animator != null)
+        {
+            _enitity._animator.SetBool("isMove", _enitity.isMove);
+        }
 
     }
 
     override public void excute(params object[] values)
     {
-
+        EnimyEnitity e = (EnimyEnitity)_enitity;
+        if (!_enitity.isMove)
+        {
+            //切换到移动状态
+            e.changeStateByIndex(EnimyStateEnum.IDLE);
+        }
+        else if (_enitity.isHurt)
+        {
+            e.changeStateByIndex(EnimyStateEnum.HURT);
+        }
+        else if (_enitity.isDead)
+        {
+            e.changeStateByIndex(EnimyStateEnum.DEAD);
+        }
     }
 
 
     override public void exit(params object[] values)
     {
         Debug.Log("EnimyRunState exit=============");
+        _enitity.isMove = false;
+
+        //设置animatorctrl 条件
+        if (_enitity._animator != null)
+        {
+            _enitity._animator.SetBool("isMove", _enitity.isMove);
+        }
     }
 
 }
@@ -112,6 +172,7 @@ public class EnimyDeadState : EnimyState
         : base(enity)
     {
         stateIndex = EnimyStateEnum.DEAD;
+        
     }
 
     override public void enter(params object[] values)
@@ -120,7 +181,11 @@ public class EnimyDeadState : EnimyState
         //切换动作
         base.enter(values);
 
-
+        _enitity.isDead = true;
+        if (_enitity._animator != null)
+        {
+            _enitity._animator.SetBool("isDead", _enitity.isDead);
+        }
 
     }
 
@@ -133,6 +198,11 @@ public class EnimyDeadState : EnimyState
     override public void exit(params object[] values)
     {
         Debug.Log("EnimyDeadState exit=============");
+        _enitity.isDead = false;
+        if (_enitity._animator != null)
+        {
+            _enitity._animator.SetBool("isDead", _enitity.isDead);
+        }
     }
 
 }
@@ -146,6 +216,7 @@ public class EnimyNormalAttackState : EnimyState
         : base(enity)
     {
         stateIndex = EnimyStateEnum.NORMALATTACK;
+       
     }
 
     override public void enter(params object[] values)
@@ -154,19 +225,46 @@ public class EnimyNormalAttackState : EnimyState
         //切换动作
         base.enter(values);
 
+        _enitity.isAttacking = true;
 
+        //设置animatorctrl 条件
+        if (_enitity._animator != null)
+        {
+            _enitity._animator.SetBool("isAttack", _enitity.isAttacking);
+        }
 
     }
 
     override public void excute(params object[] values)
     {
 
+        EnimyEnitity e = (EnimyEnitity)_enitity;
+        if (!_enitity.isAttacking)
+        {
+            //切换到移动状态
+            e.changeStateByIndex(EnimyStateEnum.IDLE);
+        }
+        else if (_enitity.isHurt)
+        {
+            e.changeStateByIndex(EnimyStateEnum.HURT);
+        }
+        else if (_enitity.isDead)
+        {
+            e.changeStateByIndex(EnimyStateEnum.DEAD);
+        }
     }
 
 
     override public void exit(params object[] values)
     {
         Debug.Log("EnimyNormalAttackState exit=============");
+        _enitity.isAttacking = false;
+
+        //设置animatorctrl 条件
+        if (_enitity._animator != null)
+        {
+            _enitity._animator.SetBool("isAttack", _enitity.isAttacking);
+        }
     }
 
 }
@@ -180,6 +278,7 @@ public class EnimyHurtState : EnimyState
         : base(enity)
     {
         stateIndex = EnimyStateEnum.HURT;
+       
     }
 
     override public void enter(params object[] values)
@@ -188,18 +287,36 @@ public class EnimyHurtState : EnimyState
         //切换动作
         base.enter(values);
 
+        _enitity.isHurt = true;
 
+        //设置animatorctrl 条件
+        if (_enitity._animator != null)
+        {
+            _enitity._animator.SetBool("isHurt", _enitity.isHurt);
+        }
     }
 
     override public void excute(params object[] values)
     {
-
+        EnimyEnitity e = (EnimyEnitity)_enitity;
+        if (!_enitity.isHurt)
+        {
+            //切换到移动状态
+            e.changeStateByIndex(EnimyStateEnum.IDLE);
+        }
     }
 
 
     override public void exit(params object[] values)
     {
         Debug.Log("EnimyHurtState exit=============");
+        _enitity.isHurt = false;
+
+        //设置animatorctrl 条件
+        if (_enitity._animator != null)
+        {
+            _enitity._animator.SetBool("isHurt", _enitity.isHurt);
+        }
     }
 
 }

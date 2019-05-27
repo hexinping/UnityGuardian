@@ -52,6 +52,10 @@ public class EnimyEnitity : BaseEnitity {
             GameObject playerGameObject = _playerEnitiy._gameObject;
             _gameObject = getGameObject(_mode.file, "warrior_green", _rootObj, Vector3.zero);
             _gameObject.transform.localPosition = playerGameObject.transform.position + new Vector3(2.0f, 0.0f, 2.0f);
+
+            _gameObject.AddComponent<EnimyEvent>();
+            _animator = _gameObject.GetComponent<Animator>();
+            
         }
     }
 

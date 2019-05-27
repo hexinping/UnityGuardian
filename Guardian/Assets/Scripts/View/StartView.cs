@@ -71,6 +71,7 @@ public class StartView : BaseView
         this.Invoke("setTimeOut", 0.5f);
 
         _loadEndCallBack = gotoNextView;
+
     }
 
     void gotoNextView()
