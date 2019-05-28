@@ -9,6 +9,9 @@ public class EnimyEnitity : BaseEnitity {
 
     public EnimyEnitiyMode _mode;
     private PlayerEnitity _playerEnitiy;
+
+    private Transform _selfTransform;
+    private CharacterController _CC;
     public EnimyEnitity()
     {
        
@@ -56,11 +59,14 @@ public class EnimyEnitity : BaseEnitity {
             _gameObject.AddComponent<EnimyEvent>();
             _animator = _gameObject.GetComponent<Animator>();
 
+            _selfTransform = _gameObject.transform;
+            _CC = _gameObject.GetComponent<CharacterController>();
+
         }
     }
 
 
-    public  float getClipLength(Animator animator, string clip)
+    public  float getClipLength(Animator animator, string clip, int frameIndex)
     {
         if (null == animator || string.IsNullOrEmpty(clip) || null == animator.runtimeAnimatorController)
             return 0;
@@ -74,38 +80,55 @@ public class EnimyEnitity : BaseEnitity {
             if (null != tAnimationClip && tAnimationClip.name == clip)
             {
                 float speed = animator.speed;
-                return tAnimationClip.length * 1 / speed;
+                float frameRate = tAnimationClip.frameRate; //1秒都少帧
+                float frameInterval = 1.0f / frameRate;
+                float time = frameIndex * frameInterval / speed - frameInterval;
+                return time;
+
             }
                
         }
         return 0F;
     }
 
-    public void addDelayCall(string animatinName)
+    public void addDelayCall(string animatinName, int frameIndex, float speed = 1.0f)
     {
-
-        float time = getClipLength(_animator, animatinName);
+        _animator.speed = speed;
+        float time = getClipLength(_animator, animatinName, frameIndex);
         float p = GlobalParams.totalTime + time;
-        Debug.Log(GetType() + "注册时间：" + GlobalParams.totalTime + " / 预测回调时间：" + p + " 当前帧数：" + GlobalParams.frameCount + " 等待时间:" + time);
+        //Debug.Log(GetType() + "注册时间：" + GlobalParams.totalTime + " / 预测回调时间：" + p + " 当前帧数：" + GlobalParams.frameCount + " 等待时间:" + time);
         DelayCall delayCall = new DelayCall(time, GlobalParams.frameCount, eventCallBack, this);
         GlobalParams.addDelayCall(delayCall);
     }
 
     public void eventCallBack(BaseEnitity eniity)
     {
-        Debug.Log(GetType() + "testEvent======成功回调========" + GlobalParams.totalTime + " 当前帧数：" + GlobalParams.frameCount);
-        isHurt = false;
+        //Debug.Log(GetType() + "testEvent======成功回调========" + GlobalParams.totalTime + " 当前帧数：" + GlobalParams.frameCount);
+
+        if (isHurt)
+        {
+            //受伤事件
+            isHurt = false;
+        }
+        else if(isAttacking)
+        { 
+            //攻击伤害事件
+
+            //再次攻击事件
+            addDelayCall("attack_slash", 9);
+        }
+        _animator.speed = 1.0f;
     }
 
 
-    public void changeStateByIndex(EnimyStateEnum enimyStateEm, float tSpeed = 1.0f, bool tIsLoop = false)
+    public void changeStateByIndex(EnimyStateEnum enimyStateEm, bool isCheckSameState = true)
     {
         int stateIndex = (int)enimyStateEm;
         BaseState state = _stateList[stateIndex];
         //string name = getAnimationName(playerstateEm);
 
         //changeState(state, true, name, tSpeed, tIsLoop);
-        changeState(state);
+        changeState(state, isCheckSameState);
 
     }
 
@@ -119,6 +142,39 @@ public class EnimyEnitity : BaseEnitity {
         changeStateByIndex(EnimyStateEnum.DEAD);
         LevelOneView view = (LevelOneView)rootView;
         view.removeFromEnimyList(this);
+    }
+
+    override public void faceToTarget()
+    {
+        if (attackTarget != null || moveTarget !=null)
+        {
+            //_gameObject.transform.LookAt(attackTarget.transform);
+            GameObject tarObj = null;
+            if (isMove)
+            {
+                tarObj = moveTarget._gameObject;
+            }
+            else if (isAttacking)
+            {
+                tarObj = attackTarget._gameObject;
+            }
+
+            if (tarObj != null)
+            {
+                _selfTransform.rotation = Quaternion.Slerp(_selfTransform.rotation, Quaternion.LookRotation(tarObj.transform.position - _selfTransform.position), 1.0f);
+            }
+            
+        }
+    }
+
+    public void updateMove()
+    {
+        if (_CC != null)
+        {
+            float moveSpeed = 5.0f;
+            Vector3 v = Vector3.ClampMagnitude(moveTarget._gameObject.transform.position - _selfTransform.position, moveSpeed * Time.deltaTime);
+            _CC.Move(v);
+        }
     }
 
     override public float countDamage(BaseEnitity target)

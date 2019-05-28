@@ -147,6 +147,15 @@ public class EnimyRunState : EnimyState
         {
             e.changeStateByIndex(EnimyStateEnum.DEAD);
         }
+        else
+        {
+            if (_enitity.moveTarget != null)
+            { 
+                 _enitity.faceToTarget();
+                 e.updateMove();
+            }
+               
+        }
     }
 
 
@@ -160,6 +169,8 @@ public class EnimyRunState : EnimyState
         {
             _enitity._animator.SetBool("isMove", _enitity.isMove);
         }
+
+        _enitity.moveTarget = null;
     }
 
 }
@@ -233,6 +244,12 @@ public class EnimyNormalAttackState : EnimyState
             _enitity._animator.SetBool("isAttack", _enitity.isAttacking);
         }
 
+        //面向目标
+        _enitity.faceToTarget();
+
+        EnimyEnitity e = (EnimyEnitity)_enitity;
+        e.addDelayCall("attack_slash", 9);  //伤害事件
+        //e.addDelayCall("attack_slash", 29);  //重新播放一次攻击动画
     }
 
     override public void excute(params object[] values)
@@ -247,10 +264,16 @@ public class EnimyNormalAttackState : EnimyState
         else if (_enitity.isHurt)
         {
             e.changeStateByIndex(EnimyStateEnum.HURT);
+  
         }
         else if (_enitity.isDead)
         {
             e.changeStateByIndex(EnimyStateEnum.DEAD);
+        }
+        else
+        {
+            //面向目标
+            _enitity.faceToTarget();
         }
     }
 
@@ -297,7 +320,7 @@ public class EnimyHurtState : EnimyState
             _enitity._animator.SetBool("isHurt", _enitity.isHurt);
         }
         EnimyEnitity e = (EnimyEnitity)_enitity;
-        e.addDelayCall("damage_right");
+        e.addDelayCall("damage_right", 19);
     }
 
     override public void excute(params object[] values)

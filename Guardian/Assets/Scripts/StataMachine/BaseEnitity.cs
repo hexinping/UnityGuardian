@@ -32,6 +32,10 @@ public class BaseEnitity  {
 
     public BaseEnitity moveTarget;
     public BaseEnitity attackTarget;
+    public Vector3 moveTargetPos;
+
+    public float posX;
+    public float posY;
 
     public Dictionary<string, object> _params;
 

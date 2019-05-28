@@ -38,6 +38,7 @@ public class LevelOneView : BaseView {
 
     private PlayerEnitity _playerEnitity;
     private PlayerInfo _playerInfo;
+    private Transform _playerTransform;
 
     //敌人相关
     /*
@@ -107,6 +108,8 @@ public class LevelOneView : BaseView {
         //初始化显示对象
         enitity.initGameObject();
 
+         _playerTransform = enitity._gameObject.transform;
+
         //挂载脚本
         _swordsManObj = enitity._gameObject;
         HeroMovingByET _moveET = _swordsManObj.AddComponent<HeroMovingByET>();
@@ -161,6 +164,7 @@ public class LevelOneView : BaseView {
         {
 
             playerFindTarget();
+            enimyFindTarget();
 
             foreach (KeyValuePair<int, BaseEnitity> obj in _enitityDic)
             {
@@ -178,32 +182,46 @@ public class LevelOneView : BaseView {
             GlobalParams.update(GlobalParams.totalTime);
 
         }
+    }
 
-        //测试代码
-        if (Input.GetKeyDown(KeyCode.J))
+    private void enimyFindTarget()
+    {
+        Vector3 playerPos = _playerTransform.position;
+        if (_listEnimy != null && _listEnimy.Count > 0)
         {
-            EnimyEnitity enimy = (EnimyEnitity)_listEnimy[0];
-            enimy.isMove = !enimy.isMove;
+            for (int i = 0; i < _listEnimy.Count; i++)
+            {
+                BaseEnitity enimy = _listEnimy[i];
+                enimy.attackTarget = null;
+                enimy.moveTarget = null;
+                if (!enimy.isDead)
+                {
+                    GameObject obj = enimy._gameObject;
+                    Vector3 enimyPos = obj.transform.position;
+                    float dis = (playerPos - enimyPos).sqrMagnitude;  //距离的平方
+                    if (dis <= 9)  //攻击范围
+                    {
+                        enimy.isMove = false;
+                        enimy.isAttacking = true;
+                        enimy.attackTarget = _playerEnitity;
+                    }
+                    else if (dis <= 100) //警戒范围
+                    {
+                       
+                        enimy.isMove = true;
+                        enimy.isAttacking = false;
+                        enimy.moveTarget = _playerEnitity;
+                    }
+                    else
+                    {
+                        enimy.isMove = false;
+                        enimy.isAttacking = false;
+                    }
+                }
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            EnimyEnitity enimy = (EnimyEnitity)_listEnimy[0];
-            enimy.isAttacking = !enimy.isAttacking;
-        }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            EnimyEnitity enimy = (EnimyEnitity)_listEnimy[0];
-            enimy.isHurt = !enimy.isHurt;
-        }
-
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            EnimyEnitity enimy = (EnimyEnitity)_listEnimy[0];
-            enimy.isDead = !enimy.isDead;
-        }
-
+    
     }
 
     private void playerFindTarget()
@@ -211,8 +229,7 @@ public class LevelOneView : BaseView {
         _playerEnitity.attackTarget = null;
         if (_listEnimy != null && _listEnimy.Count > 0)
         { 
-            GameObject playerGameObject = _playerEnitity._gameObject;
-            Vector3 playerPos = playerGameObject.transform.position;
+            Vector3 playerPos = _playerTransform.position;
             float minDis = 1000.0f;
             for (int i = 0; i < _listEnimy.Count; i++ )
             {

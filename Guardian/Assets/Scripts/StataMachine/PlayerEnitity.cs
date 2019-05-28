@@ -71,7 +71,7 @@ public class PlayerEnitity:BaseEnitity  {
         {
             _gameObject = getGameObject(_mode.file, "GreateWarrior", _rootObj, Vector3.zero);
             _gameObject.transform.localScale = new Vector3(30.0f, 30.0f, 30.0f);
-            _gameObject.transform.localPosition = new Vector3(76.9f, -13.02f, -48.27f);
+            _gameObject.transform.localPosition = new Vector3(76.9f, -13.9f, -48.27f);
 
             _playerTransform = _gameObject.transform;
 
