@@ -112,7 +112,11 @@ public class StartView : BaseView
     {
         base.OnDestory();
         if (_scene)
+        {
             Destroy(_scene);
+            _scene = null;
+        }
+            
 
         //清除委托
         _loadEndCallBack = null;

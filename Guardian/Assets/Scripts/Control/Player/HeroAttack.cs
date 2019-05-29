@@ -49,9 +49,6 @@ public class HeroAttack : MonoBehaviour {
         //print(GetType() + "/heroNormalAttack Attack");
         if (_playerEnitity != null)
         {
-            int comIndex = _playerEnitity.getCurrComIndex() + 1;
-            string audioName = "BeiJi_DaoJian_" + comIndex;
-            AudioManager.getInstance().playSoundEffect(audioName);
             _playerEnitity.changeStateByIndex(PlayerStateEnum.NORMALATTACK, 2.0f, false);
             startResetIdle(PlayerStateEnum.NORMALATTACK);
             _playerEnitity.AddComobIndex();
@@ -65,7 +62,7 @@ public class HeroAttack : MonoBehaviour {
         //print(GetType() + "/heroMagicTrickA MagicTrickA");
         if (_playerEnitity != null)
         {
-            AudioManager.getInstance().playSoundEffect("Hero_MagicA");
+            
             _playerEnitity.changeStateByIndex(PlayerStateEnum.MAGICTRICKA, 2.0f, false);
             startResetIdle(PlayerStateEnum.MAGICTRICKA);
         }
@@ -78,7 +75,6 @@ public class HeroAttack : MonoBehaviour {
         //print(GetType() + "/heroMagicTrickB MagicTrickB");
         if (_playerEnitity != null)
         {
-            AudioManager.getInstance().playSoundEffect("Hero_MagicB");
             _playerEnitity.changeStateByIndex(PlayerStateEnum.MAGICTRICKB, 2.0f, false);
             startResetIdle(PlayerStateEnum.MAGICTRICKB);
            
@@ -92,7 +88,6 @@ public class HeroAttack : MonoBehaviour {
         //print(GetType() + "/heroMagicTrickB MagicTrickB");
         if (_playerEnitity != null)
         {
-            AudioManager.getInstance().playSoundEffect("Hero_MagicB");
             _playerEnitity.changeStateByIndex(PlayerStateEnum.MAGICTRICKC, 2.0f, false);
             startResetIdle(PlayerStateEnum.MAGICTRICKC);
 
@@ -106,7 +101,6 @@ public class HeroAttack : MonoBehaviour {
         //print(GetType() + "/heroMagicTrickB MagicTrickB");
         if (_playerEnitity != null)
         {
-            AudioManager.getInstance().playSoundEffect("Hero_MagicC");
             _playerEnitity.changeStateByIndex(PlayerStateEnum.MAGICTRICKD, 2.0f, false);
             startResetIdle(PlayerStateEnum.MAGICTRICKD);
 

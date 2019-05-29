@@ -86,18 +86,6 @@ public class LoginView : BaseView {
         _viewManager.swithView("LevelOneView");
     }
 
-    //IEnumerator initMagicPlayersMode()
-    //{
-    //    string path = "Models/Magician/CreateMage";
-    //    ResourceRequest rr = Resources.LoadAsync<GameObject>(path);
-    //    yield return rr;
-    //    _magicianObj = Instantiate(rr.asset) as GameObject;
-    //    _magicianObj.name = "CreateMage";
-    //    _magicianObj.transform.parent = _sceneRoleNode.transform;
-    //    _magicianObj.transform.localPosition = new Vector3(76.9f, -13.62f, -50.4f);
-    //    _magicianObj.SetActive(false);
-    //}
-
     IEnumerator initSwordsManPlayersMode()
     {
 
@@ -233,13 +221,25 @@ public class LoginView : BaseView {
     void OnDestroy()
     {
         base.OnDestory();
-        if (_scene)
+        if (_scene != null)
+        {
             Destroy(_scene);
+            _scene = null;
+        }
+
 
         if (_magicianObj != null)
+        {
             Destroy(_magicianObj);
+            _magicianObj = null;
+        }
+
         if (_swordsManObj != null)
+        {
             Destroy(_swordsManObj);
+            _swordsManObj = null;
+        }
+            
         _audioManager.destoryClip(_backGroundAudioClip);
     }
 	

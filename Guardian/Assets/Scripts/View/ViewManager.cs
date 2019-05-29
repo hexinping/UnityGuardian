@@ -54,8 +54,8 @@ public class ViewManager : MonoBehaviour
                 _curShowView.onHide();
             }
             
-            string prefabName = "Prefabs/View/" + viewName;
-            GameObject obj = (GameObject)Resources.Load(prefabName);
+            string prefabName = "View/" + viewName;
+            GameObject obj = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, prefabName, viewName);
             GameObject viewObj = GameObject.Instantiate(obj);
             viewObj.transform.parent = _viewLayer.transform;
 

@@ -51,8 +51,8 @@ public class PlayerInfo : MonoBehaviour {
     {
         Debug.Log(GetType() + "/clickHeadIcon===");
 
-        string prefabName = "Prefabs/View/PlayerInfoDetail";
-        GameObject obj = (GameObject)Resources.Load(prefabName);
+        string prefabName = "View/PlayerInfoDetail";
+        GameObject obj = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, prefabName, "LevelOneView");
         GameObject objClone = GameObject.Instantiate(obj);
         objClone.transform.parent = this.gameObject.transform;
         objClone.name = "PlayerInfoDetail";

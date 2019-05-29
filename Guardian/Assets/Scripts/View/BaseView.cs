@@ -94,7 +94,9 @@ public class BaseView:MonoBehaviour
 
     public GameObject initScene(string name)
     {
-        GameObject obj = (GameObject)Resources.Load("Prefabs/" + name);
+        //GameObject obj = (GameObject)Resources.Load("Prefabs/" + name);
+
+        GameObject obj = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, name, this._name);
         GameObject scene = GameObject.Instantiate(obj); //初始化是世界坐标位置是随机的
         scene.name = name;
         scene.transform.parent = _sceneBgNode.transform;

@@ -74,7 +74,7 @@ public class PlayerEnitity:BaseEnitity  {
         if (_rootObj)
         {
             _gameObject = getGameObject(_mode.file, "GreateWarrior", _rootObj, Vector3.zero);
-            _gameObject.transform.localScale = new Vector3(30.0f, 30.0f, 30.0f);
+            _gameObject.transform.localScale = new Vector3(20.0f, 20.0f, 20.0f);
             _gameObject.transform.localPosition = new Vector3(76.9f, -13.9f, -48.27f);
 
             _playerTransform = _gameObject.transform;
@@ -261,10 +261,47 @@ public class PlayerEnitity:BaseEnitity  {
         if (attackTarget != null && !attackTarget.isDead)
         {
             attackTargetHurt(attackTarget);
+            playHitSound();
+            playHitEffect();
         }
-        
+
     }
 
+    //播放击打音效
+    private void playHitSound()
+    {
+        //根据状态区分
+        BaseState curState = _stateMachine._curState;
+        if (curState == _stateList[7])
+        {
+            //攻击状态
+            int comIndex = getCurrComIndex();
+            string audioName = "BeiJi_DaoJian_" + comIndex;
+            AudioManager.getInstance().playSoundEffect(audioName);
+        }
+        else if (curState == _stateList[6])
+        {
+            AudioManager.getInstance().playSoundEffect("Hero_MagicC");
+        }
+        else if (curState == _stateList[5])
+        {
+            AudioManager.getInstance().playSoundEffect("Hero_MagicB");
+        }
+        else if (curState == _stateList[4])
+        {
+            AudioManager.getInstance().playSoundEffect("Hero_MagicB");
+        }
+        else if (curState == _stateList[3])
+        {
+            AudioManager.getInstance().playSoundEffect("Hero_MagicA");
+        }
+    }
+
+    //播放击打特效
+    private void playHitEffect()
+    { 
+        //todo
+    }
 
     public AnimationState getAnimationState(string animatinName)
     {
