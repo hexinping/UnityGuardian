@@ -77,6 +77,7 @@ public class BaseEnitity  {
     
     }
 
+
     public void setRootObj(GameObject rootObj)
     {
         _rootObj = rootObj;
@@ -179,6 +180,11 @@ public class BaseEnitity  {
     virtual public float countDamage(BaseEnitity target)
     {
         return 0;
+    }
+
+    virtual public void updateHP()
+    {
+        
     }
 
     virtual public float getAtkValue()

@@ -979,7 +979,7 @@ MonoBehaviour:
   ThisGameObjectPosition: {fileID: 0}
   PoolOptionArrayLib:
   - Prefab: {fileID: 1020780332985222, guid: f5fbadb7071243c4cb44aa8ef2fa8748, type: 2}
-    IntPreLoadNumber: 50
+    IntPreLoadNumber: 100
     IntAutoDeactiveGameObjectByTime: 0
     ActiveGameObjectArray: []
     InactiveGameObjectArray: []

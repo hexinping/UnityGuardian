@@ -90,10 +90,7 @@ public class LevelOneView : BaseView {
         _easyTouchObj = GameObject.Find("_Environment").transform.Find("EasyTouch").gameObject;
         _easyTouchObj.SetActive(true);
 
-       
-        
-        
-        
+  
 	}
     IEnumerator initSwordsManPlayersMode()
     {
@@ -148,6 +145,10 @@ public class LevelOneView : BaseView {
 
     }
 
+    override public void updatePlayerInfo()
+    {
+        _playerInfo.updateHpSlider();
+    }
 
     public PlayerEnitity getPlayer()
     {
@@ -181,6 +182,12 @@ public class LevelOneView : BaseView {
             //事件调用
             GlobalParams.update(GlobalParams.totalTime);
 
+        }
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            _listEnimy[0].isAttacking = true;
+            _listEnimy[0]._animator.enabled = !_listEnimy[0]._animator.enabled;
         }
     }
 

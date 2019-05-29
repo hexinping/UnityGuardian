@@ -59,6 +59,10 @@ public class EnimyEnitity : BaseEnitity {
             _gameObject.AddComponent<EnimyEvent>();
             _animator = _gameObject.GetComponent<Animator>();
 
+            //_animator.Update(Time.deltaTime);
+
+            _animator.PlayInFixedTime("Attack", 0, Time.deltaTime);
+
             _selfTransform = _gameObject.transform;
             _CC = _gameObject.GetComponent<CharacterController>();
 
@@ -111,11 +115,18 @@ public class EnimyEnitity : BaseEnitity {
             isHurt = false;
         }
         else if(isAttacking)
-        { 
-            //攻击伤害事件
+        {
 
-            //再次攻击事件
-            addDelayCall("attack_slash", 9);
+            //攻击伤害事件
+            if (attackTarget != null)
+            {
+                //_animator.enabled = false;
+                attackTargetHurt(attackTarget);
+                attackTarget.updateHP();
+               // _animator
+            }
+          
+            
         }
         _animator.speed = 1.0f;
     }

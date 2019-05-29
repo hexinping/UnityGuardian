@@ -20,6 +20,8 @@ public class PlayerEnitity:BaseEnitity  {
 
     private GameObject _prefabPlayerHp;
 
+    private HpFollow _hpFollow;
+
     //动画帧事件集合
     private Dictionary<string, List<int>> _animationEventDict;
 
@@ -83,6 +85,7 @@ public class PlayerEnitity:BaseEnitity  {
             obj.name = "PlayerHp";
             HpFollow hpFollow = obj.GetComponent<HpFollow>();
             hpFollow.setHpUIDatas(new Vector2(0, 170), _mode.hp, _mode.maxHp);
+            _hpFollow = hpFollow;
         }
 
         addAinimainEvents();
@@ -216,6 +219,12 @@ public class PlayerEnitity:BaseEnitity  {
         }
         return resultName;
     
+    }
+
+    override public void updateHP()
+    {
+        _hpFollow.updateHpValue(_mode.hp, _mode.maxHp);
+        rootView.updatePlayerInfo();
     }
 
     public void addDelayCall(string animatinName)
@@ -374,7 +383,7 @@ public class PlayerEnitity:BaseEnitity  {
 
     override public float getDefenceValue()
     {
-        return _mode.getAtkValue();
+        return _mode.getDefenceValue();
     }
 
     override public float getDexterityValue()

@@ -108,5 +108,19 @@ public class PlayerInfo : MonoBehaviour {
         diamondTxt.text = diamondNum.ToString();
     }
 
+
+    public void updateHpSlider()
+    { 
+       float curHp = _playerEnitity._mode.hp;
+       float maxHp = _playerEnitity._mode.maxHp;
+       hpSlider.value = curHp / maxHp;
+
+       hpTxt.text = curHp.ToString() + "/" + maxHp.ToString();
+    }
+
+    public void updateMagicSlider()
+    {
+        //todo
+    }
 	
 }

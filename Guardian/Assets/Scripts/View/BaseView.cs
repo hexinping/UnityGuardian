@@ -154,5 +154,9 @@ public class BaseView:MonoBehaviour
 
     }
 
+    virtual public void updatePlayerInfo()
+    {
+
+    }
 
 }

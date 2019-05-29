@@ -222,7 +222,8 @@ public class EnimyDeadState : EnimyState
 //敌人NormalAttack状态
 public class EnimyNormalAttackState : EnimyState
 {
-
+    public float endPlayTime = 0.0f;
+    public float playTotalTime = 0.0f;
     public EnimyNormalAttackState(BaseEnitity enity)
         : base(enity)
     {
@@ -249,7 +250,12 @@ public class EnimyNormalAttackState : EnimyState
 
         EnimyEnitity e = (EnimyEnitity)_enitity;
         e.addDelayCall("attack_slash", 9);  //伤害事件
-        //e.addDelayCall("attack_slash", 29);  //重新播放一次攻击动画
+        //e.addDelayCall("attack_slash", 29,1.0f, true); //重新
+
+        float time = e.getClipLength(e._animator, "attack_slash", 29);
+        float p = GlobalParams.totalTime + time;
+        endPlayTime = p;
+        playTotalTime = time;
     }
 
     override public void excute(params object[] values)
@@ -274,6 +280,12 @@ public class EnimyNormalAttackState : EnimyState
         {
             //面向目标
             _enitity.faceToTarget();
+            if (GlobalParams.totalTime >= endPlayTime)
+            {
+                e._animator.Play("Attack");
+                e.addDelayCall("attack_slash", 9);
+                endPlayTime = GlobalParams.totalTime + playTotalTime;
+            }
         }
     }
 
