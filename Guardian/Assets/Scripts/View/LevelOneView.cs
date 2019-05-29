@@ -202,13 +202,13 @@ public class LevelOneView : BaseView {
                     GameObject obj = enimy._gameObject;
                     Vector3 enimyPos = obj.transform.position;
                     float dis = (playerPos - enimyPos).sqrMagnitude;  //距离的平方
-                    if (dis <= warningDis)  //攻击范围
+                    if (dis <= attackDis)  //攻击范围
                     {
                         enimy.isMove = false;
                         enimy.isAttacking = true;
                         enimy.attackTarget = _playerEnitity;
                     }
-                    else if (dis <= attackDis) //警戒范围
+                    else if (dis <= warningDis) //警戒范围
                     {
                        
                         enimy.isMove = true;

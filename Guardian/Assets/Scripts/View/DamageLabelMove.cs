@@ -48,7 +48,7 @@ public class DamageLabelMove : MonoBehaviour {
         Vector2 localPos;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, screenPos, canvas.worldCamera, out localPos);
 
-        labelTxt.transform.localPosition = new Vector3(localPos.x + Random.Range(-200.0f, 200.0f), localPos.y + _offsetY, 0);
+        labelTxt.transform.localPosition = new Vector3(localPos.x + Random.Range(-80.0f, 80.0f), localPos.y + _offsetY, 0);
     
     }
     public void startMove(GameObject targetObj, float offsetY)

@@ -66,6 +66,14 @@ public static class GlobalParams
     public static string HPPool          = "_HpLayer";
 
 
+    //敌人各种状态名称
+    public static string state_enimyIdle        = "Idle";
+    public static string state_enimyRun         = "Run";
+    public static string state_enimyAttack      = "Attack";
+    public static string state_enimyDead        = "Dead";
+    public static string state_enimyHurt        = "Hurt";
+
+
 
 
     public static void addDelayCall(DelayCall delayCall)

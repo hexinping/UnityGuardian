@@ -253,13 +253,14 @@ public class EnimyNormalAttackState : EnimyState
         
         EnimyEnitity e = (EnimyEnitity)_enitity;
 
-        
-        e.addDelayCall("attack_slash", 10);  //伤害事件 9-0+1
-        e._animator.Play("Attack", 0, 0.0f); //播放动画
+
+        e.addDelayCall(stateIndex);  //伤害事件 9-0+1
+        e._animator.Play(GlobalParams.state_enimyAttack, 0, 0.0f); //播放动画
         
         //下一次播放时间
         int intevalFrameCount = 2; //攻击时间间隔 2帧时间
-        float time = e.getClipLength(e._animator, "attack_slash", 31 + intevalFrameCount); //30-0+1
+        string animName = e.getAnimationName(stateIndex);
+        float time = e.getClipLength(e._animator, animName, 31 + intevalFrameCount); //30-0+1
         float p = GlobalParams.totalTime + time;
         endPlayTime = p;
         playTotalTime = time;
@@ -289,9 +290,9 @@ public class EnimyNormalAttackState : EnimyState
             _enitity.faceToTarget();
             if (GlobalParams.totalTime >= endPlayTime)
             {
-               
-                e.addDelayCall("attack_slash", 9);
-                e._animator.Play("Attack", 0, 0.0f); //播放动画
+
+                e.addDelayCall(stateIndex);
+                e._animator.Play(GlobalParams.state_enimyAttack, 0, 0.0f); //播放动画
                 endPlayTime = GlobalParams.totalTime + playTotalTime;
             }
         }
@@ -340,7 +341,7 @@ public class EnimyHurtState : EnimyState
             _enitity._animator.SetBool("isHurt", _enitity.isHurt);
         }
         EnimyEnitity e = (EnimyEnitity)_enitity;
-        e.addDelayCall("damage_right", 19);
+        e.addDelayCall(stateIndex);
     }
 
     override public void excute(params object[] values)

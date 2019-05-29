@@ -12,11 +12,21 @@ public class EnimyEnitity : BaseEnitity {
 
     private Transform _selfTransform;
     private CharacterController _CC;
+
+    //动画帧事件集合
+    private Dictionary<string, List<int>> _animationEventDict;
+
+    //动画剪辑名称
+    private List<string> _animationNameList;
+
     public EnimyEnitity()
     {
         damageLabelOffsetY = 50.0f;
+        _animationEventDict = new Dictionary<string, List<int>>();
+        _animationNameList = new List<string>();
     }
 
+    //不同模型数据不一样，需要重载
     override public void initModeData()
     {
         _mode = new EnimyEnitiyMode();
@@ -50,7 +60,8 @@ public class EnimyEnitity : BaseEnitity {
 
     override public void initGameObject()
     {
-
+        addAinimainEvents();
+        addAnimationNames();
         if (_rootObj)
         {
             GameObject playerGameObject = _playerEnitiy._gameObject;
@@ -65,6 +76,29 @@ public class EnimyEnitity : BaseEnitity {
         }
     }
 
+    //不同模型的动画帧事件不一样 必须重载
+    virtual public void addAinimainEvents()
+    {
+        
+        List<int> attack1List = new List<int>();
+        attack1List.Add(10);
+        _animationEventDict["attack_slash"] = attack1List;
+
+        List<int> hurtList = new List<int>();
+        hurtList.Add(20);
+        _animationEventDict["damage_right"] = hurtList;
+    }
+
+    //不同模型的动画名称不一样 必须重载
+    virtual public void addAnimationNames()
+    { 
+        //这里一定要根据状态的枚举值依次添加
+        _animationNameList.Add("idle");
+        _animationNameList.Add("run");
+        _animationNameList.Add("death");
+        _animationNameList.Add("attack_slash");
+        _animationNameList.Add("damage_right");
+    }
 
     public  float getClipLength(Animator animator, string clip, int frameIndex)
     {
@@ -91,7 +125,34 @@ public class EnimyEnitity : BaseEnitity {
         return 0F;
     }
 
-    public void addDelayCall(string animatinName, int frameIndex, float speed = 1.0f)
+
+    public string getAnimationName(EnimyStateEnum state)
+    { 
+        int index = (int)state;
+        return _animationNameList[index];
+    }
+    public void addDelayCall(EnimyStateEnum state, float speed = 1.0f)
+    {
+        //拿到对应的动画名称
+        int index = (int)state;
+        string animationName = _animationNameList[index];
+        if (animationName != null)
+        {
+            //拿到对应的动画帧事件
+            if(_animationEventDict.ContainsKey(animationName))
+            {
+                List<int> eventList = _animationEventDict[animationName];
+                for (int i = 0; i < eventList.Count; i++)
+                {
+                    int frameIndex = eventList[i];
+                    realAddDelayCall(animationName, frameIndex, speed);
+                }
+            }
+            
+        }
+    }
+
+    public void realAddDelayCall(string animatinName, int frameIndex, float speed = 1.0f)
     {
         _animator.speed = speed;
         float time = getClipLength(_animator, animatinName, frameIndex);
