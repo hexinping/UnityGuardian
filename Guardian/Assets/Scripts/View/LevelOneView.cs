@@ -49,6 +49,7 @@ public class LevelOneView : BaseView {
      */
 
     private List<BaseEnitity> _listEnimy;
+    private int _updateEnimyIndex = 0;
   
     public void Awake()
     {
@@ -203,46 +204,74 @@ public class LevelOneView : BaseView {
         }
     }
 
+
+    void updateEnimyState(int index, Vector3 playerPos)
+    {
+        BaseEnitity enimy = _listEnimy[index];
+        
+        if (!enimy.isDead)
+        {
+
+            if (enimy.updateTick <= GlobalParams.totalTime)
+            {
+                //开始刷新
+                enimy.updateTick += enimy.updateTickInterval;
+
+                enimy.attackTarget = null;
+                enimy.moveTarget = null;
+                float warningDis = enimy.getWarningDis();
+                float attackDis = enimy.getAttackDis();
+                GameObject obj = enimy._gameObject;
+                Vector3 enimyPos = obj.transform.position;
+                float dis = (playerPos - enimyPos).sqrMagnitude;  //距离的平方
+                if (dis <= attackDis)  //攻击范围
+                {
+                    enimy.isMove = false;
+                    enimy.isAttacking = true;
+                    enimy.attackTarget = _playerEnitity;
+                }
+                else if (dis <= warningDis) //警戒范围
+                {
+
+                    enimy.isMove = true;
+                    enimy.isAttacking = false;
+                    enimy.moveTarget = _playerEnitity;
+                }
+                else
+                {
+                    enimy.isMove = false;
+                    enimy.isAttacking = false;
+                }
+            }
+            
+        }
+    }
     private void enimyFindTarget()
     {
+
+        /*
+            敌人的刷新采取每次刷固定个数(2)，间隔刷新
+       
+         */
         Vector3 playerPos = _playerTransform.position;
         if (_listEnimy != null && _listEnimy.Count > 0)
         {
-            for (int i = 0; i < _listEnimy.Count; i++)
+            if (_updateEnimyIndex > _listEnimy.Count - 1)
             {
-                BaseEnitity enimy = _listEnimy[i];
-                enimy.attackTarget = null;
-                enimy.moveTarget = null;
-                if (!enimy.isDead)
-                {
-                    float warningDis = enimy.getWarningDis();
-                    float attackDis = enimy.getAttackDis();
-                    GameObject obj = enimy._gameObject;
-                    Vector3 enimyPos = obj.transform.position;
-                    float dis = (playerPos - enimyPos).sqrMagnitude;  //距离的平方
-                    if (dis <= attackDis)  //攻击范围
-                    {
-                        enimy.isMove = false;
-                        enimy.isAttacking = true;
-                        enimy.attackTarget = _playerEnitity;
-                    }
-                    else if (dis <= warningDis) //警戒范围
-                    {
-                       
-                        enimy.isMove = true;
-                        enimy.isAttacking = false;
-                        enimy.moveTarget = _playerEnitity;
-                    }
-                    else
-                    {
-                        enimy.isMove = false;
-                        enimy.isAttacking = false;
-                    }
-                }
+                _updateEnimyIndex = 0;
             }
+            int index1 = _updateEnimyIndex;
+            int index2 = _updateEnimyIndex + 1;
+            updateEnimyState(index1, playerPos);
+            if (index2 < _listEnimy.Count)
+            {
+                updateEnimyState(index2, playerPos);
+            }
+            _updateEnimyIndex += 2;
+
         }
 
-    
+  
     }
 
     private void playerFindTarget()

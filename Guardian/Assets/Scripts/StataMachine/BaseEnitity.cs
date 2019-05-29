@@ -45,11 +45,16 @@ public class BaseEnitity  {
 
 
     public float damageLabelOffsetY = 0.0f;
+
+    public float updateTick = 0.0f;
+    public float updateTickInterval = 0.2f; //刷新间隔 0.2秒
+
+
     public BaseEnitity()
     {
         _id = GlobalParams.gameObjId;
         GlobalParams.gameObjId++;
-
+        updateTick = GlobalParams.totalTime; //记录刷新的时间
         initModeData();
 
         //创建状态机
