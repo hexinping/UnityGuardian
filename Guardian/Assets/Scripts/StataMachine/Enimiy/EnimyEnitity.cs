@@ -14,7 +14,7 @@ public class EnimyEnitity : BaseEnitity {
     private CharacterController _CC;
     public EnimyEnitity()
     {
-       
+        damageLabelOffsetY = 50.0f;
     }
 
     override public void initModeData()

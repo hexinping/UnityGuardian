@@ -29,8 +29,7 @@ public class DamageLabelMove : MonoBehaviour {
     public Text labelTxt;
     private GameObject _uiCamera;
     private GameObject _tarObj;
-
-    private bool _isAction = false;
+    private float _offsetY = 0.0f;    //起始位置偏移量
 
     public void initUI()
     {
@@ -44,29 +43,31 @@ public class DamageLabelMove : MonoBehaviour {
 
     public void setTxtPostion(Vector3 wPos)
     {
+
         Vector3 screenPos = Camera.main.WorldToScreenPoint(wPos); 
         Vector2 localPos;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, screenPos, canvas.worldCamera, out localPos);
 
-        labelTxt.transform.localPosition = new Vector3(localPos.x, localPos.y, 0);
+        labelTxt.transform.localPosition = new Vector3(localPos.x, localPos.y + _offsetY, 0);
     
     }
-    public void startMove(GameObject targetObj)
+    public void startMove(GameObject targetObj, float offsetY)
     {
+        _offsetY = offsetY;
         initUI();
         setTarget(targetObj);
-        //this.Invoke("setActionState",0.01f);
-
+        setTxtPostion(_tarObj.transform.position);
         setActionState();
     }
 
     void setActionState()
     {
-        _isAction = true;
+        Vector3 targetPos = labelTxt.transform.localPosition + new Vector3(0, 150, 0);
         iTween.MoveTo(labelTxt.gameObject, iTween.Hash(
-           "y", 100,
+           //"y", 200,
+           "position",targetPos,
           "easetype", iTween.EaseType.easeInSine,
-          "time", 0.5,
+          "time", 1.0,
            "islocal", true,
           "oncomplete", "moveEndCallBack",
           "oncompletetarget", gameObject
@@ -77,24 +78,16 @@ public class DamageLabelMove : MonoBehaviour {
     void moveEndCallBack()
     {
         Debug.Log(GetType() + "/moveEndCallBack");
-        _isAction = false;
-
         //加入到缓冲池的非活动集合
         PoolManager.PoolsArray[GlobalParams.DamageLabelPool].RecoverGameObjectToPools(gameObject);
     }
+
 
     public void setTarget(GameObject obj)
     {
         _tarObj = obj;
 
     }
-	// Update is called once per frame
-	void Update () {
-        if (_tarObj != null && _isAction == false)
-        {
-            setTxtPostion(_tarObj.transform.position);
-        }
-	}
 
     public void setTextValue(float value)
     {

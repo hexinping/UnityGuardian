@@ -129,6 +129,8 @@ public class EnimyRunState : EnimyState
             _enitity._animator.SetBool("isMove", _enitity.isMove);
         }
 
+        _enitity._animator.Play("Run", 0, 0.0f); //播放动画
+
     }
 
     override public void excute(params object[] values)
@@ -242,7 +244,7 @@ public class EnimyNormalAttackState : EnimyState
         //设置animatorctrl 条件
         if (_enitity._animator != null)
         {
-            //_enitity._animator.SetBool("isAttack", _enitity.isAttacking);
+            _enitity._animator.SetBool("isAttack", _enitity.isAttacking);
         }
 
         //面向目标
@@ -252,11 +254,12 @@ public class EnimyNormalAttackState : EnimyState
         EnimyEnitity e = (EnimyEnitity)_enitity;
 
         
-        e.addDelayCall("attack_slash", 9);  //伤害事件
+        e.addDelayCall("attack_slash", 10);  //伤害事件 9-0+1
         e._animator.Play("Attack", 0, 0.0f); //播放动画
         
         //下一次播放时间
-        float time = e.getClipLength(e._animator, "attack_slash", 29);
+        int intevalFrameCount = 2; //攻击时间间隔 2帧时间
+        float time = e.getClipLength(e._animator, "attack_slash", 31 + intevalFrameCount); //30-0+1
         float p = GlobalParams.totalTime + time;
         endPlayTime = p;
         playTotalTime = time;

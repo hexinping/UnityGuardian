@@ -43,6 +43,8 @@ public class BaseEnitity  {
 
     public Animator _animator;
 
+
+    public float damageLabelOffsetY = 0.0f;
     public BaseEnitity()
     {
         _id = GlobalParams.gameObjId;
@@ -154,7 +156,7 @@ public class BaseEnitity  {
             _gameObject.transform.position, Quaternion.identity);
         DamageLabelMove lableMove = obj.GetComponent<DamageLabelMove>();
         lableMove.setTextValue(value);
-        lableMove.startMove(_gameObject);
+        lableMove.startMove(_gameObject, damageLabelOffsetY);
     }
     public void beDamage(float damamge)
     {

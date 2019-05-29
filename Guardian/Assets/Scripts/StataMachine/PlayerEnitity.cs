@@ -34,6 +34,8 @@ public class PlayerEnitity:BaseEnitity  {
         _comobAnimationNameList = new List<string>();
         _animationEventDict = new Dictionary<string, List<int>>();
         _animationStateDict = new Dictionary<string, AnimationState>();
+
+        damageLabelOffsetY = 150.0f;
         
     }
 
