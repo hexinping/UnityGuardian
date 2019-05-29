@@ -327,6 +327,7 @@ GameObject:
   m_Component:
   - component: {fileID: 400042}
   - component: {fileID: 9500000}
+  - component: {fileID: 143116264693523128}
   m_Layer: 0
   m_Name: skeleton_warrior_red
   m_TagString: Untagged
@@ -2019,3 +2020,20 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100042}
   m_IsPrefabParent: 1
+--- !u!143 &143116264693523128
+CharacterController:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100042}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2.3
+  m_Radius: 1
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1.2, z: 0}

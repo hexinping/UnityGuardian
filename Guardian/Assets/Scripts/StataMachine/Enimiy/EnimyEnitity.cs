@@ -31,6 +31,7 @@ public class EnimyEnitity : BaseEnitity {
     {
         _mode = new EnimyEnitiyMode();
         objName = "warrior_green";
+        _mode.file = _mode.file + objName;
     }
 
     override public void addBaseState()

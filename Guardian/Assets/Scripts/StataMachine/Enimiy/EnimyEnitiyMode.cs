@@ -24,7 +24,7 @@ public class EnimyEnitiyMode : BaseMode{
         warningDisSquare = 100.0f;
         attackDisSquare = 9.0f;
 
-        file = "Models/Enemys/Skeleton_Pack/Prefabs(chibi)/warrior/skeleton_warrior_green";
+        file = "Models/Enemys/Skeleton_Pack/Prefabs(chibi)/warrior/skeleton_";
     }
 
     public float countDamage(BaseEnitity target)
