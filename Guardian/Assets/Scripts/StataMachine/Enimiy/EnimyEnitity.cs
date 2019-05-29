@@ -20,6 +20,7 @@ public class EnimyEnitity : BaseEnitity {
     override public void initModeData()
     {
         _mode = new EnimyEnitiyMode();
+        objName = "warrior_green";
     }
 
     override public void addBaseState()
@@ -53,7 +54,7 @@ public class EnimyEnitity : BaseEnitity {
         if (_rootObj)
         {
             GameObject playerGameObject = _playerEnitiy._gameObject;
-            _gameObject = getGameObject(_mode.file, "warrior_green", _rootObj, Vector3.zero);
+            _gameObject = getGameObject(_mode.file, objName, _rootObj, Vector3.zero);
             _gameObject.transform.localPosition = playerGameObject.transform.position + new Vector3(2.0f, 0.0f, 2.0f);
 
             _gameObject.AddComponent<EnimyEvent>();
@@ -208,6 +209,17 @@ public class EnimyEnitity : BaseEnitity {
     {
         _mode.update(_params);
         _params.Clear();
+    }
+
+    override public float getWarningDis()
+    {
+        return _mode.warningDisSquare;
+    }
+
+
+    override public float getAttackDis()
+    {
+        return _mode.attackDisSquare;
     }
 
 

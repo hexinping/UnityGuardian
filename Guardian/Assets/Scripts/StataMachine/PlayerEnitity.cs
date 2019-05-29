@@ -405,4 +405,16 @@ public class PlayerEnitity:BaseEnitity  {
         _params.Clear();
     }
 
+    override public float getWarningDis()
+    {
+        return _mode.warningDisSquare;
+    }
+
+
+    override public float getAttackDis()
+    {
+        return _mode.attackDisSquare;
+    }
+
+
 }

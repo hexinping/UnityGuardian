@@ -21,6 +21,9 @@ public class EnimyEnitiyMode : BaseMode{
         defenceByPro = 0.0f;
         dexterityByPro = 0.0f;
 
+        warningDisSquare = 100.0f;
+        attackDisSquare = 9.0f;
+
         file = "Models/Enemys/Skeleton_Pack/Prefabs(chibi)/warrior/skeleton_warrior_green";
     }
 

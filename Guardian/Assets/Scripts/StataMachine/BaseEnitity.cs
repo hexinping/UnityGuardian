@@ -11,7 +11,7 @@ using kernal;
 public class BaseEnitity  {
 
     public int _id;         //唯一标识id
-    public string file;     //模型路径文件或者预设路径文件
+    public string objName;     //gameObject名字
 
     public StateMachine _stateMachine;
     public List<BaseState> _stateList;
@@ -217,6 +217,17 @@ public class BaseEnitity  {
     virtual public void updateMode()
     {
         
+    }
+
+    virtual public float getWarningDis()
+    {
+        return 0;
+    }
+
+
+    virtual public float getAttackDis()
+    {
+        return 0;
     }
 
 

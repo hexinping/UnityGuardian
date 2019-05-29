@@ -197,16 +197,18 @@ public class LevelOneView : BaseView {
                 enimy.moveTarget = null;
                 if (!enimy.isDead)
                 {
+                    float warningDis = enimy.getWarningDis();
+                    float attackDis = enimy.getAttackDis();
                     GameObject obj = enimy._gameObject;
                     Vector3 enimyPos = obj.transform.position;
                     float dis = (playerPos - enimyPos).sqrMagnitude;  //距离的平方
-                    if (dis <= 9)  //攻击范围
+                    if (dis <= warningDis)  //攻击范围
                     {
                         enimy.isMove = false;
                         enimy.isAttacking = true;
                         enimy.attackTarget = _playerEnitity;
                     }
-                    else if (dis <= 100) //警戒范围
+                    else if (dis <= attackDis) //警戒范围
                     {
                        
                         enimy.isMove = true;
@@ -237,10 +239,11 @@ public class LevelOneView : BaseView {
                 BaseEnitity enimy = _listEnimy[i];
                 if (!enimy.isDead)
                 {
+                    float warningDis = _playerEnitity.getWarningDis();
                     GameObject obj = enimy._gameObject;
                     Vector3 enimyPos = obj.transform.position;
                     float dis = (playerPos - enimyPos).sqrMagnitude;  //距离的平方
-                    if (dis <= 100)  //搜索范围
+                    if (dis <= warningDis)  //搜索范围
                     {
                         //找到搜索范围内最近的敌人
                         if (dis < minDis)

@@ -29,6 +29,9 @@ public class PlayerEnitityMode : BaseMode
         defenceByPro = 0.0f;
         dexterityByPro = 0.0f;
 
+        warningDisSquare = 100.0f;
+        attackDisSquare = 9.0f;
+
         _playerMgr = PlayerManager.getInstance();
     }
 

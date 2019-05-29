@@ -25,6 +25,9 @@ public class BaseMode  {
     public float defenceByPro;      //道具防御力
     public float dexterityByPro;    //道具敏捷度
 
+    public float warningDisSquare;       //警戒距离平方
+    public float attackDisSquare;        //攻击距离平方
+
     //*****************************数据属性
 
 
