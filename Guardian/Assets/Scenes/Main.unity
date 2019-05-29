@@ -2268,6 +2268,13 @@ MonoBehaviour:
   AudioClipArray:
   - {fileID: 8300000, guid: c8b3075ad0c5b2148ac85acb60774614, type: 3}
   - {fileID: 8300000, guid: 4e4d76a4c6e3998438a855cefd034ecd, type: 3}
+  - {fileID: 8300000, guid: e6aeb1b19e7189348a3982101df65c99, type: 3}
+  - {fileID: 8300000, guid: 6f95bde963aed214b8a29af6426add68, type: 3}
+  - {fileID: 8300000, guid: 81a1967dd55b09b4f84824b5e362b881, type: 3}
+  - {fileID: 8300000, guid: d51f594ff9d235b418e692f76d96b3ce, type: 3}
+  - {fileID: 8300000, guid: e61c7c8d43b99e94685ddce1c5b61ae0, type: 3}
+  - {fileID: 8300000, guid: 043d285113ea94642bdbcdb333b76dc6, type: 3}
+  - {fileID: 8300000, guid: 8ef3b023e56e95b40ac9c1881a9f8511, type: 3}
 --- !u!81 &1846582268
 AudioListener:
   m_ObjectHideFlags: 0

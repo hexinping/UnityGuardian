@@ -64,12 +64,15 @@ public class HeroMovingByKey : MonoBehaviour {
 
             Vector3 movement = transform.forward * Time.deltaTime * _playerEnitity.moveSpeed;
 
+           
+
             //添加模拟重力
             movement.y -= _gravity;
             _CC.Move(movement);
             
             if (_playerEnitity != null)
             {
+                AudioManager.getInstance().playSoundEffect("HeroRunStep");
                 //切换成移动状态
                 _playerEnitity.changeStateByIndex(PlayerStateEnum.RUN, 1.0f, true);
             }

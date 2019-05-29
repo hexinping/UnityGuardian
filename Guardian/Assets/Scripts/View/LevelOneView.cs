@@ -51,6 +51,9 @@ public class LevelOneView : BaseView {
     private List<BaseEnitity> _listEnimy;
     private int _updateEnimyIndex = 0;
   
+    //音乐
+    public AudioClip _backGroundAudioClip;
+    
     public void Awake()
     {
         base.Awake();
@@ -90,6 +93,8 @@ public class LevelOneView : BaseView {
 
         _easyTouchObj = GameObject.Find("_Environment").transform.Find("EasyTouch").gameObject;
         _easyTouchObj.SetActive(true);
+
+        _audioManager.playMusic(_backGroundAudioClip);
 
   
 	}

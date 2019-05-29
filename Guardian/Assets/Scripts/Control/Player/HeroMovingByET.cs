@@ -116,6 +116,7 @@ public class HeroMovingByET : MonoBehaviour {
 
              if (_playerEnitity != null)
              {
+                 AudioManager.getInstance().playSoundEffect("HeroRunStep");
                   //切换成移动状态
                  _playerEnitity.changeStateByIndex(PlayerStateEnum.RUN, 1.0f, true);
              }

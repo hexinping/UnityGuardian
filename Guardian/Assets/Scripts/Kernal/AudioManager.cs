@@ -168,6 +168,7 @@ public class AudioManager : MonoBehaviour
         if(_AudioSourceDict.ContainsKey(name))
         {
             souce = _AudioSourceDict[name];
+            if (souce.isPlaying) return;
             souce.loop = isLoop;
             souce.volume = volume;
             souce.Play();
