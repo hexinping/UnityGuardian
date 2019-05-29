@@ -151,16 +151,16 @@ public class LevelOneView : BaseView {
         _enitityDic.Add(enimy._id, enimy);
 
 
-        //WarriorPurpleEnimyEnitity enimy1 = new WarriorPurpleEnimyEnitity();
-        //enimy1.setRootObj(_sceneRoleNode);
-        //enimy1.setRootView(this);
-        //enimy1.setPlayerEnitity(_playerEnitity);
-        //enimy1.initGameObject();
-        //_listEnimy.Add(enimy1);
-        //_enitityDic.Add(enimy1._id, enimy1);
+        WarriorPurpleEnimyEnitity enimy1 = new WarriorPurpleEnimyEnitity();
+        enimy1.setRootObj(_sceneRoleNode);
+        enimy1.setRootView(this);
+        enimy1.setPlayerEnitity(_playerEnitity);
+        enimy1.initGameObject();
+        _listEnimy.Add(enimy1);
+        _enitityDic.Add(enimy1._id, enimy1);
 
-        ////测试下
-        //enimy1._gameObject.transform.localPosition = _playerEnitity._gameObject.transform.position + new Vector3(5.0f, 0.0f, 2.0f);
+        //测试下
+        enimy1._gameObject.transform.localPosition = _playerEnitity._gameObject.transform.position + new Vector3(5.0f, 0.0f, 2.0f);
     }
 
     override public void updatePlayerInfo()

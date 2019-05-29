@@ -8,7 +8,7 @@ public class EnimyEnitiyMode : BaseMode{
     public EnimyEnitiyMode()
     {
 
-        maxAtk = 1.0f;
+        maxAtk = Random.Range(1,5);
         atk = maxAtk;
         maxHp = 20.0f;
         hp = maxHp;
@@ -21,8 +21,8 @@ public class EnimyEnitiyMode : BaseMode{
         defenceByPro = 0.0f;
         dexterityByPro = 0.0f;
 
-        warningDisSquare = 100.0f;
-        attackDisSquare = 9.0f;
+        warningDisSquare = Random.Range(25, 100);
+        attackDisSquare = Random.Range(9, 25);
 
         file = "Models/Enemys/Skeleton_Pack/Prefabs(chibi)/warrior/skeleton_";
     }
