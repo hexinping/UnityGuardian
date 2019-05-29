@@ -183,12 +183,6 @@ public class LevelOneView : BaseView {
             GlobalParams.update(GlobalParams.totalTime);
 
         }
-
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            _listEnimy[0].isAttacking = true;
-            _listEnimy[0]._animator.enabled = !_listEnimy[0]._animator.enabled;
-        }
     }
 
     private void enimyFindTarget()

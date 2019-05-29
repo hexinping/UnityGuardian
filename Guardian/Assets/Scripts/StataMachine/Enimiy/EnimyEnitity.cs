@@ -58,11 +58,6 @@ public class EnimyEnitity : BaseEnitity {
 
             _gameObject.AddComponent<EnimyEvent>();
             _animator = _gameObject.GetComponent<Animator>();
-
-            //_animator.Update(Time.deltaTime);
-
-            _animator.PlayInFixedTime("Attack", 0, Time.deltaTime);
-
             _selfTransform = _gameObject.transform;
             _CC = _gameObject.GetComponent<CharacterController>();
 

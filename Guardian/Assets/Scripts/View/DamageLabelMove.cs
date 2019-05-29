@@ -55,7 +55,9 @@ public class DamageLabelMove : MonoBehaviour {
     {
         initUI();
         setTarget(targetObj);
-        this.Invoke("setActionState",0.01f);
+        //this.Invoke("setActionState",0.01f);
+
+        setActionState();
     }
 
     void setActionState()
