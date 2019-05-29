@@ -170,6 +170,10 @@ public class BaseEnitity  {
             isDead = true;
             onDestory();
         }
+        else
+        {
+            isHurt = true;
+        }
     }
 
     virtual public void onDestory()
