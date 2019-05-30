@@ -375,6 +375,7 @@
     <Compile Include="Assets\Scripts\Global\BurnHelper.cs" />
     <Compile Include="Assets\Scripts\Global\ChangAn.cs" />
     <Compile Include="Assets\Scripts\Global\FadeInOut.cs" />
+    <Compile Include="Assets\Scripts\Global\RotateSelf.cs" />
     <Compile Include="Assets\Scripts\GlobalParams.cs" />
     <Compile Include="Assets\Scripts\Kernal\AltasManager.cs" />
     <Compile Include="Assets\Scripts\Kernal\AudioManager.cs" />

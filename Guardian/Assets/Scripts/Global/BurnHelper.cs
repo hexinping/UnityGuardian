@@ -14,6 +14,8 @@ public class BurnHelper : MonoBehaviour {
     private float delayTime = 1.0f;
     private float burnTick;
 
+    private bool isReplaceMat = false;
+
     private Texture _mainTexture = null;
     private List<string> _gameObjectNameList = new List<string>();
 
@@ -31,6 +33,7 @@ public class BurnHelper : MonoBehaviour {
 
     void initDatas()
     {
+        isReplaceMat = true;
         if (_mainTexture != null)
         {
             material.SetTexture("_MainTex", _mainTexture);
@@ -97,13 +100,18 @@ public class BurnHelper : MonoBehaviour {
 			material.SetFloat("_BurnAmount", 0.0f);
 		}
 
-        initDatas();
+       
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (burnTick + delayTime <= GlobalParams.totalTime)
         {
+            if (!isReplaceMat)
+            {
+                initDatas();
+            }
+           
             burnAmount += Time.deltaTime * burnSpeed;
             material.SetFloat("_BurnAmount", burnAmount);
             if (burnAmount >= 0.99)

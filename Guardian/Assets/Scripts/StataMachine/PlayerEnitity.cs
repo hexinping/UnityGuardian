@@ -28,6 +28,9 @@ public class PlayerEnitity:BaseEnitity  {
     //动画状态
     private Dictionary<string, AnimationState> _animationStateDict;
 
+    public GameObject skillGround;
+    public GameObject skillLayer;
+
     public PlayerEnitity()
     {
         _animationNameList = new List<string>();
@@ -36,6 +39,9 @@ public class PlayerEnitity:BaseEnitity  {
         _animationStateDict = new Dictionary<string, AnimationState>();
 
         damageLabelOffsetY = 150.0f;
+
+        skillGround = GameObject.Find("_Manager/_ViewManager/_Scene/SkillGround");
+        skillLayer = GameObject.Find("_Manager/_ViewManager/_Scene/Skill");
         
     }
 
@@ -88,6 +94,9 @@ public class PlayerEnitity:BaseEnitity  {
             HpFollow hpFollow = obj.GetComponent<HpFollow>();
             hpFollow.setHpUIDatas(new Vector2(0, 170), _mode.hp, _mode.maxHp);
             _hpFollow = hpFollow;
+
+            //添加主角出场特效
+            createEffect("ParticleProps/EnemySpawnEff", _gameObject.transform.position, skillGround);
         }
 
         addAinimainEvents();
@@ -306,7 +315,7 @@ public class PlayerEnitity:BaseEnitity  {
     //播放击打特效
     private void playHitEffect()
     {
-        GameObject skillGround = GameObject.Find("_Manager/_ViewManager/_Scene/SkillGround");
+      
         string effectName = "";
         Vector3 forwardOffset = Vector3.zero;
         Vector3 targetPos = Vector3.zero;
@@ -327,7 +336,7 @@ public class PlayerEnitity:BaseEnitity  {
             forwardOffset = -_playerTransform.forward * 1;
             targetPos = _playerTransform.position + forwardOffset;
 
-            GameObject effObj = createEffect(effectName, targetPos, skillGround);
+            GameObject effObj = createEffect(effectName, targetPos, skillLayer);
             iTween.MoveTo(effObj, iTween.Hash(
                "position", targetPos + _playerTransform.forward * 3 ,
               "easetype", iTween.EaseType.easeInSine,
@@ -343,7 +352,7 @@ public class PlayerEnitity:BaseEnitity  {
             forwardOffset = -_playerTransform.forward * 1;
             targetPos = _playerTransform.position + forwardOffset;
 
-            GameObject effObj = createEffect(effectName, targetPos, skillGround);
+            GameObject effObj = createEffect(effectName, targetPos, skillLayer);
             iTween.MoveTo(effObj, iTween.Hash(
                "position", targetPos + _playerTransform.forward * 3,
               "easetype", iTween.EaseType.easeInSine,

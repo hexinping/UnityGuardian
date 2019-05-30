@@ -190,6 +190,40 @@ public class EnimyEnitity : BaseEnitity {
     }
 
 
+    public void playHitEffect()
+    {
+        GameObject skillGround = GameObject.Find("_Manager/_ViewManager/_Scene/SkillGround");
+        GameObject skillLayer = GameObject.Find("_Manager/_ViewManager/_Scene/Skill");
+
+        string effectName = "";
+        Vector3 forwardOffset = Vector3.zero;
+        Vector3 targetPos = Vector3.zero;
+        BaseState curState = _stateMachine._curState;
+        if (curState == _stateList[4])
+        { 
+            //受伤状态特效
+            effectName = "ParticleProps/Hero_hurtA";
+            targetPos = _selfTransform.position + forwardOffset;
+            createEffect(effectName, targetPos, skillLayer);
+
+        }
+    }
+
+    public GameObject createEffect(string effectName, Vector3 pos, GameObject parentObj = null)
+    {
+        GameObject prefabObj = Resources.Load<GameObject>(effectName);
+        GameObject obj = GameObject.Instantiate(prefabObj);
+        obj.transform.position = pos;
+        if (parentObj != null)
+        {
+            obj.transform.parent = parentObj.transform;
+
+            obj.transform.rotation = _selfTransform.rotation;
+        }
+        return obj;
+
+    }
+
     public void changeStateByIndex(EnimyStateEnum enimyStateEm, bool isCheckSameState = true)
     {
         int stateIndex = (int)enimyStateEm;
