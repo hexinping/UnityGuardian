@@ -27750,3 +27750,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 1
+  isUsePool: 1
+  poolName: Skill

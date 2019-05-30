@@ -62,8 +62,10 @@ public static class GlobalParams
  
 
     //缓冲池名字
-    public static string DamageLabelPool = "_DamageLabelLayer";
-    public static string HPPool          = "_HpLayer";
+    public static string DamageLabelPool    = "_DamageLabelLayer";
+    public static string HPPool             = "_HpLayer";
+    public static string SkillGroundPool    = "SkillGround";
+    public static string SkillPool          = "Skill";
 
 
     //敌人各种状态名称

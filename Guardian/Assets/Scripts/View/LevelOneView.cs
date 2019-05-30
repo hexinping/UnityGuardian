@@ -258,6 +258,9 @@ public class LevelOneView : BaseView {
             敌人的刷新采取每次刷固定个数(2)，间隔刷新
        
          */
+
+        if (_playerEnitity.isDead) return;
+
         Vector3 playerPos = _playerTransform.position;
         if (_listEnimy != null && _listEnimy.Count > 0)
         {

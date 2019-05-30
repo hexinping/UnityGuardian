@@ -174,7 +174,7 @@ public class PlayerDeadState : PlayerState
     {
         Debug.Log("dead enter=============");
         base.enter(values);
-
+        _enitity.isDead = true;
     }
 
     override public void excute(params object[] values)
@@ -186,6 +186,7 @@ public class PlayerDeadState : PlayerState
     override public void exit(params object[] values)
     {
         Debug.Log("dead exit=============");
+        _enitity.isDead = false;
     }
 
 }

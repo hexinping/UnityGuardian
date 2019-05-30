@@ -18,7 +18,15 @@ public class PlayerEnitity:BaseEnitity  {
 
     private Transform _playerTransform;
 
+    //预加载prefab, 对象缓冲池使用
     private GameObject _prefabPlayerHp;
+    private GameObject _prefabPlayerAttackLeft;
+    private GameObject _prefabPlayerAttackMid;
+    private GameObject _prefabPlayerAttackRight;
+    private GameObject _prefabPlayerMagicA;
+    private GameObject _prefabPlayerMagicB;
+    private GameObject _prefabPlayerMagicC;
+    private GameObject _prefabPlayerMagicD;
 
     private HpFollow _hpFollow;
 
@@ -74,9 +82,44 @@ public class PlayerEnitity:BaseEnitity  {
     {
         _mode = new PlayerEnitityMode();
     }
+
+    void initBufferPoolPrefab()
+    {
+        _prefabPlayerHp = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, "Prefabs/View/Hp", rootView._name, true);
+        _prefabPlayerAttackLeft = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, "ParticleProps/Hero_attack01", rootView._name, true);
+        _prefabPlayerAttackMid = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, "ParticleProps/Hero_attack02", rootView._name, true);
+        _prefabPlayerAttackRight = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, "ParticleProps/Hero_attack03", rootView._name, true);
+        _prefabPlayerMagicA = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, "ParticleProps/bruceSkill", rootView._name, true);
+        _prefabPlayerMagicB = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, "ParticleProps/Hero_Skill03", rootView._name, true);
+        _prefabPlayerMagicC = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab,  "ParticleProps/Hero_Skill03", rootView._name, true);
+        _prefabPlayerMagicD = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, "ParticleProps/groundBrokeRed", rootView._name, true);
+
+    }
+
+    public GameObject getAttackEffeectObj(Vector3 targetPos)
+    {
+        GameObject preObj = null;
+        int comIndex = getCurrComIndex() + 1;
+        if (comIndex == 1)
+        { 
+            preObj = _prefabPlayerAttackLeft;
+        }
+        else if(comIndex == 2)
+        {
+            preObj = _prefabPlayerAttackMid;
+        }
+        else if (comIndex == 3)
+        {
+            preObj = _prefabPlayerAttackRight;
+        }
+        GameObject obj = PoolManager.PoolsArray[GlobalParams.SkillPool].GetGameObjectByPool(preObj,
+               targetPos, Quaternion.identity);
+        obj.transform.rotation = _playerTransform.rotation;
+        return obj;
+    }
     override public void initGameObject()
     {
-       
+        initBufferPoolPrefab();
         if (_rootObj)
         {
             _gameObject = getGameObject(_mode.file, "GreateWarrior", _rootObj, Vector3.zero);
@@ -86,7 +129,6 @@ public class PlayerEnitity:BaseEnitity  {
             _playerTransform = _gameObject.transform;
 
             //使用缓冲池床创建血条
-            _prefabPlayerHp = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, "Prefabs/View/Hp", rootView._name, true);
             GameObject obj = PoolManager.PoolsArray[GlobalParams.HPPool].GetGameObjectByPool(_prefabPlayerHp,
                 _gameObject.transform.position, Quaternion.identity);
 
@@ -96,7 +138,7 @@ public class PlayerEnitity:BaseEnitity  {
             _hpFollow = hpFollow;
 
             //添加主角出场特效
-            createEffect("ParticleProps/EnemySpawnEff", _gameObject.transform.position, skillGround);
+            createEffectNoPool("ParticleProps/EnemySpawnEff", _gameObject.transform.position, skillGround);
         }
 
         addAinimainEvents();
@@ -316,7 +358,6 @@ public class PlayerEnitity:BaseEnitity  {
     private void playHitEffect()
     {
       
-        string effectName = "";
         Vector3 forwardOffset = Vector3.zero;
         Vector3 targetPos = Vector3.zero;
         //根据状态区分
@@ -324,19 +365,17 @@ public class PlayerEnitity:BaseEnitity  {
         if (curState == _stateList[6])
         {
             //技能D
-            effectName = "ParticleProps/groundBrokeRed";
             forwardOffset = _playerTransform.forward * 3;
             targetPos = _playerTransform.position + forwardOffset;
-            createEffect(effectName, targetPos, skillGround);
+            createEffect(targetPos, _prefabPlayerMagicD, GlobalParams.SkillGroundPool);
         }
         else if (curState == _stateList[5])
         {
             //技能C
-            effectName = "ParticleProps/Hero_Skill03";
             forwardOffset = -_playerTransform.forward * 1;
             targetPos = _playerTransform.position + forwardOffset;
 
-            GameObject effObj = createEffect(effectName, targetPos, skillLayer);
+            GameObject effObj = createEffect(targetPos, _prefabPlayerMagicC, GlobalParams.SkillPool);
             iTween.MoveTo(effObj, iTween.Hash(
                "position", targetPos + _playerTransform.forward * 3 ,
               "easetype", iTween.EaseType.easeInSine,
@@ -348,11 +387,10 @@ public class PlayerEnitity:BaseEnitity  {
         else if (curState == _stateList[4])
         {
             //技能B
-            effectName = "ParticleProps/Hero_Skill03";
             forwardOffset = -_playerTransform.forward * 1;
             targetPos = _playerTransform.position + forwardOffset;
 
-            GameObject effObj = createEffect(effectName, targetPos, skillLayer);
+            GameObject effObj = createEffect(targetPos, _prefabPlayerMagicB, GlobalParams.SkillPool);
             iTween.MoveTo(effObj, iTween.Hash(
                "position", targetPos + _playerTransform.forward * 3,
               "easetype", iTween.EaseType.easeInSine,
@@ -364,14 +402,13 @@ public class PlayerEnitity:BaseEnitity  {
         else if (curState == _stateList[3])
         {
             //技能A
-            effectName = "ParticleProps/bruceSkill";
             forwardOffset = _playerTransform.forward * 3;
             targetPos = _playerTransform.position + forwardOffset;
-            createEffect(effectName, targetPos, skillGround);
+            createEffect(targetPos, _prefabPlayerMagicA, GlobalParams.SkillGroundPool);
         }
     }
 
-    public GameObject createEffect(string effectName, Vector3 pos, GameObject parentObj = null)
+     public GameObject createEffectNoPool(string effectName, Vector3 pos, GameObject parentObj = null)
     {
         //特效上都绑定了自我销毁脚本，就不加入引用管理
         GameObject prefabObj = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, effectName, rootView._name, true, false);
@@ -379,10 +416,19 @@ public class PlayerEnitity:BaseEnitity  {
         obj.transform.position = pos;
         if (parentObj != null)
         {
-            obj.transform.parent = parentObj.transform;
-
+            obj.transform.parent = _playerTransform;
             obj.transform.rotation = _playerTransform.rotation;
         }
+        return obj;
+       
+    }
+
+    public GameObject createEffect(Vector3 pos, GameObject prefab, string poolName)
+    {
+        GameObject obj = PoolManager.PoolsArray[poolName].GetGameObjectByPool(prefab,
+              pos, Quaternion.identity);
+        obj.transform.rotation = _playerTransform.rotation;
+
         return obj;
        
     }
@@ -537,5 +583,10 @@ public class PlayerEnitity:BaseEnitity  {
         return _mode.attackDisSquare;
     }
 
+
+    override public void onDestory()
+    {
+        changeStateByIndex(PlayerStateEnum.DEAD);
+    }
 
 }

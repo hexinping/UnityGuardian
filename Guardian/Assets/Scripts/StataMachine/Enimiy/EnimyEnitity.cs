@@ -19,11 +19,19 @@ public class EnimyEnitity : BaseEnitity {
     //动画剪辑名称
     private List<string> _animationNameList;
 
+    public GameObject skillGround;
+    public GameObject skillLayer;
+
+
+    private GameObject _prefabHurt;
     public EnimyEnitity()
     {
         damageLabelOffsetY = 50.0f;
         _animationEventDict = new Dictionary<string, List<int>>();
         _animationNameList = new List<string>();
+
+        skillGround = GameObject.Find("_Manager/_ViewManager/_Scene/SkillGround");
+        skillLayer = GameObject.Find("_Manager/_ViewManager/_Scene/Skill");
     }
 
     //不同模型数据不一样，需要重载
@@ -58,11 +66,16 @@ public class EnimyEnitity : BaseEnitity {
         _playerEnitiy = enitity;
     }
    
+    void initBufferPoolPrefab()
+    {
+        _prefabHurt = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, "ParticleProps/Hero_hurtA", rootView._name, true, false); 
 
+    }
     override public void initGameObject()
     {
         addAinimainEvents();
         addAnimationNames();
+        initBufferPoolPrefab();
         if (_rootObj)
         {
             GameObject playerGameObject = _playerEnitiy._gameObject;
@@ -192,24 +205,30 @@ public class EnimyEnitity : BaseEnitity {
 
     public void playHitEffect()
     {
-        GameObject skillGround = GameObject.Find("_Manager/_ViewManager/_Scene/SkillGround");
-        GameObject skillLayer = GameObject.Find("_Manager/_ViewManager/_Scene/Skill");
-
-        string effectName = "";
         Vector3 forwardOffset = Vector3.zero;
         Vector3 targetPos = Vector3.zero;
         BaseState curState = _stateMachine._curState;
         if (curState == _stateList[4])
         { 
             //受伤状态特效
-            effectName = "ParticleProps/Hero_hurtA";
             targetPos = _selfTransform.position + forwardOffset;
-            createEffect(effectName, targetPos, skillLayer);
-
+            createEffect( targetPos, _prefabHurt, GlobalParams.SkillPool);
         }
     }
 
-    public GameObject createEffect(string effectName, Vector3 pos, GameObject parentObj = null)
+
+    public GameObject createEffect(Vector3 pos, GameObject prefab, string poolName)
+    {
+        GameObject obj = PoolManager.PoolsArray[poolName].GetGameObjectByPool(prefab,
+              pos, Quaternion.identity);
+        obj.transform.rotation = _selfTransform.rotation;
+
+        return obj;
+       
+    }
+
+
+    public GameObject createEffectNoPool(string effectName, Vector3 pos, GameObject parentObj = null)
     {
         GameObject prefabObj = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, effectName, rootView._name, true, false);
         GameObject obj = GameObject.Instantiate(prefabObj);
