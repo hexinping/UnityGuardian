@@ -673,24 +673,27 @@ MonoBehaviour:
   - m_bEnabled: 1
     m_CurveName: 
     m_AniCurve:
+      serializedVersion: 2
       m_Curve:
-      - time: 0
+      - serializedVersion: 2
+        time: 0
         value: 0
         inSlope: 1
         outSlope: 1
-        tangentMode: 10
-      - time: 1
+        tangentMode: 34
+      - serializedVersion: 2
+        time: 1
         value: 1
         inSlope: 1
         outSlope: 1
-        tangentMode: 10
+        tangentMode: 34
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     m_ApplyType: 3
-    m_bApplyOption: "\x01"
+    m_bApplyOption: 
     m_bRecursively: 0
     m_fValueScale: 6
-    m_FromColor: {x: 1, y: 1, z: 1, w: 1}
     m_ToColor: {x: 1, y: 1, z: 1, w: 1}
     m_nTag: 0
     m_nSortGroup: 0
@@ -701,29 +704,33 @@ MonoBehaviour:
   - m_bEnabled: 1
     m_CurveName: 
     m_AniCurve:
+      serializedVersion: 2
       m_Curve:
-      - time: 0
+      - serializedVersion: 2
+        time: 0
         value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
-      - time: 0.50082034
+      - serializedVersion: 2
+        time: 0.50082034
         value: 0.0039222836
         inSlope: 0
         outSlope: 0
         tangentMode: 0
-      - time: 1
+      - serializedVersion: 2
+        time: 1
         value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     m_ApplyType: 4
     m_bApplyOption: 
     m_bRecursively: 0
     m_fValueScale: 1
-    m_FromColor: {x: 1, y: 1, z: 1, w: 1}
     m_ToColor: {x: 1, y: 1, z: 1, w: 0}
     m_nTag: 4
     m_nSortGroup: 0
@@ -734,24 +741,27 @@ MonoBehaviour:
   - m_bEnabled: 1
     m_CurveName: 
     m_AniCurve:
+      serializedVersion: 2
       m_Curve:
-      - time: 0
+      - serializedVersion: 2
+        time: 0
         value: 0
         inSlope: 1
         outSlope: 1
-        tangentMode: 10
-      - time: 1
+        tangentMode: 34
+      - serializedVersion: 2
+        time: 1
         value: 1
         inSlope: 1
         outSlope: 1
-        tangentMode: 10
+        tangentMode: 34
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     m_ApplyType: 2
     m_bApplyOption: 
     m_bRecursively: 0
     m_fValueScale: 360
-    m_FromColor: {x: 1, y: 1, z: 1, w: 1}
     m_ToColor: {x: 1, y: 1, z: 1, w: 1}
     m_nTag: 0
     m_nSortGroup: 0

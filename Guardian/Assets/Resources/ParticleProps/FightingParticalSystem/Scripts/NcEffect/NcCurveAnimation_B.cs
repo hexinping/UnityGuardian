@@ -548,6 +548,7 @@ public class NcCurveAnimation_B : NcEffectAniBehaviour_B
 
 	float GetNextScale(NcInfoCurve curveInfo, int nIndex, float fValue)
 	{
+        if (curveInfo.m_bApplyOption.Length - 1 < nIndex) return 0;
 		if (curveInfo.m_bApplyOption[nIndex])
 		{
 			float absValue = curveInfo.m_OriginalValue[nIndex] * (1.0f + fValue);

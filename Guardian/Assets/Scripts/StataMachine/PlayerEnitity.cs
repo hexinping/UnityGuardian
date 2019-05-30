@@ -313,7 +313,27 @@ public class PlayerEnitity:BaseEnitity  {
         BaseState curState = _stateMachine._curState;
         if (curState == _stateList[7])
         {
+
             //攻击状态
+            int comIndex = getCurrComIndex();
+            string name = "";
+            if (comIndex == 2)
+            {
+                name = "ParticleProps/Hero_attack02";
+            }
+            else
+            {
+                name = "ParticleProps/Hero_attack01";
+            }
+
+            effectName = name;
+            forwardOffset = _playerTransform.forward * 3;
+            GameObject prefabObj = Resources.Load<GameObject>(effectName);
+            GameObject obj = GameObject.Instantiate(prefabObj);
+            obj.transform.position = _playerTransform.position + forwardOffset;
+            obj.transform.parent = skillGround.transform;
+
+            GameObject.Destroy(obj, 1.0f);
           
         }
         else if (curState == _stateList[6])
@@ -330,23 +350,33 @@ public class PlayerEnitity:BaseEnitity  {
         else if (curState == _stateList[5])
         {
             //技能C
-            
-        }
-        else if (curState == _stateList[4])
-        {
-            //技能B
-
-            
-        }
-        else if (curState == _stateList[3])
-        {
-            //技能A
-            effectName = "ParticleProps/bruceSkill";
+            effectName = "ParticleProps/Hero_Skill03";
             forwardOffset = _playerTransform.forward * 3;
             GameObject prefabObj = Resources.Load<GameObject>(effectName);
             GameObject obj = GameObject.Instantiate(prefabObj);
             obj.transform.position = _playerTransform.position + forwardOffset;
             obj.transform.parent = skillGround.transform;
+        }
+        else if (curState == _stateList[4])
+        {
+            //技能B
+            //effectName = "ParticleProps/Hero_Skill04";
+            //forwardOffset = _playerTransform.forward * 3;
+            //GameObject prefabObj = Resources.Load<GameObject>(effectName);
+            //GameObject obj = GameObject.Instantiate(prefabObj);
+            //obj.transform.position = _playerTransform.position + forwardOffset;
+            //obj.transform.parent = skillGround.transform;
+            
+        }
+        else if (curState == _stateList[3])
+        {
+            //技能A
+            //effectName = "ParticleProps/bruceSkill";
+            //forwardOffset = _playerTransform.forward * 3;
+            //GameObject prefabObj = Resources.Load<GameObject>(effectName);
+            //GameObject obj = GameObject.Instantiate(prefabObj);
+            //obj.transform.position = _playerTransform.position + forwardOffset;
+            //obj.transform.parent = skillGround.transform;
         }
 
         //GameObject prefabObj = Resources.Load<GameObject>(effectName);

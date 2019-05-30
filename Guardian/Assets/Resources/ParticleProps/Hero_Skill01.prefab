@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 11100002}
   - component: {fileID: 11400004}
   m_Layer: 0
-  m_Name: Skill01
+  m_Name: Hero_Skill01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -687,29 +687,33 @@ MonoBehaviour:
   - m_bEnabled: 1
     m_CurveName: 
     m_AniCurve:
+      serializedVersion: 2
       m_Curve:
-      - time: 0.008333334
+      - serializedVersion: 2
+        time: 0.008333334
         value: 0.3911499
         inSlope: 0
         outSlope: 0
         tangentMode: 0
-      - time: 0.7233368
+      - serializedVersion: 2
+        time: 0.7233368
         value: -0.034113124
         inSlope: -1.1277343
         outSlope: -1.1277343
         tangentMode: 0
-      - time: 1
+      - serializedVersion: 2
+        time: 1
         value: -0.5157075
         inSlope: -2.621185
         outSlope: -2.621185
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     m_ApplyType: 3
     m_bApplyOption: 
     m_bRecursively: 0
     m_fValueScale: -0.7
-    m_FromColor: {x: 1, y: 1, z: 1, w: 1}
     m_ToColor: {x: 1, y: 1, z: 1, w: 0}
     m_nTag: 0
     m_nSortGroup: 0
@@ -720,24 +724,27 @@ MonoBehaviour:
   - m_bEnabled: 1
     m_CurveName: 
     m_AniCurve:
+      serializedVersion: 2
       m_Curve:
-      - time: 0
+      - serializedVersion: 2
+        time: 0
         value: 0
         inSlope: 2
         outSlope: 2
         tangentMode: 0
-      - time: 1
+      - serializedVersion: 2
+        time: 1
         value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     m_ApplyType: 3
-    m_bApplyOption: "\x01"
+    m_bApplyOption: 
     m_bRecursively: 0
     m_fValueScale: 1.5
-    m_FromColor: {x: 1, y: 1, z: 1, w: 1}
     m_ToColor: {x: 1, y: 1, z: 1, w: 0}
     m_nTag: 0
     m_nSortGroup: 0
@@ -748,24 +755,27 @@ MonoBehaviour:
   - m_bEnabled: 1
     m_CurveName: 
     m_AniCurve:
+      serializedVersion: 2
       m_Curve:
-      - time: 0
+      - serializedVersion: 2
+        time: 0
         value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
-      - time: 1
+      - serializedVersion: 2
+        time: 1
         value: -0.0124999285
         inSlope: -2.1403599
         outSlope: -2.1403599
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     m_ApplyType: 4
-    m_bApplyOption: "\x01\x01\x01"
+    m_bApplyOption: d1
     m_bRecursively: 0
     m_fValueScale: 1
-    m_FromColor: {x: 1, y: 0.47586206, z: 0, w: 1}
     m_ToColor: {x: 0.9338235, y: 0.5354618, z: 0.1922578, w: 1}
     m_nTag: 0
     m_nSortGroup: 0
@@ -776,24 +786,27 @@ MonoBehaviour:
   - m_bEnabled: 1
     m_CurveName: 
     m_AniCurve:
+      serializedVersion: 2
       m_Curve:
-      - time: 0
+      - serializedVersion: 2
+        time: 0
         value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
-      - time: 1
+      - serializedVersion: 2
+        time: 1
         value: 1
         inSlope: 2
         outSlope: 2
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     m_ApplyType: 4
-    m_bApplyOption: "\x01\x01\x01"
+    m_bApplyOption: d1
     m_bRecursively: 0
     m_fValueScale: 1
-    m_FromColor: {x: 1, y: 0.72413796, z: 0, w: 1}
     m_ToColor: {x: 1, y: 0, z: 0, w: 1}
     m_nTag: 0
     m_nSortGroup: 0
@@ -804,24 +817,27 @@ MonoBehaviour:
   - m_bEnabled: 1
     m_CurveName: 
     m_AniCurve:
+      serializedVersion: 2
       m_Curve:
-      - time: 0
+      - serializedVersion: 2
+        time: 0
         value: 1
         inSlope: -1.0061239
         outSlope: -2.569634
         tangentMode: 1
-      - time: 1
+      - serializedVersion: 2
+        time: 1
         value: -0.19167252
         inSlope: -0.025153195
         outSlope: -1.0061239
         tangentMode: 1
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     m_ApplyType: 4
     m_bApplyOption: 
     m_bRecursively: 1
     m_fValueScale: 1
-    m_FromColor: {x: 0, y: 0, z: 0, w: 1}
     m_ToColor: {x: 1, y: 1, z: 1, w: 1}
     m_nTag: 0
     m_nSortGroup: 0
@@ -832,24 +848,27 @@ MonoBehaviour:
   - m_bEnabled: 1
     m_CurveName: 
     m_AniCurve:
+      serializedVersion: 2
       m_Curve:
-      - time: 0
+      - serializedVersion: 2
+        time: 0
         value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
-      - time: 1
+      - serializedVersion: 2
+        time: 1
         value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     m_ApplyType: 2
     m_bApplyOption: 
     m_bRecursively: 0
     m_fValueScale: 100
-    m_FromColor: {x: 1, y: 1, z: 1, w: 1}
     m_ToColor: {x: 1, y: 1, z: 1, w: 0}
     m_nTag: 0
     m_nSortGroup: 0
@@ -877,29 +896,33 @@ MonoBehaviour:
   - m_bEnabled: 1
     m_CurveName: 
     m_AniCurve:
+      serializedVersion: 2
       m_Curve:
-      - time: 0
+      - serializedVersion: 2
+        time: 0
         value: 0.6097057
         inSlope: 0
         outSlope: 0
         tangentMode: 0
-      - time: 0.46001345
+      - serializedVersion: 2
+        time: 0.46001345
         value: 0.5294518
         inSlope: -0.28710288
         outSlope: -0.28710288
         tangentMode: 0
-      - time: 1
+      - serializedVersion: 2
+        time: 1
         value: 0.16796416
         inSlope: -1.011644
         outSlope: -1.011644
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     m_ApplyType: 3
     m_bApplyOption: 
     m_bRecursively: 0
     m_fValueScale: -0.5
-    m_FromColor: {x: 1, y: 1, z: 1, w: 1}
     m_ToColor: {x: 1, y: 1, z: 1, w: 0}
     m_nTag: 0
     m_nSortGroup: 0
@@ -910,24 +933,27 @@ MonoBehaviour:
   - m_bEnabled: 1
     m_CurveName: 
     m_AniCurve:
+      serializedVersion: 2
       m_Curve:
-      - time: 0
+      - serializedVersion: 2
+        time: 0
         value: 0
         inSlope: 2
         outSlope: 2
         tangentMode: 0
-      - time: 1
+      - serializedVersion: 2
+        time: 1
         value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     m_ApplyType: 3
-    m_bApplyOption: "\x01"
+    m_bApplyOption: 
     m_bRecursively: 0
     m_fValueScale: 2
-    m_FromColor: {x: 1, y: 1, z: 1, w: 1}
     m_ToColor: {x: 1, y: 1, z: 1, w: 0}
     m_nTag: 0
     m_nSortGroup: 0
@@ -938,24 +964,27 @@ MonoBehaviour:
   - m_bEnabled: 1
     m_CurveName: 
     m_AniCurve:
+      serializedVersion: 2
       m_Curve:
-      - time: 0
+      - serializedVersion: 2
+        time: 0
         value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
-      - time: 1
+      - serializedVersion: 2
+        time: 1
         value: -0.0124999285
         inSlope: -2.1403599
         outSlope: -2.1403599
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     m_ApplyType: 4
-    m_bApplyOption: "\x01\x01\x01"
+    m_bApplyOption: d1
     m_bRecursively: 0
     m_fValueScale: 1
-    m_FromColor: {x: 1, y: 0.47586206, z: 0, w: 1}
     m_ToColor: {x: 1, y: 0.4154158, z: 0.03676468, w: 1}
     m_nTag: 0
     m_nSortGroup: 0
@@ -966,24 +995,27 @@ MonoBehaviour:
   - m_bEnabled: 1
     m_CurveName: 
     m_AniCurve:
+      serializedVersion: 2
       m_Curve:
-      - time: 0
+      - serializedVersion: 2
+        time: 0
         value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
-      - time: 1
+      - serializedVersion: 2
+        time: 1
         value: 1
         inSlope: 2
         outSlope: 2
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     m_ApplyType: 4
-    m_bApplyOption: "\x01\x01\x01"
+    m_bApplyOption: d1
     m_bRecursively: 0
     m_fValueScale: 1
-    m_FromColor: {x: 1, y: 0.72413796, z: 0, w: 1}
     m_ToColor: {x: 1, y: 0, z: 0, w: 1}
     m_nTag: 0
     m_nSortGroup: 0
@@ -994,24 +1026,27 @@ MonoBehaviour:
   - m_bEnabled: 1
     m_CurveName: 
     m_AniCurve:
+      serializedVersion: 2
       m_Curve:
-      - time: 0
+      - serializedVersion: 2
+        time: 0
         value: 1
         inSlope: -1.0061239
         outSlope: -2.569634
         tangentMode: 1
-      - time: 1
+      - serializedVersion: 2
+        time: 1
         value: -0.19167252
         inSlope: -0.025153195
         outSlope: -1.0061239
         tangentMode: 1
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     m_ApplyType: 4
     m_bApplyOption: 
     m_bRecursively: 1
     m_fValueScale: 1
-    m_FromColor: {x: 0, y: 0, z: 0, w: 1}
     m_ToColor: {x: 1, y: 1, z: 1, w: 1}
     m_nTag: 0
     m_nSortGroup: 0
@@ -1034,8 +1069,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fUserTag: 0
-  m_PlayType: 2
-  m_bPlayOnActive: 0
   m_fDelayTime: 0.2
   m_fRepeatTime: 0
   m_nRepeatCount: 0
@@ -1061,24 +1094,27 @@ MonoBehaviour:
   - m_bEnabled: 1
     m_CurveName: 
     m_AniCurve:
+      serializedVersion: 2
       m_Curve:
-      - time: 0
+      - serializedVersion: 2
+        time: 0
         value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
-      - time: 1
+      - serializedVersion: 2
+        time: 1
         value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     m_ApplyType: 3
-    m_bApplyOption: "\x01\x01\x01"
+    m_bApplyOption: d1
     m_bRecursively: 0
     m_fValueScale: 0.29999995
-    m_FromColor: {x: 1, y: 1, z: 1, w: 1}
     m_ToColor: {x: 1, y: 1, z: 1, w: 0}
     m_nTag: 0
     m_nSortGroup: 0
