@@ -77,7 +77,7 @@ public class DamageLabelMove : MonoBehaviour {
 
     void moveEndCallBack()
     {
-        Debug.Log(GetType() + "/moveEndCallBack");
+        //Debug.Log(GetType() + "/moveEndCallBack");
         //加入到缓冲池的非活动集合
         PoolManager.PoolsArray[GlobalParams.DamageLabelPool].RecoverGameObjectToPools(gameObject);
     }

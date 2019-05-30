@@ -261,9 +261,10 @@ public class PlayerEnitity:BaseEnitity  {
         if (attackTarget != null && !attackTarget.isDead)
         {
             attackTargetHurt(attackTarget);
-            playHitSound();
-            playHitEffect();
         }
+
+        playHitSound();
+        playHitEffect();
 
     }
 
@@ -276,31 +277,82 @@ public class PlayerEnitity:BaseEnitity  {
         {
             //攻击状态
             int comIndex = getCurrComIndex();
+            if (comIndex == 0) comIndex = 3;
             string audioName = "BeiJi_DaoJian_" + comIndex;
             AudioManager.getInstance().playSoundEffect(audioName);
         }
         else if (curState == _stateList[6])
         {
+            //技能D
             AudioManager.getInstance().playSoundEffect("Hero_MagicC");
         }
         else if (curState == _stateList[5])
         {
+            //技能C
             AudioManager.getInstance().playSoundEffect("Hero_MagicB");
         }
         else if (curState == _stateList[4])
         {
+            //技能B
             AudioManager.getInstance().playSoundEffect("Hero_MagicB");
         }
         else if (curState == _stateList[3])
         {
+            //技能A
             AudioManager.getInstance().playSoundEffect("Hero_MagicA");
         }
     }
 
     //播放击打特效
     private void playHitEffect()
-    { 
-        //todo
+    {
+        GameObject skillGround = GameObject.Find("_Manager/_ViewManager/_Scene/SkillGround");
+        string effectName = "";
+        Vector3 forwardOffset = Vector3.zero;
+        //根据状态区分
+        BaseState curState = _stateMachine._curState;
+        if (curState == _stateList[7])
+        {
+            //攻击状态
+          
+        }
+        else if (curState == _stateList[6])
+        {
+            //技能D
+            effectName = "ParticleProps/groundBrokeRed";
+            forwardOffset = _playerTransform.forward * 3;
+            GameObject prefabObj = Resources.Load<GameObject>(effectName);
+            GameObject obj = GameObject.Instantiate(prefabObj);
+            obj.transform.position = _playerTransform.position + forwardOffset;
+            obj.transform.parent = skillGround.transform;
+            
+        }
+        else if (curState == _stateList[5])
+        {
+            //技能C
+            
+        }
+        else if (curState == _stateList[4])
+        {
+            //技能B
+
+            
+        }
+        else if (curState == _stateList[3])
+        {
+            //技能A
+            effectName = "ParticleProps/bruceSkill";
+            forwardOffset = _playerTransform.forward * 3;
+            GameObject prefabObj = Resources.Load<GameObject>(effectName);
+            GameObject obj = GameObject.Instantiate(prefabObj);
+            obj.transform.position = _playerTransform.position + forwardOffset;
+            obj.transform.parent = skillGround.transform;
+        }
+
+        //GameObject prefabObj = Resources.Load<GameObject>(effectName);
+        //GameObject obj = GameObject.Instantiate(prefabObj);
+        //obj.transform.position = _playerTransform.position + forwardOffset;
+        //obj.transform.parent = skillGround.transform;
     }
 
     public AnimationState getAnimationState(string animatinName)

@@ -11,6 +11,8 @@ public class BurnHelper : MonoBehaviour {
 
 	private float burnAmount = 0.0f;
 
+    private float delayTime = 1.0f;
+    private float burnTick;
 
     private Texture _mainTexture = null;
     private List<string> _gameObjectNameList = new List<string>();
@@ -22,6 +24,8 @@ public class BurnHelper : MonoBehaviour {
         material.hideFlags = HideFlags.DontSave;
         Texture burnN = Resources.Load<Texture>("Texture/burn_noise");
         material.SetTexture("_BurnMap", burnN);
+
+        burnTick = GlobalParams.totalTime;
     }
 
 
@@ -98,11 +102,15 @@ public class BurnHelper : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        burnAmount += Time.deltaTime * burnSpeed;
-		material.SetFloat("_BurnAmount", burnAmount);
-        if (burnAmount >= 0.99)
+        if (burnTick + delayTime <= GlobalParams.totalTime)
         {
-            Destroy(gameObject);
+            burnAmount += Time.deltaTime * burnSpeed;
+            material.SetFloat("_BurnAmount", burnAmount);
+            if (burnAmount >= 0.99)
+            {
+                Destroy(gameObject);
+            }
         }
+        
 	}
 }
