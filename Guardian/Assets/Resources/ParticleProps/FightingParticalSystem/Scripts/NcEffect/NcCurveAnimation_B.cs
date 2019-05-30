@@ -440,11 +440,14 @@ public class NcCurveAnimation_B : NcEffectAniBehaviour_B
 			if (curveInfo.m_ApplyType != NcInfoCurve.APPLY_TYPE.COLOR)
 				fValue *= curveInfo.m_fValueScale;
 
+            int length = curveInfo.m_bApplyOption.Length;
 			switch (curveInfo.m_ApplyType)
 			{
 				case NcInfoCurve.APPLY_TYPE.NONE:		continue;
 				case NcInfoCurve.APPLY_TYPE.POSITION:
 					{
+                        
+                        if (length < 4) break;
 						if (curveInfo.m_bApplyOption[3])
 							 m_Transform.position		+= new Vector3(GetNextValue(curveInfo, 0, fValue), GetNextValue(curveInfo, 1, fValue), GetNextValue(curveInfo, 2, fValue));
 						else m_Transform.localPosition	+= new Vector3(GetNextValue(curveInfo, 0, fValue), GetNextValue(curveInfo, 1, fValue), GetNextValue(curveInfo, 2, fValue));
@@ -452,6 +455,7 @@ public class NcCurveAnimation_B : NcEffectAniBehaviour_B
 					}
 				case NcInfoCurve.APPLY_TYPE.ROTATION:
 					{
+                        if (length < 4) break;
 						if (curveInfo.m_bApplyOption[3])
 							 m_Transform.rotation		*= Quaternion.Euler(GetNextValue(curveInfo, 0, fValue), GetNextValue(curveInfo, 1, fValue), GetNextValue(curveInfo, 2, fValue));
 						else m_Transform.localRotation	*= Quaternion.Euler(GetNextValue(curveInfo, 0, fValue), GetNextValue(curveInfo, 1, fValue), GetNextValue(curveInfo, 2, fValue));

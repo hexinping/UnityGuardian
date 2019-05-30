@@ -35,6 +35,11 @@ public class HeroAttack : MonoBehaviour {
     public float _lastPressTime = 0.0f;
     public bool _isLongPrees = false;
 
+    private GameObject _skillLayer;
+    void Start()
+    {
+        _skillLayer = GameObject.Find("_Manager/_ViewManager/_Scene/Skill");
+    }
     public void setPlayerEnitity(PlayerEnitity enitity)
     {
         _playerEnitity = enitity;
@@ -57,9 +62,7 @@ public class HeroAttack : MonoBehaviour {
             GameObject prefabObj = Resources.Load<GameObject>(effectName);
             GameObject obj = GameObject.Instantiate(prefabObj);
             obj.transform.position = _playerTransform.position + forwardOffset;
-    
-
-            GameObject.Destroy(obj, 1.0f);
+            obj.transform.parent = _skillLayer.transform;
 
             _playerEnitity.changeStateByIndex(PlayerStateEnum.NORMALATTACK, 2.0f, false);
             startResetIdle(PlayerStateEnum.NORMALATTACK);

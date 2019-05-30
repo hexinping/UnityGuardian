@@ -309,7 +309,7 @@ public class PlayerEnitity:BaseEnitity  {
         GameObject skillGround = GameObject.Find("_Manager/_ViewManager/_Scene/SkillGround");
         string effectName = "";
         Vector3 forwardOffset = Vector3.zero;
-
+        Vector3 targetPos = Vector3.zero;
         //根据状态区分
         BaseState curState = _stateMachine._curState;
         if (curState == _stateList[6])
@@ -317,20 +317,39 @@ public class PlayerEnitity:BaseEnitity  {
             //技能D
             effectName = "ParticleProps/groundBrokeRed";
             forwardOffset = _playerTransform.forward * 3;
-            
+            targetPos = _playerTransform.position + forwardOffset;
+            createEffect(effectName, targetPos, skillGround);
         }
         else if (curState == _stateList[5])
         {
             //技能C
             effectName = "ParticleProps/Hero_Skill03";
-            forwardOffset = _playerTransform.forward * 3;
+            forwardOffset = -_playerTransform.forward * 1;
+            targetPos = _playerTransform.position + forwardOffset;
+
+            GameObject effObj = createEffect(effectName, targetPos, skillGround);
+            iTween.MoveTo(effObj, iTween.Hash(
+               "position", targetPos + _playerTransform.forward * 3 ,
+              "easetype", iTween.EaseType.easeInSine,
+              "time", 0.8
+
+            ));
+           
         }
         else if (curState == _stateList[4])
         {
             //技能B
-            effectName = "ParticleProps/Hero_Skill04";
-            forwardOffset = _playerTransform.forward * 3;
+            effectName = "ParticleProps/Hero_Skill03";
+            forwardOffset = -_playerTransform.forward * 1;
+            targetPos = _playerTransform.position + forwardOffset;
 
+            GameObject effObj = createEffect(effectName, targetPos, skillGround);
+            iTween.MoveTo(effObj, iTween.Hash(
+               "position", targetPos + _playerTransform.forward * 3,
+              "easetype", iTween.EaseType.easeInSine,
+              "time", 0.8
+
+            ));
             
         }
         else if (curState == _stateList[3])
@@ -338,13 +357,24 @@ public class PlayerEnitity:BaseEnitity  {
             //技能A
             effectName = "ParticleProps/bruceSkill";
             forwardOffset = _playerTransform.forward * 3;
-
+            targetPos = _playerTransform.position + forwardOffset;
+            createEffect(effectName, targetPos, skillGround);
         }
+    }
 
+    public GameObject createEffect(string effectName, Vector3 pos, GameObject parentObj = null)
+    {
         GameObject prefabObj = Resources.Load<GameObject>(effectName);
         GameObject obj = GameObject.Instantiate(prefabObj);
-        obj.transform.position = _playerTransform.position + forwardOffset;
-        obj.transform.parent = skillGround.transform;
+        obj.transform.position = pos;
+        if (parentObj != null)
+        {
+            obj.transform.parent = parentObj.transform;
+
+            obj.transform.rotation = _playerTransform.rotation;
+        }
+        return obj;
+       
     }
 
     public AnimationState getAnimationState(string animatinName)
