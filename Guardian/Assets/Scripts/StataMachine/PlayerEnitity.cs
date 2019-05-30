@@ -86,7 +86,7 @@ public class PlayerEnitity:BaseEnitity  {
             _playerTransform = _gameObject.transform;
 
             //使用缓冲池床创建血条
-            _prefabPlayerHp = Resources.Load<GameObject>("Prefabs/View/Hp");
+            _prefabPlayerHp = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, "Prefabs/View/Hp", rootView._name, true);
             GameObject obj = PoolManager.PoolsArray[GlobalParams.HPPool].GetGameObjectByPool(_prefabPlayerHp,
                 _gameObject.transform.position, Quaternion.identity);
 
@@ -373,7 +373,8 @@ public class PlayerEnitity:BaseEnitity  {
 
     public GameObject createEffect(string effectName, Vector3 pos, GameObject parentObj = null)
     {
-        GameObject prefabObj = Resources.Load<GameObject>(effectName);
+        //特效上都绑定了自我销毁脚本，就不加入引用管理
+        GameObject prefabObj = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, effectName, rootView._name, true, false);
         GameObject obj = GameObject.Instantiate(prefabObj);
         obj.transform.position = pos;
         if (parentObj != null)

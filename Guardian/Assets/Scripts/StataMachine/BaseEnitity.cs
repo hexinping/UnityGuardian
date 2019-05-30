@@ -68,8 +68,7 @@ public class BaseEnitity  {
         MessageDispatcher.getInstance().registerEntity(this);
 
         _params = new Dictionary<string,object>();
-
-        _prefabDamageLabe1_1 = Resources.Load<GameObject>("Prefabs/View/DamageLabel");
+        _prefabDamageLabe1_1 = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, "Prefabs/View/DamageLabel", "DamageLabel", true, false);
     }
 
     //必须重载
@@ -104,7 +103,7 @@ public class BaseEnitity  {
 
     public GameObject getGameObject(string prefabPath, string name, GameObject parentObj ,Vector3 pos)
     {
-        GameObject prefab = Resources.Load<GameObject>(prefabPath);
+        GameObject prefab = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, prefabPath, rootView._name, true, false);
         GameObject obj = GameObject.Instantiate(prefab);
         obj.name = name;
         obj.transform.localPosition = pos;

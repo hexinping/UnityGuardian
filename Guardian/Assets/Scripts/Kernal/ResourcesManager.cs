@@ -201,10 +201,12 @@ public class ResourcesManager  {
      *  多个界面以后用多个不同资源         --》ok
      */
     //获取一个资源
-    public Object getResouce(ResourceType type, string name, string viewName, bool materailCustom = true, bool shaderCustom = true)
+    public Object getResouce(ResourceType type, string name, string viewName, bool isUseCustomPath = false, bool isAddRefManager = true, bool materailCustom = true, bool shaderCustom = true)
     {
         int index = (int)type;
-        string path = getResourceKey(type, name);
+        string path = name;
+        if(!isUseCustomPath)
+           path = getResourceKey(type, name);
         ResourceObj resObj = null;
         if (_resourcesList[index].ContainsKey(path))
         {
@@ -225,11 +227,16 @@ public class ResourcesManager  {
             resObj = new ResourceObj(obj, type, path, materailCustom, shaderCustom);
             _resourcesList[index].Add(path, resObj);
         }
-        //引用管理
-        resObj.addRefCount(viewName);
 
-        //页面资源管理
-        addViewCache(viewName, resObj);
+        if (isAddRefManager)
+        {
+            //引用管理
+            resObj.addRefCount(viewName);
+
+            //页面资源管理
+            addViewCache(viewName, resObj);
+        }
+   
         return resObj.obj;
     }
 
@@ -268,7 +275,7 @@ public class ResourcesManager  {
     }
 
     //删除一个资源 (shader和材质只删除自定义的)
-    public void removeResouce(ResourceType type, string name, string viewName)
+    public void removeResouce(ResourceType type, string name, string viewName, bool isRemoveRelation = false)
     {
         int index = (int)type;
         string path = getResourceKey(type, name);
@@ -284,13 +291,13 @@ public class ResourcesManager  {
             {
                 deleteViewCache(viewName, resObj);
                 //真正的卸载资源
-                unLoadResouce(resObj);
+                unLoadResouce(resObj, isRemoveRelation);
             }
         }
     }
 
     //删除某个view的所有资源,如果其他view有引用，资源不会删除
-    public void removeResoucesByView(string viewName)
+    public void removeResoucesByView(string viewName, bool isRemoveRelation = false)
     {
         //listResObj只存储了一份资源引用
         List<ResourceObj> listResObj = _resourcesDict[viewName];
@@ -303,13 +310,13 @@ public class ResourcesManager  {
             {
                 deleteViewCache(viewName, resObj);
                 //真正的卸载资源
-                unLoadResouce(resObj);
+                unLoadResouce(resObj, isRemoveRelation);
             }
         }
 
     }
 
-    private void unLoadResouce(ResourceObj resObj)
+    private void unLoadResouce(ResourceObj resObj, bool isRemoveRelation = false)
     {
         ResourceType type = resObj.type;
         int index = (int)type;
@@ -347,8 +354,11 @@ public class ResourcesManager  {
             {
                 //先把关联贴图删除再删除sprite
                 Sprite sp = (Sprite)obj;
-                Texture tex = sp.texture;
-                Resources.UnloadAsset(tex);
+                if (isRemoveRelation)
+                {
+                    Texture tex = sp.texture;
+                    Resources.UnloadAsset(tex);
+                }
                 Resources.UnloadAsset(obj);
             }
             else if (type == ResourceType.Material)
@@ -359,21 +369,23 @@ public class ResourcesManager  {
                 if (isCustomMaterial)
                 {
                     Material ma = (Material)obj;
-
-                    //先把关联贴图删除再删除material,暂时只支持删除主贴图
-                    Texture tex = ma.mainTexture;
-                    if (tex != null)
+                    if (isRemoveRelation)
                     {
-                        Resources.UnloadAsset(tex);
-                    }
-
-                    //把相关shader也删除
-                    if (isCustomShader)
-                    {
-                        Shader shader = ma.shader;
-                        if (shader != null)
+                        //先把关联贴图删除再删除material,暂时只支持删除主贴图
+                        Texture tex = ma.mainTexture;
+                        if (tex != null)
                         {
-                            Resources.UnloadAsset(shader);
+                            Resources.UnloadAsset(tex);
+                        }
+
+                        //把相关shader也删除
+                        if (isCustomShader)
+                        {
+                            Shader shader = ma.shader;
+                            if (shader != null)
+                            {
+                                Resources.UnloadAsset(shader);
+                            }
                         }
                     }
                     Resources.UnloadAsset(obj);

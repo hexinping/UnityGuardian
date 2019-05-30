@@ -94,8 +94,7 @@ public class BaseView:MonoBehaviour
 
     public GameObject initScene(string name)
     {
-        //GameObject obj = (GameObject)Resources.Load("Prefabs/" + name);
-
+ 
         GameObject obj = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, name, this._name);
         GameObject scene = GameObject.Instantiate(obj); //初始化是世界坐标位置是随机的
         scene.name = name;
@@ -141,8 +140,9 @@ public class BaseView:MonoBehaviour
         {
             return null;
         }
-        string prefabName = prefabPath;
-        GameObject obj = (GameObject)Resources.Load(prefabName);
+        //string prefabName = prefabPath;
+        //GameObject obj = (GameObject)Resources.Load(prefabName);
+        GameObject obj = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, prefabPath , _name, true);
         GameObject objClone = GameObject.Instantiate(obj);
         objClone.transform.parent = parent.transform;
         objClone.transform.localPosition = pos;

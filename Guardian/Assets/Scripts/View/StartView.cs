@@ -57,8 +57,7 @@ public class StartView : BaseView
         _mainCamera.transform.position = new Vector3(10.8f, -8.5f, -85.0f);
 
         //粒子系统
-        string name = "ParticlePiao";
-        GameObject obj = (GameObject)Resources.Load("ParticleProps/" + name);
+        GameObject obj = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, "ParticleProps/ParticlePiao", _name, true);
         GameObject particleObj = GameObject.Instantiate(obj); 
         particleObj.transform.parent = _scene.transform;
         particleObj.name = name;

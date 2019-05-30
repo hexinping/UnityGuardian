@@ -211,7 +211,7 @@ public class EnimyEnitity : BaseEnitity {
 
     public GameObject createEffect(string effectName, Vector3 pos, GameObject parentObj = null)
     {
-        GameObject prefabObj = Resources.Load<GameObject>(effectName);
+        GameObject prefabObj = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, effectName, rootView._name, true, false);
         GameObject obj = GameObject.Instantiate(prefabObj);
         obj.transform.position = pos;
         if (parentObj != null)
@@ -238,7 +238,7 @@ public class EnimyEnitity : BaseEnitity {
     override public void onDestory()
     {
         BurnHelper burn = _gameObject.AddComponent<BurnHelper>();
-        Texture mainT = Resources.Load<Texture>("Models/Enemys/Skeleton_Pack/Textures/warrior/skeleton_warrior__variant5");
+        Texture mainT = (Texture)ResourcesManager.getInstance().getResouce(ResourceType.Texture, "Models/Enemys/Skeleton_Pack/Textures/warrior/skeleton_warrior__variant5", rootView._name, true, false);
         burn.setMainTex(mainT);
         burn.setNameList("armor", "eyes", "helmet", "Skeletonl_base", "shield", "sword");
 

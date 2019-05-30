@@ -96,6 +96,12 @@ public class HeroMovingByET : MonoBehaviour {
              return;
          }
 
+         if (_playerEnitity != null)
+         {
+             bool isAttacking = _playerEnitity.isAttacking;
+             if (isAttacking) return;
+         }
+
          //获取摇杆中心偏移的坐标  
          float joyPositionX = move.joystickAxis.x;
          float joyPositionY = move.joystickAxis.y;

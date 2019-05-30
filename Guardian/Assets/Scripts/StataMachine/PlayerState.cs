@@ -204,6 +204,7 @@ public class PlayerMagicTrickAState : PlayerState
     {
         Debug.Log("magicTrickA enter=============");
         base.enter(values);
+        _enitity.isAttacking = true;
 
     }
 
@@ -216,6 +217,7 @@ public class PlayerMagicTrickAState : PlayerState
     override public void exit(params object[] values)
     {
         Debug.Log("magicTrickA exit=============");
+        _enitity.isAttacking = false;
     }
 
 }
@@ -234,7 +236,7 @@ public class PlayerMagicTrickBState : PlayerState
     {
         Debug.Log("magicTrickB enter=============");
         base.enter(values);
-
+        _enitity.isAttacking = true;
     }
 
     override public void excute(params object[] values)
@@ -246,6 +248,7 @@ public class PlayerMagicTrickBState : PlayerState
     override public void exit(params object[] values)
     {
         Debug.Log("magicTrickB exit=============");
+        _enitity.isAttacking = false;
     }
 
 }
@@ -263,6 +266,7 @@ public class PlayerMagicTrickCState : PlayerState
     {
         Debug.Log("magicTrickC enter=============");
         base.enter(values);
+        _enitity.isAttacking = true;
 
     }
 
@@ -275,6 +279,7 @@ public class PlayerMagicTrickCState : PlayerState
     override public void exit(params object[] values)
     {
         Debug.Log("magicTrickC exit=============");
+        _enitity.isAttacking = false;
     }
 
 }
@@ -292,7 +297,7 @@ public class PlayerMagicTrickDState : PlayerState
     {
         Debug.Log("magicTrickD enter=============");
         base.enter(values);
-
+        _enitity.isAttacking = true;
     }
 
     override public void excute(params object[] values)
@@ -304,6 +309,7 @@ public class PlayerMagicTrickDState : PlayerState
     override public void exit(params object[] values)
     {
         Debug.Log("magicTrickD exit=============");
+        _enitity.isAttacking = false;
     }
 
 }

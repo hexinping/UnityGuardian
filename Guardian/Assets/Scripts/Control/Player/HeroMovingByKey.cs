@@ -54,7 +54,11 @@ public class HeroMovingByKey : MonoBehaviour {
 
          */
 
-        
+        if (_playerEnitity != null)
+        {
+            bool isAttacking = _playerEnitity.isAttacking;
+            if (isAttacking) return;
+        }
         float h = Input.GetAxis(GlobalParams.Horizontal);
         float v = Input.GetAxis(GlobalParams.Vertical);
         if (Mathf.Abs(h) > 0.1f || Mathf.Abs(v) > 0.1)
