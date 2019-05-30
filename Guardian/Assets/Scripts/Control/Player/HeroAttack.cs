@@ -49,9 +49,22 @@ public class HeroAttack : MonoBehaviour {
         //print(GetType() + "/heroNormalAttack Attack");
         if (_playerEnitity != null)
         {
+            //播放普通攻击特效
+            int comIndex = _playerEnitity.getCurrComIndex() + 1;
+            string effectName = "ParticleProps/Hero_attack0" + comIndex;
+            Transform _playerTransform = _playerEnitity._gameObject.transform;
+            Vector3 forwardOffset = _playerTransform.forward * 1;
+            GameObject prefabObj = Resources.Load<GameObject>(effectName);
+            GameObject obj = GameObject.Instantiate(prefabObj);
+            obj.transform.position = _playerTransform.position + forwardOffset;
+    
+
+            GameObject.Destroy(obj, 1.0f);
+
             _playerEnitity.changeStateByIndex(PlayerStateEnum.NORMALATTACK, 2.0f, false);
             startResetIdle(PlayerStateEnum.NORMALATTACK);
             _playerEnitity.AddComobIndex();
+
         }
     }
 
