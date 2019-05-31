@@ -204,32 +204,22 @@ MonoBehaviour:
   ThisGameObjectPosition: {fileID: 0}
   PoolOptionArrayLib:
   - Prefab: {fileID: 100014, guid: d8a2cfe56e34a4748bfb9d665cb2be21, type: 2}
-    IntPreLoadNumber: 2
+    IntPreLoadNumber: 3
     IntAutoDeactiveGameObjectByTime: 0
     ActiveGameObjectArray: []
     InactiveGameObjectArray: []
   - Prefab: {fileID: 100024, guid: 8062118590d63aa45beb791d78f6430b, type: 2}
-    IntPreLoadNumber: 2
+    IntPreLoadNumber: 3
     IntAutoDeactiveGameObjectByTime: 0
     ActiveGameObjectArray: []
     InactiveGameObjectArray: []
   - Prefab: {fileID: 100014, guid: 961ebb2e6527c3a49be0d59320bb0696, type: 2}
-    IntPreLoadNumber: 2
+    IntPreLoadNumber: 3
     IntAutoDeactiveGameObjectByTime: 0
     ActiveGameObjectArray: []
     InactiveGameObjectArray: []
   - Prefab: {fileID: 100006, guid: 0aa4827e822a39943a05b7c94b4b2293, type: 2}
     IntPreLoadNumber: 10
-    IntAutoDeactiveGameObjectByTime: 0
-    ActiveGameObjectArray: []
-    InactiveGameObjectArray: []
-  - Prefab: {fileID: 100002, guid: cb97c83d285042647830c4d5e5d484e9, type: 2}
-    IntPreLoadNumber: 3
-    IntAutoDeactiveGameObjectByTime: 0
-    ActiveGameObjectArray: []
-    InactiveGameObjectArray: []
-  - Prefab: {fileID: 100000, guid: b090a3009390b3a4ea39d2520326e85a, type: 2}
-    IntPreLoadNumber: 3
     IntAutoDeactiveGameObjectByTime: 0
     ActiveGameObjectArray: []
     InactiveGameObjectArray: []

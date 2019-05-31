@@ -7,23 +7,24 @@ public class DestroyForTime : MonoBehaviour {
 	public float time;
     public bool isUsePool = false; //是否使用对象缓冲池
     public string poolName = "";  //使用对象缓冲池需要告知缓冲池名字
-    private float createTime;
+    private float playTime = 0.0f;
     private float endTime;
 
 	void Start () {
-        createTime = Time.time;
-        endTime = createTime + time;
+        playTime = Time.time;
+        endTime = Time.time + time;
         
 	}
 
-    void onEnable()
+    void OnEnable()
     {
-        createTime = Time.time;
-        endTime = createTime + time;
+        playTime = Time.time;
+        endTime = Time.time + time;
     }
     void Update()
     {
-        if (createTime +Time.deltaTime >= endTime)
+        playTime += Time.deltaTime;
+        if (playTime >= endTime)
         {
             if (!isUsePool)
             {

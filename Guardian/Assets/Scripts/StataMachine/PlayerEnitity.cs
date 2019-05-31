@@ -112,7 +112,7 @@ public class PlayerEnitity:BaseEnitity  {
         {
             preObj = _prefabPlayerAttackRight;
         }
-        GameObject obj = PoolManager.PoolsArray[GlobalParams.SkillPool].GetGameObjectByPool(preObj,
+        GameObject obj = PoolManager.PoolsArray[GlobalParams.SkillPool].GetGameObjectByPool(_prefabPlayerAttackLeft,
                targetPos, Quaternion.identity);
         obj.transform.rotation = _playerTransform.rotation;
         return obj;
@@ -416,7 +416,7 @@ public class PlayerEnitity:BaseEnitity  {
         obj.transform.position = pos;
         if (parentObj != null)
         {
-            obj.transform.parent = _playerTransform;
+            obj.transform.parent = parentObj.transform;
             obj.transform.rotation = _playerTransform.rotation;
         }
         return obj;

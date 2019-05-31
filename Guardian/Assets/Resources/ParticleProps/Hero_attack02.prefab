@@ -168,8 +168,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 400024}
-  - component: {fileID: 11400000}
-  - component: {fileID: 11400002}
   - component: {fileID: 114947627202070228}
   m_Layer: 0
   m_Name: Hero_attack02
@@ -443,46 +441,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_Mesh: {fileID: 4300000, guid: ab0b837d3f263974a8ca714b128716a5, type: 3}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100024}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdd9b120da0c0e04596ed5a918a85b54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_fUserTag: 0
-  m_fDelayTime: 0
-  m_fRepeatTime: 0
-  m_nRepeatCount: 0
-  m_AudioClip: {fileID: 8300000, guid: 9ee74fe7ec625564fbdfcd8698c84871, type: 3}
-  m_nPriority: 128
-  m_bLoop: 0
-  m_fVolume: 0.39
-  m_fPitch: 1
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100024}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdd9b120da0c0e04596ed5a918a85b54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_fUserTag: 0
-  m_fDelayTime: 0
-  m_fRepeatTime: 100
-  m_nRepeatCount: 0
-  m_AudioClip: {fileID: 8300000, guid: 371c9f8fcd1b459469699204884fcd4f, type: 3}
-  m_nPriority: 128
-  m_bLoop: 0
-  m_fVolume: 0.39
-  m_fPitch: 1
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

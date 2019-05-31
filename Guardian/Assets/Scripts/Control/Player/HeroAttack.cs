@@ -54,10 +54,21 @@ public class HeroAttack : MonoBehaviour {
         //print(GetType() + "/heroNormalAttack Attack");
         if (_playerEnitity != null)
         {
-            //播放普通攻击特效
+            int comIndex = _playerEnitity.getCurrComIndex() + 1;
+            string effectName = "ParticleProps/Hero_attack0" + comIndex;
             Transform _playerTransform = _playerEnitity._gameObject.transform;
-            Vector3 forwardOffset = _playerTransform.forward * 1;
-            _playerEnitity.getAttackEffeectObj(_playerTransform.position + forwardOffset);
+            int offfactor = 1;
+            if (comIndex == 2)
+            {
+                offfactor = 3;
+            }
+            Vector3 forwardOffset = _playerTransform.forward * offfactor;
+        
+            _playerEnitity.createEffectNoPool(effectName, _playerTransform.position + forwardOffset, _playerEnitity.skillLayer);
+            //播放普通攻击特效
+            //Transform _playerTransform = _playerEnitity._gameObject.transform;
+            //Vector3 forwardOffset = _playerTransform.forward * 1;
+            //_playerEnitity.getAttackEffeectObj(_playerTransform.position + forwardOffset);
             _playerEnitity.changeStateByIndex(PlayerStateEnum.NORMALATTACK, 2.0f, false);
             startResetIdle(PlayerStateEnum.NORMALATTACK);
             _playerEnitity.AddComobIndex();
