@@ -392,7 +392,7 @@ public class PlayerEnitity:BaseEnitity  {
                 startPos.y = startPos.y - 0.5f;
                 endPos = startPos + _playerTransform.forward * 15;
 
-                playHitEffect(startPos, endPos, _prefabPlayerMagicC, GlobalParams.SkillPool, isMove, speed);
+                playHitEffect(startPos, endPos, _prefabPlayerMagicB, GlobalParams.SkillPool, isMove, speed);
             }
             else if (animationName == GlobalParams.anim_player_skillC)
             {
@@ -424,13 +424,15 @@ public class PlayerEnitity:BaseEnitity  {
     private void playHitEffect(Vector3 startPos, Vector3 endPos, GameObject prefabObj , string poolName, bool isMove = false, float moveSpeed = 0)
     {
         GameObject effObj = createEffect(startPos, prefabObj, poolName);
-        
+        effObj.transform.position = startPos;
         if (isMove)
         {
             iTween.MoveTo(effObj, iTween.Hash(
               "position", endPos,
-             "easetype", iTween.EaseType.easeInSine,
-             "speed", moveSpeed
+              "easetype", iTween.EaseType.easeInSine,
+              "speed", moveSpeed,
+              "oncomplete", "moveEndCallBack"
+
            ));
         }
     

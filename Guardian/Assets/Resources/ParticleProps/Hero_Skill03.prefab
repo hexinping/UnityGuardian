@@ -214,6 +214,7 @@ GameObject:
   - component: {fileID: 400024}
   - component: {fileID: 11400006}
   - component: {fileID: 114789147717018422}
+  - component: {fileID: 114024256869973866}
   m_Layer: 0
   m_Name: Hero_Skill03
   m_TagString: Untagged
@@ -27738,7 +27739,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100024}
   m_IsPrefabParent: 1
---- !u!114 &114789147717018422
+--- !u!114 &114024256869973866
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -27746,8 +27747,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 100024}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739e676c8f0fdf54b86f7336b5bedab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114789147717018422
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100024}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f69ddcdedb4ad1d45a328a0a638711d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recyclTime: 1
+  recyclTime: 2
   poolName: Skill
