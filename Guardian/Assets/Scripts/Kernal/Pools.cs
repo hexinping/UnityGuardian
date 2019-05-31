@@ -12,6 +12,8 @@ namespace kernal
         public List<PoolOption> PoolOptionArrayLib = new List<PoolOption>();       //“单模缓冲池”集合容器
         public bool IsUsedTime = false;                                            //是否用“时间戳”
 
+        public float checkTime = 5.0f;
+
         void Awake()
         {
             PoolManager.Add(this);                                                 //加入“多模复合池”管理器
@@ -25,7 +27,7 @@ namespace kernal
             //开始时间戳处理
             if (IsUsedTime)
             {
-                InvokeRepeating("ProcessGameObject_NameTime", 1F, 10F);
+                InvokeRepeating("ProcessGameObject_NameTime", 1F, checkTime);
             }
         }
 
@@ -46,7 +48,7 @@ namespace kernal
                 PoolOption opt = this.PoolOptionArrayLib[i];
                 //所有正在使用的活动状态游戏对象的时间戳减去10秒
                 //检查每个活动状态的游戏对象名称的时间戳如果小于等于0，则进入禁用状态
-                opt.AllActiveGameObjectTimeSubtraction();
+                opt.AllActiveGameObjectTimeSubtraction(checkTime);
             }//for_end    
         }
 
@@ -305,13 +307,13 @@ namespace kernal
             回调函数：时间戳管理
               功能：所有游戏对象进行时间倒计时管理，时间小于零则进行“非活动”容器集合中，即:按时间自动回收游戏对象。
          */
-        internal void AllActiveGameObjectTimeSubtraction()
+        internal void AllActiveGameObjectTimeSubtraction(float checkTime)
         {
             for (int i = 0; i < ActiveGameObjectArray.Count; i++)
             {
                 string strHead = null;
                 string strTail = null;
-                int intTimeInfo = 0;
+                float intTimeInfo = 0;
                 GameObject goActiveObj = null;
 
                 goActiveObj = ActiveGameObjectArray[i];
@@ -325,9 +327,10 @@ namespace kernal
 
                     //时间戳-10 处理
                     intTimeInfo = System.Convert.ToInt32(strHead);
-                    if (intTimeInfo >= 10)
+                    intTimeInfo -= checkTime;
+                    if (intTimeInfo >= 0)
                     {
-                        strHead = (intTimeInfo - 10).ToString();
+                        strHead = intTimeInfo.ToString();
                     }
                     else if (intTimeInfo <= 0)
                     {

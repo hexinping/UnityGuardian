@@ -286,8 +286,6 @@
     <Compile Include="Assets\Plugin\EasyTouch\Plugins\MonoSingleton.cs" />
     <Compile Include="Assets\Plugin\EasyTouch\Plugins\MovingJoystick.cs" />
     <Compile Include="Assets\Plugin\EasyTouch\Plugins\VirtualScreen.cs" />
-    <Compile Include="Assets\Plugin\TexturePacker\AtlasData.cs" />
-    <Compile Include="Assets\Plugin\TexturePacker\TexturePacker.cs" />
     <Compile Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Scripts\ActivateEffects.cs" />
     <Compile Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Scripts\FollowTrackingCamera.cs" />
     <Compile Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Scripts\HashIDs.cs" />
@@ -388,6 +386,7 @@
     <Compile Include="Assets\Scripts\Kernal\iTween.cs" />
     <Compile Include="Assets\Scripts\Kernal\PoolManager.cs" />
     <Compile Include="Assets\Scripts\Kernal\Pools.cs" />
+    <Compile Include="Assets\Scripts\Kernal\RecyclingObjPool.cs" />
     <Compile Include="Assets\Scripts\Kernal\ResourcesManager.cs" />
     <Compile Include="Assets\Scripts\Kernal\SmoothFollow.cs" />
     <Compile Include="Assets\Scripts\Kernal\SpriteAnimatin.cs" />
