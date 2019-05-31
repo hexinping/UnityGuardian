@@ -1,17 +1,7 @@
 ﻿/***
  * 
- *    核心层： XML操作类
+ *     XML操作类
  *
- * 
- * 
- *    Description: 
- *    
- * 
- *    Date: 2015
- *    
- *    Version: 1.0
- *    
- *    Modify Recoder: 
  *   
  */
 using System.Collections;

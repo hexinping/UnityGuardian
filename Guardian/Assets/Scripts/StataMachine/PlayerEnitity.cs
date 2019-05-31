@@ -374,6 +374,7 @@ public class PlayerEnitity:BaseEnitity  {
             //技能C
             forwardOffset = -_playerTransform.forward * 1;
             targetPos = _playerTransform.position + forwardOffset;
+            targetPos.y = targetPos.y - 0.5f;
 
             GameObject effObj = createEffect(targetPos, _prefabPlayerMagicC, GlobalParams.SkillPool);
             iTween.MoveTo(effObj, iTween.Hash(
@@ -389,7 +390,7 @@ public class PlayerEnitity:BaseEnitity  {
             //技能B
             forwardOffset = -_playerTransform.forward * 1;
             targetPos = _playerTransform.position + forwardOffset;
-
+            targetPos.y = targetPos.y - 0.5f;
             GameObject effObj = createEffect(targetPos, _prefabPlayerMagicB, GlobalParams.SkillPool);
             iTween.MoveTo(effObj, iTween.Hash(
                "position", targetPos + _playerTransform.forward * 3,
