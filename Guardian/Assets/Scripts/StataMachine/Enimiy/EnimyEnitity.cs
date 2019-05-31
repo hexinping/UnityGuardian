@@ -24,6 +24,7 @@ public class EnimyEnitity : BaseEnitity {
 
 
     private GameObject _prefabHurt;
+
     public EnimyEnitity()
     {
         damageLabelOffsetY = 50.0f;
@@ -381,8 +382,7 @@ public class EnimyEnitity : BaseEnitity {
             moveTarget = null;
             float warningDis = getWarningDis();
             float attackDis = getAttackDis();
-            GameObject obj = _gameObject;
-            Vector3 enimyPos = obj.transform.position;
+            Vector3 enimyPos = _selfTransform.position;
             float dis = (playerPos - enimyPos).sqrMagnitude;  //距离的平方
             if (dis <= attackDis)  //攻击范围
             {

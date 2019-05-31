@@ -226,6 +226,8 @@ public class EnimyNormalAttackState : EnimyState
 {
     public float endPlayTime = 0.0f;
     public float playTotalTime = 0.0f;
+    public Transform targetTransform;
+    public Transform selfTransform;
     public EnimyNormalAttackState(BaseEnitity enity)
         : base(enity)
     {
@@ -249,7 +251,8 @@ public class EnimyNormalAttackState : EnimyState
 
         //面向目标
         _enitity.faceToTarget();
-
+        targetTransform = _enitity.attackTarget._gameObject.transform;
+        selfTransform = _enitity._gameObject.transform;
         
         EnimyEnitity e = (EnimyEnitity)_enitity;
         e.addDelayCall(stateIndex);  //伤害事件 9-0+1
@@ -290,7 +293,7 @@ public class EnimyNormalAttackState : EnimyState
             BaseEnitity target = _enitity.attackTarget;
             if (target != null)
             {
-                float dis = (target._gameObject.transform.position - _enitity._gameObject.transform.position).sqrMagnitude;  //距离的平方
+                float dis = (targetTransform.position - selfTransform.position).sqrMagnitude;  //距离的平方
                 float attDis = _enitity.getAttackDis();
                 if (dis > attDis)
                 {
