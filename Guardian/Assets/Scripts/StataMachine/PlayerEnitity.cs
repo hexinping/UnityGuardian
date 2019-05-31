@@ -372,13 +372,13 @@ public class PlayerEnitity:BaseEnitity  {
         else if (curState == _stateList[5])
         {
             //技能C
-            forwardOffset = -_playerTransform.forward * 1;
+            forwardOffset = -_playerTransform.forward ;
             targetPos = _playerTransform.position + forwardOffset;
             targetPos.y = targetPos.y - 0.5f;
 
             GameObject effObj = createEffect(targetPos, _prefabPlayerMagicC, GlobalParams.SkillPool);
             iTween.MoveTo(effObj, iTween.Hash(
-               "position", targetPos + _playerTransform.forward * 3 ,
+               "position", targetPos + _playerTransform.forward * 15 ,
               "easetype", iTween.EaseType.easeInSine,
               "time", 0.8
 
@@ -393,7 +393,7 @@ public class PlayerEnitity:BaseEnitity  {
             targetPos.y = targetPos.y - 0.5f;
             GameObject effObj = createEffect(targetPos, _prefabPlayerMagicB, GlobalParams.SkillPool);
             iTween.MoveTo(effObj, iTween.Hash(
-               "position", targetPos + _playerTransform.forward * 3,
+               "position", targetPos + _playerTransform.forward * 15,
               "easetype", iTween.EaseType.easeInSine,
               "time", 0.8
 
@@ -419,6 +419,7 @@ public class PlayerEnitity:BaseEnitity  {
         {
             obj.transform.parent = parentObj.transform;
             obj.transform.rotation = _playerTransform.rotation;
+            
         }
         return obj;
        

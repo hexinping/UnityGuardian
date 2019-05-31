@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 400000}
-  - component: {fileID: 11400002}
+  - component: {fileID: 114835743177527816}
   m_Layer: 0
   m_Name: bruceSkill
   m_TagString: Untagged
@@ -369,20 +369,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 7400000, guid: 77d71e288d7caf34ca250fde69cb50b2, type: 2}
   speedAnim: 1.2
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4fa024c655054d81b090022033e5eda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 1.5
-  isUsePool: 1
-  poolName: SkillGround
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -21194,3 +21180,16 @@ Prefab:
 --- !u!1002 &100100001
 EditorExtensionImpl:
   serializedVersion: 6
+--- !u!114 &114835743177527816
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69ddcdedb4ad1d45a328a0a638711d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recyclTime: 1.5
+  poolName: SkillGround

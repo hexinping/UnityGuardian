@@ -31,7 +31,7 @@ GameObject:
   - component: {fileID: 400002}
   - component: {fileID: 3300002}
   - component: {fileID: 2300002}
-  - component: {fileID: 11400002}
+  - component: {fileID: 114299714677391252}
   m_Layer: 0
   m_Name: groundBrokeRed
   m_TagString: Untagged
@@ -377,7 +377,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 400044}
-  - component: {fileID: 11400024}
   m_Layer: 0
   m_Name: Efx_SwingAttack
   m_TagString: Untagged
@@ -1221,22 +1220,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 0
-  isUsePool: 0
-  poolName: 
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4fa024c655054d81b090022033e5eda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 1.5
-  isUsePool: 1
-  poolName: SkillGround
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1276,20 +1259,6 @@ MonoBehaviour:
   m_fPrefabScale: 1
   m_fPrefabSpeed: 1
   m_fPrefabLifeTime: 2
---- !u!114 &11400024
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4fa024c655054d81b090022033e5eda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 4.73
-  isUsePool: 0
-  poolName: 
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -11815,3 +11784,16 @@ Prefab:
 --- !u!1002 &100100001
 EditorExtensionImpl:
   serializedVersion: 6
+--- !u!114 &114299714677391252
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69ddcdedb4ad1d45a328a0a638711d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recyclTime: 1.5
+  poolName: SkillGround

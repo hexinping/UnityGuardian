@@ -161,6 +161,7 @@ MonoBehaviour:
     ActiveGameObjectArray: []
     InactiveGameObjectArray: []
   IsUsedTime: 0
+  checkTime: 5
 --- !u!1 &93402623
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,11 +225,12 @@ MonoBehaviour:
     ActiveGameObjectArray: []
     InactiveGameObjectArray: []
   - Prefab: {fileID: 100024, guid: fe73814922436e34f83a0ade29882a2a, type: 2}
-    IntPreLoadNumber: 3
+    IntPreLoadNumber: 2
     IntAutoDeactiveGameObjectByTime: 0
     ActiveGameObjectArray: []
     InactiveGameObjectArray: []
   IsUsedTime: 0
+  checkTime: 5
 --- !u!1 &101443041
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,6 +1026,7 @@ MonoBehaviour:
     ActiveGameObjectArray: []
     InactiveGameObjectArray: []
   IsUsedTime: 0
+  checkTime: 5
 --- !u!1 &920758566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,6 +1261,7 @@ MonoBehaviour:
     ActiveGameObjectArray: []
     InactiveGameObjectArray: []
   IsUsedTime: 0
+  checkTime: 5
 --- !u!1 &1119629441
 GameObject:
   m_ObjectHideFlags: 0

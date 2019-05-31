@@ -63,11 +63,11 @@ public class HeroAttack : MonoBehaviour {
                 offfactor = 3;
             }
             Vector3 forwardOffset = _playerTransform.forward * offfactor;
-        
-            _playerEnitity.createEffectNoPool(effectName, _playerTransform.position + forwardOffset, _playerEnitity.skillLayer);
+            GameObject obj = _playerEnitity.createEffectNoPool(effectName, _playerTransform.position + forwardOffset, _playerEnitity.skillLayer);
+
             //播放普通攻击特效
             //Transform _playerTransform = _playerEnitity._gameObject.transform;
-            //Vector3 forwardOffset = _playerTransform.forward * 1;
+            //Vector3 forwardOffset = _playerTransform.forward * offfactor;
             //_playerEnitity.getAttackEffeectObj(_playerTransform.position + forwardOffset);
             _playerEnitity.changeStateByIndex(PlayerStateEnum.NORMALATTACK, 2.0f, false);
             startResetIdle(PlayerStateEnum.NORMALATTACK);

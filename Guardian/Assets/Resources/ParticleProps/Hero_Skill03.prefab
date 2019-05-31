@@ -213,7 +213,6 @@ GameObject:
   m_Component:
   - component: {fileID: 400024}
   - component: {fileID: 11400006}
-  - component: {fileID: 114431284418852432}
   - component: {fileID: 114789147717018422}
   m_Layer: 0
   m_Name: Hero_Skill03
@@ -569,7 +568,7 @@ MonoBehaviour:
     m_ChildBeforeColorValues: []
   m_fDelayTime: 0.4
   m_fDurationTime: 0.4
-  m_bAutoDestruct: 1
+  m_bAutoDestruct: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -730,7 +729,7 @@ MonoBehaviour:
     m_ChildBeforeColorValues: []
   m_fDelayTime: 0.4
   m_fDurationTime: 0.4
-  m_bAutoDestruct: 1
+  m_bAutoDestruct: 0
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -815,7 +814,7 @@ MonoBehaviour:
     m_ChildBeforeColorValues: []
   m_fDelayTime: 0.4
   m_fDurationTime: 0.4
-  m_bAutoDestruct: 1
+  m_bAutoDestruct: 0
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -27739,20 +27738,6 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100024}
   m_IsPrefabParent: 1
---- !u!114 &114431284418852432
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100024}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4fa024c655054d81b090022033e5eda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 1
-  isUsePool: 1
-  poolName: Skill
 --- !u!114 &114789147717018422
 MonoBehaviour:
   m_ObjectHideFlags: 1
