@@ -49,6 +49,7 @@ public class LevelOneView : BaseView {
      */
 
     private List<BaseEnitity> _listEnimy;
+    private List<BaseEnitity> _listPlayer;
     private int _updateEnimyIndex = 0;
   
     //音乐
@@ -60,6 +61,7 @@ public class LevelOneView : BaseView {
 
         _enitityDic = new Dictionary<int, BaseEnitity>();
         _listEnimy = new List<BaseEnitity>();
+        _listPlayer = new List<BaseEnitity>();
         _msgDispatcher = MessageDispatcher.getInstance();
 
         GameObject rawImage  = gameObject.transform.Find("Canvas/RawImage").gameObject;
@@ -103,6 +105,7 @@ public class LevelOneView : BaseView {
 
 
         PlayerEnitity enitity = new PlayerEnitity();
+        _listPlayer.Add(enitity);
         _enitityDic.Add(enitity._id, enitity);
         _playerEnitity = enitity;
         enitity.setRootObj(_sceneRoleNode);
@@ -188,7 +191,8 @@ public class LevelOneView : BaseView {
         GlobalParams.totalTime += Time.deltaTime;
         {
 
-            playerFindTarget();
+            
+            _playerEnitity.findTarget(_listEnimy);
             enimyFindTarget();
 
             foreach (KeyValuePair<int, BaseEnitity> obj in _enitityDic)
@@ -221,32 +225,7 @@ public class LevelOneView : BaseView {
             {
                 //开始刷新
                 enimy.updateTick += enimy.updateTickInterval;
-
-                enimy.attackTarget = null;
-                enimy.moveTarget = null;
-                float warningDis = enimy.getWarningDis();
-                float attackDis = enimy.getAttackDis();
-                GameObject obj = enimy._gameObject;
-                Vector3 enimyPos = obj.transform.position;
-                float dis = (playerPos - enimyPos).sqrMagnitude;  //距离的平方
-                if (dis <= attackDis)  //攻击范围
-                {
-                    enimy.isMove = false;
-                    enimy.isAttacking = true;
-                    enimy.attackTarget = _playerEnitity;
-                }
-                else if (dis <= warningDis) //警戒范围
-                {
-
-                    enimy.isMove = true;
-                    enimy.isAttacking = false;
-                    enimy.moveTarget = _playerEnitity;
-                }
-                else
-                {
-                    enimy.isMove = false;
-                    enimy.isAttacking = false;
-                }
+                enimy.findTarget(_listPlayer);
             }
             
         }

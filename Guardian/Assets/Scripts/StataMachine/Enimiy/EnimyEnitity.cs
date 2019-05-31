@@ -335,5 +335,74 @@ public class EnimyEnitity : BaseEnitity {
         return _mode.attackDisSquare;
     }
 
+    //选择最近的敌人
+    BaseEnitity getNearestPlayer(List<BaseEnitity> list)
+    {
+        BaseEnitity target = null;
+        float minDis = 1000000.0f;
+        for (int i = 0; i < list.Count; i++)
+        {
+            BaseEnitity enitity = list[i];
 
+            if (!enitity.isDead)
+            {
+                //这里后面可以换成属性计算，todo
+                float dis = (enitity._gameObject.transform.position - _gameObject.transform.position).sqrMagnitude;  //距离的平方
+                if (dis < minDis)
+                {
+                    minDis = dis;
+                    target = enitity;
+                }
+            }
+           
+        }
+        return target;
+    
+    }
+
+    override public void findTarget(List<BaseEnitity> list)
+    {
+        //不同的敌人可以有不同的索敌方式
+        BaseEnitity target = getNearestPlayer(list);
+
+        if (target != null)
+        {
+            Vector3 playerPos = target._gameObject.transform.position;
+
+            //这里考虑下是否需要切换目标，
+            if (isAttacking)
+            {
+                //如果正在攻击 不切换目标
+                return;
+            }
+            attackTarget = null;
+
+            //移动过程中永远选择离自己最近的敌人
+            moveTarget = null;
+            float warningDis = getWarningDis();
+            float attackDis = getAttackDis();
+            GameObject obj = _gameObject;
+            Vector3 enimyPos = obj.transform.position;
+            float dis = (playerPos - enimyPos).sqrMagnitude;  //距离的平方
+            if (dis <= attackDis)  //攻击范围
+            {
+                isMove = false;
+                isAttacking = true;
+                attackTarget = target;
+            }
+            else if (dis <= warningDis) //警戒范围
+            {
+
+                isMove = true;
+                isAttacking = false;
+                moveTarget = target;
+            }
+            else
+            {
+                isMove = false;
+                isAttacking = false;
+            }
+
+        }
+    }
 }

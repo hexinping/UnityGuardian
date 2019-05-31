@@ -235,5 +235,12 @@ public class BaseEnitity  {
     }
 
 
+    //寻找目标， 不同实体有自己的寻敌方式
+    virtual public void findTarget(List<BaseEnitity> list)
+    {
+
+       
+    }
+
 
 }

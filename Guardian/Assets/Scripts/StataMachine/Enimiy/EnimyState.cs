@@ -286,6 +286,20 @@ public class EnimyNormalAttackState : EnimyState
         }
         else
         {
+            //如果攻击目标脱离了我的攻击范围，结束攻击重新寻敌
+            BaseEnitity target = _enitity.attackTarget;
+            if (target != null)
+            {
+                float dis = (target._gameObject.transform.position - _enitity._gameObject.transform.position).sqrMagnitude;  //距离的平方
+                float attDis = _enitity.getAttackDis();
+                if (dis > attDis)
+                {
+                    _enitity.isAttacking = false;
+                    e.changeStateByIndex(EnimyStateEnum.IDLE);
+                    return;
+                }
+            }
+
             //面向目标
             _enitity.faceToTarget();
             if (GlobalParams.totalTime >= endPlayTime)

@@ -618,4 +618,35 @@ public class PlayerEnitity:BaseEnitity  {
         changeStateByIndex(PlayerStateEnum.DEAD);
     }
 
+
+    override public void findTarget(List<BaseEnitity> list)
+    {
+        attackTarget = null;
+        if (list != null && list.Count > 0)
+        {
+            Vector3 playerPos = _playerTransform.position;
+            float minDis = 1000.0f;
+            for (int i = 0; i < list.Count; i++)
+            {
+                BaseEnitity enimy = list[i];
+                if (!enimy.isDead)
+                {
+                    float warningDis = getWarningDis();
+                    GameObject obj = enimy._gameObject;
+                    Vector3 enimyPos = obj.transform.position;
+                    float dis = (playerPos - enimyPos).sqrMagnitude;  //距离的平方
+                    if (dis <= warningDis)  //搜索范围
+                    {
+                        //找到搜索范围内最近的敌人
+                        if (dis < minDis)
+                        {
+                            minDis = dis;
+                            attackTarget = enimy;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
 }
