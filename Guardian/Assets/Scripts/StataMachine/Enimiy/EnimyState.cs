@@ -347,7 +347,7 @@ public class EnimyHurtState : EnimyState
         //播放动画
         e._animator.Play(GlobalParams.state_enimyHurt, 0, 0.0f); 
         //播放特效
-        e.playHitEffect();
+        e.playHitEffect(GlobalParams.anim_ennimy1_hurt);
     }
 
     override public void excute(params object[] values)

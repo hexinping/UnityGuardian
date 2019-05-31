@@ -4,7 +4,7 @@ using UnityEngine;
 
 /*定义全局委托*/
 
-public delegate void delayFunc(BaseEnitity enity);
+public delegate void delayFunc(BaseEnitity enity, string animationName, bool isMove = false);
 public delegate void LoadingEndCallback();                                      //定义进度条结束回调函数
 public delegate void HeroAttackInputHandle(PlayerStateEnum stateEnum);          //定义英雄的攻击输入委托
 
@@ -15,13 +15,17 @@ public class DelayCall
     public int frameCount;
     public delayFunc _callBack;
     public BaseEnitity _enitity;
+    public bool _isMove = false;   //是否移动
+    public string _animationName = string.Empty;
 
-    public DelayCall(float t, int frameC, delayFunc callBack, BaseEnitity enitity)
+    public DelayCall(float t, int frameC, delayFunc callBack, BaseEnitity enitity, string animationName = "", bool isMove = false)
     {
         time = t + GlobalParams.totalTime;
         frameCount = frameC;
         _callBack = callBack;
         _enitity = enitity;
+        _isMove = isMove;
+        _animationName = animationName;
     }
 };
 
@@ -76,6 +80,26 @@ public static class GlobalParams
     public static string state_enimyHurt        = "Hurt";
 
 
+    //主角动作名称
+    public static string anim_player_idle       = "Idle";
+    public static string anim_player_run        = "Run";
+    public static string anim_player_death      = "Death";
+    public static string anim_player_skillA     = "Attack1";
+    public static string anim_player_skillB     = "Attack2";
+    public static string anim_player_skillC     = "Attack3";
+    public static string anim_player_skillD     = "Attack4";
+    public static string anim_player_normalAtk1 = "Attack3-1";
+    public static string anim_player_normalAtk2 = "Attack3-2";
+    public static string anim_player_normalAtk3 = "Attack3-3";
+
+
+    //敌人1动作名称
+    public static string anim_ennimy1_idle          = "idle";
+    public static string anim_ennimy1_run           = "run";
+    public static string anim_ennimy1_death         = "death";
+    public static string anim_ennimy1_normalAttack  = "attack_slash";
+    public static string anim_ennimy1_hurt          = "damage_right";
+
 
 
     public static void addDelayCall(DelayCall delayCall)
@@ -109,8 +133,10 @@ public static class GlobalParams
                 if (time <= totalTime)
                 {
                     delayFunc call = delay._callBack;
+                    bool isMove = delay._isMove;
+                    string animationName = delay._animationName;
                     BaseEnitity enitity = delay._enitity;
-                    call(enitity);
+                    call(enitity, animationName, isMove);
                     _delayCallList.Remove(delay);
                 }
             }

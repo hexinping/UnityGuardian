@@ -96,22 +96,22 @@ public class EnimyEnitity : BaseEnitity {
         
         List<int> attack1List = new List<int>();
         attack1List.Add(10);
-        _animationEventDict["attack_slash"] = attack1List;
+        _animationEventDict[GlobalParams.anim_ennimy1_normalAttack] = attack1List;
 
         List<int> hurtList = new List<int>();
         hurtList.Add(20);
-        _animationEventDict["damage_right"] = hurtList;
+        _animationEventDict[GlobalParams.anim_ennimy1_hurt] = hurtList;
     }
 
     //不同模型的动画名称不一样 必须重载
     virtual public void addAnimationNames()
     { 
         //这里一定要根据状态的枚举值依次添加
-        _animationNameList.Add("idle");
-        _animationNameList.Add("run");
-        _animationNameList.Add("death");
-        _animationNameList.Add("attack_slash");
-        _animationNameList.Add("damage_right");
+        _animationNameList.Add(GlobalParams.anim_ennimy1_idle);
+        _animationNameList.Add(GlobalParams.anim_ennimy1_run);
+        _animationNameList.Add(GlobalParams.anim_ennimy1_death);
+        _animationNameList.Add(GlobalParams.anim_ennimy1_normalAttack);
+        _animationNameList.Add(GlobalParams.anim_ennimy1_hurt);
     }
 
     public  float getClipLength(Animator animator, string clip, int frameIndex)
@@ -172,11 +172,11 @@ public class EnimyEnitity : BaseEnitity {
         float time = getClipLength(_animator, animatinName, frameIndex);
         float p = GlobalParams.totalTime + time;
         //Debug.Log(GetType() + "注册时间：" + GlobalParams.totalTime + " / 预测回调时间：" + p + " 当前帧数：" + GlobalParams.frameCount + " 等待时间:" + time);
-        DelayCall delayCall = new DelayCall(time, GlobalParams.frameCount, eventCallBack, this);
+        DelayCall delayCall = new DelayCall(time, GlobalParams.frameCount, eventCallBack, this, animatinName, false);
         GlobalParams.addDelayCall(delayCall);
     }
 
-    public void eventCallBack(BaseEnitity eniity)
+    public void eventCallBack(BaseEnitity eniity, string animationName, bool isMove = false)
     {
         //Debug.Log(GetType() + "testEvent======成功回调========" + GlobalParams.totalTime + " 当前帧数：" + GlobalParams.frameCount);
 
@@ -202,17 +202,15 @@ public class EnimyEnitity : BaseEnitity {
         _animator.speed = 1.0f;
     }
 
-
-    public void playHitEffect()
+    public void playHitEffect(string animationName)
     {
         Vector3 forwardOffset = Vector3.zero;
         Vector3 targetPos = Vector3.zero;
-        BaseState curState = _stateMachine._curState;
-        if (curState == _stateList[4])
-        { 
+        if (animationName == GlobalParams.anim_ennimy1_hurt)
+        {
             //受伤状态特效
             targetPos = _selfTransform.position + forwardOffset;
-            createEffect( targetPos, _prefabHurt, GlobalParams.SkillPool);
+            createEffect(targetPos, _prefabHurt, GlobalParams.SkillPool);
         }
     }
 

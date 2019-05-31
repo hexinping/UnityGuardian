@@ -186,20 +186,20 @@ public class PlayerEnitity:BaseEnitity  {
 
     void addAinimainClips()
     {
-        _animationNameList.Add("Idle");
-        _animationNameList.Add("Run");
-        _animationNameList.Add("Death");
+        _animationNameList.Add(GlobalParams.anim_player_idle);
+        _animationNameList.Add(GlobalParams.anim_player_run);
+        _animationNameList.Add(GlobalParams.anim_player_death);
 
         //技能动作
-        _animationNameList.Add("Attack1");
-        _animationNameList.Add("Attack2");
-        _animationNameList.Add("Attack3"); 
-        _animationNameList.Add("Attack4");
+        _animationNameList.Add(GlobalParams.anim_player_skillA);
+        _animationNameList.Add(GlobalParams.anim_player_skillB);
+        _animationNameList.Add(GlobalParams.anim_player_skillC);
+        _animationNameList.Add(GlobalParams.anim_player_skillD);
 
         //普通攻击组合动作
-        _comobAnimationNameList.Add("Attack3-1");
-        _comobAnimationNameList.Add("Attack3-2");
-        _comobAnimationNameList.Add("Attack3-3");
+        _comobAnimationNameList.Add(GlobalParams.anim_player_normalAtk1);
+        _comobAnimationNameList.Add(GlobalParams.anim_player_normalAtk2);
+        _comobAnimationNameList.Add(GlobalParams.anim_player_normalAtk3);
     }
 
     void addAinimainEvents()
@@ -207,32 +207,32 @@ public class PlayerEnitity:BaseEnitity  {
         //技能帧事件
         List<int> attack1List = new List<int>();
         attack1List.Add(21);
-        _animationEventDict["Attack1"] = attack1List;
+        _animationEventDict[GlobalParams.anim_player_skillA] = attack1List;
 
         List<int> attack2List = new List<int>();
         attack2List.Add(27);
-        _animationEventDict["Attack2"] = attack2List;
+        _animationEventDict[GlobalParams.anim_player_skillB] = attack2List;
 
         List<int> attack3List = new List<int>();
         attack3List.Add(27);
-        _animationEventDict["Attack3"] = attack3List;
+        _animationEventDict[GlobalParams.anim_player_skillC] = attack3List;
 
         List<int> attack4List = new List<int>();
         attack4List.Add(40);
-        _animationEventDict["Attack4"] = attack4List;
+        _animationEventDict[GlobalParams.anim_player_skillD] = attack4List;
 
         //普通攻击帧事件
         List<int> Attack3_1List = new List<int>();
         Attack3_1List.Add(21);
-        _animationEventDict["Attack3-1"] = Attack3_1List;
+        _animationEventDict[GlobalParams.anim_player_normalAtk1] = Attack3_1List;
 
         List<int> Attack3_2List = new List<int>();
         Attack3_2List.Add(21);
-        _animationEventDict["Attack3-2"] = Attack3_2List;
+        _animationEventDict[GlobalParams.anim_player_normalAtk2] = Attack3_2List;
 
         List<int> Attack3_3List = new List<int>();
         Attack3_3List.Add(21);
-        _animationEventDict["Attack3-3"] = Attack3_3List;
+        _animationEventDict[GlobalParams.anim_player_normalAtk3] = Attack3_3List;
     }
 
 
@@ -298,7 +298,15 @@ public class PlayerEnitity:BaseEnitity  {
                 float time = frameIndex * frameInterval / speed;
                 float p = GlobalParams.totalTime + time;
                 //Debug.Log("注册时间：" + GlobalParams.totalTime + " / 预测回调时间：" + p + " 当前帧数：" + GlobalParams.frameCount + " 等待时间:" + time);
-                DelayCall delayCall = new DelayCall(time, GlobalParams.frameCount, eventCallBack, this);
+
+                bool isMove = false;
+                BaseState curState = _stateMachine._curState;
+                if (curState == _stateList[4] || curState == _stateList[5])
+                { 
+                    //技能B C的特效是移动的
+                    isMove = true; 
+                }
+                DelayCall delayCall = new DelayCall(time, GlobalParams.frameCount, eventCallBack, this, animatinName, isMove);
                 GlobalParams.addDelayCall(delayCall);
             }
         }
@@ -306,109 +314,128 @@ public class PlayerEnitity:BaseEnitity  {
     }
 
     //attackTargetHurt
-    public void eventCallBack(BaseEnitity eniity)
+    public void eventCallBack(BaseEnitity eniity, string animationName, bool isMove = false)
     {
         //Debug.Log("testEvent======成功回调========" + GlobalParams.totalTime + " 当前帧数：" + GlobalParams.frameCount);
+        float speed = 10.0f; //如果是移动技能，需要计算技能的移动到攻击目标的时间 使用itween插件暂时写死了
         if (attackTarget != null && !attackTarget.isDead)
         {
-            attackTargetHurt(attackTarget);
+            if (!isMove)
+            {
+                //非移动技能特效直接结算
+                attackTargetHurt(attackTarget);
+            }
         }
 
-        playHitSound();
-        playHitEffect();
+        Vector3 startPos = Vector3.zero;
+        Vector3 endPos = Vector3.zero;
+        if (animationName != string.Empty)
+            getHitEffectStartAndEndPos(animationName, ref startPos, ref endPos, isMove, speed);
+
+        if (attackTarget != null && !attackTarget.isDead)
+        {
+            if (isMove && speed > 0.0f)
+            {
+                //获取敌人的位置
+                Vector3 targetPos = attackTarget._gameObject.transform.position;
+                float distance = System.Math.Abs(Vector3.Distance(targetPos, startPos));
+                float moveTime = distance / speed;
+                DelayCall delayCall = new DelayCall(moveTime, GlobalParams.frameCount, eventCallBack, this);
+                GlobalParams.addDelayCall(delayCall);
+            }
+        }
+        
 
     }
 
-    //播放击打音效
-    private void playHitSound()
+
+    //根据动作名称来获取不同特效的起始点和结束点
+    public void getHitEffectStartAndEndPos(string animationName, ref Vector3 startPos, ref Vector3 endPos, bool isMove = false, float speed  = 0.0f)
     {
-        //根据状态区分
-        BaseState curState = _stateMachine._curState;
-        if (curState == _stateList[7])
+        if (animationName == GlobalParams.anim_player_normalAtk1 ||
+            animationName == GlobalParams.anim_player_normalAtk2 ||
+            animationName == GlobalParams.anim_player_normalAtk3)
         {
-            //攻击状态
+            //普通攻击
+
+            //播放声音
             int comIndex = getCurrComIndex();
             if (comIndex == 0) comIndex = 3;
             string audioName = "BeiJi_DaoJian_" + comIndex;
             AudioManager.getInstance().playSoundEffect(audioName);
-        }
-        else if (curState == _stateList[6])
-        {
-            //技能D
-            AudioManager.getInstance().playSoundEffect("Hero_MagicC");
-        }
-        else if (curState == _stateList[5])
-        {
-            //技能C
-            AudioManager.getInstance().playSoundEffect("Hero_MagicB");
-        }
-        else if (curState == _stateList[4])
-        {
-            //技能B
-            AudioManager.getInstance().playSoundEffect("Hero_MagicB");
-        }
-        else if (curState == _stateList[3])
-        {
-            //技能A
-            AudioManager.getInstance().playSoundEffect("Hero_MagicA");
-        }
-    }
 
-    //播放击打特效
-    private void playHitEffect()
+            //播放特效
+            //todo....
+
+        }
+        else
+        { 
+            //技能
+            if (animationName == GlobalParams.anim_player_skillA)
+            {
+                //播放声音
+                AudioManager.getInstance().playSoundEffect("Hero_MagicA");
+                //播放特效
+                Vector3 forwardOffset = _playerTransform.forward * 3;
+                startPos = _playerTransform.position + forwardOffset;
+                endPos = startPos;
+                playHitEffect(startPos, endPos, _prefabPlayerMagicA, GlobalParams.SkillGroundPool);
+
+            }
+            else if (animationName == GlobalParams.anim_player_skillB)
+            {
+                //播放声音
+                AudioManager.getInstance().playSoundEffect("Hero_MagicB");
+                //播放特效
+                Vector3 forwardOffset = -_playerTransform.forward;
+                startPos = _playerTransform.position + forwardOffset;
+                startPos.y = startPos.y - 0.5f;
+                endPos = startPos + _playerTransform.forward * 15;
+
+                playHitEffect(startPos, endPos, _prefabPlayerMagicC, GlobalParams.SkillPool, isMove, speed);
+            }
+            else if (animationName == GlobalParams.anim_player_skillC)
+            {
+                //播放声音
+                AudioManager.getInstance().playSoundEffect("Hero_MagicB");
+                //播放特效
+                Vector3 forwardOffset = -_playerTransform.forward;
+                startPos = _playerTransform.position + forwardOffset;
+                startPos.y = startPos.y - 0.5f;
+                endPos = startPos + _playerTransform.forward * 15;
+                playHitEffect(startPos, endPos, _prefabPlayerMagicC, GlobalParams.SkillPool, isMove, speed);
+            }
+            else if (animationName == GlobalParams.anim_player_skillD)
+            {
+                //播放声音
+                AudioManager.getInstance().playSoundEffect("Hero_MagicC");
+                //播放特效
+                Vector3 forwardOffset = _playerTransform.forward * 3;
+                startPos = _playerTransform.position + forwardOffset;
+                endPos = startPos;
+                playHitEffect(startPos, endPos, _prefabPlayerMagicD, GlobalParams.SkillGroundPool);
+            }
+
+        }
+    
+    }
+    
+
+    private void playHitEffect(Vector3 startPos, Vector3 endPos, GameObject prefabObj , string poolName, bool isMove = false, float moveSpeed = 0)
     {
-      
-        Vector3 forwardOffset = Vector3.zero;
-        Vector3 targetPos = Vector3.zero;
-        //根据状态区分
-        BaseState curState = _stateMachine._curState;
-        if (curState == _stateList[6])
+        GameObject effObj = createEffect(startPos, prefabObj, poolName);
+        
+        if (isMove)
         {
-            //技能D
-            forwardOffset = _playerTransform.forward * 3;
-            targetPos = _playerTransform.position + forwardOffset;
-            createEffect(targetPos, _prefabPlayerMagicD, GlobalParams.SkillGroundPool);
-        }
-        else if (curState == _stateList[5])
-        {
-            //技能C
-            forwardOffset = -_playerTransform.forward ;
-            targetPos = _playerTransform.position + forwardOffset;
-            targetPos.y = targetPos.y - 0.5f;
-
-            GameObject effObj = createEffect(targetPos, _prefabPlayerMagicC, GlobalParams.SkillPool);
             iTween.MoveTo(effObj, iTween.Hash(
-               "position", targetPos + _playerTransform.forward * 15 ,
-              "easetype", iTween.EaseType.easeInSine,
-              "time", 0.8
-
-            ));
-           
+              "position", endPos,
+             "easetype", iTween.EaseType.easeInSine,
+             "speed", moveSpeed
+           ));
         }
-        else if (curState == _stateList[4])
-        {
-            //技能B
-            forwardOffset = -_playerTransform.forward * 1;
-            targetPos = _playerTransform.position + forwardOffset;
-            targetPos.y = targetPos.y - 0.5f;
-            GameObject effObj = createEffect(targetPos, _prefabPlayerMagicB, GlobalParams.SkillPool);
-            iTween.MoveTo(effObj, iTween.Hash(
-               "position", targetPos + _playerTransform.forward * 15,
-              "easetype", iTween.EaseType.easeInSine,
-              "time", 0.8
-
-            ));
-            
-        }
-        else if (curState == _stateList[3])
-        {
-            //技能A
-            forwardOffset = _playerTransform.forward * 3;
-            targetPos = _playerTransform.position + forwardOffset;
-            createEffect(targetPos, _prefabPlayerMagicA, GlobalParams.SkillGroundPool);
-        }
+    
     }
-
+  
      public GameObject createEffectNoPool(string effectName, Vector3 pos, GameObject parentObj = null)
     {
         //特效上都绑定了自我销毁脚本，就不加入引用管理
