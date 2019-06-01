@@ -102,7 +102,7 @@ public class LevelOneView : BaseView {
 	}
     IEnumerator initSwordsManPlayersMode()
     {
-
+        yield return null;
 
         PlayerEnitity enitity = new PlayerEnitity();
         _listPlayer.Add(enitity);
@@ -140,17 +140,16 @@ public class LevelOneView : BaseView {
         _cameFollow.setHeight(5.0f);
         _cameFollow.setDistance(10.0f);
 
-       
-        //产生敌人
-        createEnimys();
         _playerInfo.setPlayerEnitiy(enitity);
-        yield return null;
 
+        StartCoroutine("createEnimys");
+
+        
     }
 
-
-    public void createEnimys()
+    IEnumerator createEnimys()
     {
+        yield return new WaitForSeconds(1.0f);
         EnimyEnitity enimy = new EnimyEnitity();
         enimy.setRootObj(_sceneRoleNode);
         enimy.setRootView(this);
@@ -186,6 +185,7 @@ public class LevelOneView : BaseView {
 
     void FixedUpdate()
     {
+        if (_playerEnitity == null) return;
         //使用逻辑时间
         GlobalParams.frameCount++;
         GlobalParams.totalTime += Time.deltaTime;

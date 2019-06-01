@@ -88,7 +88,7 @@ public class LoginView : BaseView {
 
     IEnumerator initSwordsManPlayersMode()
     {
-
+        yield return new WaitForSeconds(0.1f);
         string path = "Models/SwordsMan/GreateWarrior";
         ResourceRequest rr = Resources.LoadAsync<GameObject>(path);
         yield return rr;
