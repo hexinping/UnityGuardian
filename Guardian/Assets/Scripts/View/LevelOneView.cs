@@ -85,12 +85,6 @@ public class LevelOneView : BaseView {
         _fadeInOut.FadeIn();
 
 
-        GameObject playerInfoObj = initGameObject("Prefabs/View/PlayerInfo", "PlayerInfo", this.gameObject, new Vector3(0, 0, 0));
-        setUICamera(playerInfoObj, "Canvas");
-
-        _playerInfo = playerInfoObj.GetComponent<PlayerInfo>();
-
-
         StartCoroutine("initSwordsManPlayersMode");
 
         _easyTouchObj = GameObject.Find("_Environment").transform.Find("EasyTouch").gameObject;
@@ -140,6 +134,11 @@ public class LevelOneView : BaseView {
         _cameFollow.setHeight(5.0f);
         _cameFollow.setDistance(10.0f);
 
+
+        GameObject playerInfoObj = initGameObject("Prefabs/View/PlayerInfo", "PlayerInfo", this.gameObject, new Vector3(0, 0, 0));
+        setUICamera(playerInfoObj, "Canvas");
+
+        _playerInfo = playerInfoObj.GetComponent<PlayerInfo>();
         _playerInfo.setPlayerEnitiy(enitity);
 
         StartCoroutine("createEnimys");
