@@ -96,7 +96,7 @@ public class LevelOneView : BaseView {
 	}
     IEnumerator initSwordsManPlayersMode()
     {
-        yield return null;
+        yield return new WaitForSeconds(0.1f);
 
         PlayerEnitity enitity = new PlayerEnitity();
         _listPlayer.Add(enitity);
