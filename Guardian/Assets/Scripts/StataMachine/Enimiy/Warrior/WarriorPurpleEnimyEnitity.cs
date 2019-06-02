@@ -16,13 +16,11 @@ public class WarriorPurpleEnimyEnitity : EnimyEnitity
     }
     override public void onDestory()
     {
-        BurnHelper burn = _gameObject.AddComponent<BurnHelper>();
-        Texture mainT = (Texture)ResourcesManager.getInstance().getResouce(ResourceType.Texture, "Models/Enemys/Skeleton_Pack/Textures/mage/mage_skeleton_col_variant2", rootView._name, true, false);
-        burn.setMainTex(mainT);
-        burn.setNameList("cloak", "eyes", "Skeletonl_base", "staff");
-
-        changeStateByIndex(EnimyStateEnum.DEAD);
-        LevelOneView view = (LevelOneView)rootView;
-        view.removeFromEnimyList(this);
+        mainTexturePath = "warrior/skeleton_warrior__variant2";
+        base.onDestory();
+    }
+    override public void intDatas()
+    {
+        _mode.moveSpeed = 3.0f;
     }
 }

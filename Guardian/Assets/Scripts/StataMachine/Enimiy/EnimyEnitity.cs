@@ -25,6 +25,9 @@ public class EnimyEnitity : BaseEnitity {
 
     private GameObject _prefabHurt;
 
+    public string mainTexturePath = "warrior/skeleton_warrior__variant5";
+    public object[] cObjList = new object[] { "armor", "eyes", "helmet", "Skeletonl_base", "shield", "sword" };
+
     public EnimyEnitity()
     {
         damageLabelOffsetY = 50.0f;
@@ -261,10 +264,14 @@ public class EnimyEnitity : BaseEnitity {
     override public void onDestory()
     {
         BurnHelper burn = _gameObject.AddComponent<BurnHelper>();
-        Texture mainT = (Texture)ResourcesManager.getInstance().getResouce(ResourceType.Texture, "Models/Enemys/Skeleton_Pack/Textures/warrior/skeleton_warrior__variant5", rootView._name, true, false);
+        Texture mainT = (Texture)ResourcesManager.getInstance().getResouce(ResourceType.Texture, "Models/Enemys/Skeleton_Pack/Textures/" + mainTexturePath, rootView._name, true, false);
         burn.setMainTex(mainT);
-        burn.setNameList("armor", "eyes", "helmet", "Skeletonl_base", "shield", "sword");
 
+        if (cObjList.Length > 0)
+        {
+            burn.setNameList(cObjList);
+        }
+ 
         changeStateByIndex(EnimyStateEnum.DEAD);
         LevelOneView view = (LevelOneView)rootView;
         view.removeFromEnimyList(this);

@@ -33,14 +33,10 @@ public class MageGreenEnimyEnitity : MagePurpleEnimyEnitity
 
     override public void onDestory()
     {
-        BurnHelper burn = _gameObject.AddComponent<BurnHelper>();
-        Texture mainT = (Texture)ResourcesManager.getInstance().getResouce(ResourceType.Texture, "Models/Enemys/Skeleton_Pack/Textures/mage/mage_skeleton_col_variant1", rootView._name, true, false);
-        burn.setMainTex(mainT);
-        burn.setNameList("cloak", "eyes", "Skeletonl_base", "staff");
+        mainTexturePath = "mage/mage_skeleton_col_variant1";
+        cObjList = new object[] { "cloak", "eyes", "Skeletonl_base", "staff" };
+        base.onDestory();
 
-        changeStateByIndex(EnimyStateEnum.DEAD);
-        LevelOneView view = (LevelOneView)rootView;
-        view.removeFromEnimyList(this);
     }
    
 }

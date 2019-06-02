@@ -175,7 +175,7 @@ public class LevelOneView : BaseView {
         mageGreenEnimy.initGameObject();
         _listEnimy.Add(mageGreenEnimy);
         _enitityDic.Add(mageGreenEnimy._id, mageGreenEnimy);
-        mageGreenEnimy._gameObject.transform.localPosition =  new Vector3(106f, -13.5f, -42.4f);
+        mageGreenEnimy._gameObject.transform.localPosition = new Vector3(106f, -13.5f, -42.4f);
 
 
         MagePurpleEnimyEnitity magePurpleEnimy = new MagePurpleEnimyEnitity();
