@@ -58,7 +58,7 @@ public class ArcherEnimyEnitity : EnimyEnitity
     override public void onDestory()
     {
         mainTexturePath = "archer/skel_archer_col_green";
-        cObjList = new object[] { "armor", "eyes", "Skeletonl_base", "staff" };
+        cObjList = new object[] { "armor", "eyes", "Skeletonl_base", "bow" };
         base.onDestory();
 
     }

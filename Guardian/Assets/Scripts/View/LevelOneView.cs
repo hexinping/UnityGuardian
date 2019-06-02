@@ -76,7 +76,10 @@ public class LevelOneView : BaseView {
 	void Start () {
         base.Start();
         _scene = initScene("Module_02_LevelOne");
-        StartCoroutine("initOtherScene");
+
+        initScene("Module_03_LevelTwo");
+        initScene("Module_01_LevelThree");
+        //StartCoroutine("initOtherScene");
         _mainCamera.transform.position = new Vector3(76.9f, -8.8f, -41.3f);
         //_mainCamera.transform.eulerAngles = (new Vector3(10.9f, 180.0f, 0.0f));
         
@@ -99,7 +102,6 @@ public class LevelOneView : BaseView {
     {
         yield return new WaitForSeconds(2.0f);
         initScene("Module_03_LevelTwo");
-        //yield return new WaitForSeconds(5.0f);
         initScene("Module_01_LevelThree");
     
     }
