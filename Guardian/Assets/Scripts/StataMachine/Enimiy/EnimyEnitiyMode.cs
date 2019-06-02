@@ -23,6 +23,8 @@ public class EnimyEnitiyMode : BaseMode{
         defenceByPro = 0.0f;
         dexterityByPro = 0.0f;
 
+        moveSpeed = Random.Range(1, 10); ;
+
         warningDisSquare = Random.Range(25, 100);
         attackDisSquare = Random.Range(9, 25);
         type = "warrior";

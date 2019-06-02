@@ -297,7 +297,7 @@ public class EnimyEnitity : BaseEnitity {
     {
         if (_CC != null)
         {
-            float moveSpeed = 5.0f;
+            float moveSpeed = _mode.moveSpeed;
             Vector3 v = Vector3.ClampMagnitude(moveTarget._gameObject.transform.position - _selfTransform.position, moveSpeed * Time.deltaTime);
             _CC.Move(v);
         }

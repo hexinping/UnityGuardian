@@ -26,6 +26,8 @@ public class MagePurpleEnimyEnitity : EnimyEnitity
         _mode.defence = _mode.maxDefence;
         _mode.warningDisSquare = 64;
         _mode.attackDisSquare = Random.Range(9, 25);
+
+        _mode.moveSpeed = 2.0f;
     
     }
     //不同模型的动画帧事件不一样 必须重载

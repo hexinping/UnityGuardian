@@ -27,6 +27,7 @@ public class BaseMode  {
 
     public float warningDisSquare;       //警戒距离平方
     public float attackDisSquare;        //攻击距离平方
+    public float moveSpeed; 
 
     //*****************************数据属性
 

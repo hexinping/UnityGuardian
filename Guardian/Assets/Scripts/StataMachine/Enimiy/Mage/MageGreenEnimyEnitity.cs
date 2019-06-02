@@ -27,6 +27,8 @@ public class MageGreenEnimyEnitity : MagePurpleEnimyEnitity
         _mode.warningDisSquare = 49;
         _mode.attackDisSquare = Random.Range(9, 25);
 
+        _mode.moveSpeed = 3.0f;
+
     }
 
     override public void onDestory()

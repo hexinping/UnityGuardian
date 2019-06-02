@@ -12,6 +12,7 @@ public class WarriorPurpleEnimyEnitity : EnimyEnitity
         _mode = new EnimyEnitiyMode();
         objName = "warrior_purple";
         _mode.file = _mode.file + objName;
+        intDatas();
     }
     override public void onDestory()
     {
@@ -24,5 +25,4 @@ public class WarriorPurpleEnimyEnitity : EnimyEnitity
         LevelOneView view = (LevelOneView)rootView;
         view.removeFromEnimyList(this);
     }
-   
 }
