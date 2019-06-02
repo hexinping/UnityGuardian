@@ -16,7 +16,7 @@ public class PlayerEnitityMode : BaseMode
 
         maxAtk = 5.0f;
         atk = maxAtk;
-        maxHp = 100.0f;
+        maxHp = 1000.0f;
         hp = maxHp;
         maxMagic = 20.0f;
         magic = maxMagic;

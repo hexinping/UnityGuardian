@@ -108,6 +108,13 @@ public static class GlobalParams
     public static string anim_ennimy2_normalAttack = "attack_slash";
     public static string anim_ennimy2_hurt = "damage_right";
 
+    //敌人3动作名称 archer
+    public static string anim_ennimy3_idle = "idle";
+    public static string anim_ennimy3_run = "run";
+    public static string anim_ennimy3_death = "death";
+    public static string anim_ennimy3_normalAttack = "fire_bow";
+    public static string anim_ennimy3_hurt = "damage_right";
+
 
 
     public static void addDelayCall(DelayCall delayCall)

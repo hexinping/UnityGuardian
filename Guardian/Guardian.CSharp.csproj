@@ -357,6 +357,7 @@
     <Compile Include="Assets\Scripts\StataMachine\BaseEnitity.cs" />
     <Compile Include="Assets\Scripts\StataMachine\BaseMode.cs" />
     <Compile Include="Assets\Scripts\StataMachine\BaseState.cs" />
+    <Compile Include="Assets\Scripts\StataMachine\Enimiy\Archer\ArcherEnimyEnitity.cs" />
     <Compile Include="Assets\Scripts\StataMachine\Enimiy\EnimyEnitity.cs" />
     <Compile Include="Assets\Scripts\StataMachine\Enimiy\EnimyEnitiyMode.cs" />
     <Compile Include="Assets\Scripts\StataMachine\Enimiy\EnimyEvent.cs" />

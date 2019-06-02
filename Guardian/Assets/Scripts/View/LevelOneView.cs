@@ -188,6 +188,16 @@ public class LevelOneView : BaseView {
         magePurpleEnimy._gameObject.transform.localPosition = new Vector3(67f, -13.5f, -42.7f);
 
 
+        ArcherEnimyEnitity archerGreenEnimy = new ArcherEnimyEnitity();
+        archerGreenEnimy.setRootObj(_sceneRoleNode);
+        archerGreenEnimy.setRootView(this);
+        archerGreenEnimy.setPlayerEnitity(_playerEnitity);
+        archerGreenEnimy.initGameObject();
+        _listEnimy.Add(archerGreenEnimy);
+        _enitityDic.Add(archerGreenEnimy._id, archerGreenEnimy);
+        archerGreenEnimy._gameObject.transform.localPosition = new Vector3(91f, -13.5f, -41.6f);
+
+
 
     }
 
