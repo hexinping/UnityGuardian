@@ -26,6 +26,8 @@ public class BurnHelper : MonoBehaviour {
         material.hideFlags = HideFlags.DontSave;
         Texture burnN = Resources.Load<Texture>("Texture/burn_noise");
         material.SetTexture("_BurnMap", burnN);
+        material.SetColor("_BurnFirstColor", new Color32(255, 255, 255, 255));
+        material.SetColor("_BurnSecondColor", new Color32(158, 247, 255, 255));
 
         burnTick = GlobalParams.totalTime;
     }
