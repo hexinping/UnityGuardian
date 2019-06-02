@@ -3339,7 +3339,7 @@ public class iTween : MonoBehaviour
 		}
 	}	
 	
-	void GenerateMoveToPathTargets(){
+	public void GenerateMoveToPathTargets(){
 		 Vector3[] suppliedPath;
 		
 		//create and store path points:

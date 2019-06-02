@@ -66,6 +66,11 @@ public class PathTest : MonoBehaviour
                 paths[2] = path.nodes[2];
                 //moveTo移动到目标位置，此处用的是hash写法，  目标物，HASH表（路径移动，移动速度，移动方式） （每两个为一组）
                 iTween.MoveTo(ball1, iTween.Hash("path", paths, "speed", 20f, "easeType", iTween.EaseType.easeOutQuad));
+
+                iTween itw = ball1.GetComponent<iTween>();
+                itw.GenerateMoveToPathTargets();
+                Debug.Log("time is===========" + itw.time);
+
                 //iTween.MoveTo(ball1, new Vector3(0, 1, 0), 0.2f);
                 //销毁，物体，时间
                 Destroy(ball1, 2);
