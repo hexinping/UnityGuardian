@@ -12,5 +12,9 @@ public class WarriorRedEnimyEnitity : EnimyEnitity {
         objName = "warrior_red";
         _mode.file = _mode.file + objName;
     }
-
+   override public void onDestory()
+    {
+        base.onDestory();
+    }
+   
 }

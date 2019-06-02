@@ -46,6 +46,10 @@ public class BurnHelper : MonoBehaviour {
                 string name = _gameObjectNameList[i];
                 GameObject obj = null;
                 Recursive(gameObject, name, ref obj);
+                if (obj == null)
+                {
+                    Debug.Log("name======" + name);
+                }
                 Renderer render = obj.GetComponent<Renderer>();
                 render.material = material;
             }

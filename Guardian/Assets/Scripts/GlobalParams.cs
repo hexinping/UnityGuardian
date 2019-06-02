@@ -93,12 +93,20 @@ public static class GlobalParams
     public static string anim_player_normalAtk3 = "Attack3-3";
 
 
-    //敌人1动作名称
+    //敌人1动作名称 warrior
     public static string anim_ennimy1_idle          = "idle";
     public static string anim_ennimy1_run           = "run";
     public static string anim_ennimy1_death         = "death";
     public static string anim_ennimy1_normalAttack  = "attack_slash";
     public static string anim_ennimy1_hurt          = "damage_right";
+
+
+    //敌人2动作名称 mage
+    public static string anim_ennimy2_idle = "idle";
+    public static string anim_ennimy2_run = "run";
+    public static string anim_ennimy2_death = "death";
+    public static string anim_ennimy2_normalAttack = "attack_slash";
+    public static string anim_ennimy2_hurt = "damage_right";
 
 
 

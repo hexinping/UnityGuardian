@@ -361,6 +361,8 @@
     <Compile Include="Assets\Scripts\StataMachine\Enimiy\EnimyEnitiyMode.cs" />
     <Compile Include="Assets\Scripts\StataMachine\Enimiy\EnimyEvent.cs" />
     <Compile Include="Assets\Scripts\StataMachine\Enimiy\EnimyState.cs" />
+    <Compile Include="Assets\Scripts\StataMachine\Enimiy\Mage\MageGreenEnimyEnitity.cs" />
+    <Compile Include="Assets\Scripts\StataMachine\Enimiy\Mage\MagePurpleEnimyEnitity.cs" />
     <Compile Include="Assets\Scripts\StataMachine\Enimiy\Warrior\WarriorPurpleEnimyEnitity.cs" />
     <Compile Include="Assets\Scripts\StataMachine\Enimiy\Warrior\WarriorRedEnimyEnitity.cs" />
     <Compile Include="Assets\Scripts\StataMachine\Enimiy\Warrior\WarriorTealEnimyEnitity.cs" />

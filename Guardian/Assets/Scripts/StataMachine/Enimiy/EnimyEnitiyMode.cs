@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnimyEnitiyMode : BaseMode{
 
     public string file;
+    public string filePre;
+    public string type;
     public EnimyEnitiyMode()
     {
 
@@ -23,8 +25,9 @@ public class EnimyEnitiyMode : BaseMode{
 
         warningDisSquare = Random.Range(25, 100);
         attackDisSquare = Random.Range(9, 25);
-
-        file = "Models/Enemys/Skeleton_Pack/Prefabs(chibi)/warrior/skeleton_";
+        type = "warrior";
+        filePre = "Models/Enemys/Skeleton_Pack/Prefabs(chibi)/";
+        file = filePre + type + "/skeleton_";
     }
 
     public float countDamage(BaseEnitity target)

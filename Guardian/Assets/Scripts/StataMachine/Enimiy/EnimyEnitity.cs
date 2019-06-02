@@ -14,10 +14,10 @@ public class EnimyEnitity : BaseEnitity {
     private CharacterController _CC;
 
     //动画帧事件集合
-    private Dictionary<string, List<int>> _animationEventDict;
+    public Dictionary<string, List<int>> _animationEventDict;
 
     //动画剪辑名称
-    private List<string> _animationNameList;
+    public List<string> _animationNameList;
 
     public GameObject skillGround;
     public GameObject skillLayer;
@@ -33,6 +33,11 @@ public class EnimyEnitity : BaseEnitity {
 
         skillGround = GameObject.Find("_Manager/_ViewManager/_Scene/SkillGround");
         skillLayer = GameObject.Find("_Manager/_ViewManager/_Scene/Skill");
+    }
+
+    virtual public void intDatas()
+    { 
+    
     }
 
     //不同模型数据不一样，需要重载

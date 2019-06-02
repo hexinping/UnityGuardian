@@ -749,6 +749,7 @@ GameObject:
   m_Component:
   - component: {fileID: 400098}
   - component: {fileID: 9500000}
+  - component: {fileID: 143974635019860004}
   m_Layer: 0
   m_Name: skeleton_mage_green
   m_TagString: Untagged
@@ -1708,7 +1709,7 @@ Animator:
   m_GameObject: {fileID: 100098}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b3584f86534cb054aa16a90fe2621748, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fc1466dd3a3934c43ba813ef48534b7b, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2018,3 +2019,20 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100098}
   m_IsPrefabParent: 1
+--- !u!143 &143974635019860004
+CharacterController:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100098}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2.3
+  m_Radius: 1
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1, z: 0}
