@@ -184,8 +184,17 @@ public class EnimyEnitity : BaseEnitity {
         float time = getClipLength(_animator, animatinName, frameIndex);
         float p = GlobalParams.totalTime + time;
         //Debug.Log(GetType() + "注册时间：" + GlobalParams.totalTime + " / 预测回调时间：" + p + " 当前帧数：" + GlobalParams.frameCount + " 等待时间:" + time);
-        DelayCall delayCall = new DelayCall(time, GlobalParams.frameCount, eventCallBack, this, animatinName, false, attackTarget._gameObject.transform.position);
-        GlobalParams.addDelayCall(delayCall);
+        if (attackTarget != null)
+        {
+            DelayCall delayCall = new DelayCall(time, GlobalParams.frameCount, eventCallBack, this, animatinName, false, attackTarget._gameObject.transform.position);
+            GlobalParams.addDelayCall(delayCall);
+        }
+        else
+        {
+            DelayCall delayCall = new DelayCall(time, GlobalParams.frameCount, eventCallBack, this, animatinName, false);
+            GlobalParams.addDelayCall(delayCall);
+        }
+       
     }
 
     virtual public void eventCallBack(BaseEnitity eniity, string animationName, bool isMove = false, Vector3 targetPos = default(Vector3))

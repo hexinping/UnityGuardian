@@ -306,8 +306,17 @@ public class PlayerEnitity:BaseEnitity  {
                     //技能B C的特效是移动的
                     isMove = true; 
                 }
-                DelayCall delayCall = new DelayCall(time, GlobalParams.frameCount, eventCallBack, this,animatinName, isMove, attackTarget._gameObject.transform.position);
-                GlobalParams.addDelayCall(delayCall);
+                if (attackTarget != null)
+                {
+                    DelayCall delayCall = new DelayCall(time, GlobalParams.frameCount, eventCallBack, this, animatinName, isMove, attackTarget._gameObject.transform.position);
+                    GlobalParams.addDelayCall(delayCall);
+                }
+                else
+                {
+                    DelayCall delayCall = new DelayCall(time, GlobalParams.frameCount, eventCallBack, this, animatinName, isMove);
+                    GlobalParams.addDelayCall(delayCall);
+                }
+               
             }
         }
        
