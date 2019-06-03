@@ -7,6 +7,7 @@ TagManager:
   - UICamera
   - EasyTouch
   - Enimy
+  - HitEfects
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Layer_small
   - 
   - 
   - 
