@@ -29,6 +29,8 @@ public class LevelOneView : BaseView {
     private MessageDispatcher _msgDispatcher;
 
     private GameObject _scene;
+    private GameObject _sceneLeft;
+    private GameObject _sceneRight;
 
     private FadeInOut _fadeInOut;
 
@@ -39,6 +41,9 @@ public class LevelOneView : BaseView {
     private PlayerEnitity _playerEnitity;
     private PlayerInfo _playerInfo;
     private Transform _playerTransform;
+
+    private SceneTrigger _triggerLeft;
+    private SceneTrigger _triggerRight;
 
     //敌人相关
     /*
@@ -77,9 +82,13 @@ public class LevelOneView : BaseView {
         base.Start();
         _scene = initScene("Module_02_LevelOne");
 
-        initScene("Module_03_LevelTwo");
-        initScene("Module_01_LevelThree");
-        //StartCoroutine("initOtherScene");
+
+        GameObject triigerObj = _scene.transform.Find("Trigger").gameObject;
+
+        _triggerLeft = triigerObj.GetComponent<SceneTrigger>();
+        
+
+        StartCoroutine("initOtherScene");
         _mainCamera.transform.position = new Vector3(76.9f, -8.8f, -41.3f);
         //_mainCamera.transform.eulerAngles = (new Vector3(10.9f, 180.0f, 0.0f));
         
@@ -101,8 +110,12 @@ public class LevelOneView : BaseView {
     IEnumerator initOtherScene()
     {
         yield return new WaitForSeconds(2.0f);
-        initScene("Module_03_LevelTwo");
-        initScene("Module_01_LevelThree");
+        _sceneRight = initScene("Module_03_LevelTwo");
+        _sceneLeft = initScene("Module_01_LevelThree");
+        _sceneRight.SetActive(false);
+        _sceneLeft.SetActive(false);
+
+        _triggerLeft.setTargetScene(_sceneLeft);
     
     }
 
