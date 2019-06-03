@@ -24,7 +24,7 @@ public class KingEnimyEnitity : EnimyEnitity
         _mode.hp = _mode.maxHp;
         _mode.maxDefence = 0.0f;
         _mode.defence = _mode.maxDefence;
-        _mode.warningDisSquare = 16;
+        _mode.warningDisSquare = 64;
         _mode.attackDisSquare = 9;
 
         _mode.moveSpeed = 2.0f;

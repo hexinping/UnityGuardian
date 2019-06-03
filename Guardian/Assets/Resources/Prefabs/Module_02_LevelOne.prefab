@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4258421185272946}
   - component: {fileID: 33216793165501378}
   - component: {fileID: 23938896258822736}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 4291258561464476}
   - component: {fileID: 33242977045249542}
   - component: {fileID: 23249309330476392}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ColumnB_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 4294663784138794}
   - component: {fileID: 33411227971861878}
   - component: {fileID: 23939683356939842}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlantA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,7 +372,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4204348579123346}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leaves_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -632,7 +632,7 @@ GameObject:
   - component: {fileID: 4362866300520026}
   - component: {fileID: 33449323077935036}
   - component: {fileID: 23192139736634246}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlantA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -664,7 +664,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4066983544099874}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Static_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -866,7 +866,7 @@ GameObject:
   - component: {fileID: 4872439524757404}
   - component: {fileID: 33707186054632422}
   - component: {fileID: 23846211419974784}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RopeA_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -952,7 +952,7 @@ GameObject:
   - component: {fileID: 4788269793654306}
   - component: {fileID: 33297726218807856}
   - component: {fileID: 23522779236069256}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1242,7 +1242,7 @@ GameObject:
   - component: {fileID: 4682791343369526}
   - component: {fileID: 33794103278536750}
   - component: {fileID: 23055564994669372}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandleA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1294,7 +1294,7 @@ GameObject:
   - component: {fileID: 4219322994549868}
   - component: {fileID: 33979412201980164}
   - component: {fileID: 23010200401324372}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlantA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1364,7 +1364,7 @@ GameObject:
   - component: {fileID: 4418327832483882}
   - component: {fileID: 33437755216282042}
   - component: {fileID: 23096469745323702}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandleA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1487,7 +1487,7 @@ GameObject:
   - component: {fileID: 4997167750742300}
   - component: {fileID: 33035457781880206}
   - component: {fileID: 23538734616641528}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1574,7 +1574,7 @@ GameObject:
   - component: {fileID: 4593914729793658}
   - component: {fileID: 33995745742495494}
   - component: {fileID: 23935406004939762}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlantA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1642,7 +1642,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4692101980310028}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandlePackA_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1742,7 +1742,7 @@ GameObject:
   - component: {fileID: 4114687916812056}
   - component: {fileID: 33577899896776690}
   - component: {fileID: 23182307487553138}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandleA_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1759,7 +1759,7 @@ GameObject:
   - component: {fileID: 4739094979449252}
   - component: {fileID: 33314516918272540}
   - component: {fileID: 23097900057591202}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlantA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1847,7 +1847,7 @@ GameObject:
   - component: {fileID: 4910521778874068}
   - component: {fileID: 33918623670141146}
   - component: {fileID: 23746278953125654}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1899,7 +1899,7 @@ GameObject:
   - component: {fileID: 4213415302082336}
   - component: {fileID: 33026265042061050}
   - component: {fileID: 23767120441115952}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandleA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2064,7 +2064,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4414246215164330}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leaves_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2131,7 +2131,7 @@ GameObject:
   - component: {fileID: 4639596622742752}
   - component: {fileID: 33275903591922330}
   - component: {fileID: 23326902737001508}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CobWeb_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2202,7 +2202,7 @@ GameObject:
   - component: {fileID: 4478782046150306}
   - component: {fileID: 33325832780306066}
   - component: {fileID: 23772614816113644}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2436,7 +2436,7 @@ GameObject:
   - component: {fileID: 4505306545375368}
   - component: {fileID: 33807231453337538}
   - component: {fileID: 23219599177778472}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Blood_A_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2504,7 +2504,7 @@ GameObject:
   - component: {fileID: 4733585337625858}
   - component: {fileID: 33555020428736250}
   - component: {fileID: 23298096328411870}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandleA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2556,7 +2556,7 @@ GameObject:
   - component: {fileID: 4582808592753942}
   - component: {fileID: 33565855250900780}
   - component: {fileID: 23988418592968002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlantA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2662,7 +2662,7 @@ GameObject:
   - component: {fileID: 4492635759326010}
   - component: {fileID: 33708742420505058}
   - component: {fileID: 23185225406721456}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2679,7 +2679,7 @@ GameObject:
   - component: {fileID: 4134046674711776}
   - component: {fileID: 33416904866498042}
   - component: {fileID: 23997575767875512}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RopeA_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2696,7 +2696,7 @@ GameObject:
   - component: {fileID: 4560186855377726}
   - component: {fileID: 33597733583149770}
   - component: {fileID: 23145424760963902}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ColumnB_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2762,7 +2762,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4461561964933760}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandlePackA_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2963,7 +2963,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4954401930089414}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LampPole_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3101,7 +3101,7 @@ GameObject:
   - component: {fileID: 4238939533692778}
   - component: {fileID: 33302942243403534}
   - component: {fileID: 23816090673578852}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arch_A_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3273,7 +3273,7 @@ GameObject:
   - component: {fileID: 4085497710562758}
   - component: {fileID: 33085524649007598}
   - component: {fileID: 23334909320248778}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3309,7 +3309,7 @@ GameObject:
   - component: {fileID: 33467004799130820}
   - component: {fileID: 23722480206196686}
   - component: {fileID: 64244614669472572}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rubble_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3327,7 +3327,7 @@ GameObject:
   - component: {fileID: 33858078167611062}
   - component: {fileID: 23166363670578368}
   - component: {fileID: 64816538285715978}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rubble_A_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3398,7 +3398,7 @@ GameObject:
   - component: {fileID: 4864036828007246}
   - component: {fileID: 33108728626946710}
   - component: {fileID: 23836850515242596}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3592,7 +3592,7 @@ GameObject:
   - component: {fileID: 4839709810891558}
   - component: {fileID: 33204148162383996}
   - component: {fileID: 23476243208283852}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3695,7 +3695,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4059855702105412}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plant_A_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3829,7 +3829,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4993063927024206}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandlePackA_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3914,7 +3914,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4571861919317880}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plant_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3967,7 +3967,7 @@ GameObject:
   - component: {fileID: 4491602069518296}
   - component: {fileID: 33772349425141868}
   - component: {fileID: 23624147428347752}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4019,7 +4019,7 @@ GameObject:
   - component: {fileID: 4802854992669594}
   - component: {fileID: 33966361771970930}
   - component: {fileID: 23715817020132780}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandleA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4069,7 +4069,7 @@ GameObject:
   - component: {fileID: 4106185988966936}
   - component: {fileID: 33560631082328262}
   - component: {fileID: 23197110908206568}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4224,7 +4224,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4312896231272652}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandlePackA_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4739,7 +4739,7 @@ GameObject:
   - component: {fileID: 4691807117645022}
   - component: {fileID: 33564184020636378}
   - component: {fileID: 23884791191192946}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4789,7 +4789,7 @@ GameObject:
   - component: {fileID: 4118991332799648}
   - component: {fileID: 33891527536432798}
   - component: {fileID: 23965562650336890}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlantA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4841,7 +4841,7 @@ GameObject:
   - component: {fileID: 4672213667394012}
   - component: {fileID: 33265559993658602}
   - component: {fileID: 23566643202126780}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4892,7 +4892,7 @@ GameObject:
   - component: {fileID: 4275444397230198}
   - component: {fileID: 33231103264437792}
   - component: {fileID: 23759508340664330}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4944,7 +4944,7 @@ GameObject:
   - component: {fileID: 4946172671324038}
   - component: {fileID: 33042736525708446}
   - component: {fileID: 23929800764523584}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlantA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4961,7 +4961,7 @@ GameObject:
   - component: {fileID: 4773591234227144}
   - component: {fileID: 33794841301320760}
   - component: {fileID: 23512366672311292}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5254,7 +5254,7 @@ GameObject:
   - component: {fileID: 4298217181284976}
   - component: {fileID: 33915931210220398}
   - component: {fileID: 23558298737050590}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CobWeb_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5286,7 +5286,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4988782138052344}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leaves_A_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5570,7 +5570,7 @@ GameObject:
   - component: {fileID: 33952050301258180}
   - component: {fileID: 23622674059100870}
   - component: {fileID: 64368292576306682}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rubble_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5605,7 +5605,7 @@ GameObject:
   - component: {fileID: 4221277039957776}
   - component: {fileID: 33543401503492320}
   - component: {fileID: 23301405929315772}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5809,7 +5809,7 @@ GameObject:
   - component: {fileID: 4843835118584350}
   - component: {fileID: 33209860390813578}
   - component: {fileID: 23456773212441498}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6061,7 +6061,7 @@ GameObject:
   - component: {fileID: 4252160574003928}
   - component: {fileID: 33816923807123448}
   - component: {fileID: 23716731345216548}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandleA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6149,7 +6149,7 @@ GameObject:
   - component: {fileID: 4597387250485422}
   - component: {fileID: 33923772669461278}
   - component: {fileID: 23494200051896628}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandleA_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6270,7 +6270,7 @@ GameObject:
   - component: {fileID: 4160548417181712}
   - component: {fileID: 33447198843755966}
   - component: {fileID: 23204777846916758}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arch_A_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6303,7 +6303,7 @@ GameObject:
   - component: {fileID: 4035635026167106}
   - component: {fileID: 33794796748241154}
   - component: {fileID: 23974623369656222}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Blood_A_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6320,7 +6320,7 @@ GameObject:
   - component: {fileID: 4259962753250180}
   - component: {fileID: 33323148061356974}
   - component: {fileID: 23433403120316392}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandleA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6337,7 +6337,7 @@ GameObject:
   - component: {fileID: 4714640283117460}
   - component: {fileID: 33973183031609634}
   - component: {fileID: 23028932107533204}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandleA_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6599,7 +6599,7 @@ GameObject:
   - component: {fileID: 4699340191051194}
   - component: {fileID: 33090716923088648}
   - component: {fileID: 23621047475779418}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandleA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6616,7 +6616,7 @@ GameObject:
   - component: {fileID: 4456955411374234}
   - component: {fileID: 33951805924747308}
   - component: {fileID: 23383850053443584}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6702,7 +6702,7 @@ GameObject:
   - component: {fileID: 4469633937179858}
   - component: {fileID: 33528629397789158}
   - component: {fileID: 23575446841450834}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6737,7 +6737,7 @@ GameObject:
   - component: {fileID: 4875938799304462}
   - component: {fileID: 33667322392913636}
   - component: {fileID: 23398544671639996}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6824,7 +6824,7 @@ GameObject:
   - component: {fileID: 4833262442797968}
   - component: {fileID: 33999858839483432}
   - component: {fileID: 23893265342762920}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlantA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6858,7 +6858,7 @@ GameObject:
   - component: {fileID: 4215441682738214}
   - component: {fileID: 33326402311081592}
   - component: {fileID: 23231064950497864}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandleA_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6875,7 +6875,7 @@ GameObject:
   - component: {fileID: 4761656762886282}
   - component: {fileID: 33532684012298724}
   - component: {fileID: 23652690858665906}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandleA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6959,7 +6959,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4472784331885462}
   - component: {fileID: 108097484053722980}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6976,7 +6976,7 @@ GameObject:
   - component: {fileID: 4102986146740996}
   - component: {fileID: 33706621990158466}
   - component: {fileID: 23521546569783970}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7046,7 +7046,7 @@ GameObject:
   - component: {fileID: 4071345340644502}
   - component: {fileID: 33212697824524112}
   - component: {fileID: 23204375196766230}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PoleA_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7061,7 +7061,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4069624530557054}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leaves_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7096,7 +7096,7 @@ GameObject:
   - component: {fileID: 4276057851349380}
   - component: {fileID: 33768391445633474}
   - component: {fileID: 23717717372741578}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlantA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7149,7 +7149,7 @@ GameObject:
   - component: {fileID: 33365610901627942}
   - component: {fileID: 23788775140063098}
   - component: {fileID: 64738417262657248}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rubble_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7449,7 +7449,7 @@ GameObject:
   - component: {fileID: 33413897437853420}
   - component: {fileID: 23442089331216316}
   - component: {fileID: 65397740708726326}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CrateB_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7503,7 +7503,7 @@ GameObject:
   - component: {fileID: 4095405752020496}
   - component: {fileID: 33075073047848260}
   - component: {fileID: 23714621498871554}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LampA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7625,7 +7625,7 @@ GameObject:
   - component: {fileID: 4543214354164146}
   - component: {fileID: 33351889989828096}
   - component: {fileID: 23161244746143564}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandleA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7640,7 +7640,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4433429057147516}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Decoration
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7672,7 +7672,7 @@ GameObject:
   - component: {fileID: 4752286378889446}
   - component: {fileID: 33852218475957944}
   - component: {fileID: 23997765068320724}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandleA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7773,7 +7773,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4714892435934532}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandlePackA_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7842,7 +7842,7 @@ GameObject:
   - component: {fileID: 4896085502240378}
   - component: {fileID: 33826658724743172}
   - component: {fileID: 23969429062063730}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ColumnB_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7995,7 +7995,7 @@ GameObject:
   - component: {fileID: 4202721268257282}
   - component: {fileID: 33725736198985166}
   - component: {fileID: 23841164821786264}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8154,7 +8154,7 @@ GameObject:
   - component: {fileID: 33379917210801692}
   - component: {fileID: 23805020267884626}
   - component: {fileID: 64725070011428840}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rubble_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8188,7 +8188,7 @@ GameObject:
   - component: {fileID: 4074808716748482}
   - component: {fileID: 33198255451788378}
   - component: {fileID: 23151336492107832}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Blood_A_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8363,7 +8363,7 @@ GameObject:
   - component: {fileID: 4554650349456254}
   - component: {fileID: 33690384445061666}
   - component: {fileID: 23686296530644340}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandleA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8644,7 +8644,7 @@ GameObject:
   - component: {fileID: 4361324466798794}
   - component: {fileID: 33796647681764590}
   - component: {fileID: 23257517660206454}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arch_A_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8661,7 +8661,7 @@ GameObject:
   - component: {fileID: 4325338107585288}
   - component: {fileID: 33231646098621116}
   - component: {fileID: 23967911153508916}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandleA_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8676,7 +8676,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4264409574293360}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leaves_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9037,7 +9037,7 @@ GameObject:
   - component: {fileID: 4523316756481412}
   - component: {fileID: 33993607434329040}
   - component: {fileID: 23949007215921528}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandleA_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9070,7 +9070,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4251919636500508}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leaves_A_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9087,7 +9087,7 @@ GameObject:
   - component: {fileID: 4493284068716808}
   - component: {fileID: 33927492334972336}
   - component: {fileID: 23794669177509648}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9138,7 +9138,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4459174157879044}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandlePackA_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9155,7 +9155,7 @@ GameObject:
   - component: {fileID: 4195069990921828}
   - component: {fileID: 33365722481334900}
   - component: {fileID: 23689039060860392}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ColumnB_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9170,7 +9170,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4666786012415288}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leaves_A_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9375,7 +9375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4165031639541236}
   - component: {fileID: 108785295993423644}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9392,7 +9392,7 @@ GameObject:
   - component: {fileID: 4646562715945094}
   - component: {fileID: 33740398063446474}
   - component: {fileID: 23173906456857144}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9409,7 +9409,7 @@ GameObject:
   - component: {fileID: 4028558353060700}
   - component: {fileID: 33964963409154308}
   - component: {fileID: 23876454210150600}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlantA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9529,7 +9529,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4762506450996952}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leaves_A_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9616,7 +9616,7 @@ GameObject:
   - component: {fileID: 4066166555502326}
   - component: {fileID: 33910671735424956}
   - component: {fileID: 23849794472921024}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SewerB_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9896,7 +9896,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4738052160526874}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CargoPlank_A_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10034,7 +10034,7 @@ GameObject:
   - component: {fileID: 4118207311269012}
   - component: {fileID: 33399129320810012}
   - component: {fileID: 23261074687072962}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandleA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10244,7 +10244,7 @@ GameObject:
   - component: {fileID: 33675155323969492}
   - component: {fileID: 23038131662519802}
   - component: {fileID: 65402039643109344}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PoleA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10454,7 +10454,7 @@ GameObject:
   - component: {fileID: 4671431471176406}
   - component: {fileID: 33240729939567988}
   - component: {fileID: 23191390053834254}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandleA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10489,7 +10489,7 @@ GameObject:
   - component: {fileID: 4486780577147202}
   - component: {fileID: 33963761448494766}
   - component: {fileID: 23166491140471270}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandleA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10524,7 +10524,7 @@ GameObject:
   - component: {fileID: 4518694074619640}
   - component: {fileID: 33267475931069114}
   - component: {fileID: 23858425367148544}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandleA_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10556,7 +10556,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4434227803113744}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plant_A_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10673,7 +10673,7 @@ GameObject:
   - component: {fileID: 4479142189529960}
   - component: {fileID: 198253962341768886}
   - component: {fileID: 199523376549698834}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Halo Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10740,7 +10740,7 @@ GameObject:
   - component: {fileID: 4602583727261098}
   - component: {fileID: 33794387975284410}
   - component: {fileID: 23967924320834678}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandleA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10755,7 +10755,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4569856488439692}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandlePackA_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10790,7 +10790,7 @@ GameObject:
   - component: {fileID: 4578657888996298}
   - component: {fileID: 33332551324803442}
   - component: {fileID: 23148989372999362}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandleA_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11013,7 +11013,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4202118675754670}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leaves_A_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11200,7 +11200,7 @@ GameObject:
   - component: {fileID: 4300217605968050}
   - component: {fileID: 33628552039103594}
   - component: {fileID: 23879288742811624}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeavesA_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11251,7 +11251,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4502001478906516}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plant_A_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11303,7 +11303,7 @@ GameObject:
   - component: {fileID: 4776266020586666}
   - component: {fileID: 33401381547507804}
   - component: {fileID: 23695352217913898}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CobWeb_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11353,7 +11353,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4330180368583294}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Columns_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11386,7 +11386,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4452893758385070}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11453,7 +11453,7 @@ GameObject:
   - component: {fileID: 4523538424665548}
   - component: {fileID: 33806539905451192}
   - component: {fileID: 23670851466929666}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SewerB_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11727,7 +11727,7 @@ GameObject:
   - component: {fileID: 33695046444305420}
   - component: {fileID: 23223487708453108}
   - component: {fileID: 65754769650882902}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BarrelC_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11898,7 +11898,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4491419761466422}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandlePackA_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12206,7 +12206,7 @@ GameObject:
   - component: {fileID: 4326028447085540}
   - component: {fileID: 33736628908843994}
   - component: {fileID: 23989916189919320}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VesselC_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}

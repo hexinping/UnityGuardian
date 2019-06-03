@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 4114231007928832}
   - component: {fileID: 33857690994002178}
   - component: {fileID: 23175040146924510}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RopeA_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 4256298864528556}
   - component: {fileID: 198479398450919030}
   - component: {fileID: 199387746022795684}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fire Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 4918486594276938}
   - component: {fileID: 198766437419977920}
   - component: {fileID: 199989747048048154}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fire Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 33763443297826500}
   - component: {fileID: 23722976861319896}
   - component: {fileID: 65960282675231554}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VesselC_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +458,7 @@ GameObject:
   - component: {fileID: 33545128590896656}
   - component: {fileID: 23522635950270438}
   - component: {fileID: 65290595807090514}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VesselC_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -573,7 +573,7 @@ GameObject:
   - component: {fileID: 4655065539523148}
   - component: {fileID: 33868398308968406}
   - component: {fileID: 23997323104161176}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arch_A_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -765,7 +765,7 @@ GameObject:
   - component: {fileID: 33769438544234940}
   - component: {fileID: 23417800791177712}
   - component: {fileID: 64068927464923116}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rubble_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -922,7 +922,7 @@ GameObject:
   - component: {fileID: 4858027061518590}
   - component: {fileID: 198287630084328378}
   - component: {fileID: 199039290662373682}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Smoke Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1021,7 +1021,7 @@ GameObject:
   - component: {fileID: 33262696326954962}
   - component: {fileID: 23982627265416936}
   - component: {fileID: 64024528361873978}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rubble_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1268,7 +1268,7 @@ GameObject:
   - component: {fileID: 33060836527614754}
   - component: {fileID: 23145827697298870}
   - component: {fileID: 65727429410004162}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CrateB_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1283,7 +1283,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4244985250391534}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Flag_A_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1336,7 +1336,7 @@ GameObject:
   - component: {fileID: 33042601763764890}
   - component: {fileID: 23246727133605644}
   - component: {fileID: 65026395259590372}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BarrelB_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1353,7 +1353,7 @@ GameObject:
   - component: {fileID: 4474094590859800}
   - component: {fileID: 198333368033149644}
   - component: {fileID: 199483063791260846}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Halo Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1406,7 +1406,7 @@ GameObject:
   - component: {fileID: 4485257722806052}
   - component: {fileID: 33473750365358858}
   - component: {fileID: 23111068782901730}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SewerB_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1622,7 +1622,7 @@ GameObject:
   - component: {fileID: 4118392869457988}
   - component: {fileID: 33172391547127694}
   - component: {fileID: 23224907438529304}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fence_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1829,7 +1829,7 @@ GameObject:
   - component: {fileID: 4883461534759374}
   - component: {fileID: 198804556653213822}
   - component: {fileID: 199663872853156514}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Smoke Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1950,7 +1950,7 @@ GameObject:
   - component: {fileID: 33768547132085124}
   - component: {fileID: 23917988292193918}
   - component: {fileID: 64652748046833320}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rubble_A_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2019,7 +2019,7 @@ GameObject:
   - component: {fileID: 33594410875074810}
   - component: {fileID: 23930303179410552}
   - component: {fileID: 65093822527386566}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VesselA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2101,7 +2101,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4662607601427250}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Decoration
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2154,7 +2154,7 @@ GameObject:
   - component: {fileID: 33728221178921328}
   - component: {fileID: 23331618010799008}
   - component: {fileID: 64887482275703240}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rubble_A_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2208,7 +2208,7 @@ GameObject:
   - component: {fileID: 33906009414405610}
   - component: {fileID: 23601253864847674}
   - component: {fileID: 65229979602428614}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Furnace_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2281,7 +2281,7 @@ GameObject:
   - component: {fileID: 33598433639718424}
   - component: {fileID: 23832878867715406}
   - component: {fileID: 65092368189332720}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VesselC_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2437,7 +2437,7 @@ GameObject:
   - component: {fileID: 4278595729964588}
   - component: {fileID: 33207857744334656}
   - component: {fileID: 23829137618179904}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ring_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2455,7 +2455,7 @@ GameObject:
   - component: {fileID: 33095155628780130}
   - component: {fileID: 23486270469602420}
   - component: {fileID: 65711116557271766}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlankA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2470,7 +2470,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4826724241676148}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CargoPlank_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2505,7 +2505,7 @@ GameObject:
   - component: {fileID: 4121410967451660}
   - component: {fileID: 33607038444372380}
   - component: {fileID: 23086246665618706}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ColumnB_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2536,7 +2536,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4759329678857466}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Flag_A_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2744,7 +2744,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4985037501344204}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Flags
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2866,7 +2866,7 @@ GameObject:
   - component: {fileID: 33622411291962010}
   - component: {fileID: 23711102924383258}
   - component: {fileID: 64140155325605126}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rubble_A_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2918,7 +2918,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4771803560143714}
   - component: {fileID: 82792795766921286}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3023,7 +3023,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4803493058738936}
   - component: {fileID: 65176731113264884}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Flag_Collider_pole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3211,7 +3211,7 @@ GameObject:
   - component: {fileID: 4592734495292248}
   - component: {fileID: 198568110476004206}
   - component: {fileID: 199809766283345706}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spark Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3334,7 +3334,7 @@ GameObject:
   - component: {fileID: 33156872148881006}
   - component: {fileID: 23504168561992114}
   - component: {fileID: 65610967783934416}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VesselC_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3384,7 +3384,7 @@ GameObject:
   - component: {fileID: 4523412358306060}
   - component: {fileID: 33461465097195746}
   - component: {fileID: 23088502584334434}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arch_A_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3401,7 +3401,7 @@ GameObject:
   - component: {fileID: 4975039813311998}
   - component: {fileID: 108840990092360858}
   - component: {fileID: 122257742050066314}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3472,7 +3472,7 @@ GameObject:
   - component: {fileID: 33963044458856834}
   - component: {fileID: 23449567179128218}
   - component: {fileID: 65436181471581774}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlankA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3542,7 +3542,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4426878836283490}
   - component: {fileID: 65679704182412300}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Flag_Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3612,7 +3612,7 @@ GameObject:
   - component: {fileID: 4556834174915114}
   - component: {fileID: 108162800052346432}
   - component: {fileID: 122686766177037600}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3789,7 +3789,7 @@ GameObject:
   - component: {fileID: 4779319146963196}
   - component: {fileID: 198516152098669370}
   - component: {fileID: 199668482851537060}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spark Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4142,7 +4142,7 @@ GameObject:
   - component: {fileID: 33431118247946470}
   - component: {fileID: 23160622854361482}
   - component: {fileID: 65164973366670344}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Furnace_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4423,7 +4423,7 @@ GameObject:
   - component: {fileID: 4482608108885810}
   - component: {fileID: 33102637589597968}
   - component: {fileID: 23373644351651044}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ColumnB_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4670,7 +4670,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4554433731489526}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CargoPlank_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4841,7 +4841,7 @@ GameObject:
   - component: {fileID: 4383998460993214}
   - component: {fileID: 33525206866075722}
   - component: {fileID: 23010736393204178}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RopeA_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4927,7 +4927,7 @@ GameObject:
   - component: {fileID: 33779761534100108}
   - component: {fileID: 23495961278417682}
   - component: {fileID: 64949951917463704}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rubble_A_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5089,7 +5089,7 @@ GameObject:
   - component: {fileID: 4040399186509628}
   - component: {fileID: 33942796148390426}
   - component: {fileID: 23016201849038042}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ColumnB_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5174,7 +5174,7 @@ GameObject:
   - component: {fileID: 4868053410578666}
   - component: {fileID: 33103856525107552}
   - component: {fileID: 23329913367064404}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PoleA_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5245,7 +5245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4642227294861298}
   - component: {fileID: 82560649471126476}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5279,7 +5279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4116770481414888}
   - component: {fileID: 82278836931760564}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5422,7 +5422,7 @@ GameObject:
   - component: {fileID: 4030543057023374}
   - component: {fileID: 33242682154087310}
   - component: {fileID: 23343967027574832}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PoleA_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5509,7 +5509,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4966711074508302}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Flag_A_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5526,7 +5526,7 @@ GameObject:
   - component: {fileID: 4694151430270120}
   - component: {fileID: 33119396819023582}
   - component: {fileID: 23971675271440806}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fence_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5560,7 +5560,7 @@ GameObject:
   - component: {fileID: 4972448859959512}
   - component: {fileID: 33712972820885576}
   - component: {fileID: 23738642277337822}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ring_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5577,7 +5577,7 @@ GameObject:
   - component: {fileID: 4114514399500234}
   - component: {fileID: 33706125611710510}
   - component: {fileID: 23639116120596366}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpearA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5594,7 +5594,7 @@ GameObject:
   - component: {fileID: 4791096919188938}
   - component: {fileID: 198227497815342448}
   - component: {fileID: 199284695940276352}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spark Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5610,7 +5610,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4361951972637286}
   - component: {fileID: 33088471545012918}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlagA_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5831,7 +5831,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4380286740607228}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Columns_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6041,7 +6041,7 @@ GameObject:
   - component: {fileID: 4993809593688264}
   - component: {fileID: 198582491108129404}
   - component: {fileID: 199407096411273536}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Halo Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6058,7 +6058,7 @@ GameObject:
   - component: {fileID: 4089478287373000}
   - component: {fileID: 33497378053042102}
   - component: {fileID: 23097319931805178}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fence_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6073,7 +6073,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4694687262860190}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6245,7 +6245,7 @@ GameObject:
   - component: {fileID: 4853311373296272}
   - component: {fileID: 198920493945435048}
   - component: {fileID: 199199390536586196}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fire Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6262,7 +6262,7 @@ GameObject:
   - component: {fileID: 4543150062452910}
   - component: {fileID: 198571457116224250}
   - component: {fileID: 199170211652905284}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Smoke Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6348,7 +6348,7 @@ GameObject:
   - component: {fileID: 4506165720043422}
   - component: {fileID: 33811275211970114}
   - component: {fileID: 23808719314269804}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fence_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6473,7 +6473,7 @@ GameObject:
   - component: {fileID: 33993400511832168}
   - component: {fileID: 23591641372628440}
   - component: {fileID: 65467759190671306}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Furnace_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6671,7 +6671,7 @@ GameObject:
   - component: {fileID: 4389747293716784}
   - component: {fileID: 33421541706783696}
   - component: {fileID: 23749500025024850}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RopeA_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6859,7 +6859,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4142577032525760}
   - component: {fileID: 33510121681833558}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlagA_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7049,7 +7049,7 @@ GameObject:
   - component: {fileID: 4062100304255770}
   - component: {fileID: 33626121217174364}
   - component: {fileID: 23427682907044620}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SewerB_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7117,7 +7117,7 @@ GameObject:
   - component: {fileID: 4491199979973370}
   - component: {fileID: 33619857421033034}
   - component: {fileID: 23679295711012626}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ColumnB_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7255,7 +7255,7 @@ GameObject:
   - component: {fileID: 33964643520959786}
   - component: {fileID: 23986460182026582}
   - component: {fileID: 65226285802668120}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BarrelB_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7549,7 +7549,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4987220818383764}
   - component: {fileID: 33768774806663220}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlagA_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7583,7 +7583,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4924663787783788}
   - component: {fileID: 33826224675550662}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlagA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7667,7 +7667,7 @@ GameObject:
   - component: {fileID: 4198337832685836}
   - component: {fileID: 33808182180871194}
   - component: {fileID: 23760090627206072}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SewerB_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7824,7 +7824,7 @@ GameObject:
   - component: {fileID: 4040362165541748}
   - component: {fileID: 108418387998970314}
   - component: {fileID: 122827394260640336}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7952,7 +7952,7 @@ GameObject:
   - component: {fileID: 23650951347460206}
   - component: {fileID: 65058069375461650}
   - component: {fileID: 64969666475094014}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Support_A_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7969,7 +7969,7 @@ GameObject:
   - component: {fileID: 4732682443710240}
   - component: {fileID: 33844434949894158}
   - component: {fileID: 23576879887781624}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arch_A_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8040,7 +8040,7 @@ GameObject:
   - component: {fileID: 4719727971597542}
   - component: {fileID: 198490259869712220}
   - component: {fileID: 199620577167659588}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Halo Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8375,7 +8375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4651727313188622}
   - component: {fileID: 65873004865549114}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Flag_Collider_pole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8588,7 +8588,7 @@ GameObject:
   - component: {fileID: 4097514994637770}
   - component: {fileID: 33692942458371900}
   - component: {fileID: 23249778495023716}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VesselC_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8834,7 +8834,7 @@ GameObject:
   - component: {fileID: 33597279097289440}
   - component: {fileID: 23850563901922464}
   - component: {fileID: 65730916224705452}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CrateB_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8960,7 +8960,7 @@ GameObject:
   - component: {fileID: 4128013558841228}
   - component: {fileID: 33690425774603998}
   - component: {fileID: 23567069306954968}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VesselC_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9300,7 +9300,7 @@ GameObject:
   - component: {fileID: 33594585331518360}
   - component: {fileID: 23802129525676302}
   - component: {fileID: 65981475276173098}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VesselA_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
