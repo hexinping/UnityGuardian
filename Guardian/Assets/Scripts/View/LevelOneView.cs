@@ -79,8 +79,9 @@ public class LevelOneView : BaseView {
 	void Start () {
         base.Start();
         _scene = initScene("Module_02_LevelOne");
-
-        StartCoroutine("initOtherScene");
+        initScene("Module_03_LevelTwo");
+        initScene("Module_01_LevelThree");
+        //StartCoroutine("initOtherScene");
         _mainCamera.transform.position = new Vector3(76.9f, -8.8f, -41.3f);
         //_mainCamera.transform.eulerAngles = (new Vector3(10.9f, 180.0f, 0.0f));
         
@@ -99,9 +100,10 @@ public class LevelOneView : BaseView {
   
 	}
 
+
     IEnumerator initOtherScene()
     {
-        yield return new WaitForSeconds(1.0f);
+        //yield return new WaitForSeconds(5.0f);
         string name = "Module_03_LevelTwo";
         string path = "Prefabs/" + name;
         ResourceRequest rr = Resources.LoadAsync<GameObject>(path);
@@ -109,7 +111,7 @@ public class LevelOneView : BaseView {
         _sceneRight = Instantiate(rr.asset) as GameObject;
         _sceneRight.name = name;
         _sceneRight.transform.parent = _sceneBgNode.transform;
-        _sceneRight.SetActive(false);
+        //_sceneRight.SetActive(false);
 
         name = "Module_01_LevelThree";
         path = "Prefabs/" + name;
@@ -120,6 +122,10 @@ public class LevelOneView : BaseView {
         _sceneLeft.name = name;
         _sceneLeft.transform.parent = _sceneBgNode.transform;
         _sceneLeft.SetActive(false);
+
+        //initScene("Module_03_LevelTwo");
+        //initScene("Module_01_LevelThree");
+
 
     }
 
@@ -186,29 +192,29 @@ public class LevelOneView : BaseView {
     }
     IEnumerator createEnimys()
     {
-        yield return new WaitForSeconds(1.0f);
-        //EnimyEnitity warriorEnimy = new EnimyEnitity();
-        //setRootObjViwePlayerGame(warriorEnimy);
+        yield return new WaitForSeconds(2.0f);
+        EnimyEnitity warriorEnimy = new EnimyEnitity();
+        setRootObjViwePlayerGame(warriorEnimy);
 
-        //WarriorPurpleEnimyEnitity warriorPurpleEnimy = new WarriorPurpleEnimyEnitity();
-        //setRootObjViwePlayerGame(warriorPurpleEnimy);
-        //warriorPurpleEnimy._gameObject.transform.localPosition = _playerEnitity._gameObject.transform.position + new Vector3(5.0f, 0.0f, 2.0f);
+        WarriorPurpleEnimyEnitity warriorPurpleEnimy = new WarriorPurpleEnimyEnitity();
+        setRootObjViwePlayerGame(warriorPurpleEnimy);
+        warriorPurpleEnimy._gameObject.transform.localPosition = _playerEnitity._gameObject.transform.position + new Vector3(5.0f, 0.0f, 2.0f);
 
-        //MageGreenEnimyEnitity mageGreenEnimy = new MageGreenEnimyEnitity();
-        //setRootObjViwePlayerGame(mageGreenEnimy);
-        //mageGreenEnimy._gameObject.transform.localPosition = new Vector3(106f, -13.5f, -42.4f);
+        MageGreenEnimyEnitity mageGreenEnimy = new MageGreenEnimyEnitity();
+        setRootObjViwePlayerGame(mageGreenEnimy);
+        mageGreenEnimy._gameObject.transform.localPosition = new Vector3(106f, -13.5f, -42.4f);
 
-        //MagePurpleEnimyEnitity magePurpleEnimy = new MagePurpleEnimyEnitity();
-        //setRootObjViwePlayerGame(magePurpleEnimy);
-        //magePurpleEnimy._gameObject.transform.localPosition = new Vector3(67f, -13.5f, -42.7f);
+        MagePurpleEnimyEnitity magePurpleEnimy = new MagePurpleEnimyEnitity();
+        setRootObjViwePlayerGame(magePurpleEnimy);
+        magePurpleEnimy._gameObject.transform.localPosition = new Vector3(67f, -13.5f, -42.7f);
 
-        //ArcherEnimyEnitity archerGreenEnimy = new ArcherEnimyEnitity();
-        //setRootObjViwePlayerGame(archerGreenEnimy);
-        //archerGreenEnimy._gameObject.transform.localPosition = new Vector3(91f, -13.5f, -41.6f);
+        ArcherEnimyEnitity archerGreenEnimy = new ArcherEnimyEnitity();
+        setRootObjViwePlayerGame(archerGreenEnimy);
+        archerGreenEnimy._gameObject.transform.localPosition = new Vector3(91f, -13.5f, -41.6f);
 
-        //ArcherEnimyEnitity archerGreenEnimy1 = new ArcherEnimyEnitity();
-        //setRootObjViwePlayerGame(archerGreenEnimy1);
-        //archerGreenEnimy1._gameObject.transform.localPosition = new Vector3(121f, -13.5f, -44f);
+        ArcherEnimyEnitity archerGreenEnimy1 = new ArcherEnimyEnitity();
+        setRootObjViwePlayerGame(archerGreenEnimy1);
+        archerGreenEnimy1._gameObject.transform.localPosition = new Vector3(121f, -13.5f, -44f);
 
 
         KingEnimyEnitity kingGreenEnimy = new KingEnimyEnitity();
@@ -219,14 +225,14 @@ public class LevelOneView : BaseView {
         setRootObjViwePlayerGame(kingGreenEnimy1);
         kingGreenEnimy1._gameObject.transform.localPosition = new Vector3(33f, -13.5f, -44f);
 
-        //GruntEnimyEnitity gruntGreenEnimy = new GruntEnimyEnitity();
-        //setRootObjViwePlayerGame(gruntGreenEnimy);
-        //gruntGreenEnimy._gameObject.transform.localPosition = new Vector3(82f, -13.5f, -52f);
+        GruntEnimyEnitity gruntGreenEnimy = new GruntEnimyEnitity();
+        setRootObjViwePlayerGame(gruntGreenEnimy);
+        gruntGreenEnimy._gameObject.transform.localPosition = new Vector3(82f, -13.5f, -52f);
 
 
-        //GruntEnimyEnitity gruntGreenEnimy1 = new GruntEnimyEnitity();
-        //setRootObjViwePlayerGame(gruntGreenEnimy1);
-        //gruntGreenEnimy1._gameObject.transform.localPosition = new Vector3(84f, -13.5f, -42f);
+        GruntEnimyEnitity gruntGreenEnimy1 = new GruntEnimyEnitity();
+        setRootObjViwePlayerGame(gruntGreenEnimy1);
+        gruntGreenEnimy1._gameObject.transform.localPosition = new Vector3(84f, -13.5f, -42f);
 
     }
 
