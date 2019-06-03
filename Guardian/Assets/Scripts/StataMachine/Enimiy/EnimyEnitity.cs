@@ -8,9 +8,10 @@ public class EnimyEnitity : BaseEnitity {
 
 
     public EnimyEnitiyMode _mode;
-    private PlayerEnitity _playerEnitiy;
+    public PlayerEnitity playerEnitiy;
 
-    private Transform _selfTransform;
+    public Transform selfTransform;
+    public Transform playerTransform;
     private CharacterController _CC;
 
     //动画帧事件集合
@@ -43,6 +44,7 @@ public class EnimyEnitity : BaseEnitity {
     
     }
 
+
     //不同模型数据不一样，需要重载
     override public void initModeData()
     {
@@ -72,10 +74,11 @@ public class EnimyEnitity : BaseEnitity {
 
     public void setPlayerEnitity(PlayerEnitity enitity)
     {
-        _playerEnitiy = enitity;
+        playerEnitiy = enitity;
+        playerTransform = playerEnitiy._gameObject.transform;
     }
-   
-    void initBufferPoolPrefab()
+
+    virtual public void initBufferPoolPrefab()
     {
         _prefabHurt = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, "ParticleProps/Hero_hurtA", rootView._name, true, false); 
 
@@ -87,13 +90,13 @@ public class EnimyEnitity : BaseEnitity {
         initBufferPoolPrefab();
         if (_rootObj)
         {
-            GameObject playerGameObject = _playerEnitiy._gameObject;
+            GameObject playerGameObject = playerEnitiy._gameObject;
             _gameObject = getGameObject(_mode.file, objName, _rootObj, Vector3.zero);
             _gameObject.transform.localPosition = playerGameObject.transform.position + new Vector3(2.0f, 0.0f, 2.0f);
 
             _gameObject.AddComponent<EnimyEvent>();
             _animator = _gameObject.GetComponent<Animator>();
-            _selfTransform = _gameObject.transform;
+            selfTransform = _gameObject.transform;
             _CC = _gameObject.GetComponent<CharacterController>();
 
         }
@@ -154,7 +157,7 @@ public class EnimyEnitity : BaseEnitity {
         int index = (int)state;
         return _animationNameList[index];
     }
-    public void addDelayCall(EnimyStateEnum state, float speed = 1.0f)
+     public void addDelayCall(EnimyStateEnum state, float speed = 1.0f)
     {
         //拿到对应的动画名称
         int index = (int)state;
@@ -181,11 +184,11 @@ public class EnimyEnitity : BaseEnitity {
         float time = getClipLength(_animator, animatinName, frameIndex);
         float p = GlobalParams.totalTime + time;
         //Debug.Log(GetType() + "注册时间：" + GlobalParams.totalTime + " / 预测回调时间：" + p + " 当前帧数：" + GlobalParams.frameCount + " 等待时间:" + time);
-        DelayCall delayCall = new DelayCall(time, GlobalParams.frameCount, eventCallBack, this, animatinName, false);
+        DelayCall delayCall = new DelayCall(time, GlobalParams.frameCount, eventCallBack, this, animatinName, false, attackTarget._gameObject.transform.position);
         GlobalParams.addDelayCall(delayCall);
     }
 
-    public void eventCallBack(BaseEnitity eniity, string animationName, bool isMove = false)
+    virtual public void eventCallBack(BaseEnitity eniity, string animationName, bool isMove = false, Vector3 targetPos = default(Vector3))
     {
         //Debug.Log(GetType() + "testEvent======成功回调========" + GlobalParams.totalTime + " 当前帧数：" + GlobalParams.frameCount);
 
@@ -218,7 +221,7 @@ public class EnimyEnitity : BaseEnitity {
         if (animationName == GlobalParams.anim_ennimy1_hurt)
         {
             //受伤状态特效
-            targetPos = _selfTransform.position + forwardOffset;
+            targetPos = selfTransform.position + forwardOffset;
             createEffect(targetPos, _prefabHurt, GlobalParams.SkillPool);
         }
     }
@@ -228,7 +231,7 @@ public class EnimyEnitity : BaseEnitity {
     {
         GameObject obj = PoolManager.PoolsArray[poolName].GetGameObjectByPool(prefab,
               pos, Quaternion.identity);
-        obj.transform.rotation = _selfTransform.rotation;
+        obj.transform.rotation = selfTransform.rotation;
 
         return obj;
        
@@ -244,7 +247,7 @@ public class EnimyEnitity : BaseEnitity {
         {
             obj.transform.parent = parentObj.transform;
 
-            obj.transform.rotation = _selfTransform.rotation;
+            obj.transform.rotation = selfTransform.rotation;
         }
         return obj;
 
@@ -294,7 +297,7 @@ public class EnimyEnitity : BaseEnitity {
 
             if (tarObj != null)
             {
-                _selfTransform.rotation = Quaternion.Slerp(_selfTransform.rotation, Quaternion.LookRotation(tarObj.transform.position - _selfTransform.position), 1.0f);
+                selfTransform.rotation = Quaternion.Slerp(selfTransform.rotation, Quaternion.LookRotation(tarObj.transform.position - selfTransform.position), 1.0f);
             }
             
         }
@@ -305,7 +308,7 @@ public class EnimyEnitity : BaseEnitity {
         if (_CC != null)
         {
             float moveSpeed = _mode.moveSpeed;
-            Vector3 v = Vector3.ClampMagnitude(moveTarget._gameObject.transform.position - _selfTransform.position, moveSpeed * Time.deltaTime);
+            Vector3 v = Vector3.ClampMagnitude(moveTarget._gameObject.transform.position - selfTransform.position, moveSpeed * Time.deltaTime);
             _CC.Move(v);
         }
     }
@@ -394,7 +397,7 @@ public class EnimyEnitity : BaseEnitity {
             moveTarget = null;
             float warningDis = getWarningDis();
             float attackDis = getAttackDis();
-            Vector3 enimyPos = _selfTransform.position;
+            Vector3 enimyPos = selfTransform.position;
             float dis = (playerPos - enimyPos).sqrMagnitude;  //距离的平方
             if (dis <= attackDis)  //攻击范围
             {

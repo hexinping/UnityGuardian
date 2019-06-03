@@ -4,7 +4,7 @@ using UnityEngine;
 
 /*定义全局委托*/
 
-public delegate void delayFunc(BaseEnitity enity, string animationName, bool isMove = false);
+public delegate void delayFunc(BaseEnitity enity, string animationName, bool isMove = false, Vector3 targetPos = default(Vector3));
 public delegate void LoadingEndCallback();                                      //定义进度条结束回调函数
 public delegate void HeroAttackInputHandle(PlayerStateEnum stateEnum);          //定义英雄的攻击输入委托
 
@@ -17,8 +17,9 @@ public class DelayCall
     public BaseEnitity _enitity;
     public bool _isMove = false;   //是否移动
     public string _animationName = string.Empty;
+    public Vector3 _targetPos = Vector3.zero;
 
-    public DelayCall(float t, int frameC, delayFunc callBack, BaseEnitity enitity, string animationName = "", bool isMove = false)
+    public DelayCall(float t, int frameC, delayFunc callBack, BaseEnitity enitity, string animationName = "", bool isMove = false, Vector3 targetPos = default(Vector3))
     {
         time = t + GlobalParams.totalTime;
         frameCount = frameC;
@@ -26,6 +27,7 @@ public class DelayCall
         _enitity = enitity;
         _isMove = isMove;
         _animationName = animationName;
+        _targetPos = targetPos;
     }
 };
 
@@ -70,6 +72,7 @@ public static class GlobalParams
     public static string HPPool             = "_HpLayer";
     public static string SkillGroundPool    = "SkillGround";
     public static string SkillPool          = "Skill";
+    public static string BulletPool         = "Bullet";
 
 
     //敌人各种状态名称
@@ -150,8 +153,9 @@ public static class GlobalParams
                     delayFunc call = delay._callBack;
                     bool isMove = delay._isMove;
                     string animationName = delay._animationName;
+                    Vector3 targetPos = delay._targetPos;
                     BaseEnitity enitity = delay._enitity;
-                    call(enitity, animationName, isMove);
+                    call(enitity, animationName, isMove, targetPos);
                     _delayCallList.Remove(delay);
                 }
             }

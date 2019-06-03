@@ -81,6 +81,7 @@ public class HeroMovingByET : MonoBehaviour {
             if (_playerEnitity != null && isRunning)
             {
                 isRunning = false;
+                AudioManager.getInstance().stopPlay("HeroRunStep");
                 //切换成IDLE状态
                 _playerEnitity.changeStateByIndex(PlayerStateEnum.IDLE, 1.0f, true);
             }

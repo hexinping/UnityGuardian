@@ -28,4 +28,9 @@ public class ItweenEvent : MonoBehaviour {
     {
         PoolManager.PoolsArray[GlobalParams.SkillPool].RecoverGameObjectToPools(gameObject);
     }
+
+    public void arrowMoveEndCallBack()
+    {
+        PoolManager.PoolsArray[GlobalParams.BulletPool].RecoverGameObjectToPools(gameObject);
+    }
 }

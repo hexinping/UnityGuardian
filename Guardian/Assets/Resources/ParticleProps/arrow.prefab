@@ -10,9 +10,9 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
-  - component: {fileID: 11400002}
   - component: {fileID: 5400000}
   - component: {fileID: 6500000}
+  - component: {fileID: 114541522426186360}
   m_Layer: 0
   m_Name: arrow
   m_TagString: Untagged
@@ -130,18 +130,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.21435454, y: 1.23, z: 1.5104823}
   m_Center: {x: -0.02, y: 0.02, z: 0.18}
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c41265578fd69b4a8968a470e707e0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 10.31
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -153,3 +141,14 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
+--- !u!114 &114541522426186360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739e676c8f0fdf54b86f7336b5bedab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

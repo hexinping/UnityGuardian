@@ -158,58 +158,36 @@ public class LevelOneView : BaseView {
         
     }
 
+    private void setRootObjViwePlayerGame(EnimyEnitity enitity)
+    {
+        enitity.setRootObj(_sceneRoleNode);
+        enitity.setRootView(this);
+        enitity.setPlayerEnitity(_playerEnitity);
+        enitity.initGameObject();
+        _listEnimy.Add(enitity);
+        _enitityDic.Add(enitity._id, enitity);
+    }
     IEnumerator createEnimys()
     {
         yield return new WaitForSeconds(1.0f);
         EnimyEnitity warriorEnimy = new EnimyEnitity();
-        warriorEnimy.setRootObj(_sceneRoleNode);
-        warriorEnimy.setRootView(this);
-        warriorEnimy.setPlayerEnitity(_playerEnitity);
-        warriorEnimy.initGameObject();
-        _listEnimy.Add(warriorEnimy);
-        _enitityDic.Add(warriorEnimy._id, warriorEnimy);
-
+        setRootObjViwePlayerGame(warriorEnimy);
 
         WarriorPurpleEnimyEnitity warriorPurpleEnimy = new WarriorPurpleEnimyEnitity();
-        warriorPurpleEnimy.setRootObj(_sceneRoleNode);
-        warriorPurpleEnimy.setRootView(this);
-        warriorPurpleEnimy.setPlayerEnitity(_playerEnitity);
-        warriorPurpleEnimy.initGameObject();
-        _listEnimy.Add(warriorPurpleEnimy);
-        _enitityDic.Add(warriorPurpleEnimy._id, warriorPurpleEnimy);
+        setRootObjViwePlayerGame(warriorPurpleEnimy);
         warriorPurpleEnimy._gameObject.transform.localPosition = _playerEnitity._gameObject.transform.position + new Vector3(5.0f, 0.0f, 2.0f);
 
-
         MageGreenEnimyEnitity mageGreenEnimy = new MageGreenEnimyEnitity();
-        mageGreenEnimy.setRootObj(_sceneRoleNode);
-        mageGreenEnimy.setRootView(this);
-        mageGreenEnimy.setPlayerEnitity(_playerEnitity);
-        mageGreenEnimy.initGameObject();
-        _listEnimy.Add(mageGreenEnimy);
-        _enitityDic.Add(mageGreenEnimy._id, mageGreenEnimy);
+        setRootObjViwePlayerGame(mageGreenEnimy);
         mageGreenEnimy._gameObject.transform.localPosition = new Vector3(106f, -13.5f, -42.4f);
 
-
         MagePurpleEnimyEnitity magePurpleEnimy = new MagePurpleEnimyEnitity();
-        magePurpleEnimy.setRootObj(_sceneRoleNode);
-        magePurpleEnimy.setRootView(this);
-        magePurpleEnimy.setPlayerEnitity(_playerEnitity);
-        magePurpleEnimy.initGameObject();
-        _listEnimy.Add(magePurpleEnimy);
-        _enitityDic.Add(magePurpleEnimy._id, magePurpleEnimy);
+        setRootObjViwePlayerGame(magePurpleEnimy);
         magePurpleEnimy._gameObject.transform.localPosition = new Vector3(67f, -13.5f, -42.7f);
 
-
         ArcherEnimyEnitity archerGreenEnimy = new ArcherEnimyEnitity();
-        archerGreenEnimy.setRootObj(_sceneRoleNode);
-        archerGreenEnimy.setRootView(this);
-        archerGreenEnimy.setPlayerEnitity(_playerEnitity);
-        archerGreenEnimy.initGameObject();
-        _listEnimy.Add(archerGreenEnimy);
-        _enitityDic.Add(archerGreenEnimy._id, archerGreenEnimy);
+        setRootObjViwePlayerGame(archerGreenEnimy);
         archerGreenEnimy._gameObject.transform.localPosition = new Vector3(91f, -13.5f, -41.6f);
-
-
 
     }
 

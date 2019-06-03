@@ -306,7 +306,7 @@ public class PlayerEnitity:BaseEnitity  {
                     //技能B C的特效是移动的
                     isMove = true; 
                 }
-                DelayCall delayCall = new DelayCall(time, GlobalParams.frameCount, eventCallBack, this, animatinName, isMove);
+                DelayCall delayCall = new DelayCall(time, GlobalParams.frameCount, eventCallBack, this,animatinName, isMove, attackTarget._gameObject.transform.position);
                 GlobalParams.addDelayCall(delayCall);
             }
         }
@@ -314,7 +314,7 @@ public class PlayerEnitity:BaseEnitity  {
     }
 
     //attackTargetHurt
-    public void eventCallBack(BaseEnitity eniity, string animationName, bool isMove = false)
+    public void eventCallBack(BaseEnitity eniity, string animationName = "", bool isMove = false, Vector3 targetPos = default(Vector3))
     {
         //Debug.Log("testEvent======成功回调========" + GlobalParams.totalTime + " 当前帧数：" + GlobalParams.frameCount);
         float speed = 10.0f; //如果是移动技能，需要计算技能的移动到攻击目标的时间 使用itween插件暂时写死了
@@ -337,7 +337,7 @@ public class PlayerEnitity:BaseEnitity  {
             if (isMove && speed > 0.0f)
             {
                 //获取敌人的位置
-                Vector3 targetPos = attackTarget._gameObject.transform.position;
+                //Vector3 targetPos = attackTarget._gameObject.transform.position;
                 float distance = System.Math.Abs(Vector3.Distance(targetPos, startPos));
                 float moveTime = distance / speed;
                 DelayCall delayCall = new DelayCall(moveTime, GlobalParams.frameCount, eventCallBack, this);
