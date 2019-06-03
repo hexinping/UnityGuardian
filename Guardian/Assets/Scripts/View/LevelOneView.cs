@@ -170,24 +170,46 @@ public class LevelOneView : BaseView {
     IEnumerator createEnimys()
     {
         yield return new WaitForSeconds(1.0f);
-        EnimyEnitity warriorEnimy = new EnimyEnitity();
-        setRootObjViwePlayerGame(warriorEnimy);
+        //EnimyEnitity warriorEnimy = new EnimyEnitity();
+        //setRootObjViwePlayerGame(warriorEnimy);
 
-        WarriorPurpleEnimyEnitity warriorPurpleEnimy = new WarriorPurpleEnimyEnitity();
-        setRootObjViwePlayerGame(warriorPurpleEnimy);
-        warriorPurpleEnimy._gameObject.transform.localPosition = _playerEnitity._gameObject.transform.position + new Vector3(5.0f, 0.0f, 2.0f);
+        //WarriorPurpleEnimyEnitity warriorPurpleEnimy = new WarriorPurpleEnimyEnitity();
+        //setRootObjViwePlayerGame(warriorPurpleEnimy);
+        //warriorPurpleEnimy._gameObject.transform.localPosition = _playerEnitity._gameObject.transform.position + new Vector3(5.0f, 0.0f, 2.0f);
 
-        MageGreenEnimyEnitity mageGreenEnimy = new MageGreenEnimyEnitity();
-        setRootObjViwePlayerGame(mageGreenEnimy);
-        mageGreenEnimy._gameObject.transform.localPosition = new Vector3(106f, -13.5f, -42.4f);
+        //MageGreenEnimyEnitity mageGreenEnimy = new MageGreenEnimyEnitity();
+        //setRootObjViwePlayerGame(mageGreenEnimy);
+        //mageGreenEnimy._gameObject.transform.localPosition = new Vector3(106f, -13.5f, -42.4f);
 
-        MagePurpleEnimyEnitity magePurpleEnimy = new MagePurpleEnimyEnitity();
-        setRootObjViwePlayerGame(magePurpleEnimy);
-        magePurpleEnimy._gameObject.transform.localPosition = new Vector3(67f, -13.5f, -42.7f);
+        //MagePurpleEnimyEnitity magePurpleEnimy = new MagePurpleEnimyEnitity();
+        //setRootObjViwePlayerGame(magePurpleEnimy);
+        //magePurpleEnimy._gameObject.transform.localPosition = new Vector3(67f, -13.5f, -42.7f);
 
-        ArcherEnimyEnitity archerGreenEnimy = new ArcherEnimyEnitity();
-        setRootObjViwePlayerGame(archerGreenEnimy);
-        archerGreenEnimy._gameObject.transform.localPosition = new Vector3(91f, -13.5f, -41.6f);
+        //ArcherEnimyEnitity archerGreenEnimy = new ArcherEnimyEnitity();
+        //setRootObjViwePlayerGame(archerGreenEnimy);
+        //archerGreenEnimy._gameObject.transform.localPosition = new Vector3(91f, -13.5f, -41.6f);
+
+        //ArcherEnimyEnitity archerGreenEnimy1 = new ArcherEnimyEnitity();
+        //setRootObjViwePlayerGame(archerGreenEnimy1);
+        //archerGreenEnimy1._gameObject.transform.localPosition = new Vector3(121f, -13.5f, -44f);
+
+
+        KingEnimyEnitity kingGreenEnimy = new KingEnimyEnitity();
+        setRootObjViwePlayerGame(kingGreenEnimy);
+        kingGreenEnimy._gameObject.transform.localPosition = new Vector3(126f, -13.5f, -44f);
+
+        KingEnimyEnitity kingGreenEnimy1 = new KingEnimyEnitity();
+        setRootObjViwePlayerGame(kingGreenEnimy1);
+        kingGreenEnimy1._gameObject.transform.localPosition = new Vector3(33f, -13.5f, -44f);
+
+        //GruntEnimyEnitity gruntGreenEnimy = new GruntEnimyEnitity();
+        //setRootObjViwePlayerGame(gruntGreenEnimy);
+        //gruntGreenEnimy._gameObject.transform.localPosition = new Vector3(82f, -13.5f, -52f);
+
+
+        //GruntEnimyEnitity gruntGreenEnimy1 = new GruntEnimyEnitity();
+        //setRootObjViwePlayerGame(gruntGreenEnimy1);
+        //gruntGreenEnimy1._gameObject.transform.localPosition = new Vector3(84f, -13.5f, -42f);
 
     }
 

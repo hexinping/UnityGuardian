@@ -105,19 +105,33 @@ public static class GlobalParams
 
 
     //敌人2动作名称 mage
-    public static string anim_ennimy2_idle = "idle";
-    public static string anim_ennimy2_run = "run";
-    public static string anim_ennimy2_death = "death";
-    public static string anim_ennimy2_normalAttack = "attack_slash";
-    public static string anim_ennimy2_hurt = "damage_right";
+    public static string anim_ennimy2_idle          = "idle";
+    public static string anim_ennimy2_run           = "run";
+    public static string anim_ennimy2_death         = "death";
+    public static string anim_ennimy2_normalAttack  = "attack_slash";
+    public static string anim_ennimy2_hurt          = "damage_right";
 
     //敌人3动作名称 archer
-    public static string anim_ennimy3_idle = "idle";
-    public static string anim_ennimy3_run = "run";
-    public static string anim_ennimy3_death = "death";
-    public static string anim_ennimy3_normalAttack = "fire_bow";
-    public static string anim_ennimy3_hurt = "damage_right";
+    public static string anim_ennimy3_idle          = "idle";
+    public static string anim_ennimy3_run           = "run";
+    public static string anim_ennimy3_death         = "death";
+    public static string anim_ennimy3_normalAttack  = "fire_bow";
+    public static string anim_ennimy3_hurt          = "damage_right";
 
+
+    //敌人4动作名称 king
+    public static string anim_ennimy4_idle = "idle";
+    public static string anim_ennimy4_run = "run";
+    public static string anim_ennimy4_death = "death";
+    public static string anim_ennimy4_normalAttack = "attack_stab";
+    public static string anim_ennimy4_hurt = "damage_right";
+
+    //敌人4动作名称 grunt
+    public static string anim_ennimy5_idle = "idle";
+    public static string anim_ennimy5_run = "run";
+    public static string anim_ennimy5_death = "death";
+    public static string anim_ennimy5_normalAttack = "attack_stab";
+    public static string anim_ennimy5_hurt = "damage_right";
 
 
     public static void addDelayCall(DelayCall delayCall)
