@@ -141,11 +141,13 @@ public class PlayerAttackState : PlayerState
         Debug.Log("attack enter=============");
         _enitity.isAttacking = true;
         base.enter(values);
+        _enitity.faceToTarget();
     }
 
     override public void excute(params object[] values)
     {
         //Debug.Log("attack excute=============");
+        _enitity.faceToTarget();
     }
 
 
