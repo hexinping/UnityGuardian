@@ -42,8 +42,6 @@ public class LevelOneView : BaseView {
     private PlayerInfo _playerInfo;
     private Transform _playerTransform;
 
-    private SceneTrigger _triggerLeft;
-    private SceneTrigger _triggerRight;
 
     //敌人相关
     /*
@@ -82,12 +80,6 @@ public class LevelOneView : BaseView {
         base.Start();
         _scene = initScene("Module_02_LevelOne");
 
-
-        GameObject triigerObj = _scene.transform.Find("Trigger").gameObject;
-
-        _triggerLeft = triigerObj.GetComponent<SceneTrigger>();
-        
-
         StartCoroutine("initOtherScene");
         _mainCamera.transform.position = new Vector3(76.9f, -8.8f, -41.3f);
         //_mainCamera.transform.eulerAngles = (new Vector3(10.9f, 180.0f, 0.0f));
@@ -109,14 +101,26 @@ public class LevelOneView : BaseView {
 
     IEnumerator initOtherScene()
     {
-        yield return new WaitForSeconds(2.0f);
-        _sceneRight = initScene("Module_03_LevelTwo");
-        _sceneLeft = initScene("Module_01_LevelThree");
+        yield return new WaitForSeconds(1.0f);
+        string name = "Module_03_LevelTwo";
+        string path = "Prefabs/" + name;
+        ResourceRequest rr = Resources.LoadAsync<GameObject>(path);
+        yield return rr;
+        _sceneRight = Instantiate(rr.asset) as GameObject;
+        _sceneRight.name = name;
+        _sceneRight.transform.parent = _sceneBgNode.transform;
         _sceneRight.SetActive(false);
+
+        name = "Module_01_LevelThree";
+        path = "Prefabs/" + name;
+        rr = Resources.LoadAsync<GameObject>(path);
+        yield return rr;
+
+        _sceneLeft = Instantiate(rr.asset) as GameObject;
+        _sceneLeft.name = name;
+        _sceneLeft.transform.parent = _sceneBgNode.transform;
         _sceneLeft.SetActive(false);
 
-        _triggerLeft.setTargetScene(_sceneLeft);
-    
     }
 
     IEnumerator initSwordsManPlayersMode()
