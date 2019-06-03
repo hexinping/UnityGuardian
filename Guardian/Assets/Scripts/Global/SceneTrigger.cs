@@ -36,31 +36,31 @@ public class SceneTrigger : MonoBehaviour {
     }
 
 
-    void OnTriggerEnter(Collider other)
-    {
+    //void OnTriggerEnter(Collider other)
+    //{
 
-        if (other.tag.Equals("Player"))
-        {
-            if (_showNames != null && _showNames.Count > 0)
-            {
-                for (int i = 0; i < _showNames.Count; i++)
-                {
-                    string name = _showNames[i];
-                    GameObject sceneObj = rootTransform.Find(name).gameObject;
-                    sceneObj.SetActive(true);
-                }
-            }
-            if (_hideNames != null && _hideNames.Count > 0)
-            {
-                for (int i = 0; i < _hideNames.Count; i++)
-                {
-                    string name = _hideNames[i];
-                    GameObject sceneObj = rootTransform.Find(name).gameObject;
-                    sceneObj.SetActive(false);
-                }
-            }
-        }
+    //    if (other.tag.Equals("Player"))
+    //    {
+    //        if (_showNames != null && _showNames.Count > 0)
+    //        {
+    //            for (int i = 0; i < _showNames.Count; i++)
+    //            {
+    //                string name = _showNames[i];
+    //                GameObject sceneObj = rootTransform.Find(name).gameObject;
+    //                sceneObj.SetActive(true);
+    //            }
+    //        }
+    //        if (_hideNames != null && _hideNames.Count > 0)
+    //        {
+    //            for (int i = 0; i < _hideNames.Count; i++)
+    //            {
+    //                string name = _hideNames[i];
+    //                GameObject sceneObj = rootTransform.Find(name).gameObject;
+    //                sceneObj.SetActive(false);
+    //            }
+    //        }
+    //    }
 
-    }
+    //}
 
 }
