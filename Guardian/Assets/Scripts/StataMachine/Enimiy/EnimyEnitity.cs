@@ -29,11 +29,17 @@ public class EnimyEnitity : BaseEnitity {
     public string mainTexturePath = "warrior/skeleton_warrior__variant5";
     public object[] cObjList = new object[] { "armor", "eyes", "helmet", "Skeletonl_base", "shield", "sword" };
 
+
+    //动画状态 传统动画方式
+    private Dictionary<string, AnimationState> _animationStateDict;
+    private Animation _animation;
+
     public EnimyEnitity()
     {
         damageLabelOffsetY = 50.0f;
         _animationEventDict = new Dictionary<string, List<int>>();
         _animationNameList = new List<string>();
+        _animationStateDict = new Dictionary<string, AnimationState>();
 
         skillGround = GameObject.Find("_Manager/_ViewManager/_Scene/SkillGround");
         skillLayer = GameObject.Find("_Manager/_ViewManager/_Scene/Skill");
@@ -127,7 +133,49 @@ public class EnimyEnitity : BaseEnitity {
     }
 
 
-    //返回到一个动作具体某帧的时间
+    public AnimationState getAnimationState(string anmationName)
+    {
+        AnimationState targetState = null;
+        if (_animationStateDict != null && _animationStateDict.ContainsKey(anmationName))
+        {
+            targetState = _animationStateDict[anmationName];
+        }
+        return targetState;
+    }
+
+    //获取某个动作的播放时长 animation方式
+    public float getClipTotalLength(string anmationName, int delayTime = 0)
+    {
+        AnimationState state = getAnimationState(anmationName);
+        if (state != null)
+        {
+            AnimationClip clip = state.clip;
+            float speed = state.speed;
+            float time = clip.length / speed + delayTime;
+            return time;
+        }
+        return 0.0f;
+    }
+
+    //回到一个动作具体某帧的时间 animation方式
+    public float getClipLength(string anmationName, int frameIndex)
+    {
+        AnimationState state = getAnimationState(anmationName);
+        if (state != null)
+        {
+            AnimationClip clip = state.clip;
+            float frameRate = clip.frameRate; //1秒都少帧
+            float frameInterval = 1.0f / frameRate;
+            float speed = state.speed;
+            float time = frameIndex * frameInterval / speed;
+            return time;
+        }
+       
+        return 0.0f;
+    }
+
+
+    //返回到一个动作具体某帧的时间 animator方式
     public  float getClipLength(Animator animator, string clip, int frameIndex)
     {
         if (null == animator || string.IsNullOrEmpty(clip) || null == animator.runtimeAnimatorController)
@@ -153,7 +201,7 @@ public class EnimyEnitity : BaseEnitity {
         return 0F;
     }
 
-    //返回某个动作总播放时间
+    //返回某个动作总播放时间 animator方式
     public float getClipTotalLength(Animator animator, string clip, int intevalFrameCount)
     {
         if (null == animator || string.IsNullOrEmpty(clip) || null == animator.runtimeAnimatorController)
@@ -171,7 +219,7 @@ public class EnimyEnitity : BaseEnitity {
                 float frameRate = tAnimationClip.frameRate; //1秒都少帧
                 float frameInterval = 1.0f / frameRate;
                 float intevalTime = frameInterval * intevalFrameCount; //间隔时间
-                float time = tAnimationClip.length / speed + intevalTime / speed;
+                float time = tAnimationClip.length / speed + intevalTime;
                 return time;
 
 
