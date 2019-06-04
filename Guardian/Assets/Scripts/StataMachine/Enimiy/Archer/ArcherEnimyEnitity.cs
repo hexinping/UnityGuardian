@@ -89,6 +89,8 @@ public class ArcherEnimyEnitity : EnimyEnitity
                 //attackTarget.updateHP();
                 Vector3 startPos = selfTransform.position;
                 startPos.y += 1.0f;
+
+                targetPos = attackTarget._gameObject.transform.position;
                 targetPos.y += 1.0f;
 
   
