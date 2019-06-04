@@ -53,8 +53,11 @@ public class StateMachine  {
         _previousState = _curState;
 
         //退出当前状态
-        _curState.exit(values);
-
+        if (_curState != null)
+        {
+            _curState.exit(values);
+        }
+            
         //设置当前状态
         _curState = state;
 

@@ -248,7 +248,7 @@ public class EnimyNormalAttackState : EnimyState
         selfTransform = _enitity._gameObject.transform;
         
         EnimyEnitity e = (EnimyEnitity)_enitity;
-        e.addDelayCall(stateIndex);  //伤害事件 9-0+1
+        e.addDelayCall(stateIndex);  //伤害事件 9-0+1  //会设置播放速度
 
         if (e.attackSoundFile != string.Empty)
         {
@@ -257,9 +257,9 @@ public class EnimyNormalAttackState : EnimyState
         e._animator.Play(GlobalParams.state_enimyAttack, 0, 0.0f); //播放动画
         
         //下一次播放时间
-        int intevalFrameCount = 0; //攻击时间间隔 2帧时间
+        float intevalTime = 0.0f; //攻击时间间隔
         string animName = e.getAnimationName(stateIndex);
-        float time = e.getClipTotalLength(e._animator, animName,intevalFrameCount);
+        float time = e.getClipTotalLength(e._animator, animName, intevalTime);
         float p = GlobalParams.totalTime + time;
         endPlayTime = p;
         playTotalTime = time;

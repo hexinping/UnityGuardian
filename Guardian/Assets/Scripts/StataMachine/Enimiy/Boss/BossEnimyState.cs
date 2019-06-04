@@ -37,20 +37,22 @@ public class BossEnimyState : EnimyState
     override public void enter(params object[] values)
     {
         //切换动作
-        //string animatinName = (string)values[0];
-        //float speed = (float)values[1];
-        //bool isLoop = (bool)values[2];
-        //PlayerEnitity enitity = (PlayerEnitity)_enitity;
-        //enitity.changeAniamtion(animatinName, speed, isLoop);
+        string animatinName = (string)values[0];
+        float speed = (float)values[1];
+        bool isLoop = (bool)values[2];
+        BossEnimyEnitity enitity = (BossEnimyEnitity)_enitity;
+        enitity.changeAniamtion(animatinName, speed, isLoop);
 
-        ////注册帧事件
-        //enitity.addDelayCall(animatinName);
+        //注册帧事件
+        enitity.addDelayCall(stateIndex);
     }
 
     override public void exit(params object[] values)
     {
 
-    } 
+    }
+
+    
 }
 
 
@@ -58,6 +60,13 @@ public class BossEnimyState : EnimyState
 //Boss敌人Idle状态
 public class BossEnimyIdleState : BossEnimyState
 {
+    private float _endPlayTime = 0.0f;
+    private float _playTotalTime = 0.0f;
+    public static int commbexIndex = 1;
+
+    private float _speed = 1.0f;
+    private bool _isLoop = false;
+    
 
     public BossEnimyIdleState(BaseEnitity enity)
         : base(enity)
@@ -66,15 +75,37 @@ public class BossEnimyIdleState : BossEnimyState
 
     }
 
+    void changeCommbexAnimation(BossEnimyEnitity e, int commbexIndex)
+    {
+        string animatinName = e.getAnimationName(stateIndex, commbexIndex);
+        e.changeAniamtion(animatinName, _speed, _isLoop);
+  
+        //下一次播放时间
+        float delayTime = 0.0f;
+        float time = e.getClipTotalLength(animatinName, delayTime);
+        float p = GlobalParams.totalTime + time;
+        _endPlayTime = p;
+        _playTotalTime = time;
+    }
+
     override public void enter(params object[] values)
     {
         Debug.Log("BossEnimyIdleState enter=============");
-
+        BossEnimyEnitity enitity = (BossEnimyEnitity)_enitity;
+        _speed = (float)values[1];
+        _isLoop = (bool)values[2];
+        changeCommbexAnimation(enitity, commbexIndex);
+        commbexIndex = commbexIndex % 2 + 1;
     }
 
     override public void excute(params object[] values)
     {
-       
+        if (GlobalParams.totalTime >= _endPlayTime)
+        {
+            BossEnimyEnitity enitity = (BossEnimyEnitity)_enitity;
+            changeCommbexAnimation(enitity, commbexIndex);
+            commbexIndex = commbexIndex % 2 + 1;
+        }
     }
 
 
@@ -101,7 +132,7 @@ public class BossEnimyRunState : BossEnimyState
     override public void enter(params object[] values)
     {
         Debug.Log("BossEnimyRunState enter=============");
-
+        base.enter(values);
     }
 
     override public void excute(params object[] values)
@@ -131,7 +162,7 @@ public class BossEnimyDeadState : BossEnimyState
     override public void enter(params object[] values)
     {
         Debug.Log("BossEnimyDeadState enter=============");
-
+        base.enter(values);
     }
 
     override public void excute(params object[] values)
@@ -161,7 +192,7 @@ public class BossEnimyNormalAttackState : BossEnimyState
     override public void enter(params object[] values)
     {
         Debug.Log("BossEnimyNormalAttackState enter=============");
-
+        base.enter(values);
     }
 
     override public void excute(params object[] values)
@@ -191,7 +222,7 @@ public class BossEnimyHurtState : BossEnimyState
     override public void enter(params object[] values)
     {
         Debug.Log("BossEnimyHurtState enter=============");
-
+        base.enter(values);
     }
 
     override public void excute(params object[] values)
@@ -221,7 +252,7 @@ public class BossEnimySkillState : BossEnimyState
     override public void enter(params object[] values)
     {
         Debug.Log("BossEnimySkillState enter=============");
-
+        base.enter(values);
     }
 
     override public void excute(params object[] values)

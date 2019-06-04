@@ -37,9 +37,9 @@ public class KingEnimyNormalAttackState : EnimyState
         }
 
         //下一次播放时间
-        int intevalFrameCount = 0; //攻击时间间隔 2帧时间
+        float intevalTime = 0.0f; //攻击时间间隔 2帧时间
         string animName = e.getAnimationName(stateIndex, commbexIndex);
-        float time = e.getClipTotalLength(e._animator, animName, intevalFrameCount);
+        float time = e.getClipTotalLength(e._animator, animName, intevalTime);
         float p = GlobalParams.totalTime + time;
         endPlayTime = p;
         playTotalTime = time;

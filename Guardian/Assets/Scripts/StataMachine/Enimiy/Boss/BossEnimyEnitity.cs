@@ -15,7 +15,11 @@ public class BossEnimyEnitity : EnimyEnitity
         _mode.file = _mode.filePre + _mode.type + "/" + objName;
         intDatas();
     }
-
+    override public void initGameObject()
+    {
+        base.initGameObject();
+        saveAnimationState();
+    }
 
     override public void addBaseState()
     {
@@ -36,7 +40,7 @@ public class BossEnimyEnitity : EnimyEnitity
         _stateList.Add(enimySkillState);
 
         //状态机设置
-        _stateMachine.setCurrentState(enimyIdleState);
+        _stateMachine.changeState(_stateList[0], true, _animationNameList[0], 1.0f, true);
     }
 
 
@@ -75,6 +79,15 @@ public class BossEnimyEnitity : EnimyEnitity
         _animationNameList.Add(GlobalParams.anim_ennimy6_idle2);
     }
 
+    //override public void changeStateByIndex(EnimyStateEnum enimyStateEm, bool isCheckSameState = true, float tSpeed = 1.0f, bool tIsLoop = false)
+    //{
+    //    int stateIndex = (int)enimyStateEm;
+    //    BaseState state = _stateList[stateIndex];
+    //    string name = getAnimationName(enimyStateEm);
+    //    changeState(state, isCheckSameState, name, tSpeed, tIsLoop);
+
+    //}
+
     override public string getAnimationName(EnimyStateEnum state, int commbex = 0)
     {
         int index = (int)state;
@@ -105,4 +118,57 @@ public class BossEnimyEnitity : EnimyEnitity
         }
         return _animationNameList[index];
     }
+
+    void saveAnimationState()
+    {
+        if (_animation != null)
+        {
+            foreach (AnimationState state in _animation)
+            {
+                _animationStateDict[state.name] = state;
+            }
+        }
+       
+    }
+    public void changeAniamtion(string animatinName, float speed = 1.0f, bool isLoop = false)
+    {
+
+        /*
+         * AnimationClip:
+                frameRate  帧率:1秒多少帧
+         *      length     长度（秒）
+         *      AddEvent 添加帧事件
+         *      
+         * 
+         * AnimationState：
+         *      clip
+         *      length 长度（秒）
+         *      speed  播放倍速
+         *      time  好像可以回放 。。。不确定
+         
+         */
+        if (_animation != null)
+        {
+            //_animation.CrossFade(animatinName);
+            _animation.Stop();
+            AnimationState state = getAnimationState(animatinName);
+            if (state != null)
+            {
+                state.speed = speed;
+                AnimationClip clip = state.clip;
+
+                if (isLoop)
+                {
+                    //循环播放
+                    _animation.wrapMode = WrapMode.Loop;
+                }
+                else
+                {
+                    _animation.wrapMode = WrapMode.Once;
+                }
+                _animation.CrossFade(animatinName);
+            }
+        }
+    }
+
 }

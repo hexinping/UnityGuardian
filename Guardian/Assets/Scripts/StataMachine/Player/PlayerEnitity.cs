@@ -9,7 +9,7 @@ public class PlayerEnitity:BaseEnitity  {
 
     public PlayerEnitityMode _mode;
     
-    private List<string> _animationNameList;
+ 
     private List<string> _comobAnimationNameList; //组合动作
 
     private Animation _animation;
@@ -30,9 +30,6 @@ public class PlayerEnitity:BaseEnitity  {
 
     private HpFollow _hpFollow;
 
-    //动画帧事件集合
-    private Dictionary<string, List<int>> _animationEventDict;
-
     //动画状态
     private Dictionary<string, AnimationState> _animationStateDict;
 
@@ -41,13 +38,9 @@ public class PlayerEnitity:BaseEnitity  {
 
     public PlayerEnitity()
     {
-        _animationNameList = new List<string>();
-        _comobAnimationNameList = new List<string>();
-        _animationEventDict = new Dictionary<string, List<int>>();
+       
         _animationStateDict = new Dictionary<string, AnimationState>();
-
         damageLabelOffsetY = 150.0f;
-
         skillGround = GameObject.Find("_Manager/_ViewManager/_Scene/SkillGround");
         skillLayer = GameObject.Find("_Manager/_ViewManager/_Scene/Skill");
         
@@ -74,7 +67,7 @@ public class PlayerEnitity:BaseEnitity  {
         _stateList.Add(playerAttackState);
 
         //状态机设置
-        _stateMachine.setCurrentState(playerIdleState);
+        _stateMachine.changeState(playerIdleState, true, _animationNameList[0], 1.0f, true);
     }
 
 
@@ -141,11 +134,10 @@ public class PlayerEnitity:BaseEnitity  {
             createEffectNoPool("ParticleProps/EnemySpawnEff", _gameObject.transform.position, skillGround);
         }
 
-        addAinimainEvents();
+       
         //动作添加
         if (_gameObject != null)
         {
-            addAinimainClips();
             Animation animation = _gameObject.GetComponent<Animation>();
             if(animation == null)
             {
@@ -184,7 +176,7 @@ public class PlayerEnitity:BaseEnitity  {
         }
     }
 
-    void addAinimainClips()
+    override public void addAnimationNames()
     {
         _animationNameList.Add(GlobalParams.anim_player_idle);
         _animationNameList.Add(GlobalParams.anim_player_run);
@@ -197,12 +189,16 @@ public class PlayerEnitity:BaseEnitity  {
         _animationNameList.Add(GlobalParams.anim_player_skillD);
 
         //普通攻击组合动作
+        if (_comobAnimationNameList == null)
+        {
+            _comobAnimationNameList = new List<string>();
+        }
         _comobAnimationNameList.Add(GlobalParams.anim_player_normalAtk1);
         _comobAnimationNameList.Add(GlobalParams.anim_player_normalAtk2);
         _comobAnimationNameList.Add(GlobalParams.anim_player_normalAtk3);
     }
 
-    void addAinimainEvents()
+    override public void addAinimainEvents()
     {
         //技能帧事件
         List<int> attack1List = new List<int>();

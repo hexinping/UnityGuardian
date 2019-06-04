@@ -14,12 +14,6 @@ public class EnimyEnitity : BaseEnitity {
     public Transform playerTransform;
     private CharacterController _CC;
 
-    //动画帧事件集合
-    public Dictionary<string, List<int>> _animationEventDict;
-
-    //动画剪辑名称
-    public List<string> _animationNameList;
-
     public GameObject skillGround;
     public GameObject skillLayer;
 
@@ -31,16 +25,14 @@ public class EnimyEnitity : BaseEnitity {
 
 
     //动画状态 传统动画方式
-    private Dictionary<string, AnimationState> _animationStateDict;
-    private Animation _animation;
+    public Dictionary<string, AnimationState> _animationStateDict;
+    public Animation _animation;
 
     public string attackSoundFile = string.Empty;
 
     public EnimyEnitity()
     {
         damageLabelOffsetY = 50.0f;
-        _animationEventDict = new Dictionary<string, List<int>>();
-        _animationNameList = new List<string>();
         _animationStateDict = new Dictionary<string, AnimationState>();
 
         skillGround = GameObject.Find("_Manager/_ViewManager/_Scene/SkillGround");
@@ -77,7 +69,7 @@ public class EnimyEnitity : BaseEnitity {
         _stateList.Add(enimyHurtState);
 
         //状态机设置
-        _stateMachine.setCurrentState(enimyIdleState);
+        _stateMachine.changeState(enimyIdleState);
     }
 
     public void setPlayerEnitity(PlayerEnitity enitity)
@@ -93,8 +85,6 @@ public class EnimyEnitity : BaseEnitity {
     }
     override public void initGameObject()
     {
-        addAinimainEvents();
-        addAnimationNames();
         initBufferPoolPrefab();
         if (_rootObj)
         {
@@ -106,12 +96,13 @@ public class EnimyEnitity : BaseEnitity {
             _animator = _gameObject.GetComponent<Animator>();
             selfTransform = _gameObject.transform;
             _CC = _gameObject.GetComponent<CharacterController>();
+            _animation = _gameObject.GetComponent<Animation>();
 
         }
     }
 
     //不同模型的动画帧事件不一样 必须重载
-    virtual public void addAinimainEvents()
+    override public void addAinimainEvents()
     {
         
         List<int> attack1List = new List<int>();
@@ -124,7 +115,7 @@ public class EnimyEnitity : BaseEnitity {
     }
 
     //不同模型的动画名称不一样 必须重载
-    virtual public void addAnimationNames()
+    override public void addAnimationNames()
     { 
         //这里一定要根据状态的枚举值依次添加
         _animationNameList.Add(GlobalParams.anim_ennimy1_idle);
@@ -146,7 +137,7 @@ public class EnimyEnitity : BaseEnitity {
     }
 
     //获取某个动作的播放时长 animation方式
-    public float getClipTotalLength(string anmationName, int delayTime = 0)
+    public float getClipTotalLength(string anmationName, float delayTime = 0.0f)
     {
         AnimationState state = getAnimationState(anmationName);
         if (state != null)
@@ -204,7 +195,7 @@ public class EnimyEnitity : BaseEnitity {
     }
 
     //返回某个动作总播放时间 animator方式
-    public float getClipTotalLength(Animator animator, string clip, int intevalFrameCount)
+    public float getClipTotalLength(Animator animator, string clip, float delayTime = 0.0f)
     {
         if (null == animator || string.IsNullOrEmpty(clip) || null == animator.runtimeAnimatorController)
             return 0;
@@ -218,10 +209,7 @@ public class EnimyEnitity : BaseEnitity {
             if (null != tAnimationClip && tAnimationClip.name == clip)
             {
                 float speed = animator.speed;
-                float frameRate = tAnimationClip.frameRate; //1秒都少帧
-                float frameInterval = 1.0f / frameRate;
-                float intevalTime = frameInterval * intevalFrameCount; //间隔时间
-                float time = tAnimationClip.length / speed + intevalTime;
+                float time = tAnimationClip.length / speed + delayTime;
                 return time;
 
 
@@ -342,14 +330,12 @@ public class EnimyEnitity : BaseEnitity {
 
     }
 
-    public void changeStateByIndex(EnimyStateEnum enimyStateEm, bool isCheckSameState = true)
+    virtual public void changeStateByIndex(EnimyStateEnum enimyStateEm, bool isCheckSameState = true, float tSpeed = 1.0f, bool tIsLoop = false)
     {
         int stateIndex = (int)enimyStateEm;
         BaseState state = _stateList[stateIndex];
-        //string name = getAnimationName(playerstateEm);
-
-        //changeState(state, true, name, tSpeed, tIsLoop);
-        changeState(state, isCheckSameState);
+        string name = getAnimationName(enimyStateEm);
+        changeState(state, isCheckSameState, name, tSpeed, tIsLoop);
 
     }
 

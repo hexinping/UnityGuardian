@@ -238,7 +238,7 @@ public class LevelOneView : BaseView {
         BossEnimyEnitity boss = new BossEnimyEnitity();
         setRootObjViwePlayerGame(boss);
         boss._gameObject.transform.localPosition = new Vector3(83f, -13.5f, -45.4f);
-        boss._gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+   
 
     }
 

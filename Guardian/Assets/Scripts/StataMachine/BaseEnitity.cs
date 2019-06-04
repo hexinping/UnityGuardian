@@ -50,18 +50,31 @@ public class BaseEnitity  {
     public float updateTickInterval = 0.2f; //刷新间隔 0.2秒
 
 
+    //动画名称集合
+    public List<string> _animationNameList;
+
+    //动画帧事件集合
+    public Dictionary<string, List<int>> _animationEventDict;
+
     public BaseEnitity()
     {
         _id = GlobalParams.gameObjId;
         GlobalParams.gameObjId++;
         updateTick = GlobalParams.totalTime; //记录刷新的时间
+
+        //模型数据
         initModeData();
+
+        //动画数据
+        _animationNameList = new List<string>();
+        _animationEventDict = new Dictionary<string, List<int>>();
+        addAinimainEvents();
+        addAnimationNames();
 
         //创建状态机
         StateMachine stateMachine = new StateMachine(this);
         setStateMachine(stateMachine);
-
-        _stateList = new List<BaseState>();
+        _stateList = new List<BaseState>();   
         addBaseState();
 
         //注册消息机制
@@ -82,6 +95,19 @@ public class BaseEnitity  {
     { 
     
     }
+
+    virtual public void addAinimainEvents()
+    {
+
+    
+    }
+
+    //不同模型的动画名称不一样 必须重载
+    virtual public void addAnimationNames()
+    {
+       
+    }
+
 
 
     public void setRootObj(GameObject rootObj)
