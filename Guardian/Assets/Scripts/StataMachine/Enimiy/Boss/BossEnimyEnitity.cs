@@ -21,6 +21,20 @@ public class BossEnimyEnitity : EnimyEnitity
         saveAnimationState();
     }
 
+    override public void intDatas()
+    {
+        _mode.maxAtk = 20;
+        _mode.atk = _mode.maxAtk;
+        _mode.maxHp = 100.0f;
+        _mode.hp = _mode.maxHp;
+
+        _mode.warningDisSquare = 81;
+        _mode.attackDisSquare = 25;
+
+        _mode.moveSpeed = 5.0f;
+
+    }
+
     override public void addBaseState()
     {
 
@@ -79,14 +93,6 @@ public class BossEnimyEnitity : EnimyEnitity
         _animationNameList.Add(GlobalParams.anim_ennimy6_idle2);
     }
 
-    //override public void changeStateByIndex(EnimyStateEnum enimyStateEm, bool isCheckSameState = true, float tSpeed = 1.0f, bool tIsLoop = false)
-    //{
-    //    int stateIndex = (int)enimyStateEm;
-    //    BaseState state = _stateList[stateIndex];
-    //    string name = getAnimationName(enimyStateEm);
-    //    changeState(state, isCheckSameState, name, tSpeed, tIsLoop);
-
-    //}
 
     override public string getAnimationName(EnimyStateEnum state, int commbex = 0)
     {
@@ -169,6 +175,71 @@ public class BossEnimyEnitity : EnimyEnitity
                 _animation.CrossFade(animatinName);
             }
         }
+    }
+
+
+    override public void addDelayCall(EnimyStateEnum state, float speed = 1.0f, int commbex = 0)
+    {
+        //拿到对应的动画名称
+        int index = (int)state;
+        string animationName = getAnimationName(state, commbex);
+        if (animationName != null)
+        {
+            //拿到对应的动画帧事件
+            if (_animationEventDict.ContainsKey(animationName))
+            {
+                List<int> eventList = _animationEventDict[animationName];
+                for (int i = 0; i < eventList.Count; i++)
+                {
+                    int frameIndex = eventList[i];
+                    realAddDelayCall(animationName, frameIndex, speed);
+                }
+            }
+
+        }
+    }
+
+    override public void realAddDelayCall(string animatinName, int frameIndex, float speed = 1.0f)
+    {
+       
+        float time = getClipLength(animatinName, frameIndex);
+        float p = GlobalParams.totalTime + time;
+        //Debug.Log(GetType() + "注册时间：" + GlobalParams.totalTime + " / 预测回调时间：" + p + " 当前帧数：" + GlobalParams.frameCount + " 等待时间:" + time);
+        if (attackTarget != null)
+        {
+            DelayCall delayCall = new DelayCall(time, GlobalParams.frameCount, eventCallBack, this, animatinName, false, attackTarget._gameObject.transform.position);
+            GlobalParams.addDelayCall(delayCall);
+        }
+        else
+        {
+            DelayCall delayCall = new DelayCall(time, GlobalParams.frameCount, eventCallBack, this, animatinName, false);
+            GlobalParams.addDelayCall(delayCall);
+        }
+
+    }
+
+
+    override public void eventCallBack(BaseEnitity eniity, string animationName, bool isMove = false, Vector3 targetPos = default(Vector3))
+    {
+        //Debug.Log(GetType() + "testEvent======成功回调========" + GlobalParams.totalTime + " 当前帧数：" + GlobalParams.frameCount);
+
+        if (isHurt)
+        {
+            //受伤事件
+            isHurt = false;
+        }
+        else if (isAttacking)
+        {
+
+            //攻击伤害事件
+            if (attackTarget != null)
+            {
+
+                attackTargetHurt(attackTarget);
+                attackTarget.updateHP();
+            }
+        }
+ 
     }
 
 }

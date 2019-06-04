@@ -41,7 +41,7 @@ public class BossEnimyState : EnimyState
         float speed = (float)values[1];
         bool isLoop = (bool)values[2];
         BossEnimyEnitity enitity = (BossEnimyEnitity)_enitity;
-        enitity.changeAniamtion(animatinName, speed, isLoop);
+        enitity.changeAniamtion(animatinName, speed, isLoop); //设置了速度
 
         //注册帧事件
         enitity.addDelayCall(stateIndex);
@@ -86,32 +86,68 @@ public class BossEnimyIdleState : BossEnimyState
         float p = GlobalParams.totalTime + time;
         _endPlayTime = p;
         _playTotalTime = time;
+        
     }
 
     override public void enter(params object[] values)
     {
         Debug.Log("BossEnimyIdleState enter=============");
+
+        _enitity.isMove = false;
+        _enitity.isAttacking = false;
+        _enitity.isDead = false;
+        _enitity.isHurt = false;
+
         BossEnimyEnitity enitity = (BossEnimyEnitity)_enitity;
         _speed = (float)values[1];
         _isLoop = (bool)values[2];
         changeCommbexAnimation(enitity, commbexIndex);
+        //组合动画下标
         commbexIndex = commbexIndex % 2 + 1;
     }
 
     override public void excute(params object[] values)
     {
-        if (GlobalParams.totalTime >= _endPlayTime)
+
+        BossEnimyEnitity e = (BossEnimyEnitity)_enitity;
+        if (e.isMove)
         {
-            BossEnimyEnitity enitity = (BossEnimyEnitity)_enitity;
-            changeCommbexAnimation(enitity, commbexIndex);
-            commbexIndex = commbexIndex % 2 + 1;
+            e.changeStateByIndex(EnimyStateEnum.RUN, true, 1.0f, true);
         }
+        else if(e.isAttacking)
+        {
+            e.changeStateByIndex(EnimyStateEnum.NORMALATTACK);
+        }
+        else if(e.isHurt)
+        {
+            e.changeStateByIndex(EnimyStateEnum.HURT);
+        }
+        else if (e.isDead)
+        {
+            e.changeStateByIndex(EnimyStateEnum.DEAD);
+        }
+        else
+        {
+            if (GlobalParams.totalTime >= _endPlayTime)
+            {
+                BossEnimyEnitity enitity = (BossEnimyEnitity)_enitity;
+                changeCommbexAnimation(enitity, commbexIndex);
+                //组合动画下标
+                commbexIndex = commbexIndex % 2 + 1;
+            }
+        }
+      
     }
 
 
     override public void exit(params object[] values)
     {
         Debug.Log("BossEnimyIdleState exit=============");
+        _endPlayTime = 0.0f;
+        _playTotalTime = 0.0f;
+        commbexIndex = 1;
+        _speed = 1.0f;
+        _isLoop = false;
     }
 
 }
@@ -133,17 +169,41 @@ public class BossEnimyRunState : BossEnimyState
     {
         Debug.Log("BossEnimyRunState enter=============");
         base.enter(values);
+        _enitity.isMove = true;
     }
 
     override public void excute(params object[] values)
     {
+        BossEnimyEnitity e = (BossEnimyEnitity)_enitity;
+        if (!e.isMove)
+        {
+            //切换到移动状态
+            e.changeStateByIndex(EnimyStateEnum.IDLE, true, 1.0f, true);
+        }
+        else if (e.isHurt)
+        {
+            e.changeStateByIndex(EnimyStateEnum.HURT);
+        }
+        else if (e.isDead)
+        {
+            e.changeStateByIndex(EnimyStateEnum.DEAD);
+        }
+        else
+        {
+            if (_enitity.moveTarget != null)
+            {
+                e.faceToTarget();
+                e.updateMove();
+            }
 
+        }
     }
 
 
     override public void exit(params object[] values)
     {
         Debug.Log("BossEnimyRunState exit=============");
+        _enitity.isMove = false;
     }
 
 }
@@ -163,6 +223,7 @@ public class BossEnimyDeadState : BossEnimyState
     {
         Debug.Log("BossEnimyDeadState enter=============");
         base.enter(values);
+        _enitity.isDead = true;
     }
 
     override public void excute(params object[] values)
@@ -174,6 +235,7 @@ public class BossEnimyDeadState : BossEnimyState
     override public void exit(params object[] values)
     {
         Debug.Log("BossEnimyDeadState exit=============");
+        _enitity.isDead = false;
     }
 
 }
@@ -181,6 +243,15 @@ public class BossEnimyDeadState : BossEnimyState
 //Boss敌人NormalAttaclk状态
 public class BossEnimyNormalAttackState : BossEnimyState
 {
+    private float _endPlayTime = 0.0f;
+    private float _playTotalTime = 0.0f;
+    public static int commbexIndex = 1;
+
+    private float _speed = 1.0f;
+    private bool _isLoop = false;
+
+    public Transform targetTransform;
+    public Transform selfTransform;
 
     public BossEnimyNormalAttackState(BaseEnitity enity)
         : base(enity)
@@ -189,21 +260,102 @@ public class BossEnimyNormalAttackState : BossEnimyState
 
     }
 
+    void changeCommbexAnimation(BossEnimyEnitity e, int commbexIndex)
+    {
+        string animatinName = e.getAnimationName(stateIndex, commbexIndex);
+        e.changeAniamtion(animatinName, _speed, _isLoop); //设置了速度
+
+        //下一次播放时间
+        float delayTime = 0.0f;
+        float time = e.getClipTotalLength(animatinName, delayTime);
+        float p = GlobalParams.totalTime + time;
+        _endPlayTime = p;
+        _playTotalTime = time;
+
+        //注册事件
+        e.addDelayCall(stateIndex, _speed, commbexIndex);
+
+    }
+
     override public void enter(params object[] values)
     {
         Debug.Log("BossEnimyNormalAttackState enter=============");
-        base.enter(values);
+
+        _enitity.isAttacking = true;
+        BossEnimyEnitity e = (BossEnimyEnitity)_enitity;
+
+        //面向目标
+        e.faceToTarget();
+        targetTransform = e.attackTarget._gameObject.transform;
+        selfTransform = e._gameObject.transform;
+
+        _speed = (float)values[1];
+        _isLoop = (bool)values[2];
+        changeCommbexAnimation(e, commbexIndex);
+        //组合动画下标
+        commbexIndex = commbexIndex % 2 + 1;
     }
 
     override public void excute(params object[] values)
     {
 
+        BossEnimyEnitity e = (BossEnimyEnitity)_enitity;
+        if (!e.isAttacking)
+        {
+            //切换到移动状态
+            e.changeStateByIndex(EnimyStateEnum.IDLE);
+        }
+        else if (e.isHurt)
+        {
+            e.changeStateByIndex(EnimyStateEnum.HURT);
+        }
+        else if (e.isDead)
+        {
+            e.changeStateByIndex(EnimyStateEnum.DEAD);
+        }
+        else
+        {
+            //如果攻击目标脱离了我的攻击范围，结束攻击重新寻敌
+            BaseEnitity target = e.attackTarget;
+            if (target != null)
+            {
+                float dis = (targetTransform.position - selfTransform.position).sqrMagnitude;  //距离的平方
+                float attDis = _enitity.getAttackDis();
+                if (dis > attDis)
+                {
+                    _enitity.isAttacking = false;
+                    e.changeStateByIndex(EnimyStateEnum.IDLE);
+                    return;
+                }
+            }
+
+            //面向目标
+            e.faceToTarget();
+
+            if (GlobalParams.totalTime >= _endPlayTime)
+            {
+                changeCommbexAnimation(e, commbexIndex);
+                //组合动画下标
+                commbexIndex = commbexIndex % 2 + 1;
+            }
+        }
+
+
+
+       
     }
 
 
     override public void exit(params object[] values)
     {
         Debug.Log("BossEnimyNormalAttackState exit=============");
+        _enitity.isAttacking = false;
+
+        _endPlayTime = 0.0f;
+        _playTotalTime = 0.0f;
+         commbexIndex = 1;
+        _speed = 1.0f;
+        _isLoop = false;
     }
 
 }
@@ -223,17 +375,24 @@ public class BossEnimyHurtState : BossEnimyState
     {
         Debug.Log("BossEnimyHurtState enter=============");
         base.enter(values);
+        _enitity.isHurt = true;
     }
 
     override public void excute(params object[] values)
     {
-
+        EnimyEnitity e = (EnimyEnitity)_enitity;
+        if (!_enitity.isHurt)
+        {
+            //切换到移动状态
+            e.changeStateByIndex(EnimyStateEnum.IDLE);
+        }
     }
 
 
     override public void exit(params object[] values)
     {
         Debug.Log("BossEnimyHurtState exit=============");
+        _enitity.isHurt = false;
     }
 
 }

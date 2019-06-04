@@ -41,7 +41,7 @@ public class EnimyEnitity : BaseEnitity {
 
     virtual public void intDatas()
     { 
-    
+        
     }
 
 
@@ -246,7 +246,7 @@ public class EnimyEnitity : BaseEnitity {
         }
     }
 
-    public void realAddDelayCall(string animatinName, int frameIndex, float speed = 1.0f)
+    virtual public void realAddDelayCall(string animatinName, int frameIndex, float speed = 1.0f)
     {
         _animator.speed = speed;
         float time = getClipLength(_animator, animatinName, frameIndex);

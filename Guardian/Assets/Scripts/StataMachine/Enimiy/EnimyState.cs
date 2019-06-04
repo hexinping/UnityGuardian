@@ -71,7 +71,6 @@ public class EnimyIdleState : EnimyState
         if (_enitity.isMove)
         {
             //切换到移动状态
-          
            e.changeStateByIndex(EnimyStateEnum.RUN);
         }
         else if (_enitity.isAttacking)
