@@ -7,6 +7,11 @@ using kernal;
 public class GruntEnimyEnitity : EnimyEnitity
 {
 
+    public GruntEnimyEnitity()
+    {
+        hpHeight = 70;
+    }
+
     override public void initModeData()
     {
         _mode = new EnimyEnitiyMode();

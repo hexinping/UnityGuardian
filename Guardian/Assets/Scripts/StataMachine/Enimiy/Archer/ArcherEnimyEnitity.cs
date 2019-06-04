@@ -7,6 +7,10 @@ using kernal;
 public class ArcherEnimyEnitity : EnimyEnitity
 {
     private GameObject _prefabArrow;
+    public ArcherEnimyEnitity()
+    {
+        hpHeight = 100;
+    }
     override public void initModeData()
     {
         _mode = new EnimyEnitiyMode();

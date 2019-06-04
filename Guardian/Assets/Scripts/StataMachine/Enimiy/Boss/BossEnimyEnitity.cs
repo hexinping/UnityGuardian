@@ -6,6 +6,11 @@ using kernal;
 
 public class BossEnimyEnitity : EnimyEnitity
 {
+    public BossEnimyEnitity()
+    {
+        hpHeight = 200;
+    }
+
     override public void initModeData()
     {
         _mode = new EnimyEnitiyMode();

@@ -32,6 +32,8 @@ public class EnimyEnitity : BaseEnitity {
 
     public string attackSoundFile = string.Empty;
 
+    public float hpHeight = 100;
+
     public EnimyEnitity()
     {
         damageLabelOffsetY = 50.0f;
@@ -106,7 +108,7 @@ public class EnimyEnitity : BaseEnitity {
             GameObject obj = PoolManager.PoolsArray[GlobalParams.HPPool].GetGameObjectByPool(_prefabHp,
                 _gameObject.transform.position, Quaternion.identity);
             HpFollow hpFollow = obj.GetComponent<HpFollow>();
-            hpFollow.setHpUIDatas(new Vector2(0, 100), _mode.hp, _mode.maxHp);
+            hpFollow.setHpUIDatas(new Vector2(0, hpHeight), _mode.hp, _mode.maxHp);
             hpFollow.target = _gameObject.transform;
             _hpFollow = hpFollow;
 

@@ -6,6 +6,10 @@ using kernal;
 
 public class MagePurpleEnimyEnitity : EnimyEnitity
 {
+    public MagePurpleEnimyEnitity()
+    {
+        hpHeight = 110;
+    }
 
     override public void initModeData()
     {
