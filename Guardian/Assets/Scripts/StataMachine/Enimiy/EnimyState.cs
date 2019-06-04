@@ -261,9 +261,9 @@ public class EnimyNormalAttackState : EnimyState
         e._animator.Play(GlobalParams.state_enimyAttack, 0, 0.0f); //播放动画
         
         //下一次播放时间
-        int intevalFrameCount = 2; //攻击时间间隔 2帧时间
+        int intevalFrameCount = 0; //攻击时间间隔 2帧时间
         string animName = e.getAnimationName(stateIndex);
-        float time = e.getClipLength(e._animator, animName, 31 + intevalFrameCount); //30-0+1
+        float time = e.getClipTotalLength(e._animator, animName,intevalFrameCount);
         float p = GlobalParams.totalTime + time;
         endPlayTime = p;
         playTotalTime = time;

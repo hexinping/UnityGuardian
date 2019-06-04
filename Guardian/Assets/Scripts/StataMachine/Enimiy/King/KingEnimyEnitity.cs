@@ -36,11 +36,11 @@ public class KingEnimyEnitity : EnimyEnitity
 
         List<int> attack1List = new List<int>();
         attack1List.Add(21);
-        _animationEventDict[GlobalParams.anim_ennimy5_normalAttack] = attack1List;
+        _animationEventDict[GlobalParams.anim_ennimy4_normalAttack] = attack1List;
 
         List<int> hurtList = new List<int>();
         hurtList.Add(20);
-        _animationEventDict[GlobalParams.anim_ennimy5_hurt] = hurtList;
+        _animationEventDict[GlobalParams.anim_ennimy4_hurt] = hurtList;
     }
 
     //不同模型的动画名称不一样 必须重载

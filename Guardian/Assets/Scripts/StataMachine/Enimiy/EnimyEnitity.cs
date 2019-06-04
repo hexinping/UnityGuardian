@@ -126,6 +126,8 @@ public class EnimyEnitity : BaseEnitity {
         _animationNameList.Add(GlobalParams.anim_ennimy1_hurt);
     }
 
+
+    //返回到一个动作具体某帧的时间
     public  float getClipLength(Animator animator, string clip, int frameIndex)
     {
         if (null == animator || string.IsNullOrEmpty(clip) || null == animator.runtimeAnimatorController)
@@ -147,6 +149,34 @@ public class EnimyEnitity : BaseEnitity {
 
             }
                
+        }
+        return 0F;
+    }
+
+    //返回某个动作总播放时间
+    public float getClipTotalLength(Animator animator, string clip, int intevalFrameCount)
+    {
+        if (null == animator || string.IsNullOrEmpty(clip) || null == animator.runtimeAnimatorController)
+            return 0;
+        RuntimeAnimatorController ac = animator.runtimeAnimatorController;
+        AnimationClip[] tAnimationClips = ac.animationClips;
+        if (null == tAnimationClips || tAnimationClips.Length <= 0) return 0;
+        AnimationClip tAnimationClip;
+        for (int tCounter = 0, tLen = tAnimationClips.Length; tCounter < tLen; tCounter++)
+        {
+            tAnimationClip = ac.animationClips[tCounter];
+            if (null != tAnimationClip && tAnimationClip.name == clip)
+            {
+                float speed = animator.speed;
+                float frameRate = tAnimationClip.frameRate; //1秒都少帧
+                float frameInterval = 1.0f / frameRate;
+                float intevalTime = frameInterval * intevalFrameCount; //间隔时间
+                float time = tAnimationClip.length / speed + intevalTime / speed;
+                return time;
+
+
+            }
+
         }
         return 0F;
     }

@@ -126,7 +126,7 @@ public static class GlobalParams
     public static string anim_ennimy4_normalAttack = "attack_stab";
     public static string anim_ennimy4_hurt = "damage_right";
 
-    //敌人4动作名称 grunt
+    //敌人5动作名称 grunt
     public static string anim_ennimy5_idle = "idle";
     public static string anim_ennimy5_run = "run";
     public static string anim_ennimy5_death = "death";

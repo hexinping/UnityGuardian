@@ -47,7 +47,17 @@
 
 }
 15 boss开发
-16 场景优化
+{
+  
+  
+  idle
+  run
+  attack：多个攻击方式
+  skill
+  hurt
+  dead
+}
+16 场景优化 ==》ok
 {
   静态合批
   动态显示隐藏
