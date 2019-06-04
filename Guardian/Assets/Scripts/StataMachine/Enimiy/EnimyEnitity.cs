@@ -19,10 +19,12 @@ public class EnimyEnitity : BaseEnitity {
 
 
     private GameObject _prefabHurt;
+    private GameObject _prefabHp;
 
     public string mainTexturePath = "warrior/skeleton_warrior__variant5";
     public object[] cObjList = new object[] { "armor", "eyes", "helmet", "Skeletonl_base", "shield", "sword" };
 
+    private HpFollow _hpFollow;
 
     //动画状态 传统动画方式
     public Dictionary<string, AnimationState> _animationStateDict;
@@ -80,7 +82,8 @@ public class EnimyEnitity : BaseEnitity {
 
     virtual public void initBufferPoolPrefab()
     {
-        _prefabHurt = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, "ParticleProps/Hero_hurtA", rootView._name, true, false); 
+        _prefabHurt = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, "ParticleProps/Hero_hurtA", rootView._name, true, false);
+        _prefabHp = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, "Prefabs/View/EnimyHp", rootView._name, true);
 
     }
     override public void initGameObject()
@@ -98,7 +101,21 @@ public class EnimyEnitity : BaseEnitity {
             _CC = _gameObject.GetComponent<CharacterController>();
             _animation = _gameObject.GetComponent<Animation>();
 
+
+            //使用缓冲池床创建血条
+            GameObject obj = PoolManager.PoolsArray[GlobalParams.HPPool].GetGameObjectByPool(_prefabHp,
+                _gameObject.transform.position, Quaternion.identity);
+            HpFollow hpFollow = obj.GetComponent<HpFollow>();
+            hpFollow.setHpUIDatas(new Vector2(0, 100), _mode.hp, _mode.maxHp);
+            hpFollow.target = _gameObject.transform;
+            _hpFollow = hpFollow;
+
         }
+    }
+
+    override public void updateHP()
+    {
+        _hpFollow.updateHpValue(_mode.hp, _mode.maxHp);
     }
 
     //不同模型的动画帧事件不一样 必须重载
@@ -341,6 +358,10 @@ public class EnimyEnitity : BaseEnitity {
 
     override public void onDestory()
     {
+
+        //血条回收
+        PoolManager.PoolsArray[GlobalParams.HPPool].RecoverGameObjectToPools(_hpFollow.gameObject);
+
         BurnHelper burn = _gameObject.AddComponent<BurnHelper>();
         Texture mainT = (Texture)ResourcesManager.getInstance().getResouce(ResourceType.Texture, "Models/Enemys/Skeleton_Pack/Textures/" + mainTexturePath, rootView._name, true, false);
         burn.setMainTex(mainT);

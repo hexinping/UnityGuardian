@@ -161,6 +161,11 @@ MonoBehaviour:
     IntAutoDeactiveGameObjectByTime: 0
     ActiveGameObjectArray: []
     InactiveGameObjectArray: []
+  - Prefab: {fileID: 1336151494763394, guid: 0e48350b0197e474eb0ce6af94d6d2ab, type: 2}
+    IntPreLoadNumber: 15
+    IntAutoDeactiveGameObjectByTime: 0
+    ActiveGameObjectArray: []
+    InactiveGameObjectArray: []
   IsUsedTime: 0
   checkTime: 5
 --- !u!1 &93402623

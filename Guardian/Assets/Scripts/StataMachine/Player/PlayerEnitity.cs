@@ -127,7 +127,8 @@ public class PlayerEnitity:BaseEnitity  {
 
             obj.name = "PlayerHp";
             HpFollow hpFollow = obj.GetComponent<HpFollow>();
-            hpFollow.setHpUIDatas(new Vector2(0, 170), _mode.hp, _mode.maxHp);
+            hpFollow.setHpUIDatas(new Vector2(0, 130), _mode.hp, _mode.maxHp);
+            hpFollow.target = _gameObject.transform;
             _hpFollow = hpFollow;
 
             //添加主角出场特效
@@ -329,6 +330,7 @@ public class PlayerEnitity:BaseEnitity  {
             {
                 //非移动技能特效直接结算
                 attackTargetHurt(attackTarget);
+                attackTarget.updateHP();
             }
         }
 

@@ -26,7 +26,7 @@ public class HpFollow : MonoBehaviour {
     private Slider hpSlider;
     private RectTransform rectTrains;
 
-    private Transform target;
+    public Transform target;
     private float value;
     private float maxValue;
     private Vector2 offset;
@@ -40,8 +40,8 @@ public class HpFollow : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         hpSlider = GetComponentInChildren<Slider>();
-        rectTrains = GetComponent<RectTransform>();
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        
+        //target = GameObject.FindGameObjectWithTag("Player").transform;
         initUI(); 
 	}
 
@@ -61,10 +61,11 @@ public class HpFollow : MonoBehaviour {
         canvas.worldCamera = uiCamera.GetComponent<Camera>();
 
         canvas.sortingOrder = GlobalParams.HPOrder;
-    
+        
         GameObject onj = hpSlider.gameObject;
         RectTransform rect1 = onj.GetComponent<RectTransform>();
         rect1.localPosition = new Vector3(offset.x, offset.y, 0);
+        rectTrains = rect1;
     }
 
     public void updateHpValue(float tvalue, float tmaxValue)
@@ -76,14 +77,26 @@ public class HpFollow : MonoBehaviour {
 	void Update () {
 
         if (target == null) return;
+        Canvas canvas = GetComponent<Canvas>();
 
-        //获取跟随目标的世界坐标
-        Vector3 tarPos = target.transform.position;
+        ////将世界坐标转化成屏幕坐标
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(target.position);
 
-        //将世界坐标转化成屏幕坐标
-        Vector2 pos = RectTransformUtility.WorldToScreenPoint(Camera.main, tarPos);
-        rectTrains.position = pos;
-
+        ////将屏幕坐标转化成UGUI坐标
+        Vector2 localPos;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, screenPos, canvas.worldCamera, out localPos);
+        Vector3 newPos = new Vector3(localPos.x + offset.x, localPos.y + offset.y, 0);
+        hpSlider.transform.localPosition = newPos;
         hpSlider.value = value / maxValue;
+
+        //血条超出屏幕就不显示  
+        //if (localPos.x > Screen.width || localPos.x < 0 || localPos.y > Screen.height || localPos.y < 0)
+        //{
+        //    rectTrains.gameObject.SetActive(false);
+        //}
+        //else
+        //{
+        //    rectTrains.gameObject.SetActive(true);
+        //}  
 	}
 }
