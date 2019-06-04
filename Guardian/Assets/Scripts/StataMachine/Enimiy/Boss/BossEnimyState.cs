@@ -21,21 +21,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum BossEnimyStateEnum
-{
-    IDLE = 0,               //待机
-    RUN = 1,                //移动
-    DEAD = 2,               //死亡
-    NORMALATTACK = 3,       //普通攻击
-    HURT = 4,               //受伤
-    SKILL = 5,              //技能
-}
+
 
 
 public class BossEnimyState : EnimyState
 {
 
-    public BossEnimyStateEnum stateIndex;
+    public EnimyStateEnum stateIndex;
     public BossEnimyState(BaseEnitity enity)
         : base(enity)
     {
@@ -70,7 +62,7 @@ public class BossEnimyIdleState : BossEnimyState
     public BossEnimyIdleState(BaseEnitity enity)
         : base(enity)
     {
-        stateIndex = BossEnimyStateEnum.IDLE;
+        stateIndex = EnimyStateEnum.IDLE;
 
     }
 
@@ -102,7 +94,7 @@ public class BossEnimyRunState : BossEnimyState
     public BossEnimyRunState(BaseEnitity enity)
         : base(enity)
     {
-        stateIndex = BossEnimyStateEnum.RUN;
+        stateIndex = EnimyStateEnum.RUN;
 
     }
 
@@ -132,7 +124,7 @@ public class BossEnimyDeadState : BossEnimyState
     public BossEnimyDeadState(BaseEnitity enity)
         : base(enity)
     {
-        stateIndex = BossEnimyStateEnum.DEAD;
+        stateIndex = EnimyStateEnum.DEAD;
 
     }
 
@@ -162,7 +154,7 @@ public class BossEnimyNormalAttackState : BossEnimyState
     public BossEnimyNormalAttackState(BaseEnitity enity)
         : base(enity)
     {
-        stateIndex = BossEnimyStateEnum.NORMALATTACK;
+        stateIndex = EnimyStateEnum.NORMALATTACK;
 
     }
 
@@ -192,7 +184,7 @@ public class BossEnimyHurtState : BossEnimyState
     public BossEnimyHurtState(BaseEnitity enity)
         : base(enity)
     {
-        stateIndex = BossEnimyStateEnum.HURT;
+        stateIndex = EnimyStateEnum.HURT;
 
     }
 
@@ -222,7 +214,7 @@ public class BossEnimySkillState : BossEnimyState
     public BossEnimySkillState(BaseEnitity enity)
         : base(enity)
     {
-        stateIndex = BossEnimyStateEnum.SKILL;
+        stateIndex = EnimyStateEnum.SKILL;
 
     }
 

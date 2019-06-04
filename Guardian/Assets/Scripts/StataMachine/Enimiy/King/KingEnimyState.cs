@@ -66,19 +66,7 @@ public class KingEnimyNormalAttackState : EnimyState
 
         EnimyEnitity e = (EnimyEnitity)_enitity;
         addAttackEvent(e, commbexIndex);
-        if (commbexIndex == 1)
-        {
-            commbexIndex = 2;
-        }
-        else if(commbexIndex == 2)
-        {
-            commbexIndex = 3;
-        }
-        else if (commbexIndex == 3)
-        {
-            commbexIndex = 1;
-        }
-
+        commbexIndex = commbexIndex % 3 + 1;
         if (e.attackSoundFile != string.Empty)
         {
             AudioManager.getInstance().playSoundEffect(e.attackSoundFile);
@@ -125,18 +113,7 @@ public class KingEnimyNormalAttackState : EnimyState
             if (GlobalParams.totalTime >= endPlayTime)
             {
                 addAttackEvent(e, commbexIndex);
-                if (commbexIndex == 1)
-                {
-                    commbexIndex = 2;
-                }
-                else if (commbexIndex == 2)
-                {
-                    commbexIndex = 3;
-                }
-                else if (commbexIndex == 3)
-                {
-                    commbexIndex = 1;
-                }
+                commbexIndex = commbexIndex % 3 + 1;
 
                 if (e.attackSoundFile != string.Empty)
                 {

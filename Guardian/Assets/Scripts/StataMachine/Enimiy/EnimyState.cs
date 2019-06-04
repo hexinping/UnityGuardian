@@ -9,6 +9,7 @@ public enum EnimyStateEnum
     DEAD            = 2,               //死亡
     NORMALATTACK    = 3,               //普通攻击
     HURT            = 4,               //受伤
+    SKILL           = 5,               //技能
 }
 
 

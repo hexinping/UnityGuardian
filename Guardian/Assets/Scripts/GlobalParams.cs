@@ -139,6 +139,18 @@ public static class GlobalParams
     public static string anim_ennimy5_normalAttack  = "attack_stab";
     public static string anim_ennimy5_hurt          = "damage_right";
 
+    //敌人6动作名称 boss bruce
+    public static string anim_ennimy6_idle1         = "Idle";
+    public static string anim_ennimy6_idle2         = "Idle2";
+    public static string anim_ennimy6_run           = "Run";
+    public static string anim_ennimy6_death         = "Dead";
+    public static string anim_ennimy6_normalAttack1 = "Attack1";
+    public static string anim_ennimy6_normalAttack2 = "Attack2";
+    public static string anim_ennimy6_hurt          = "Wound";
+    public static string anim_ennimy6_skill         = "Skill";
+
+
+
 
     //声音文件
     public static string sound_ennimy_attack        = "1_LightSword_SwordHero";
