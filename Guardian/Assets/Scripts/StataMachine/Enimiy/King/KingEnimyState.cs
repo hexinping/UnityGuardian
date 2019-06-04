@@ -64,9 +64,6 @@ public class KingEnimyNormalAttackState : EnimyState
         targetTransform = _enitity.attackTarget._gameObject.transform;
         selfTransform = _enitity._gameObject.transform;
 
-
-
-        AudioManager.getInstance().playSoundEffect("1_LightSword_SwordHero");
         EnimyEnitity e = (EnimyEnitity)_enitity;
         addAttackEvent(e, commbexIndex);
         if (commbexIndex == 1)
@@ -80,6 +77,11 @@ public class KingEnimyNormalAttackState : EnimyState
         else if (commbexIndex == 3)
         {
             commbexIndex = 1;
+        }
+
+        if (e.attackSoundFile != string.Empty)
+        {
+            AudioManager.getInstance().playSoundEffect(e.attackSoundFile);
         }
 
     }
@@ -136,7 +138,10 @@ public class KingEnimyNormalAttackState : EnimyState
                     commbexIndex = 1;
                 }
 
-                AudioManager.getInstance().playSoundEffect("1_LightSword_SwordHero");
+                if (e.attackSoundFile != string.Empty)
+                {
+                    AudioManager.getInstance().playSoundEffect(e.attackSoundFile);
+                }
             }
         }
     }

@@ -12,6 +12,7 @@ public class WarriorPurpleEnimyEnitity : EnimyEnitity
         _mode = new EnimyEnitiyMode();
         objName = "warrior_purple";
         _mode.file = _mode.file + objName;
+        attackSoundFile = GlobalParams.sound_ennimy_attack;
         intDatas();
     }
     override public void onDestory()

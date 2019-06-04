@@ -140,6 +140,20 @@ public static class GlobalParams
     public static string anim_ennimy5_hurt          = "damage_right";
 
 
+    //声音文件
+    public static string sound_ennimy_attack        = "1_LightSword_SwordHero";
+
+    public static string sound_player_attack1       = "BeiJi_DaoJian_1";
+    public static string sound_player_attack2       = "BeiJi_DaoJian_2";
+    public static string sound_player_attack3       = "BeiJi_DaoJian_3";
+    public static string sound_player_magicA        = "Hero_MagicA";
+    public static string sound_player_magicB        = "Hero_MagicB";
+    public static string sound_player_magicC        = "Hero_MagicB";
+    public static string sound_player_magicD        = "Hero_MagicC";
+
+    
+
+
     public static void addDelayCall(DelayCall delayCall)
     {
         _delayCallList.Add(delayCall);

@@ -13,6 +13,7 @@ public class KingEnimyEnitity : EnimyEnitity
         _mode.type = "king";
         objName = "king_green";
         _mode.file = _mode.filePre + _mode.type + "/skeleton_" + objName;
+        attackSoundFile = GlobalParams.sound_ennimy_attack;
         intDatas();
     }
 

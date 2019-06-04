@@ -257,7 +257,10 @@ public class EnimyNormalAttackState : EnimyState
         EnimyEnitity e = (EnimyEnitity)_enitity;
         e.addDelayCall(stateIndex);  //伤害事件 9-0+1
 
-        AudioManager.getInstance().playSoundEffect("1_LightSword_SwordHero");
+        if (e.attackSoundFile != string.Empty)
+        {
+            AudioManager.getInstance().playSoundEffect(e.attackSoundFile);
+        }
         e._animator.Play(GlobalParams.state_enimyAttack, 0, 0.0f); //播放动画
         
         //下一次播放时间
@@ -309,7 +312,10 @@ public class EnimyNormalAttackState : EnimyState
             {
 
                 e.addDelayCall(stateIndex);
-                AudioManager.getInstance().playSoundEffect("1_LightSword_SwordHero");
+                if (e.attackSoundFile != string.Empty)
+                {
+                    AudioManager.getInstance().playSoundEffect(e.attackSoundFile);
+                }
                 e._animator.Play(GlobalParams.state_enimyAttack, 0, 0.0f); //播放动画
                 endPlayTime = GlobalParams.totalTime + playTotalTime;
             }

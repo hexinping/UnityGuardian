@@ -34,6 +34,8 @@ public class EnimyEnitity : BaseEnitity {
     private Dictionary<string, AnimationState> _animationStateDict;
     private Animation _animation;
 
+    public string attackSoundFile = string.Empty;
+
     public EnimyEnitity()
     {
         damageLabelOffsetY = 50.0f;

@@ -383,7 +383,7 @@ public class PlayerEnitity:BaseEnitity  {
             if (animationName == GlobalParams.anim_player_skillA)
             {
                 //播放声音
-                AudioManager.getInstance().playSoundEffect("Hero_MagicA");
+                AudioManager.getInstance().playSoundEffect(GlobalParams.sound_player_magicA);
                 //播放特效
                 Vector3 forwardOffset = _playerTransform.forward * 3;
                 startPos = _playerTransform.position + forwardOffset;
@@ -394,7 +394,7 @@ public class PlayerEnitity:BaseEnitity  {
             else if (animationName == GlobalParams.anim_player_skillB)
             {
                 //播放声音
-                AudioManager.getInstance().playSoundEffect("Hero_MagicB");
+                AudioManager.getInstance().playSoundEffect(GlobalParams.sound_player_magicB);
                 //播放特效
                 Vector3 forwardOffset = -_playerTransform.forward;
                 startPos = _playerTransform.position + forwardOffset;
@@ -406,7 +406,7 @@ public class PlayerEnitity:BaseEnitity  {
             else if (animationName == GlobalParams.anim_player_skillC)
             {
                 //播放声音
-                AudioManager.getInstance().playSoundEffect("Hero_MagicB");
+                AudioManager.getInstance().playSoundEffect(GlobalParams.sound_player_magicC);
                 //播放特效
                 Vector3 forwardOffset = -_playerTransform.forward;
                 startPos = _playerTransform.position + forwardOffset;
@@ -417,7 +417,7 @@ public class PlayerEnitity:BaseEnitity  {
             else if (animationName == GlobalParams.anim_player_skillD)
             {
                 //播放声音
-                AudioManager.getInstance().playSoundEffect("Hero_MagicC");
+                AudioManager.getInstance().playSoundEffect(GlobalParams.sound_player_magicD);
                 //播放特效
                 Vector3 forwardOffset = _playerTransform.forward * 3;
                 startPos = _playerTransform.position + forwardOffset;
