@@ -10,7 +10,7 @@ public class BossEnimyEnitity : EnimyEnitity
     {
         _mode = new EnimyEnitiyMode();
         _mode.type = "Boss_Bruce";
-        objName = "bruce";
+        objName = "bruceObj";
         _mode.filePre = "Models/";
         _mode.file = _mode.filePre + _mode.type + "/" + objName;
         intDatas();
