@@ -21,12 +21,14 @@ public class BaseEnitity  {
     public GameObject _rootObj;      //父节点
     public GameObject _gameObject;   //自身节点
 
-    public bool isMove = false;
-    public float moveSpeed = 10.0f;
-
+    //AI 相关
+    public bool isMove      = false;
     public bool isAttacking = false;
-    public bool isDead = false;
-    public bool isHurt = false;
+    public bool isDead      = false;
+    public bool isHurt      = false;
+    public bool isPlaySkill = false;  //是否在释放技能
+
+    public float moveSpeed = 10.0f;
 
     public BaseView rootView;
 

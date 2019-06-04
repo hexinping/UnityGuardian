@@ -245,13 +245,18 @@ public class BossEnimyNormalAttackState : BossEnimyState
 {
     private float _endPlayTime = 0.0f;
     private float _playTotalTime = 0.0f;
-    public static int commbexIndex = 1;
+    
 
     private float _speed = 1.0f;
     private bool _isLoop = false;
 
-    public Transform targetTransform;
-    public Transform selfTransform;
+    private Transform _targetTransform;
+    private Transform _selfTransform;
+
+    public static int commbexIndex = 1;
+    public static int continuousAttack = 0; //连续攻击次数
+    private int maxContinuousAttack = 8;    //连续攻击最大次数
+    
 
     public BossEnimyNormalAttackState(BaseEnitity enity)
         : base(enity)
@@ -286,14 +291,16 @@ public class BossEnimyNormalAttackState : BossEnimyState
 
         //面向目标
         e.faceToTarget();
-        targetTransform = e.attackTarget._gameObject.transform;
-        selfTransform = e._gameObject.transform;
+        _targetTransform = e.attackTarget._gameObject.transform;
+        _selfTransform = e._gameObject.transform;
 
         _speed = (float)values[1];
         _isLoop = (bool)values[2];
         changeCommbexAnimation(e, commbexIndex);
         //组合动画下标
         commbexIndex = commbexIndex % 2 + 1;
+
+        continuousAttack++;
     }
 
     override public void excute(params object[] values)
@@ -319,7 +326,7 @@ public class BossEnimyNormalAttackState : BossEnimyState
             BaseEnitity target = e.attackTarget;
             if (target != null)
             {
-                float dis = (targetTransform.position - selfTransform.position).sqrMagnitude;  //距离的平方
+                float dis = (_targetTransform.position - _selfTransform.position).sqrMagnitude;  //距离的平方
                 float attDis = _enitity.getAttackDis();
                 if (dis > attDis)
                 {
@@ -334,15 +341,19 @@ public class BossEnimyNormalAttackState : BossEnimyState
 
             if (GlobalParams.totalTime >= _endPlayTime)
             {
+                continuousAttack++;
+                if (continuousAttack > maxContinuousAttack)
+                {
+                    continuousAttack = 0;
+                    e.changeStateByIndex(EnimyStateEnum.SKILL);
+                    return;
+                }
                 changeCommbexAnimation(e, commbexIndex);
                 //组合动画下标
                 commbexIndex = commbexIndex % 2 + 1;
+               
             }
         }
-
-
-
-       
     }
 
 
@@ -354,6 +365,7 @@ public class BossEnimyNormalAttackState : BossEnimyState
         _endPlayTime = 0.0f;
         _playTotalTime = 0.0f;
          commbexIndex = 1;
+         continuousAttack = 0;
         _speed = 1.0f;
         _isLoop = false;
     }
@@ -380,11 +392,11 @@ public class BossEnimyHurtState : BossEnimyState
 
     override public void excute(params object[] values)
     {
-        EnimyEnitity e = (EnimyEnitity)_enitity;
-        if (!_enitity.isHurt)
+        BossEnimyEnitity e = (BossEnimyEnitity)_enitity;
+        if (!e.isHurt)
         {
-            //切换到移动状态
-            e.changeStateByIndex(EnimyStateEnum.IDLE);
+            //切换到Idle状态
+            e.changeStateByIndex(EnimyStateEnum.IDLE, true, 1.0f, true);
         }
     }
 
@@ -400,6 +412,8 @@ public class BossEnimyHurtState : BossEnimyState
 //Boss敌人Skill状态
 public class BossEnimySkillState : BossEnimyState
 {
+    private float _endPlayTime = 0.0f;
+    private float _playTotalTime = 0.0f;
 
     public BossEnimySkillState(BaseEnitity enity)
         : base(enity)
@@ -412,17 +426,40 @@ public class BossEnimySkillState : BossEnimyState
     {
         Debug.Log("BossEnimySkillState enter=============");
         base.enter(values);
+        _enitity.isPlaySkill = true;
+        _enitity.isAttacking = true;
+
+        BossEnimyEnitity e = (BossEnimyEnitity)_enitity;
+        string animatinName = e.getAnimationName(stateIndex);
+
+        //下一次播放时间
+        float delayTime = 0.0f;
+        float time = e.getClipTotalLength(animatinName, delayTime);
+        float p = GlobalParams.totalTime + time;
+        _endPlayTime = p;
+        _playTotalTime = time;
+
     }
 
     override public void excute(params object[] values)
     {
-
+        EnimyEnitity e = (EnimyEnitity)_enitity;
+        if (GlobalParams.totalTime >= _endPlayTime)
+        {
+            _enitity.isPlaySkill = false;
+            //切换到Idle状态
+            e.changeStateByIndex(EnimyStateEnum.IDLE, true, 1.0f, true);
+        }
     }
 
 
     override public void exit(params object[] values)
     {
         Debug.Log("BossEnimySkillState exit=============");
+        _enitity.isPlaySkill = false;
+        _enitity.isAttacking = false;
+        _endPlayTime = 0.0f;
+        _playTotalTime = 0.0f;
     }
 
 }

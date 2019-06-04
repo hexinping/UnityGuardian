@@ -71,8 +71,14 @@ public class BossEnimyEnitity : EnimyEnitity
         _animationEventDict[GlobalParams.anim_ennimy6_normalAttack2] = attack2List;
 
         List<int> hurtList = new List<int>();
-        hurtList.Add(45);
+        hurtList.Add(46);
         _animationEventDict[GlobalParams.anim_ennimy6_hurt] = hurtList;
+
+
+        List<int> skillList = new List<int>();
+        skillList.Add(25);
+        skillList.Add(34);
+        _animationEventDict[GlobalParams.anim_ennimy6_skill] = skillList;
     }
 
     //不同模型的动画名称不一样 必须重载
@@ -239,7 +245,7 @@ public class BossEnimyEnitity : EnimyEnitity
                 attackTarget.updateHP();
             }
         }
- 
+
     }
 
 }
