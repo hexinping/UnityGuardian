@@ -25,15 +25,7 @@ public class EnimyState : BaseState
 
     override public void enter(params object[] values)
     {
-        //切换动作
-        //string animatinName = (string)values[0];
-        //float speed = (float)values[1];
-        //bool isLoop = (bool)values[2];
-        //PlayerEnitity enitity = (PlayerEnitity)_enitity;
-        //enitity.changeAniamtion(animatinName, speed, isLoop);
-
-        //注册帧事件
-        //enitity.addDelayCall(animatinName);
+        
     } 
 }
 
