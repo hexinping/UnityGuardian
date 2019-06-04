@@ -144,7 +144,7 @@ public class EnimyEnitity : BaseEnitity {
                 float speed = animator.speed;
                 float frameRate = tAnimationClip.frameRate; //1秒都少帧
                 float frameInterval = 1.0f / frameRate;
-                float time = frameIndex * frameInterval / speed - frameInterval;
+                float time = frameIndex * frameInterval / speed;
                 return time;
 
             }
@@ -182,16 +182,16 @@ public class EnimyEnitity : BaseEnitity {
     }
 
 
-    public string getAnimationName(EnimyStateEnum state)
+    virtual public string getAnimationName(EnimyStateEnum state, int commbex = 0)
     { 
         int index = (int)state;
         return _animationNameList[index];
     }
-     public void addDelayCall(EnimyStateEnum state, float speed = 1.0f)
+    virtual public void addDelayCall(EnimyStateEnum state, float speed = 1.0f, int commbex = 0)
     {
         //拿到对应的动画名称
         int index = (int)state;
-        string animationName = _animationNameList[index];
+        string animationName = getAnimationName(state, commbex);
         if (animationName != null)
         {
             //拿到对应的动画帧事件

@@ -82,6 +82,10 @@ public static class GlobalParams
     public static string state_enimyDead        = "Dead";
     public static string state_enimyHurt        = "Hurt";
 
+    //额外攻击状态
+    public static string state_enimyAttackEx1   = "AttackEx1";
+    public static string state_enimyAttackEx2   = "AttackEx2";
+
 
     //主角动作名称
     public static string anim_player_idle       = "Idle";
@@ -120,18 +124,20 @@ public static class GlobalParams
 
 
     //敌人4动作名称 king
-    public static string anim_ennimy4_idle = "idle";
-    public static string anim_ennimy4_run = "run";
-    public static string anim_ennimy4_death = "death";
-    public static string anim_ennimy4_normalAttack = "attack_stab";
-    public static string anim_ennimy4_hurt = "damage_right";
+    public static string anim_ennimy4_idle          = "idle";
+    public static string anim_ennimy4_run           = "run";
+    public static string anim_ennimy4_death         = "death";
+    public static string anim_ennimy4_normalAttack  = "attack_stab";
+    public static string anim_ennimy4_hurt          = "damage_right";
+    public static string anim_ennimy4_normalAttack1 = "attack_cleave";
+    public static string anim_ennimy4_normalAttack2 = "attack_slice";
 
     //敌人5动作名称 grunt
-    public static string anim_ennimy5_idle = "idle";
-    public static string anim_ennimy5_run = "run";
-    public static string anim_ennimy5_death = "death";
-    public static string anim_ennimy5_normalAttack = "attack_stab";
-    public static string anim_ennimy5_hurt = "damage_right";
+    public static string anim_ennimy5_idle          = "idle";
+    public static string anim_ennimy5_run           = "run";
+    public static string anim_ennimy5_death         = "death";
+    public static string anim_ennimy5_normalAttack  = "attack_stab";
+    public static string anim_ennimy5_hurt          = "damage_right";
 
 
     public static void addDelayCall(DelayCall delayCall)
