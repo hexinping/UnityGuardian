@@ -154,6 +154,7 @@ public static class GlobalParams
 
     //声音文件
     public static string sound_ennimy_attack        = "1_LightSword_SwordHero";
+    public static string sound_ennimy_dead          = "MonterDeath";
 
     public static string sound_player_attack1       = "BeiJi_DaoJian_1";
     public static string sound_player_attack2       = "BeiJi_DaoJian_2";
@@ -162,6 +163,13 @@ public static class GlobalParams
     public static string sound_player_magicB        = "Hero_MagicB";
     public static string sound_player_magicC        = "Hero_MagicB";
     public static string sound_player_magicD        = "Hero_MagicC";
+
+    public static string sound_boss1_born           = "BossShot1";
+    public static string sound_boss1_attack1        = "BossATK1";
+    public static string sound_boss1_attack2        = "BossATK2";
+    public static string sound_boss1_skill          = "BossAttack";
+    public static string sound_boss1_dead           = "BossDeath";
+
 
     
 

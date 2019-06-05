@@ -249,7 +249,32 @@ public class BossEnimyEnitity : EnimyEnitity
                 attackTargetHurt(attackTarget);
                 attackTarget.updateHP();
             }
+
+            if (isPlaySkill)
+            { 
+                //播放特效
+                string effectName = "ParticleProps/Hero_Skill01";
+                Vector3 forwardOffset = Vector3.zero;
+                GameObject obj = createEffectNoPool(effectName,targetTransform.position + forwardOffset, skillLayer);
+
+            }
         }
+
+    }
+
+    public GameObject createEffectNoPool(string effectName, Vector3 pos, GameObject parentObj = null)
+    {
+        //特效上都绑定了自我销毁脚本，就不加入引用管理
+        GameObject prefabObj = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, effectName, rootView._name, true, false);
+        GameObject obj = GameObject.Instantiate(prefabObj);
+        obj.transform.position = pos;
+        if (parentObj != null)
+        {
+            obj.transform.parent = parentObj.transform;
+            obj.transform.rotation = selfTransform.rotation;
+
+        }
+        return obj;
 
     }
 

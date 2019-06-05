@@ -18,7 +18,6 @@ public class AttackNormalPress : StateMachineBehaviour {
         _pressTime += Time.deltaTime;
         if (_pressTime >= _delayTime)
         {
-            Debug.Log("OnStateUpdate==========");
             _pressTime = 0.0f;
             HeroAttackByET.instance.responseNormalAttack();
         }

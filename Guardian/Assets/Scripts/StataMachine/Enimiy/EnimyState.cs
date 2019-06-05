@@ -192,6 +192,7 @@ public class EnimyDeadState : EnimyState
             _enitity._animator.SetBool("isDead", _enitity.isDead);
         }
 
+        AudioManager.getInstance().playSoundEffect(GlobalParams.sound_ennimy_dead);
     }
 
     override public void excute(params object[] values)

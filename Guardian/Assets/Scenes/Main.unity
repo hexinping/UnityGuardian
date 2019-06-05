@@ -2400,6 +2400,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e61c7c8d43b99e94685ddce1c5b61ae0, type: 3}
   - {fileID: 8300000, guid: 043d285113ea94642bdbcdb333b76dc6, type: 3}
   - {fileID: 8300000, guid: 8ef3b023e56e95b40ac9c1881a9f8511, type: 3}
+  - {fileID: 8300000, guid: 33e66a3b8df121d498173c078d8c574a, type: 3}
+  - {fileID: 8300000, guid: 73e6a761d4a9d394bb4fb6d8aa556513, type: 3}
+  - {fileID: 8300000, guid: fd56945b91498af48934a4dfbc61c8ed, type: 3}
+  - {fileID: 8300000, guid: 7f4f8842f1e9000439f431d35b8c317c, type: 3}
+  - {fileID: 8300000, guid: 043d7c88f0b4078418df37561796cb9e, type: 3}
+  - {fileID: 8300000, guid: 7adea869051d46c41a676e7faafdfb88, type: 3}
 --- !u!81 &1846582268
 AudioListener:
   m_ObjectHideFlags: 0

@@ -104,6 +104,8 @@ public class BossEnimyIdleState : BossEnimyState
         changeCommbexAnimation(enitity, commbexIndex);
         //组合动画下标
         commbexIndex = commbexIndex % 2 + 1;
+
+        AudioManager.getInstance().playSoundEffect(GlobalParams.sound_boss1_born);
     }
 
     override public void excute(params object[] values)
@@ -224,6 +226,8 @@ public class BossEnimyDeadState : BossEnimyState
         Debug.Log("BossEnimyDeadState enter=============");
         base.enter(values);
         _enitity.isDead = true;
+
+        AudioManager.getInstance().playSoundEffect(GlobalParams.sound_boss1_dead);
     }
 
     override public void excute(params object[] values)
@@ -255,7 +259,7 @@ public class BossEnimyNormalAttackState : BossEnimyState
 
     public static int commbexIndex = 1;
     public static int continuousAttack = 0; //连续攻击次数
-    private int maxContinuousAttack = 8;    //连续攻击最大次数
+    private int maxContinuousAttack = 2;    //连续攻击最大次数
     
 
     public BossEnimyNormalAttackState(BaseEnitity enity)
@@ -280,6 +284,15 @@ public class BossEnimyNormalAttackState : BossEnimyState
         //注册事件
         e.addDelayCall(stateIndex, _speed, commbexIndex);
 
+        if (animatinName == GlobalParams.anim_ennimy6_normalAttack1)
+        {
+            AudioManager.getInstance().playSoundEffect(GlobalParams.sound_boss1_attack1);
+        }
+        else if (animatinName == GlobalParams.anim_ennimy6_normalAttack2)
+        {
+            AudioManager.getInstance().playSoundEffect(GlobalParams.sound_boss1_attack2);
+        }
+
     }
 
     override public void enter(params object[] values)
@@ -297,6 +310,7 @@ public class BossEnimyNormalAttackState : BossEnimyState
         _speed = (float)values[1];
         _isLoop = (bool)values[2];
         changeCommbexAnimation(e, commbexIndex);
+
         //组合动画下标
         commbexIndex = commbexIndex % 2 + 1;
 
@@ -438,6 +452,8 @@ public class BossEnimySkillState : BossEnimyState
         float p = GlobalParams.totalTime + time;
         _endPlayTime = p;
         _playTotalTime = time;
+
+        AudioManager.getInstance().playSoundEffect(GlobalParams.sound_boss1_skill);
 
     }
 

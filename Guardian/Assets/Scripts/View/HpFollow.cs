@@ -76,6 +76,11 @@ public class HpFollow : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        hpSlider.value = value / maxValue;
+	}
+
+    void LateUpdate()
+    {
         if (target == null) return;
         Canvas canvas = GetComponent<Canvas>();
 
@@ -87,16 +92,5 @@ public class HpFollow : MonoBehaviour {
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, screenPos, canvas.worldCamera, out localPos);
         Vector3 newPos = new Vector3(localPos.x + offset.x, localPos.y + offset.y, 0);
         hpSlider.transform.localPosition = newPos;
-        hpSlider.value = value / maxValue;
-
-        //血条超出屏幕就不显示  
-        //if (localPos.x > Screen.width || localPos.x < 0 || localPos.y > Screen.height || localPos.y < 0)
-        //{
-        //    rectTrains.gameObject.SetActive(false);
-        //}
-        //else
-        //{
-        //    rectTrains.gameObject.SetActive(true);
-        //}  
-	}
+    }
 }
