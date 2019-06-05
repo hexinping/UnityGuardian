@@ -6,6 +6,8 @@ using kernal;
 
 public class BossEnimyEnitity : EnimyEnitity
 {
+    public bool playOnlyOnceSkillEffect = true;
+    private GameObject _prefabSkill;
     public BossEnimyEnitity()
     {
         hpHeight = 200;
@@ -24,6 +26,12 @@ public class BossEnimyEnitity : EnimyEnitity
     {
         base.initGameObject();
         saveAnimationState();
+    }
+
+    override public void initBufferPoolPrefab()
+    {
+        base.initBufferPoolPrefab();
+        _prefabSkill = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, "ParticleProps/Hero_Skill01", rootView._name, true, false);
     }
 
     override public void intDatas()
@@ -249,20 +257,38 @@ public class BossEnimyEnitity : EnimyEnitity
                 attackTargetHurt(attackTarget);
                 attackTarget.updateHP();
             }
-
-            if (isPlaySkill)
-            { 
-                //播放特效
-                string effectName = "ParticleProps/Hero_Skill01";
-                Vector3 forwardOffset = Vector3.zero;
-                GameObject obj = createEffectNoPool(effectName,targetTransform.position + forwardOffset, skillLayer);
-
-            }
         }
 
+        //播放声音和特效
+        playSoundAndEffect(animationName);
     }
 
-    public GameObject createEffectNoPool(string effectName, Vector3 pos, GameObject parentObj = null)
+    void playSoundAndEffect(string animationName)
+    {
+        if (animationName == GlobalParams.anim_ennimy6_normalAttack1)
+        {
+            AudioManager.getInstance().playSoundEffect(GlobalParams.sound_boss1_attack1);
+        }
+        else if (animationName == GlobalParams.anim_ennimy6_normalAttack2)
+        {
+            AudioManager.getInstance().playSoundEffect(GlobalParams.sound_boss1_attack2);
+        }
+        else if (animationName == GlobalParams.anim_ennimy6_skill)
+        {
+            AudioManager.getInstance().playSoundEffect(GlobalParams.sound_boss1_skill);
+
+            if (playOnlyOnceSkillEffect)
+            {
+                playOnlyOnceSkillEffect = false;
+                //技能特效
+                Vector3 forwardOffset = new Vector3(0f, 0f, -13f);
+                createEffectNoPool("ParticleProps/Hero_Skill01", targetTransform.position + forwardOffset, skillLayer, false);
+            }
+            
+        }
+    }
+
+    public GameObject createEffectNoPool(string effectName, Vector3 pos, GameObject parentObj = null, bool isRotate = true)
     {
         //特效上都绑定了自我销毁脚本，就不加入引用管理
         GameObject prefabObj = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, effectName, rootView._name, true, false);
@@ -271,8 +297,10 @@ public class BossEnimyEnitity : EnimyEnitity
         if (parentObj != null)
         {
             obj.transform.parent = parentObj.transform;
-            obj.transform.rotation = selfTransform.rotation;
-
+            if (isRotate)
+            {
+                obj.transform.rotation = selfTransform.rotation;
+            }
         }
         return obj;
 

@@ -66,7 +66,7 @@ public class AudioManager : MonoBehaviour
     }//Start_end
 
     //设置所有音源的音量
-    public  void setAllVoume(float volume)
+    public void setAllVoume(float volume)
     {
         foreach (KeyValuePair<string, AudioSource> pair in _AudioSourceDict)
         {
@@ -77,14 +77,14 @@ public class AudioManager : MonoBehaviour
     }
 
     //设置单个音源的音量
-    public  void setClipVolum(AudioClip clip, float volume)
+    public void setClipVolum(AudioClip clip, float volume)
     {
         string clipName = clip.name;
         setClipVolum(clipName ,volume);
 
     }
 
-    public  void setClipVolum(string clipName, float volume)
+    public void setClipVolum(string clipName, float volume)
     {
         if(_AudioSourceDict.ContainsKey(clipName))
         {
@@ -134,7 +134,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public  void playSoundEffect(AudioClip audioClip, bool isLoop = true, float volume = 1.0f)
+    public void playSoundEffect(AudioClip audioClip, bool isLoop = true, float volume = 1.0f)
     {
         if(audioClip == null) return;
 
@@ -161,7 +161,7 @@ public class AudioManager : MonoBehaviour
     }
 
     //使用这个方法一定要提前缓存过
-    public  void playSoundEffect(string name, bool isLoop = false, float volume = 1.0f)
+    public void playSoundEffect(string name, bool isLoop = false, float volume = 1.0f)
     {
         //判断是否提前缓存
         AudioSource souce;

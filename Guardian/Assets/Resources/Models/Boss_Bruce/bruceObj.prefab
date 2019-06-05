@@ -343,6 +343,7 @@ GameObject:
   - component: {fileID: 4857823249783876}
   - component: {fileID: 111717705747528446}
   - component: {fileID: 143790412934087204}
+  - component: {fileID: 65600323660857542}
   m_Layer: 0
   m_Name: bruceObj
   m_TagString: Untagged
@@ -1696,6 +1697,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1327844824048064}
   m_Mesh: {fileID: 4300004, guid: 35e84e277c36b004693769b1b50009af, type: 3}
+--- !u!65 &65600323660857542
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1439109696032502}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 3.83, z: 0}
 --- !u!108 &108602680800949340
 Light:
   m_ObjectHideFlags: 1
@@ -1854,10 +1867,10 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 5
-  m_Radius: 5
+  m_Height: 8.7
+  m_Radius: 4.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 4.24, z: 0}
+  m_Center: {x: 0, y: 3.5, z: 0}

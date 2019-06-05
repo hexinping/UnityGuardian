@@ -259,7 +259,7 @@ public class BossEnimyNormalAttackState : BossEnimyState
 
     public static int commbexIndex = 1;
     public static int continuousAttack = 0; //连续攻击次数
-    private int maxContinuousAttack = 2;    //连续攻击最大次数
+    private int maxContinuousAttack = 4;    //连续攻击最大次数
     
 
     public BossEnimyNormalAttackState(BaseEnitity enity)
@@ -283,16 +283,6 @@ public class BossEnimyNormalAttackState : BossEnimyState
 
         //注册事件
         e.addDelayCall(stateIndex, _speed, commbexIndex);
-
-        if (animatinName == GlobalParams.anim_ennimy6_normalAttack1)
-        {
-            AudioManager.getInstance().playSoundEffect(GlobalParams.sound_boss1_attack1);
-        }
-        else if (animatinName == GlobalParams.anim_ennimy6_normalAttack2)
-        {
-            AudioManager.getInstance().playSoundEffect(GlobalParams.sound_boss1_attack2);
-        }
-
     }
 
     override public void enter(params object[] values)
@@ -453,16 +443,18 @@ public class BossEnimySkillState : BossEnimyState
         _endPlayTime = p;
         _playTotalTime = time;
 
-        AudioManager.getInstance().playSoundEffect(GlobalParams.sound_boss1_skill);
+        //注册事件
+        e.addDelayCall(stateIndex);
 
     }
 
     override public void excute(params object[] values)
     {
-        EnimyEnitity e = (EnimyEnitity)_enitity;
+        BossEnimyEnitity e = (BossEnimyEnitity)_enitity;
         if (GlobalParams.totalTime >= _endPlayTime)
         {
-            _enitity.isPlaySkill = false;
+            e.isPlaySkill = false;
+            e.playOnlyOnceSkillEffect = true;
             //切换到Idle状态
             e.changeStateByIndex(EnimyStateEnum.IDLE, true, 1.0f, true);
         }
