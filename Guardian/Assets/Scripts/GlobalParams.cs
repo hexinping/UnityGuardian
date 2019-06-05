@@ -171,7 +171,13 @@ public static class GlobalParams
     public static string sound_boss1_dead           = "BossDeath";
 
 
-    
+    //敌人类型
+    public static int enimyType_warror              = 1;
+    public static int enimyType_mage                = 2;
+    public static int enimyType_grunt               = 3;
+    public static int enimyType_archer              = 4;
+    public static int enimyType_king                = 5;
+    public static int enimyType_boss                = 6;
 
 
     public static void addDelayCall(DelayCall delayCall)
