@@ -91,16 +91,19 @@ public class LevelOneView : BaseView {
     new void Start()
     {
         base.Start();
-        _scene = initScene("Module_02_LevelOne");
-
+        _scene = _sceneBgNode.transform.Find("Module_02_LevelOne").gameObject;
+        _scene.SetActive(true);
         spawnPosB = _scene.transform.Find("SpawnArea").gameObject.GetComponent<SpawnPos>();
 
-        GameObject sceneObj = initScene("Module_03_LevelTwo");
-        spawnPosC = sceneObj.transform.Find("SpawnArea").gameObject.GetComponent<SpawnPos>();
 
-        sceneObj = initScene("Module_01_LevelThree");
-        spawnPosA = sceneObj.transform.Find("SpawnArea").gameObject.GetComponent<SpawnPos>();
-        //StartCoroutine("initOtherScene");
+        _scene = _sceneBgNode.transform.Find("Module_03_LevelTwo").gameObject;
+        _scene.SetActive(true);
+        spawnPosC = _scene.transform.Find("SpawnArea").gameObject.GetComponent<SpawnPos>();
+
+        _scene = _sceneBgNode.transform.Find("Module_01_LevelThree").gameObject;
+        _scene.SetActive(true);
+        spawnPosA = _scene.transform.Find("SpawnArea").gameObject.GetComponent<SpawnPos>();
+        
         _mainCamera.transform.position = new Vector3(76.9f, -8.8f, -41.3f);
         //_mainCamera.transform.eulerAngles = (new Vector3(10.9f, 180.0f, 0.0f));
         
@@ -118,31 +121,6 @@ public class LevelOneView : BaseView {
 
 	}
 
-
-    IEnumerator initOtherScene()
-    {
-        //yield return new WaitForSeconds(5.0f);
-        string name = "Module_03_LevelTwo";
-        string path = "Prefabs/" + name;
-        ResourceRequest rr = Resources.LoadAsync<GameObject>(path);
-        yield return rr;
-        _sceneRight = Instantiate(rr.asset) as GameObject;
-        _sceneRight.name = name;
-        _sceneRight.transform.parent = _sceneBgNode.transform;
-        //_sceneRight.SetActive(false);
-
-        name = "Module_01_LevelThree";
-        path = "Prefabs/" + name;
-        rr = Resources.LoadAsync<GameObject>(path);
-        yield return rr;
-
-        _sceneLeft = Instantiate(rr.asset) as GameObject;
-        _sceneLeft.name = name;
-        _sceneLeft.transform.parent = _sceneBgNode.transform;
-        _sceneLeft.SetActive(false);
-
-
-    }
 
     IEnumerator initSwordsManPlayersMode()
     {
@@ -221,10 +199,10 @@ public class LevelOneView : BaseView {
     {
         yield return new WaitForSeconds(2.0f);
         createAreaBEnimy();
-        //yield return new WaitForSeconds(2.0f);
-        //createAreaAEnimy();
-        //yield return new WaitForSeconds(2.0f);
-        //createAreaCEnimy();
+        yield return new WaitForSeconds(2.0f);
+        createAreaAEnimy();
+        yield return new WaitForSeconds(2.0f);
+        createAreaCEnimy();
 
     }
     private void createAreaBEnimy()
