@@ -262,6 +262,19 @@ public class BossEnimyEnitity : EnimyEnitity
         //播放声音和特效
         playSoundAndEffect(animationName);
     }
+    override public void playHitEffect(string animationName)
+    {
+        Vector3 forwardOffset = Vector3.zero;
+        Vector3 targetPos = Vector3.zero;
+        if (animationName == GlobalParams.anim_ennimy6_hurt)
+        {
+            //受伤状态特效
+            forwardOffset = selfTransform.forward * 1.0f;
+            targetPos = selfTransform.position + forwardOffset;
+            targetPos.y += 1.0f;
+            createEffect(targetPos, _prefabHurt, GlobalParams.SkillPool);
+        }
+    }
 
     void playSoundAndEffect(string animationName)
     {
@@ -280,9 +293,16 @@ public class BossEnimyEnitity : EnimyEnitity
             if (playOnlyOnceSkillEffect)
             {
                 playOnlyOnceSkillEffect = false;
-                //技能特效
                 Vector3 forwardOffset = new Vector3(0f, 0f, -13f);
-                createEffectNoPool("ParticleProps/Hero_Skill01", targetTransform.position + forwardOffset, skillLayer, false);
+                Vector3 targetPos = selfTransform.position + selfTransform.forward * 3 + forwardOffset;
+                if (attackTarget != null)
+                {
+                    //技能特效, 攻击目标还在范围在攻击目标的位置释放特效
+                    targetPos = targetTransform.position + forwardOffset;
+                   
+                }
+                createEffectNoPool("ParticleProps/Hero_Skill01", targetPos, skillLayer, false);
+              
             }
             
         }
@@ -306,4 +326,14 @@ public class BossEnimyEnitity : EnimyEnitity
 
     }
 
+    override public void onDestory()
+    {
+        //血条回收
+        PoolManager.PoolsArray[GlobalParams.HPPool].RecoverGameObjectToPools(_hpFollow.gameObject);
+
+        changeStateByIndex(EnimyStateEnum.DEAD);
+        LevelOneView view = (LevelOneView)rootView;
+        view.removeFromEnimyList(this);
+
+    }
 }

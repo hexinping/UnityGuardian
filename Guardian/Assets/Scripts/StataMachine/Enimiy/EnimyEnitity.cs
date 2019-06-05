@@ -18,13 +18,13 @@ public class EnimyEnitity : BaseEnitity {
     public GameObject skillLayer;
 
 
-    private GameObject _prefabHurt;
-    private GameObject _prefabHp;
+    public GameObject _prefabHurt;
+    public GameObject _prefabHp;
 
     public string mainTexturePath = "warrior/skeleton_warrior__variant5";
     public object[] cObjList = new object[] { "armor", "eyes", "helmet", "Skeletonl_base", "shield", "sword" };
 
-    private HpFollow _hpFollow;
+    public HpFollow _hpFollow;
 
     //动画状态 传统动画方式
     public Dictionary<string, AnimationState> _animationStateDict;
@@ -310,7 +310,7 @@ public class EnimyEnitity : BaseEnitity {
         _animator.speed = 1.0f;
     }
 
-    public void playHitEffect(string animationName)
+   virtual public void playHitEffect(string animationName)
     {
         Vector3 forwardOffset = Vector3.zero;
         Vector3 targetPos = Vector3.zero;

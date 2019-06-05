@@ -391,7 +391,12 @@ public class BossEnimyHurtState : BossEnimyState
     {
         Debug.Log("BossEnimyHurtState enter=============");
         base.enter(values);
-        _enitity.isHurt = true;
+
+        BossEnimyEnitity e = (BossEnimyEnitity)_enitity;
+        e.isHurt = true;
+
+        //播放特效
+        e.playHitEffect(GlobalParams.anim_ennimy6_hurt);
     }
 
     override public void excute(params object[] values)
