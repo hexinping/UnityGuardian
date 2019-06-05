@@ -45,7 +45,7 @@ public class LoadingView : BaseView {
 
 	//public Action _callBack;
 
-	public void Awake()
+	new public void Awake()
 	{
 		base.Awake();
 
@@ -53,7 +53,7 @@ public class LoadingView : BaseView {
 	}
 
 	//参数的赋值要放到start里
-	public void Start()
+	new public void Start()
 	{
 		base.Start();
         if (paramsValue.Length > 0)

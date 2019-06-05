@@ -51,7 +51,7 @@ public class LoginView : BaseView {
     public AudioClip _backGroundAudioClip;
 
     private LoadingEndCallback _loadEndCallBack;
-    public void Awake()
+    new public void Awake()
     {
         base.Awake();
 
@@ -66,7 +66,7 @@ public class LoginView : BaseView {
 
 
 	// Use this for initialization
-	void Start () {
+	new void Start () {
         base.Start();
         _scene = initScene("Module_02_Login");
      

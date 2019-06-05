@@ -41,7 +41,7 @@ public class StartView : BaseView
 
     private LoadingEndCallback _loadEndCallBack;
 
-    public void Awake()
+    new public void Awake()
     {
         base.Awake();
 
@@ -50,7 +50,7 @@ public class StartView : BaseView
 
     }
     
-    void Start()
+    new void Start()
     {
         base.Start();
         _scene = initScene("Module_08_BaseScene");

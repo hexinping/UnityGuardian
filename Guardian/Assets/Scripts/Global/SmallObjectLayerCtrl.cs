@@ -24,7 +24,7 @@ using UnityEngine.UI;
 public class SmallObjectLayerCtrl : MonoBehaviour {
 
 
-    public int intDisappearDistance = 10; //消隐距离
+    public int intDisappearDistance = 20; //消隐距离
 
     private float[] distanceArray = new float[32];
 

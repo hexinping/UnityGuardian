@@ -62,14 +62,21 @@ public class LevelOneView : BaseView {
     SpawnPos spawnPosA;
     SpawnPos spawnPosB;
     SpawnPos spawnPosC;
-    
-    public void Awake()
+
+    //分区域存储npc 动态手工剔除用
+    public List<EnimyEnitity> listA;
+    public List<EnimyEnitity> listB;
+    public List<EnimyEnitity> listC;
+    new public void Awake()
     {
         base.Awake();
 
         _enitityDic = new Dictionary<int, BaseEnitity>();
         _listEnimy = new List<BaseEnitity>();
         _listPlayer = new List<BaseEnitity>();
+        listA = new List<EnimyEnitity>();
+        listB = new List<EnimyEnitity>();
+        listC = new List<EnimyEnitity>();
         _msgDispatcher = MessageDispatcher.getInstance();
 
         GameObject rawImage  = gameObject.transform.Find("Canvas/RawImage").gameObject;
@@ -81,17 +88,18 @@ public class LevelOneView : BaseView {
 
 
 	// Use this for initialization
-	void Start () {
+    new void Start()
+    {
         base.Start();
         _scene = initScene("Module_02_LevelOne");
 
         spawnPosB = _scene.transform.Find("SpawnArea").gameObject.GetComponent<SpawnPos>();
 
         GameObject sceneObj = initScene("Module_03_LevelTwo");
-        //spawnPosC = sceneObj.transform.Find("SpawnArea").gameObject.GetComponent<SpawnPos>();
+        spawnPosC = sceneObj.transform.Find("SpawnArea").gameObject.GetComponent<SpawnPos>();
 
         sceneObj = initScene("Module_01_LevelThree");
-        //spawnPosA = sceneObj.transform.Find("SpawnArea").gameObject.GetComponent<SpawnPos>();
+        spawnPosA = sceneObj.transform.Find("SpawnArea").gameObject.GetComponent<SpawnPos>();
         //StartCoroutine("initOtherScene");
         _mainCamera.transform.position = new Vector3(76.9f, -8.8f, -41.3f);
         //_mainCamera.transform.eulerAngles = (new Vector3(10.9f, 180.0f, 0.0f));
@@ -108,7 +116,6 @@ public class LevelOneView : BaseView {
 
         _audioManager.playMusic(_backGroundAudioClip);
 
-  
 	}
 
 
@@ -133,9 +140,6 @@ public class LevelOneView : BaseView {
         _sceneLeft.name = name;
         _sceneLeft.transform.parent = _sceneBgNode.transform;
         _sceneLeft.SetActive(false);
-
-        //initScene("Module_03_LevelTwo");
-        //initScene("Module_01_LevelThree");
 
 
     }
@@ -192,7 +196,7 @@ public class LevelOneView : BaseView {
         
     }
 
-    private void setRootObjViwePlayerGame(EnimyEnitity enitity)
+    private void setRootObjViwePlayerGame(EnimyEnitity enitity, int AreaIndex = 0)
     {
         enitity.setRootObj(_sceneRoleNode);
         enitity.setRootView(this);
@@ -200,60 +204,201 @@ public class LevelOneView : BaseView {
         enitity.initGameObject();
         _listEnimy.Add(enitity);
         _enitityDic.Add(enitity._id, enitity);
+        if (AreaIndex == 1)
+        {
+            listA.Add(enitity);
+        }
+        else if (AreaIndex == 2)
+        {
+            listB.Add(enitity);
+        }
+        else if (AreaIndex == 3)
+        {
+            listC.Add(enitity);
+        }
     }
     IEnumerator createEnimys()
     {
         yield return new WaitForSeconds(2.0f);
+        createAreaBEnimy();
+        yield return new WaitForSeconds(2.0f);
+        createAreaAEnimy();
+        yield return new WaitForSeconds(2.0f);
+        createAreaCEnimy();
 
+    }
+    private void createAreaBEnimy()
+    {
         //B区域NPC
         Transform[] warriorPosArry = spawnPosB.warrorSpawnPos;
         Transform[] magePosArry = spawnPosB.mageSpawnPos;
         Transform[] gruntPosArry = spawnPosB.gruntSpawnPos;
         Transform[] archerPosArry = spawnPosB.archerSpawnPos;
         Transform[] kingPosArry = spawnPosB.kingSpawnPos;
- 
+        Transform[] bossPosArry = spawnPosB.bossSpawnPos;
+
+        int areaIndex = 2;
         EnimyEnitity warriorEnimy = new EnimyEnitity();
-        setRootObjViwePlayerGame(warriorEnimy);
+        setRootObjViwePlayerGame(warriorEnimy, areaIndex);
         warriorEnimy._gameObject.transform.position = warriorPosArry[0].position;
 
         WarriorPurpleEnimyEnitity warriorPurpleEnimy = new WarriorPurpleEnimyEnitity();
-        setRootObjViwePlayerGame(warriorPurpleEnimy);
+        setRootObjViwePlayerGame(warriorPurpleEnimy, areaIndex);
         warriorPurpleEnimy._gameObject.transform.position = warriorPosArry[1].position;
 
         MageGreenEnimyEnitity mageGreenEnimy = new MageGreenEnimyEnitity();
-        setRootObjViwePlayerGame(mageGreenEnimy);
+        setRootObjViwePlayerGame(mageGreenEnimy, areaIndex);
         mageGreenEnimy._gameObject.transform.position = magePosArry[0].position;
 
         MagePurpleEnimyEnitity magePurpleEnimy = new MagePurpleEnimyEnitity();
-        setRootObjViwePlayerGame(magePurpleEnimy);
+        setRootObjViwePlayerGame(magePurpleEnimy, areaIndex);
         magePurpleEnimy._gameObject.transform.position = magePosArry[1].position;
 
-        ArcherEnimyEnitity archerGreenEnimy = new ArcherEnimyEnitity();
-        setRootObjViwePlayerGame(archerGreenEnimy);
-        archerGreenEnimy._gameObject.transform.position = archerPosArry[0].position;
 
-        ArcherEnimyEnitity archerGreenEnimy1 = new ArcherEnimyEnitity();
-        setRootObjViwePlayerGame(archerGreenEnimy1);
-        archerGreenEnimy1._gameObject.transform.position = archerPosArry[1].position;
+        for (int i = 0; i < gruntPosArry.Length; i++)
+        {
+            GruntEnimyEnitity gruntGreenEnimy = new GruntEnimyEnitity();
+            setRootObjViwePlayerGame(gruntGreenEnimy, areaIndex);
+            gruntGreenEnimy._gameObject.transform.position = gruntPosArry[i].position;
+        }
+
+        for (int i = 0; i < archerPosArry.Length; i++)
+        {
+            ArcherEnimyEnitity archerGreenEnimy = new ArcherEnimyEnitity();
+            setRootObjViwePlayerGame(archerGreenEnimy, areaIndex);
+            archerGreenEnimy._gameObject.transform.position = archerPosArry[i].position;
+        }
+
+        for (int i = 0; i < kingPosArry.Length; i++)
+        {
+            KingEnimyEnitity kingGreenEnimy = new KingEnimyEnitity();
+            setRootObjViwePlayerGame(kingGreenEnimy, areaIndex);
+            kingGreenEnimy._gameObject.transform.position = kingPosArry[i].position;
+        }
+    }
+    private void createAreaAEnimy()
+    {
+        //A区域
+        Transform[] warriorPosArry = spawnPosA.warrorSpawnPos;
+        Transform[] magePosArry = spawnPosA.mageSpawnPos;
+        Transform[] gruntPosArry = spawnPosA.gruntSpawnPos;
+        Transform[] archerPosArry = spawnPosA.archerSpawnPos;
+        Transform[] kingPosArry = spawnPosA.kingSpawnPos;
+        Transform[] bossPosArry = spawnPosA.bossSpawnPos;
+
+        int areaIndex = 1;
+        WarriorPurpleEnimyEnitity warriorPurpleEnimyEnitity = new WarriorPurpleEnimyEnitity();
+        setRootObjViwePlayerGame(warriorPurpleEnimyEnitity, areaIndex);
+        warriorPurpleEnimyEnitity._gameObject.transform.position = warriorPosArry[0].position;
+
+        WarriorTealEnimyEnitity warriorTealEnimyEnitity = new WarriorTealEnimyEnitity();
+        setRootObjViwePlayerGame(warriorTealEnimyEnitity, areaIndex);
+        warriorTealEnimyEnitity._gameObject.transform.position = warriorPosArry[1].position;
+
+        WarriorRedEnimyEnitity warriorRedEnimyEnitity2 = new WarriorRedEnimyEnitity();
+        setRootObjViwePlayerGame(warriorRedEnimyEnitity2, areaIndex);
+        warriorRedEnimyEnitity2._gameObject.transform.position = warriorPosArry[2].position;
+
+        WarriorYellowEnimyEnitity warriorYellowEnimyEnitity = new WarriorYellowEnimyEnitity();
+        setRootObjViwePlayerGame(warriorYellowEnimyEnitity, areaIndex);
+        warriorYellowEnimyEnitity._gameObject.transform.position = warriorPosArry[3].position;
 
 
-        KingEnimyEnitity kingGreenEnimy = new KingEnimyEnitity();
-        setRootObjViwePlayerGame(kingGreenEnimy);
-        kingGreenEnimy._gameObject.transform.position = kingPosArry[0].position;
+        MageGreenEnimyEnitity mageGreenEnimyA = new MageGreenEnimyEnitity();
+        setRootObjViwePlayerGame(mageGreenEnimyA, areaIndex);
+        mageGreenEnimyA._gameObject.transform.position = magePosArry[0].position;
 
-        KingEnimyEnitity kingGreenEnimy1 = new KingEnimyEnitity();
-        setRootObjViwePlayerGame(kingGreenEnimy1);
-        kingGreenEnimy1._gameObject.transform.position = kingPosArry[1].position;
+        MagePurpleEnimyEnitity magePurpleEnimyA = new MagePurpleEnimyEnitity();
+        setRootObjViwePlayerGame(magePurpleEnimyA, areaIndex);
+        magePurpleEnimyA._gameObject.transform.position = magePosArry[1].position;
 
-        GruntEnimyEnitity gruntGreenEnimy = new GruntEnimyEnitity();
-        setRootObjViwePlayerGame(gruntGreenEnimy);
-        gruntGreenEnimy._gameObject.transform.position = gruntPosArry[0].position;
+        MageGreenEnimyEnitity mageGreenEnimyA1 = new MageGreenEnimyEnitity();
+        setRootObjViwePlayerGame(mageGreenEnimyA1, areaIndex);
+        mageGreenEnimyA1._gameObject.transform.position = magePosArry[2].position;
+
+        MagePurpleEnimyEnitity magePurpleEnimyA2 = new MagePurpleEnimyEnitity();
+        setRootObjViwePlayerGame(magePurpleEnimyA2, areaIndex);
+        magePurpleEnimyA2._gameObject.transform.position = magePosArry[3].position;
+
+        MagePurpleEnimyEnitity magePurpleEnimyA3 = new MagePurpleEnimyEnitity();
+        setRootObjViwePlayerGame(magePurpleEnimyA3, areaIndex);
+        magePurpleEnimyA3._gameObject.transform.position = magePosArry[4].position;
 
 
-        GruntEnimyEnitity gruntGreenEnimy1 = new GruntEnimyEnitity();
-        setRootObjViwePlayerGame(gruntGreenEnimy1);
-        gruntGreenEnimy1._gameObject.transform.position = gruntPosArry[1].position;
+        for (int i = 0; i < gruntPosArry.Length; i++)
+        {
+            GruntEnimyEnitity gruntGreenEnimyA = new GruntEnimyEnitity();
+            setRootObjViwePlayerGame(gruntGreenEnimyA, areaIndex);
+            gruntGreenEnimyA._gameObject.transform.position = gruntPosArry[i].position;
+        }
 
+        for (int i = 0; i < archerPosArry.Length; i++)
+        {
+            ArcherEnimyEnitity archerGreenEnimyA = new ArcherEnimyEnitity();
+            setRootObjViwePlayerGame(archerGreenEnimyA, areaIndex);
+            archerGreenEnimyA._gameObject.transform.position = archerPosArry[i].position;
+        }
+
+        for (int i = 0; i < kingPosArry.Length; i++)
+        {
+            KingEnimyEnitity kingGreenEnimyA = new KingEnimyEnitity();
+            setRootObjViwePlayerGame(kingGreenEnimyA, areaIndex);
+            kingGreenEnimyA._gameObject.transform.position = kingPosArry[i].position;
+        }
+     
+        //boss
+        BossEnimyEnitity boss = new BossEnimyEnitity();
+        setRootObjViwePlayerGame(boss, areaIndex);
+        boss._gameObject.transform.position = bossPosArry[0].position;
+
+
+        //默认隐藏 todo
+    }
+
+    private void createAreaCEnimy()
+    {
+        //C区域
+        Transform[] warriorPosArry = spawnPosC.warrorSpawnPos;
+        Transform[] magePosArry = spawnPosC.mageSpawnPos;
+        Transform[] gruntPosArry = spawnPosC.gruntSpawnPos;
+        Transform[] archerPosArry = spawnPosC.archerSpawnPos;
+        Transform[] kingPosArry = spawnPosC.kingSpawnPos;
+        Transform[] bossPosArry = spawnPosC.bossSpawnPos;
+
+        int areaIndex = 3;
+        WarriorRedEnimyEnitity warriorRedEnimyEnitity = new WarriorRedEnimyEnitity();
+        setRootObjViwePlayerGame(warriorRedEnimyEnitity, areaIndex);
+        warriorRedEnimyEnitity._gameObject.transform.position = warriorPosArry[0].position;
+
+        WarriorTealEnimyEnitity warriorTealEnimyEnitity = new WarriorTealEnimyEnitity();
+        setRootObjViwePlayerGame(warriorTealEnimyEnitity, areaIndex);
+        warriorTealEnimyEnitity._gameObject.transform.position = warriorPosArry[1].position;
+
+        MageGreenEnimyEnitity mageGreenEnimyC = new MageGreenEnimyEnitity();
+        setRootObjViwePlayerGame(mageGreenEnimyC, areaIndex);
+        mageGreenEnimyC._gameObject.transform.position = magePosArry[0].position;
+
+        MagePurpleEnimyEnitity magePurpleEnimyC = new MagePurpleEnimyEnitity();
+        setRootObjViwePlayerGame(magePurpleEnimyC, areaIndex);
+        magePurpleEnimyC._gameObject.transform.position = magePosArry[1].position;
+
+        GruntEnimyEnitity gruntGreenEnimyC = new GruntEnimyEnitity();
+        setRootObjViwePlayerGame(gruntGreenEnimyC, areaIndex);
+        gruntGreenEnimyC._gameObject.transform.position = gruntPosArry[0].position;
+
+        for (int i = 0; i < archerPosArry.Length; i++)
+        {
+            ArcherEnimyEnitity archerGreenEnimyC = new ArcherEnimyEnitity();
+            setRootObjViwePlayerGame(archerGreenEnimyC, areaIndex);
+            archerGreenEnimyC._gameObject.transform.position = archerPosArry[i].position;
+        }
+
+
+        KingEnimyEnitity kingGreenEnimyC = new KingEnimyEnitity();
+        setRootObjViwePlayerGame(kingGreenEnimyC, areaIndex);
+        kingGreenEnimyC._gameObject.transform.position = kingPosArry[0].position;
+
+        //默认隐藏 todo
     }
 
     override public void updatePlayerInfo()
