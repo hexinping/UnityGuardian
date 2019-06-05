@@ -570,7 +570,7 @@ public class PlayerEnitity:BaseEnitity  {
     {
         if (attackTarget != null)
         {
-          //_gameObject.transform.LookAt(attackTarget.transform);
+
             GameObject tarObj = attackTarget._gameObject;
             _playerTransform.rotation = Quaternion.Slerp(_playerTransform.rotation, Quaternion.LookRotation(tarObj.transform.position - _playerTransform.position), 1.0f);
         }

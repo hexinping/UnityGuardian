@@ -90,7 +90,7 @@ public class ArcherEnimyEnitity : EnimyEnitity
                 Vector3 startPos = selfTransform.position;
                 startPos.y += 1.0f;
 
-                targetPos = attackTarget._gameObject.transform.position;
+                targetPos = targetTransform.position;
                 targetPos.y += 1.0f;
 
   
@@ -129,7 +129,7 @@ public class ArcherEnimyEnitity : EnimyEnitity
         if (attackTarget != null && !attackTarget.isDead)
         {
             //当前目标的位置
-            Vector3 newTargetPos = attackTarget._gameObject.transform.position;
+            Vector3 newTargetPos = targetTransform.position;
             newTargetPos.y += 1.0f;
 
             //箭射出之前目标的位置

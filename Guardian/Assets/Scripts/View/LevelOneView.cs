@@ -208,9 +208,9 @@ public class LevelOneView : BaseView {
         //setRootObjViwePlayerGame(magePurpleEnimy);
         //magePurpleEnimy._gameObject.transform.localPosition = new Vector3(67f, -13.5f, -42.7f);
 
-        //ArcherEnimyEnitity archerGreenEnimy = new ArcherEnimyEnitity();
-        //setRootObjViwePlayerGame(archerGreenEnimy);
-        //archerGreenEnimy._gameObject.transform.localPosition = new Vector3(91f, -13.5f, -41.6f);
+        ArcherEnimyEnitity archerGreenEnimy = new ArcherEnimyEnitity();
+        setRootObjViwePlayerGame(archerGreenEnimy);
+        archerGreenEnimy._gameObject.transform.localPosition = new Vector3(91f, -13.5f, -41.6f);
 
         //ArcherEnimyEnitity archerGreenEnimy1 = new ArcherEnimyEnitity();
         //setRootObjViwePlayerGame(archerGreenEnimy1);
@@ -235,9 +235,9 @@ public class LevelOneView : BaseView {
         //gruntGreenEnimy1._gameObject.transform.localPosition = new Vector3(84f, -13.5f, -42f);
 
 
-        BossEnimyEnitity boss = new BossEnimyEnitity();
-        setRootObjViwePlayerGame(boss);
-        boss._gameObject.transform.localPosition = new Vector3(83f, -13.5f, -45.4f);
+        //BossEnimyEnitity boss = new BossEnimyEnitity();
+        //setRootObjViwePlayerGame(boss);
+        //boss._gameObject.transform.localPosition = new Vector3(83f, -13.5f, -45.4f);
    
 
     }
@@ -335,6 +335,7 @@ public class LevelOneView : BaseView {
     private void playerFindTarget()
     {
         _playerEnitity.attackTarget = null;
+        _playerEnitity.targetTransform = null;
         if (_listEnimy != null && _listEnimy.Count > 0)
         { 
             Vector3 playerPos = _playerTransform.position;
@@ -355,6 +356,7 @@ public class LevelOneView : BaseView {
                         {
                             minDis = dis;
                             _playerEnitity.attackTarget = enimy;
+                            _playerEnitity.targetTransform = obj.transform;
                         }
                     }
                 }

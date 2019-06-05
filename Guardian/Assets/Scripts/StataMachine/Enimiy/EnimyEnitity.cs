@@ -382,20 +382,9 @@ public class EnimyEnitity : BaseEnitity {
     {
         if (attackTarget != null || moveTarget !=null)
         {
-            //_gameObject.transform.LookAt(attackTarget.transform);
-            GameObject tarObj = null;
-            if (isMove)
+            if (targetTransform != null)
             {
-                tarObj = moveTarget._gameObject;
-            }
-            else if (isAttacking)
-            {
-                tarObj = attackTarget._gameObject;
-            }
-
-            if (tarObj != null)
-            {
-                selfTransform.rotation = Quaternion.Slerp(selfTransform.rotation, Quaternion.LookRotation(tarObj.transform.position - selfTransform.position), 1.0f);
+                selfTransform.rotation = Quaternion.Slerp(selfTransform.rotation, Quaternion.LookRotation(targetTransform.position - selfTransform.position), 1.0f);
             }
             
         }
@@ -481,7 +470,8 @@ public class EnimyEnitity : BaseEnitity {
 
         if (target != null)
         {
-            Vector3 playerPos = target._gameObject.transform.position;
+            Transform tarTrans = target._gameObject.transform;
+            Vector3 playerPos = tarTrans.position;
 
             //这里考虑下是否需要切换目标，
             if (isAttacking)
@@ -490,6 +480,7 @@ public class EnimyEnitity : BaseEnitity {
                 return;
             }
             attackTarget = null;
+            targetTransform = null;
 
             //移动过程中永远选择离自己最近的敌人
             moveTarget = null;
@@ -502,6 +493,7 @@ public class EnimyEnitity : BaseEnitity {
                 isMove = false;
                 isAttacking = true;
                 attackTarget = target;
+                targetTransform = tarTrans;
             }
             else if (dis <= warningDis) //警戒范围
             {
@@ -509,6 +501,7 @@ public class EnimyEnitity : BaseEnitity {
                 isMove = true;
                 isAttacking = false;
                 moveTarget = target;
+                targetTransform = tarTrans;
             }
             else
             {
