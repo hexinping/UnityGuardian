@@ -17,7 +17,7 @@ public class WarriorYellowEnimyEnitity : EnimyEnitity {
 
     override public void onDestory()
     {
-        mainTexturePath = "warrior/skeleton_warrior__variant3";
+        texList[0] = "warrior/skeleton_warrior__variant3";
         base.onDestory();
     }
    

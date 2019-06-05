@@ -61,8 +61,15 @@ public class GruntEnimyEnitity : EnimyEnitity
 
     override public void onDestory()
     {
-        mainTexturePath = "grunt/base_skeleton_col";
-        cObjList = new object[] { "eyes", "Skeletonl_base"};
+
+        cObjList.Clear();
+        cObjList.Add("eyes");
+        cObjList.Add("Skeletonl_base");
+
+        texList.Clear();
+        texList.Add("grunt/base_skeleton_col");
+        texList.Add("grunt/base_skeleton_col");
+
         base.onDestory();
 
     }

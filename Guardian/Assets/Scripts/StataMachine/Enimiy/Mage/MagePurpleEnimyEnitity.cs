@@ -60,8 +60,19 @@ public class MagePurpleEnimyEnitity : EnimyEnitity
 
     override public void onDestory()
     {
-        mainTexturePath = "mage/mage_skeleton_col_variant2";
-        cObjList = new object[] { "cloak", "eyes", "Skeletonl_base", "staff" };
+       
+        cObjList.Clear();
+        cObjList.Add("cloak");
+        cObjList.Add("eyes");
+        cObjList.Add("Skeletonl_base");
+        cObjList.Add("staff");
+
+        texList.Clear();
+        texList.Add("mage/mage_skeleton_col_variant2");
+        texList.Add("grunt/base_skeleton_col");
+        texList.Add("grunt/base_skeleton_col");
+        texList.Add("mage/mage_skeleton_col_variant2");
+
         base.onDestory();
 
     }

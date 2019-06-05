@@ -17,7 +17,9 @@ public class BurnHelper : MonoBehaviour {
     private bool isReplaceMat = false;
 
     private Texture _mainTexture = null;
-    private List<string> _gameObjectNameList = new List<string>();
+    private Material _mainMaterial = null;
+
+    private Dictionary<string, Material> _materialDict = new Dictionary<string, Material>();
 
     void Awake()
     { 
@@ -36,45 +38,66 @@ public class BurnHelper : MonoBehaviour {
     void initDatas()
     {
         isReplaceMat = true;
-        if (_mainTexture != null)
+        if (_materialDict.Count > 0)
         {
-            material.SetTexture("_MainTex", _mainTexture);
-        }
-
-        if (_gameObjectNameList != null && _gameObjectNameList.Count > 0)
-        {
-            for (int i = 0; i < _gameObjectNameList.Count; i++)
+            foreach (KeyValuePair<string, Material> kv in _materialDict)
             {
-                string name = _gameObjectNameList[i];
+                string name = kv.Key;
+                Material ma = kv.Value;
+
+                //替换材质
                 GameObject obj = null;
                 Recursive(gameObject, name, ref obj);
                 if (obj == null)
                 {
-                    Debug.Log("name======" + name);
+                    Debug.Log("溶解shader 找不到obj name======" + name);
                 }
                 Renderer render = obj.GetComponent<Renderer>();
-                render.material = material;
+                render.material = ma;
+
             }
         }
         else
-        { 
-            //直接把自身的material替换
+        {
             Renderer render = gameObject.GetComponent<Renderer>();
-            render.material = material;
+            render.material = _mainMaterial;
         }
+        
     }
 
-    public void setNameList(params object[] values)
-    {
-        if (values != null && values.Length > 0)
-        {
-            for (int i = 0; i < values.Length;i++ )
-            {
-                string name = (string)values[i];
-                _gameObjectNameList.Add(name);
-            }
-        }
 
+    public Material createSingleMaterail(Shader dissoveS, Texture mainTexture)
+    {
+        //创建一个对应的材质
+        Material material = new Material(dissoveS);
+        material.hideFlags = HideFlags.DontSave;
+        Texture burnN = Resources.Load<Texture>("Texture/burn_noise");
+        material.SetTexture("_BurnMap", burnN);
+        material.SetTexture("_MainTex", mainTexture);
+        material.SetColor("_BurnFirstColor", new Color32(255, 255, 255, 255));
+        material.SetColor("_BurnSecondColor", new Color32(158, 247, 255, 255));
+        return material;
+    }
+    public void createMaterail(Dictionary<string , Texture> dict)
+    {
+        
+        Shader dissoveS = Resources.Load<Shader>("Shaders/DissolveNoNormal");
+        if (dict.Count == 0)
+        {
+            //直接给自己替换材质
+            _mainMaterial = createSingleMaterail(dissoveS, _mainTexture);
+            return;
+        }
+        foreach (KeyValuePair<string, Texture> kv in dict)
+        {
+            string name = kv.Key;
+            Texture tex = kv.Value;
+
+            //创建一个对应的材质
+            Material material = createSingleMaterail(dissoveS, tex);
+            _materialDict.Add(name, material);
+        }
+        
     }
 
     public void setMainTex(Texture main)
@@ -98,16 +121,6 @@ public class BurnHelper : MonoBehaviour {
 
     }           
 
-	// Use this for initialization
-	void Start () {
-		if (material == null) {
-			this.enabled = false;
-		} else {
-			material.SetFloat("_BurnAmount", 0.0f);
-		}
-
-       
-	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -119,7 +132,20 @@ public class BurnHelper : MonoBehaviour {
             }
            
             burnAmount += Time.deltaTime * burnSpeed;
-            material.SetFloat("_BurnAmount", burnAmount);
+
+            if (_materialDict.Count > 0)
+            {
+                foreach (KeyValuePair<string, Material> kv in _materialDict)
+                {
+                    Material ma = kv.Value;
+                    ma.SetFloat("_BurnAmount", burnAmount);
+                }
+            }
+            else
+            {
+                _mainMaterial.SetFloat("_BurnAmount", burnAmount);
+            }
+
             if (burnAmount >= 0.99)
             {
                 Destroy(gameObject);
@@ -127,4 +153,19 @@ public class BurnHelper : MonoBehaviour {
         }
         
 	}
+
+    void OnDestory()
+    {
+        if (_materialDict.Count > 0)
+        {
+            foreach (KeyValuePair<string, Material> kv in _materialDict)
+            {
+                Material ma = kv.Value;
+                //释放资源
+                Resources.UnloadAsset(ma);
+            }
+        }
+        _materialDict.Clear();
+       
+    }
 }

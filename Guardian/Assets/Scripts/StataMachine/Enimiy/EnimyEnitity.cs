@@ -21,8 +21,20 @@ public class EnimyEnitity : BaseEnitity {
     public GameObject _prefabHurt;
     public GameObject _prefabHp;
 
-    public string mainTexturePath = "warrior/skeleton_warrior__variant5";
-    public object[] cObjList = new object[] { "armor", "eyes", "helmet", "Skeletonl_base", "shield", "sword" };
+    public string mainTexturePath = "Models/Enemys/Skeleton_Pack/Textures/";
+    //public object[] cObjList = new object[] { "armor", "eyes", "helmet", "Skeletonl_base", "shield", "sword" };
+
+    //死亡溶解shader使用
+    public Dictionary<string, Texture> dissoveParamsDict;
+    public List<string> cObjList = new List<string>() { "armor", "eyes", "helmet", "Skeletonl_base", "shield", "sword" };
+    public List<string> texList = new List<string>() { 
+        "warrior/skeleton_warrior__variant5", 
+        "grunt/base_skeleton_col", 
+        "warrior/skeleton_warrior_col_01",  
+        "grunt/base_skeleton_col", 
+        "warrior/skeleton_warrior_col_01",  
+        "warrior/skeleton_warrior_col_01",  
+    };
 
     public HpFollow _hpFollow;
 
@@ -38,14 +50,10 @@ public class EnimyEnitity : BaseEnitity {
     {
         damageLabelOffsetY = 50.0f;
         _animationStateDict = new Dictionary<string, AnimationState>();
+        dissoveParamsDict = new Dictionary<string, Texture>();
 
         skillGround = GameObject.Find("_Manager/_ViewManager/_Scene/SkillGround");
         skillLayer = GameObject.Find("_Manager/_ViewManager/_Scene/Skill");
-    }
-
-    virtual public void intDatas()
-    { 
-        
     }
 
 
@@ -365,12 +373,17 @@ public class EnimyEnitity : BaseEnitity {
         PoolManager.PoolsArray[GlobalParams.HPPool].RecoverGameObjectToPools(_hpFollow.gameObject);
 
         BurnHelper burn = _gameObject.AddComponent<BurnHelper>();
-        Texture mainT = (Texture)ResourcesManager.getInstance().getResouce(ResourceType.Texture, "Models/Enemys/Skeleton_Pack/Textures/" + mainTexturePath, rootView._name, true, false);
-        burn.setMainTex(mainT);
-
-        if (cObjList.Length > 0)
+        if (cObjList.Count > 0)
         {
-            burn.setNameList(cObjList);
+
+            //组装参数
+            for (int i = 0; i < cObjList.Count; i++)
+            {
+                string name = cObjList[i];
+                Texture tex = (Texture)ResourcesManager.getInstance().getResouce(ResourceType.Texture, mainTexturePath + texList[i] , rootView._name, true, false);
+                dissoveParamsDict[name] = tex;
+            }
+            burn.createMaterail(dissoveParamsDict);
         }
  
         changeStateByIndex(EnimyStateEnum.DEAD);

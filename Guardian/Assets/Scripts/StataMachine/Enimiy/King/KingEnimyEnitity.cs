@@ -117,8 +117,20 @@ public class KingEnimyEnitity : EnimyEnitity
 
     override public void onDestory()
     {
-        mainTexturePath = "king/SKELETONKING_ARMOR_Variant1";
-        cObjList = new object[] { "armor", "cloak", "eyes", "Skeletonl_base","sword"};
+
+        cObjList.Clear();
+        cObjList.Add("armor");
+        cObjList.Add("cloak");
+        cObjList.Add("eyes");
+        cObjList.Add("Skeletonl_base");
+        cObjList.Add("sword");
+
+        texList.Clear();
+        texList.Add("king/SKELETONKING_ARMOR_Variant1");
+        texList.Add("king/WEAPON_Variant5");
+        texList.Add("grunt/base_skeleton_col");
+        texList.Add("grunt/base_skeleton_col");
+        texList.Add("king/WEAPON_Variant5");
         base.onDestory();
 
     }

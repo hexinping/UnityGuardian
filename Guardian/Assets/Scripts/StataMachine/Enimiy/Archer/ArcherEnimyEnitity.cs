@@ -65,8 +65,19 @@ public class ArcherEnimyEnitity : EnimyEnitity
 
     override public void onDestory()
     {
-        mainTexturePath = "archer/skel_archer_col_green";
-        cObjList = new object[] { "armor", "eyes", "Skeletonl_base", "bow" };
+      
+        cObjList.Clear();
+        cObjList.Add("armor");
+        cObjList.Add("eyes");
+        cObjList.Add("Skeletonl_base");
+        cObjList.Add("bow");
+
+        texList.Clear();
+        texList.Add("archer/skel_archer_col_green");
+        texList.Add("grunt/base_skeleton_col");
+        texList.Add("grunt/base_skeleton_col");
+        texList.Add("archer/skel_archer_col_red");
+
         base.onDestory();
 
     }

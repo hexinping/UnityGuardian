@@ -4,7 +4,7 @@ using UnityEngine;
 
 using kernal;
 
-public class MageGreenEnimyEnitity : MagePurpleEnimyEnitity
+public class MageGreenEnimyEnitity : EnimyEnitity
 {
 
     override public void initModeData()
@@ -33,8 +33,19 @@ public class MageGreenEnimyEnitity : MagePurpleEnimyEnitity
 
     override public void onDestory()
     {
-        mainTexturePath = "mage/mage_skeleton_col_variant1";
-        cObjList = new object[] { "cloak", "eyes", "Skeletonl_base", "staff" };
+      
+        cObjList.Clear();
+        cObjList.Add("cloak");
+        cObjList.Add("eyes");
+        cObjList.Add("Skeletonl_base");
+        cObjList.Add("staff");
+
+        texList.Clear();
+        texList.Add("mage/mage_skeleton_col_variant5");
+        texList.Add("grunt/base_skeleton_col");
+        texList.Add("grunt/base_skeleton_col");
+        texList.Add("mage/mage_skeleton_col_variant5");
+     
         base.onDestory();
 
     }

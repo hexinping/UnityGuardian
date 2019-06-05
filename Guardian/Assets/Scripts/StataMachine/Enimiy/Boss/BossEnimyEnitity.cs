@@ -11,6 +11,7 @@ public class BossEnimyEnitity : EnimyEnitity
     public BossEnimyEnitity()
     {
         hpHeight = 200;
+        mainTexturePath = "Models/Boss_Bruce/Textures/";
     }
 
     override public void initModeData()
@@ -328,12 +329,21 @@ public class BossEnimyEnitity : EnimyEnitity
 
     override public void onDestory()
     {
-        //血条回收
-        PoolManager.PoolsArray[GlobalParams.HPPool].RecoverGameObjectToPools(_hpFollow.gameObject);
+        cObjList.Clear();
+        cObjList.Add("Bruce");
+        cObjList.Add("left_shoulder");
+        cObjList.Add("spear_02");
+        cObjList.Add("right_shoulder");
+        cObjList.Add("spear_01");
 
-        changeStateByIndex(EnimyStateEnum.DEAD);
-        LevelOneView view = (LevelOneView)rootView;
-        view.removeFromEnimyList(this);
+        texList.Clear();
+        texList.Add("warlord_complete_map");
+        texList.Add("warlord_complete_map");
+        texList.Add("warlord_spear_complete");
+        texList.Add("warlord_complete_map");
+        texList.Add("warlord_spear_complete");
+
+        base.onDestory();
 
     }
 }
