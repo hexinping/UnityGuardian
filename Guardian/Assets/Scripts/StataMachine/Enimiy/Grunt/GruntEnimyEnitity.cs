@@ -30,7 +30,7 @@ public class GruntEnimyEnitity : EnimyEnitity
         _mode.maxDefence = 0.0f;
         _mode.defence = _mode.maxDefence;
         _mode.warningDisSquare = 9;
-        _mode.attackDisSquare = 4;
+        _mode.attackDisSquare = 5;
 
         _mode.moveSpeed = 6.0f;
 

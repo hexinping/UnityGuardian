@@ -42,7 +42,7 @@ public class BossEnimyEnitity : EnimyEnitity
         _mode.maxHp = 100.0f;
         _mode.hp = _mode.maxHp;
 
-        _mode.warningDisSquare = 81;
+        _mode.warningDisSquare = 64;
         _mode.attackDisSquare = 25;
 
         _mode.moveSpeed = 5.0f;
