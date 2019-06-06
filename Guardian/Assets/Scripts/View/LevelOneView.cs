@@ -352,23 +352,6 @@ public class LevelOneView : BaseView {
 
         boss._gameObject = obj;
         boss.setBattleDatas();
-
-        //obj.AddComponent<EnimyEvent>();
-        //boss._animator = obj.GetComponent<Animator>();
-        //boss.selfTransform = obj.transform;
-        //boss._CC = obj.GetComponent<CharacterController>();
-        //boss._animation = obj.GetComponent<Animation>();
-
-        ////使用缓冲池床创建血条
-        //GameObject hpObj = PoolManager.PoolsArray[GlobalParams.HPPool].GetGameObjectByPool(boss._prefabHp,
-        //    boss.selfTransform.position, Quaternion.identity);
-        //HpFollow hpFollow = hpObj.GetComponent<HpFollow>();
-        //hpFollow.setHpUIDatas(new Vector2(0, boss.hpHeight), boss._mode.hp, boss._mode.maxHp);
-        //hpFollow.target = boss.selfTransform;
-        //boss._hpFollow = hpFollow;
-        //boss.hideHpSlider();
-
-        //boss.saveAnimationState();
     }
 
     private void createAreaCEnimy()
