@@ -174,7 +174,21 @@ public class LevelOneView : BaseView {
 
         StartCoroutine("createEnimys");
 
+        //默认开启后期
+        enableBloom();
         
+    }
+
+    public void enableBloom()
+    {
+        PostEffectBloom bloom = _mainCamera.GetComponent<PostEffectBloom>();
+        bloom.enabled = true;
+    }
+
+    public void disableBloom()
+    {
+        PostEffectBloom bloom = _mainCamera.GetComponent<PostEffectBloom>();
+        bloom.enabled = false;
     }
 
     private void setRootObjViwePlayerGame(EnimyEnitity enitity, int AreaIndex = 0)

@@ -402,6 +402,12 @@
     <None Include="Assets\Resources\ParticleProps\FireBall\ToolResources\EffectShader\FXMaker_Mask Additive Tint.shader" />
     <None Include="Assets\Resources\Shaders\DissolveNoNormal.shader" />
     <None Include="Assets\Resources\Shaders\DissolveNoNormalWithLight.shader" />
+    <None Include="Assets\Resources\Shaders\OutLine3D.shader" />
+    <None Include="Assets\Resources\Shaders\OutLine3DNoLight.shader" />
+    <None Include="Assets\Resources\Shaders\PossEffect\Bloom.shader" />
+    <None Include="Assets\Resources\Shaders\PossEffect\GaussianBlur.shader" />
+    <None Include="Assets\Resources\Shaders\PossEffect\RadialBlurEffect.shader" />
+    <None Include="Assets\Resources\Shaders\PossEffect\RotationDistortEffect.shader" />
     <None Include="Assets\Scripts\Control\Enemy\readMe.txt" />
     <None Include="Assets\Scripts\Control\NPC\readMe.txt" />
     <None Include="Assets\Scripts\Control\Prop\readMe.txt" />

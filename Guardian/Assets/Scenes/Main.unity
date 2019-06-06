@@ -1577,6 +1577,7 @@ GameObject:
   - component: {fileID: 1219216442}
   - component: {fileID: 1219216441}
   - component: {fileID: 1219216440}
+  - component: {fileID: 1219216444}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1683,6 +1684,22 @@ Transform:
   m_Father: {fileID: 1806409372}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+--- !u!114 &1219216444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1219216439}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a36f1acb6969458489807859d97503d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloomShader: {fileID: 4800000, guid: 97f26c6e0d72a3f4cb37c0d0a0cdf41e, type: 3}
+  iterations: 1
+  blurSpread: 0.2
+  downSample: 4
+  luminanceThreshold: 0
 --- !u!1 &1222811846
 GameObject:
   m_ObjectHideFlags: 0
@@ -1804,7 +1821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enable: 1
   isActivated: 1
-  showDebugRadius: 1
+  showDebugRadius: 0
   useFixedUpdate: 0
   isUseGuiLayout: 1
   dynamicJoystick: 1
@@ -1855,7 +1872,7 @@ MonoBehaviour:
   showZone: 1
   showTouch: 1
   showDeadZone: 1
-  areaTexture: {fileID: 2800000, guid: fa8492a53b1256a49afe4c0a087b59dc, type: 3}
+  areaTexture: {fileID: 2800000, guid: e0673e77fbd588747b716fe59f41ec8e, type: 3}
   areaColor: {r: 1, g: 1, b: 1, a: 1}
   touchTexture: {fileID: 2800000, guid: 1994a81ed8022854695487fad5342005, type: 3}
   touchColor: {r: 1, g: 1, b: 1, a: 1}
@@ -2398,7 +2415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThisGameObjectPosition: {fileID: 0}
   PoolOptionArrayLib:
-  - Prefab: {fileID: 100000, guid: a5174400cd88f984c9e7456014ccb73c, type: 2}
+  - Prefab: {fileID: 1138914223424950, guid: 6851ae026f6964f408c52e9a86ce7035, type: 2}
     IntPreLoadNumber: 10
     IntAutoDeactiveGameObjectByTime: 0
     ActiveGameObjectArray: []
