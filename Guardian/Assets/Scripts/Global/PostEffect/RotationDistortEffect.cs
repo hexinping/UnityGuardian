@@ -82,8 +82,8 @@ public class RotationDistortEffect : PostEffectsBase{
 
         }
 
-        CreateOrOPenFile("config/3.txt", result1);
-        CreateOrOPenFile("config/4.txt", result2);
+        //CreateOrOPenFile("config/3.txt", result1);
+        //CreateOrOPenFile("config/4.txt", result2);
 
     }
 

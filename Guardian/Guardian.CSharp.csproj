@@ -352,6 +352,7 @@
     <Compile Include="Assets\Scripts\Global\SceneTrigger.cs" />
     <Compile Include="Assets\Scripts\Global\SmallObjectLayerCtrl.cs" />
     <Compile Include="Assets\Scripts\Global\SpawnPos.cs" />
+    <Compile Include="Assets\Scripts\Global\TransferDoor.cs" />
     <Compile Include="Assets\Scripts\GlobalParams.cs" />
     <Compile Include="Assets\Scripts\Kernal\AltasManager.cs" />
     <Compile Include="Assets\Scripts\Kernal\AudioManager.cs" />

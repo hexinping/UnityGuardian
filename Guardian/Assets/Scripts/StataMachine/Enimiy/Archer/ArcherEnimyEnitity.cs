@@ -23,7 +23,7 @@ public class ArcherEnimyEnitity : EnimyEnitity
     override public void initBufferPoolPrefab()
     {
         base.initBufferPoolPrefab();
-        _prefabArrow = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, "ParticleProps/arrow", rootView._name, true, false); 
+        _prefabArrow = (GameObject)ResourcesManager.getInstance().getResouce(ResourceType.Prefab, "ParticleProps/arrowOutLine", rootView._name, true, false); 
     }
 
     override public void intDatas()

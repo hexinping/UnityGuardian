@@ -120,12 +120,21 @@ public class LevelOneView : BaseView {
         StartCoroutine("initSwordsManPlayersMode");
 
         _easyTouchObj = GameObject.Find("_Environment").transform.Find("EasyTouch").gameObject;
-        _easyTouchObj.SetActive(true);
+        enableEasyTouch();
 
         _audioManager.playMusic(_backGroundAudioClip);
 
 	}
 
+    public void enableEasyTouch()
+    {
+        _easyTouchObj.SetActive(true);
+    }
+
+    public void disableEasyTouch()
+    {
+        _easyTouchObj.SetActive(false);
+    }
 
     IEnumerator initSwordsManPlayersMode()
     {
@@ -177,6 +186,11 @@ public class LevelOneView : BaseView {
         //默认开启后期
         enableBloom();
         
+    }
+
+    public void hidePlayInfo()
+    {
+        _playerInfo.gameObject.SetActive(false);
     }
 
     public void enableBloom()

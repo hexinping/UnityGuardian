@@ -636,6 +636,14 @@ public class PlayerEnitity:BaseEnitity  {
     override public void onDestory()
     {
         changeStateByIndex(PlayerStateEnum.DEAD);
+
+        //血条回收
+        PoolManager.PoolsArray[GlobalParams.HPPool].RecoverGameObjectToPools(_hpFollow.gameObject);
+
+        //禁用easyTouch
+        LevelOneView view = (LevelOneView)rootView;
+        view.disableEasyTouch();
+        view.hidePlayInfo();
     }
 
 

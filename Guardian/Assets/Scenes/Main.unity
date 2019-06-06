@@ -1578,6 +1578,7 @@ GameObject:
   - component: {fileID: 1219216441}
   - component: {fileID: 1219216440}
   - component: {fileID: 1219216444}
+  - component: {fileID: 1219216445}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1700,6 +1701,74 @@ MonoBehaviour:
   blurSpread: 0.2
   downSample: 4
   luminanceThreshold: 0
+--- !u!114 &1219216445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1219216439}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cf4b5f14ab5575438abdf9911592190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationDistortShader: {fileID: 4800000, guid: 94ade561bb02f97498fe90f9364a9653,
+    type: 3}
+  distortFactor: 2.6378298
+  distortCenter: {x: 0.5, y: 0.5}
+  NoiseTexture: {fileID: 2800000, guid: f294deea8da7399469b4a4e400128561, type: 3}
+  distortStrength: 0.026812796
+  passThoughTime: 3
+  rotationCurveFactor: 10
+  rotationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.7124939
+      value: 0.96875
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.9958333
+      value: 0.018750012
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  distortCurveFactor: 0.1
+  distortCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.6875
+      value: 0.98125076
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.98333335
+      value: 0.012500018
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &1222811846
 GameObject:
   m_ObjectHideFlags: 0

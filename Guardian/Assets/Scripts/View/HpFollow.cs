@@ -89,9 +89,22 @@ public class HpFollow : MonoBehaviour {
 	void Update () {
 
         hpSlider.value = value / maxValue;
+        updateHpPos();
+
+        if (delayTime > 0.0 && GlobalParams.totalTime >= delayTime)
+        {
+            delayTime = 0.0f;
+            showSlider();
+        }
+
 	}
 
     void LateUpdate()
+    {
+        //updateHpPos();
+    }
+
+    void updateHpPos()
     {
         if (target == null) return;
         Canvas canvas = GetComponent<Canvas>();
@@ -105,10 +118,5 @@ public class HpFollow : MonoBehaviour {
         Vector3 newPos = new Vector3(localPos.x + offset.x, localPos.y + offset.y, 0);
         hpSlider.transform.localPosition = newPos;
 
-        if (delayTime >0.0  && GlobalParams.totalTime >= delayTime)
-        {
-            delayTime = 0.0f;
-            showSlider();
-        }
     }
 }
