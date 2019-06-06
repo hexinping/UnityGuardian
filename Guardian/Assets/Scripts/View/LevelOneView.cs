@@ -188,6 +188,13 @@ public class LevelOneView : BaseView {
         
     }
 
+    public void onPlayerDead()
+    {
+        disableEasyTouch();
+        hidePlayInfo();
+        _playerEnitity = null;
+    }
+
     public void hidePlayInfo()
     {
         _playerInfo.gameObject.SetActive(false);
@@ -448,8 +455,11 @@ public class LevelOneView : BaseView {
         GlobalParams.totalTime += Time.deltaTime;
         {
 
+            if (!_playerEnitity.isDead)
+            {
+                _playerEnitity.findTarget(_listEnimy);
+            }
             
-            _playerEnitity.findTarget(_listEnimy);
             enimyFindTarget();
 
             foreach (KeyValuePair<int, BaseEnitity> obj in _enitityDic)

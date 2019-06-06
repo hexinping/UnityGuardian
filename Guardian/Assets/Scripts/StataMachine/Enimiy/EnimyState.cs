@@ -144,10 +144,17 @@ public class EnimyRunState : EnimyState
         else
         {
             if (_enitity.moveTarget != null)
-            { 
-                 _enitity.faceToTarget();
-                 e.updateMove();
+            {
+                if (_enitity.moveTarget.isDead)
+                {
+                    //切换到移动状态
+                    e.changeStateByIndex(EnimyStateEnum.IDLE);
+                    return;
+                }
+                _enitity.faceToTarget();
+                e.updateMove();
             }
+            
                
         }
     }
@@ -297,6 +304,13 @@ public class EnimyNormalAttackState : EnimyState
                     e.changeStateByIndex(EnimyStateEnum.IDLE);
                     return;
                 }
+            }
+
+            if (target.isDead)
+            {
+                //切换到移动状态
+                e.changeStateByIndex(EnimyStateEnum.IDLE);
+                return;
             }
 
             //面向目标

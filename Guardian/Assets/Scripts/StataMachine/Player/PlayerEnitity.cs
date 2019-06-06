@@ -642,8 +642,7 @@ public class PlayerEnitity:BaseEnitity  {
 
         //禁用easyTouch
         LevelOneView view = (LevelOneView)rootView;
-        view.disableEasyTouch();
-        view.hidePlayInfo();
+        view.onPlayerDead();
     }
 
 
