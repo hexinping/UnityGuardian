@@ -56,7 +56,7 @@ public static class GlobalParams
 
 
 
-    //层级设定
+    //UI层级 order设定 
     public static int DamageLabelOrder      = -40;
     public static int HPOrder               = -20;
     public static int ViewOrder             = 0;

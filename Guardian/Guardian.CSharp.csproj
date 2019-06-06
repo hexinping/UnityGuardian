@@ -259,7 +259,7 @@
     <Compile Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\ContrastStretchEffect.cs" />
     <Compile Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\GlowEffect.cs" />
     <Compile Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\GrayscaleEffect.cs" />
-    <Compile Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\ImageEffectBase.cs" />
+    <Compile Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\ImageEffectBase_B.cs" />
     <Compile Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\ImageEffects.cs" />
     <Compile Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\MotionBlur.cs" />
     <Compile Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\NoiseEffect.cs" />
@@ -408,6 +408,8 @@
     <None Include="Assets\Animation\readMe.txt" />
     <None Include="Assets\Plugins\EasyTouch\Readme_first.txt" />
     <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
+    <None Include="Assets\Plugins\WallVisionOutlineEffect\WallVisionOutlineEffectCombine.shader" />
+    <None Include="Assets\Plugins\WallVisionOutlineEffect\WallVisionOutlineEffectOccluder.shader" />
     <None Include="Assets\Plugins\codeandweb.com\Editor\SettingsTexturePackerImporter.txt" />
     <None Include="Assets\Resources\Materials\Red.shader" />
     <None Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\BlendModesOverlay.shader" />

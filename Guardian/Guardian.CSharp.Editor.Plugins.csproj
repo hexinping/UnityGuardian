@@ -319,11 +319,15 @@
     <Compile Include="Assets\Plugins\EasyTouch\Plugins\Editor\GUIEasyTouchMenu.cs" />
     <Compile Include="Assets\Plugins\EasyTouch\Plugins\Editor\HTGUILayout.cs" />
     <Compile Include="Assets\Plugins\Pixelplacement\iTweenPath\Editor\iTweenPathEditor.cs" />
+    <Compile Include="Assets\Plugins\WallVisionOutlineEffect\Editor\CustomFields.cs" />
+    <Compile Include="Assets\Plugins\WallVisionOutlineEffect\Editor\WallVisionOutlineEffectEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Animation\readMe.txt" />
     <None Include="Assets\Plugins\EasyTouch\Readme_first.txt" />
     <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
+    <None Include="Assets\Plugins\WallVisionOutlineEffect\WallVisionOutlineEffectCombine.shader" />
+    <None Include="Assets\Plugins\WallVisionOutlineEffect\WallVisionOutlineEffectOccluder.shader" />
     <None Include="Assets\Plugins\codeandweb.com\Editor\SettingsTexturePackerImporter.txt" />
     <None Include="Assets\Resources\Materials\Red.shader" />
     <None Include="Assets\Resources\Models\Maps\VW_ActionRPG_AssetPack\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\BlendModesOverlay.shader" />

@@ -1576,6 +1576,7 @@ GameObject:
   - component: {fileID: 1219216443}
   - component: {fileID: 1219216442}
   - component: {fileID: 1219216441}
+  - component: {fileID: 1219216440}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1583,6 +1584,49 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1219216440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1219216439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c0bae5e17e146e8abab519aabce38f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: 12ce9fda0b79a484a83b34b5b2916b21, type: 3}
+  occluderShader: {fileID: 4800000, guid: 436abcc3eb32c41c1abde613b1f19adf, type: 3}
+  color: {r: 1, g: 1, b: 1, a: 1}
+  glowStrength: 0
+  patternTexture: {fileID: 0}
+  patternScale: 1
+  patternWeight: 1
+  occluderLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  wallVisionLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  visibilityCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  rampTexture: {fileID: 1599702754}
 --- !u!124 &1219216441
 Behaviour:
   m_ObjectHideFlags: 0
@@ -1614,7 +1658,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294967263
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1760,7 +1804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enable: 1
   isActivated: 1
-  showDebugRadius: 0
+  showDebugRadius: 1
   useFixedUpdate: 0
   isUseGuiLayout: 1
   dynamicJoystick: 1
@@ -1811,14 +1855,14 @@ MonoBehaviour:
   showZone: 1
   showTouch: 1
   showDeadZone: 1
-  areaTexture: {fileID: 2800000, guid: e0673e77fbd588747b716fe59f41ec8e, type: 3}
+  areaTexture: {fileID: 2800000, guid: fa8492a53b1256a49afe4c0a087b59dc, type: 3}
   areaColor: {r: 1, g: 1, b: 1, a: 1}
   touchTexture: {fileID: 2800000, guid: 1994a81ed8022854695487fad5342005, type: 3}
   touchColor: {r: 1, g: 1, b: 1, a: 1}
   deadTexture: {fileID: 2800000, guid: 164ae07c6eb4e044683d344e9f66b94e, type: 3}
   showProperties: 1
   showInteraction: 1
-  showAppearance: 0
+  showAppearance: 1
   showPosition: 1
 --- !u!1 &1312569727
 GameObject:
@@ -2024,6 +2068,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   virtualWidth: 1024
   virtualHeight: 768
+--- !u!28 &1599702754
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 2
+  m_Width: 256
+  m_Height: 1
+  m_CompleteImageSize: 256
+  m_TextureFormat: 1
+  m_MipCount: 1
+  m_IsReadable: 1
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  image data: 256
+  _typelessdata: fffffffffffffffefefefefefdfdfdfcfcfcfbfbfbfafaf9f9f8f8f7f7f6f5f5f4f3f3f2f1f1f0efeeededecebeae9e8e7e7e6e5e4e3e2e1e0dfdedddcdad9d8d7d6d5d4d3d1d0cfcecdcbcac9c8c6c5c4c3c1c0bfbdbcbbb9b8b7b5b4b2b1b0aeadacaaa9a7a6a4a3a1a09f9d9c9a999796949391908e8d8b8a888785848281807e7d7b7a7877757472716f6e6c6b696866656362605f5e5c5b595856555352514f4e4d4b4a484746444342403f3e3c3b3a39373635343231302f2e2c2b2a2928272625232221201f1e1d1c1b1a1918181716151413121211100f0e0e0d0c0c0b0a0a0908080707060605050404040303030202020101010101000000000000
+  m_StreamData:
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &1611486428
 GameObject:
   m_ObjectHideFlags: 0
@@ -2990,10 +3071,6 @@ Prefab:
     - target: {fileID: 1548884720915300, guid: fa026be73bbae4c4a8d1cbc33c635e24, type: 2}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4291294781211340, guid: fa026be73bbae4c4a8d1cbc33c635e24, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 6.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa026be73bbae4c4a8d1cbc33c635e24, type: 2}

@@ -18,8 +18,8 @@ TagManager:
   - 
   - 
   - Layer_small
-  - 
-  - 
+  - Layer_Player
+  - Layer_Occluder
   - 
   - 
   - 
