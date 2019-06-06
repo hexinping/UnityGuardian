@@ -91,9 +91,10 @@ public class StartView : BaseView
 
     void onFadeOutEnd()
     {
-        DestroyImmediate(_scene);
-        _scene = null;
-        _viewManager.swithView("LoadingView", _loadEndCallBack);
+        //DestroyImmediate(_scene);
+        //_scene = null;
+        _viewManager.swithView("LoginView");  
+        //_viewManager.swithView("LoadingView", _loadEndCallBack);
     }
 
     public void onClickNewBtn()

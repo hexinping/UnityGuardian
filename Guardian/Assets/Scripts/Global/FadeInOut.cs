@@ -78,7 +78,7 @@ public class FadeInOut : MonoBehaviour {
             _rawImage.color = Color.Lerp(_rawImage.color, Color.clear, Time.deltaTime * speed);
             float s = speed;
             float a = _rawImage.color.a;
-            if (_rawImage.color.a <= 0.05)
+            if (_rawImage.color.a <= 0.01)
             {
                 _rawImage.color = Color.clear;
                 setRawImageEnable(false);
@@ -104,7 +104,7 @@ public class FadeInOut : MonoBehaviour {
         while (true)
         {
             _rawImage.color = Color.Lerp(_rawImage.color, Color.black, Time.deltaTime * speed);
-            if (_rawImage.color.a >=0.95)
+            if (_rawImage.color.a >=0.99)
             {
                 _rawImage.color = Color.black;
                 fadeoutEnd = true;

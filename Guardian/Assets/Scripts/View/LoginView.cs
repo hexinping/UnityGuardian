@@ -68,8 +68,10 @@ public class LoginView : BaseView {
 	// Use this for initialization
 	new void Start () {
         base.Start();
-        _scene = initScene("Module_02_Login");
-     
+        //_scene = initScene("Module_02_Login");
+        _scene = _sceneBgNode.transform.Find("Module_02_Login").gameObject;
+        _scene.SetActive(true);
+
         _mainCamera.transform.position = new Vector3(77.3f, -11.46f, -42.96f);
         _fadeInOut.FadeIn();
 
@@ -88,7 +90,7 @@ public class LoginView : BaseView {
 
     IEnumerator initSwordsManPlayersMode()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return null;
         string path = "Models/SwordsMan/GreateWarrior";
         ResourceRequest rr = Resources.LoadAsync<GameObject>(path);
         yield return rr;

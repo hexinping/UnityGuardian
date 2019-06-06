@@ -12,7 +12,7 @@ public class EnimyEnitity : BaseEnitity {
 
     public Transform selfTransform;
     public Transform playerTransform;
-    private CharacterController _CC;
+    public CharacterController _CC;
 
     public GameObject skillGround;
     public GameObject skillLayer;

@@ -23,9 +23,29 @@ public class BossEnimyEnitity : EnimyEnitity
         _mode.file = _mode.filePre + _mode.type + "/" + objName;
         intDatas();
     }
+
     override public void initGameObject()
     {
-        base.initGameObject();
+        initBufferPoolPrefab();
+    }
+
+
+    public void setBattleDatas()
+    {
+        _gameObject.AddComponent<EnimyEvent>();
+        _animator = _gameObject.GetComponent<Animator>();
+        selfTransform = _gameObject.transform;
+        _CC = _gameObject.GetComponent<CharacterController>();
+        _animation = _gameObject.GetComponent<Animation>();
+
+        //使用缓冲池床创建血条
+        GameObject hpObj = PoolManager.PoolsArray[GlobalParams.HPPool].GetGameObjectByPool(_prefabHp,
+            selfTransform.position, Quaternion.identity);
+        HpFollow hpFollow = hpObj.GetComponent<HpFollow>();
+        hpFollow.setHpUIDatas(new Vector2(0, hpHeight), _mode.hp, _mode.maxHp);
+        hpFollow.target = selfTransform;
+        _hpFollow = hpFollow;
+        hideHpSlider();
         saveAnimationState();
     }
 
@@ -145,7 +165,7 @@ public class BossEnimyEnitity : EnimyEnitity
         return _animationNameList[index];
     }
 
-    void saveAnimationState()
+    public void saveAnimationState()
     {
         if (_animation != null)
         {

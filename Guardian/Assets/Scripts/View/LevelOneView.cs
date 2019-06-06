@@ -20,6 +20,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using kernal;
 
 public class LevelOneView : BaseView {
 
@@ -67,6 +68,10 @@ public class LevelOneView : BaseView {
     public List<EnimyEnitity> listA;
     public List<EnimyEnitity> listB;
     public List<EnimyEnitity> listC;
+
+    private Vector3 _bossPos;
+
+
     new public void Awake()
     {
         base.Awake();
@@ -222,35 +227,35 @@ public class LevelOneView : BaseView {
         setRootObjViwePlayerGame(warriorPurpleEnimy, areaIndex);
         warriorPurpleEnimy._gameObject.transform.position = warriorPosArry[1].position;
 
-        //MageGreenEnimyEnitity mageGreenEnimy = new MageGreenEnimyEnitity();
-        //setRootObjViwePlayerGame(mageGreenEnimy, areaIndex);
-        //mageGreenEnimy._gameObject.transform.position = magePosArry[0].position;
+        MageGreenEnimyEnitity mageGreenEnimy = new MageGreenEnimyEnitity();
+        setRootObjViwePlayerGame(mageGreenEnimy, areaIndex);
+        mageGreenEnimy._gameObject.transform.position = magePosArry[0].position;
 
-        //MagePurpleEnimyEnitity magePurpleEnimy = new MagePurpleEnimyEnitity();
-        //setRootObjViwePlayerGame(magePurpleEnimy, areaIndex);
-        //magePurpleEnimy._gameObject.transform.position = magePosArry[1].position;
+        MagePurpleEnimyEnitity magePurpleEnimy = new MagePurpleEnimyEnitity();
+        setRootObjViwePlayerGame(magePurpleEnimy, areaIndex);
+        magePurpleEnimy._gameObject.transform.position = magePosArry[1].position;
 
 
-        //for (int i = 0; i < gruntPosArry.Length; i++)
-        //{
-        //    GruntEnimyEnitity gruntGreenEnimy = new GruntEnimyEnitity();
-        //    setRootObjViwePlayerGame(gruntGreenEnimy, areaIndex);
-        //    gruntGreenEnimy._gameObject.transform.position = gruntPosArry[i].position;
-        //}
+        for (int i = 0; i < gruntPosArry.Length; i++)
+        {
+            GruntEnimyEnitity gruntGreenEnimy = new GruntEnimyEnitity();
+            setRootObjViwePlayerGame(gruntGreenEnimy, areaIndex);
+            gruntGreenEnimy._gameObject.transform.position = gruntPosArry[i].position;
+        }
 
-        //for (int i = 0; i < archerPosArry.Length; i++)
-        //{
-        //    ArcherEnimyEnitity archerGreenEnimy = new ArcherEnimyEnitity();
-        //    setRootObjViwePlayerGame(archerGreenEnimy, areaIndex);
-        //    archerGreenEnimy._gameObject.transform.position = archerPosArry[i].position;
-        //}
+        for (int i = 0; i < archerPosArry.Length; i++)
+        {
+            ArcherEnimyEnitity archerGreenEnimy = new ArcherEnimyEnitity();
+            setRootObjViwePlayerGame(archerGreenEnimy, areaIndex);
+            archerGreenEnimy._gameObject.transform.position = archerPosArry[i].position;
+        }
 
-        //for (int i = 0; i < kingPosArry.Length; i++)
-        //{
-        //    KingEnimyEnitity kingGreenEnimy = new KingEnimyEnitity();
-        //    setRootObjViwePlayerGame(kingGreenEnimy, areaIndex);
-        //    kingGreenEnimy._gameObject.transform.position = kingPosArry[i].position;
-        //}
+        for (int i = 0; i < kingPosArry.Length; i++)
+        {
+            KingEnimyEnitity kingGreenEnimy = new KingEnimyEnitity();
+            setRootObjViwePlayerGame(kingGreenEnimy, areaIndex);
+            kingGreenEnimy._gameObject.transform.position = kingPosArry[i].position;
+        }
     }
     private void createAreaAEnimy()
     {
@@ -323,12 +328,47 @@ public class LevelOneView : BaseView {
         }
      
         //boss
+        _bossPos = bossPosArry[0].position;
+        createBoss();
+    }
+
+    private void createBoss()
+    {
         BossEnimyEnitity boss = new BossEnimyEnitity();
-        setRootObjViwePlayerGame(boss, areaIndex);
-        boss._gameObject.transform.position = bossPosArry[0].position;
+        StartCoroutine(initBoss(boss));
+    }
 
+    IEnumerator initBoss(BossEnimyEnitity boss)
+    {
+        yield return null;
+        string path = boss._mode.file;
+        ResourceRequest rr = Resources.LoadAsync<GameObject>(path);
+        yield return rr;
+        setRootObjViwePlayerGame(boss, 1);
+        GameObject obj = GameObject.Instantiate(rr.asset) as GameObject;
+        obj.name = boss.objName;
+        obj.transform.parent = boss._rootObj.transform;
+        obj.transform.position = _bossPos;
 
-        //默认隐藏 todo
+        boss._gameObject = obj;
+        boss.setBattleDatas();
+
+        //obj.AddComponent<EnimyEvent>();
+        //boss._animator = obj.GetComponent<Animator>();
+        //boss.selfTransform = obj.transform;
+        //boss._CC = obj.GetComponent<CharacterController>();
+        //boss._animation = obj.GetComponent<Animation>();
+
+        ////使用缓冲池床创建血条
+        //GameObject hpObj = PoolManager.PoolsArray[GlobalParams.HPPool].GetGameObjectByPool(boss._prefabHp,
+        //    boss.selfTransform.position, Quaternion.identity);
+        //HpFollow hpFollow = hpObj.GetComponent<HpFollow>();
+        //hpFollow.setHpUIDatas(new Vector2(0, boss.hpHeight), boss._mode.hp, boss._mode.maxHp);
+        //hpFollow.target = boss.selfTransform;
+        //boss._hpFollow = hpFollow;
+        //boss.hideHpSlider();
+
+        //boss.saveAnimationState();
     }
 
     private void createAreaCEnimy()
