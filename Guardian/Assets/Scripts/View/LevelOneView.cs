@@ -124,7 +124,7 @@ public class LevelOneView : BaseView {
 
     IEnumerator initSwordsManPlayersMode()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForEndOfFrame();
 
         PlayerEnitity enitity = new PlayerEnitity();
         _listPlayer.Add(enitity);
@@ -160,8 +160,6 @@ public class LevelOneView : BaseView {
 
         CameraFollow _cameFollow = _mainCamera.GetComponent<CameraFollow>();
         _cameFollow.setHeight(5.0f);
-        _cameFollow.setDistance(10.0f);
-
 
         GameObject playerInfoObj = initGameObject("Prefabs/View/PlayerInfo", "PlayerInfo", this.gameObject, new Vector3(0, 0, 0));
         setUICamera(playerInfoObj, "Canvas");

@@ -130,6 +130,8 @@ public class PlayerEnitity:BaseEnitity  {
             hpFollow.setHpUIDatas(new Vector2(0, 130), _mode.hp, _mode.maxHp);
             hpFollow.target = _gameObject.transform;
             _hpFollow = hpFollow;
+            hideHpSlider();
+            _hpFollow.setDelayTime(2.0f);
 
             //添加主角出场特效
             createEffectNoPool("ParticleProps/EnemySpawnEff", _gameObject.transform.position, skillGround);
@@ -164,10 +166,19 @@ public class PlayerEnitity:BaseEnitity  {
             saveAnimationState();
             _gameObject.AddComponent<PlayerEvent>(); //动画帧事件要放到一个与Animation同级的脚本里
             changeAniamtion(_animationNameList[0], 1.0f, true);
-
+            
         }
     }
 
+    override public void showHpSlider()
+    {
+        _hpFollow.showSlider();
+    }
+
+    override public void hideHpSlider()
+    {
+        _hpFollow.hideSlider();
+    }
 
     void saveAnimationState()
     {

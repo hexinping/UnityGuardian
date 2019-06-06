@@ -34,8 +34,13 @@ public class HpFollow : MonoBehaviour {
     private GameObject uiCamera;
     private GameObject hpLayer;
 
+    private float delayTime = 0.0f; //延迟显示时间
 
 
+    public void setDelayTime(float time)
+    {
+        delayTime = time;
+    }
     
 	// Use this for initialization
 
@@ -99,5 +104,11 @@ public class HpFollow : MonoBehaviour {
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, screenPos, canvas.worldCamera, out localPos);
         Vector3 newPos = new Vector3(localPos.x + offset.x, localPos.y + offset.y, 0);
         hpSlider.transform.localPosition = newPos;
+
+        if (delayTime >0.0  && GlobalParams.totalTime >= delayTime)
+        {
+            delayTime = 0.0f;
+            showSlider();
+        }
     }
 }
