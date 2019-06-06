@@ -142,6 +142,11 @@ public class PlayerAttackState : PlayerState
         _enitity.isAttacking = true;
         base.enter(values);
         _enitity.faceToTarget();
+
+        if (_enitity.attackTarget != null)
+        {
+            _enitity.attackTarget.showHpSlider();
+        }
     }
 
     override public void excute(params object[] values)
@@ -155,6 +160,10 @@ public class PlayerAttackState : PlayerState
     {
         Debug.Log("attack exit=============");
         _enitity.isAttacking = false;
+        if (_enitity.attackTarget != null)
+        {
+            _enitity.attackTarget.hideHpSlider();
+        }
     }
 
 

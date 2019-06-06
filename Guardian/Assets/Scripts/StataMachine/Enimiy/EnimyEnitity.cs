@@ -119,8 +119,20 @@ public class EnimyEnitity : BaseEnitity {
             hpFollow.setHpUIDatas(new Vector2(0, hpHeight), _mode.hp, _mode.maxHp);
             hpFollow.target = _gameObject.transform;
             _hpFollow = hpFollow;
+            hideHpSlider();
+            
 
         }
+    }
+
+    override public void showHpSlider()
+    {
+        _hpFollow.showSlider();
+    }
+
+    override public void hideHpSlider()
+    {
+        _hpFollow.hideSlider();
     }
 
     override public void updateHP()

@@ -38,22 +38,19 @@ public class HpFollow : MonoBehaviour {
 
     
 	// Use this for initialization
-	void Start () {
-        hpSlider = GetComponentInChildren<Slider>();
-        
-        //target = GameObject.FindGameObjectWithTag("Player").transform;
-        initUI(); 
-	}
 
     public void setHpUIDatas(Vector2 tOffset, float tValue, float tMaxValue)
     {
         offset = tOffset;
         value = tValue;
         maxValue = tMaxValue;
+        initUI(); 
     }
 
     void initUI()
     {
+        hpSlider = GetComponentInChildren<Slider>();
+
         //设置UI摄像机
         uiCamera = GameObject.FindGameObjectWithTag("UICamera");
         Canvas canvas = GetComponent<Canvas>();
@@ -66,6 +63,16 @@ public class HpFollow : MonoBehaviour {
         RectTransform rect1 = onj.GetComponent<RectTransform>();
         rect1.localPosition = new Vector3(offset.x, offset.y, 0);
         rectTrains = rect1;
+    }
+
+    public void hideSlider()
+    {
+        hpSlider.gameObject.SetActive(false);
+    }
+
+    public void showSlider()
+    {
+        hpSlider.gameObject.SetActive(true);
     }
 
     public void updateHpValue(float tvalue, float tmaxValue)

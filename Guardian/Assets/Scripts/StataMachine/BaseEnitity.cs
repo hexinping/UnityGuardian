@@ -168,6 +168,16 @@ public class BaseEnitity  {
         }
     }
 
+    virtual public void showHpSlider()
+    {
+        
+    }
+
+    virtual public void hideHpSlider()
+    {
+        
+    }
+
      virtual public void faceToTarget()
     {
         
