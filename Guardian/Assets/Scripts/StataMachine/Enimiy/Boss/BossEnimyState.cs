@@ -448,9 +448,6 @@ public class BossEnimySkillState : BossEnimyState
         _endPlayTime = p;
         _playTotalTime = time;
 
-        //注册事件
-        e.addDelayCall(stateIndex);
-
     }
 
     override public void excute(params object[] values)
