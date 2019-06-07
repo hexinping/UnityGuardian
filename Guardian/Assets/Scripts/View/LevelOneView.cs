@@ -236,14 +236,11 @@ public class LevelOneView : BaseView {
     IEnumerator createEnimys()
     {
         yield return new WaitForSeconds(2.0f);
-        createAreaBEnimy();
-        yield return new WaitForSeconds(2.0f);
-        createAreaAEnimy();
-        yield return new WaitForSeconds(2.0f);
-        createAreaCEnimy();
-
+        StartCoroutine("createAreaBEnimy");
+       
+        
     }
-    private void createAreaBEnimy()
+    IEnumerator createAreaBEnimy()
     {
         //B区域NPC
         Transform[] warriorPosArry = spawnPosB.warrorSpawnPos;
@@ -270,6 +267,7 @@ public class LevelOneView : BaseView {
         setRootObjViwePlayerGame(magePurpleEnimy, areaIndex);
         magePurpleEnimy._gameObject.transform.position = magePosArry[1].position;
 
+        yield return new WaitForSeconds(1.0f);
 
         for (int i = 0; i < gruntPosArry.Length; i++)
         {
@@ -278,6 +276,7 @@ public class LevelOneView : BaseView {
             gruntGreenEnimy._gameObject.transform.position = gruntPosArry[i].position;
         }
 
+        yield return new WaitForSeconds(1.0f);
         for (int i = 0; i < archerPosArry.Length; i++)
         {
             ArcherEnimyEnitity archerGreenEnimy = new ArcherEnimyEnitity();
@@ -285,14 +284,20 @@ public class LevelOneView : BaseView {
             archerGreenEnimy._gameObject.transform.position = archerPosArry[i].position;
         }
 
+        yield return new WaitForSeconds(1.0f);
         for (int i = 0; i < kingPosArry.Length; i++)
         {
             KingEnimyEnitity kingGreenEnimy = new KingEnimyEnitity();
             setRootObjViwePlayerGame(kingGreenEnimy, areaIndex);
             kingGreenEnimy._gameObject.transform.position = kingPosArry[i].position;
         }
+
+        yield return new WaitForSeconds(1.0f);
+        StartCoroutine("createAreaAEnimy");
+       
+
     }
-    private void createAreaAEnimy()
+    IEnumerator createAreaAEnimy()
     {
         //A区域
         Transform[] warriorPosArry = spawnPosA.warrorSpawnPos;
@@ -319,6 +324,7 @@ public class LevelOneView : BaseView {
         setRootObjViwePlayerGame(warriorYellowEnimyEnitity, areaIndex);
         warriorYellowEnimyEnitity._gameObject.transform.position = warriorPosArry[3].position;
 
+        yield return new WaitForSeconds(1.0f);
 
         MageGreenEnimyEnitity mageGreenEnimyA = new MageGreenEnimyEnitity();
         setRootObjViwePlayerGame(mageGreenEnimyA, areaIndex);
@@ -340,7 +346,7 @@ public class LevelOneView : BaseView {
         setRootObjViwePlayerGame(magePurpleEnimyA3, areaIndex);
         magePurpleEnimyA3._gameObject.transform.position = magePosArry[4].position;
 
-
+        yield return new WaitForSeconds(1.0f);
         for (int i = 0; i < gruntPosArry.Length; i++)
         {
             GruntEnimyEnitity gruntGreenEnimyA = new GruntEnimyEnitity();
@@ -348,6 +354,7 @@ public class LevelOneView : BaseView {
             gruntGreenEnimyA._gameObject.transform.position = gruntPosArry[i].position;
         }
 
+        yield return new WaitForSeconds(1.0f);
         for (int i = 0; i < archerPosArry.Length; i++)
         {
             ArcherEnimyEnitity archerGreenEnimyA = new ArcherEnimyEnitity();
@@ -355,6 +362,7 @@ public class LevelOneView : BaseView {
             archerGreenEnimyA._gameObject.transform.position = archerPosArry[i].position;
         }
 
+        yield return new WaitForSeconds(1.0f);
         for (int i = 0; i < kingPosArry.Length; i++)
         {
             KingEnimyEnitity kingGreenEnimyA = new KingEnimyEnitity();
@@ -365,6 +373,10 @@ public class LevelOneView : BaseView {
         //boss
         _bossPos = bossPosArry[0].position;
         createBoss();
+
+        yield return new WaitForSeconds(1.0f);
+        StartCoroutine("createAreaCEnimy");
+        
     }
 
     private void createBoss()
@@ -389,7 +401,7 @@ public class LevelOneView : BaseView {
         boss.setBattleDatas();
     }
 
-    private void createAreaCEnimy()
+     IEnumerator createAreaCEnimy()
     {
         //C区域
         Transform[] warriorPosArry = spawnPosC.warrorSpawnPos;
@@ -420,6 +432,7 @@ public class LevelOneView : BaseView {
         setRootObjViwePlayerGame(gruntGreenEnimyC, areaIndex);
         gruntGreenEnimyC._gameObject.transform.position = gruntPosArry[0].position;
 
+        yield return new WaitForSeconds(1.0f);
         for (int i = 0; i < archerPosArry.Length; i++)
         {
             ArcherEnimyEnitity archerGreenEnimyC = new ArcherEnimyEnitity();
@@ -427,6 +440,7 @@ public class LevelOneView : BaseView {
             archerGreenEnimyC._gameObject.transform.position = archerPosArry[i].position;
         }
 
+        yield return new WaitForSeconds(1.0f);
 
         KingEnimyEnitity kingGreenEnimyC = new KingEnimyEnitity();
         setRootObjViwePlayerGame(kingGreenEnimyC, areaIndex);
