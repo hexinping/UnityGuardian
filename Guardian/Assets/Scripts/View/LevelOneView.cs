@@ -193,6 +193,15 @@ public class LevelOneView : BaseView {
         disableEasyTouch();
         hidePlayInfo();
         _playerEnitity = null;
+
+        for (int i = 0; i < _listEnimy.Count; i++)
+        {
+            EnimyEnitity e = (EnimyEnitity)_listEnimy[i];
+            if (!e.isDead)
+            {
+                e.changeStateByIndex(EnimyStateEnum.IDLE, true, 1.0f, true);
+            }
+        }
     }
 
     public void hidePlayInfo()
@@ -237,8 +246,7 @@ public class LevelOneView : BaseView {
     {
         yield return new WaitForSeconds(2.0f);
         StartCoroutine("createAreaBEnimy");
-       
-        
+
     }
     IEnumerator createAreaBEnimy()
     {
@@ -478,10 +486,13 @@ public class LevelOneView : BaseView {
 
             foreach (KeyValuePair<int, BaseEnitity> obj in _enitityDic)
             {
-
                 int id = obj.Key;
                 BaseEnitity enitity = obj.Value;
-                enitity._stateMachine.update(GlobalParams.interval);
+                if (!enitity.isDead)
+                {
+                    enitity._stateMachine.update(GlobalParams.interval);
+                }
+                
             }
 
 
