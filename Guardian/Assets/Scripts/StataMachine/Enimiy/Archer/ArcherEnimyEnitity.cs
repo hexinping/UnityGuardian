@@ -148,7 +148,8 @@ public class ArcherEnimyEnitity : EnimyEnitity
             float dis = (newTargetPos - oldTargetPos).sqrMagnitude;
             if (dis < 0.01)
             {
-                attackTargetHurt(attackTarget);
+                float damage = countDamage(attackTarget);
+                attackTargetHurt(attackTarget, damage);
                 attackTarget.updateHP();
             }
 

@@ -335,20 +335,56 @@ public class PlayerEnitity:BaseEnitity  {
     {
         //Debug.Log("testEvent======成功回调========" + GlobalParams.totalTime + " 当前帧数：" + GlobalParams.frameCount);
         float speed = 10.0f; //如果是移动技能，需要计算技能的移动到攻击目标的时间 使用itween插件暂时写死了
+        //非移动技能特效直接结算
+        float damage = countDamage(attackTarget);
+        if (animationName == GlobalParams.anim_player_skillA)
+        {
+            damage *= 2;
+        }
+        else if (animationName == GlobalParams.anim_player_skillB)
+        {
+            damage *= 3;
+
+        }
+        else if (animationName == GlobalParams.anim_player_skillC)
+        {
+
+            damage *= 4;
+        }
+        else if (animationName == GlobalParams.anim_player_skillD)
+        {
+            damage *= 5;
+
+        }
         if (attackTarget != null && !attackTarget.isDead)
         {
             if (!isMove)
             {
-                //非移动技能特效直接结算
-                attackTargetHurt(attackTarget);
+                attackTargetHurt(attackTarget, damage);
                 attackTarget.updateHP();
             }
         }
 
         Vector3 startPos = Vector3.zero;
         Vector3 endPos = Vector3.zero;
-        if (animationName != string.Empty)
-            getHitEffectStartAndEndPos(animationName, ref startPos, ref endPos, isMove, speed);
+        if (animationName != string.Empty )
+        {
+            bool isPlay = true;
+            if (animationName == GlobalParams.anim_player_skillB || animationName == GlobalParams.anim_player_skillC)
+            {
+                isPlay = false;
+                if(isMove)
+                {
+                    isPlay = true;
+                    
+                }
+            }
+            if (isPlay)
+            {
+                getHitEffectStartAndEndPos(animationName, ref startPos, ref endPos, isMove, speed);
+            }
+            
+        }
 
         if (attackTarget != null && !attackTarget.isDead)
         {
@@ -358,7 +394,7 @@ public class PlayerEnitity:BaseEnitity  {
                 //Vector3 targetPos = attackTarget._gameObject.transform.position;
                 float distance = System.Math.Abs(Vector3.Distance(targetPos, startPos));
                 float moveTime = distance / speed;
-                DelayCall delayCall = new DelayCall(moveTime, GlobalParams.frameCount, eventCallBack, this);
+                DelayCall delayCall = new DelayCall(moveTime, GlobalParams.frameCount, eventCallBack, this, animationName );
                 GlobalParams.addDelayCall(delayCall);
             }
         }

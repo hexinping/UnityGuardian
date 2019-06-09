@@ -320,7 +320,8 @@ public class EnimyEnitity : BaseEnitity {
             if (attackTarget != null)
             {
                 //_animator.enabled = false;
-                attackTargetHurt(attackTarget);
+                float damage = countDamage(attackTarget);
+                attackTargetHurt(attackTarget, damage);
                 attackTarget.updateHP();
                // _animator
             }

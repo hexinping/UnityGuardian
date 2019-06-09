@@ -183,10 +183,10 @@ public class BaseEnitity  {
         
     }
 
-    public void attackTargetHurt(BaseEnitity target)
+    public void attackTargetHurt(BaseEnitity target, float damage)
     {
         //Debug.Log("attackTargetHurt=====attackerID:"+this._id + "targetID:"+target._id);
-        float damage = countDamage(target);
+        //float damage = countDamage(target, isSkill);
         target.beDamage(damage);
 
     }

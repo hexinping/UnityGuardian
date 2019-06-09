@@ -274,8 +274,8 @@ public class BossEnimyEnitity : EnimyEnitity
             //攻击伤害事件
             if (attackTarget != null)
             {
-
-                attackTargetHurt(attackTarget);
+                float damage = countDamage(attackTarget);
+                attackTargetHurt(attackTarget,damage);
                 attackTarget.updateHP();
             }
         }
