@@ -150,12 +150,13 @@ public class BurnHelper : MonoBehaviour {
     {
         if (_materialDict.Count > 0)
         {
-            foreach (KeyValuePair<string, Material> kv in _materialDict)
-            {
-                Material ma = kv.Value;
-                //释放资源
-                Resources.UnloadAsset(ma);
-            }
+            //foreach (KeyValuePair<string, Material> kv in _materialDict)
+            //{
+            //    Material ma = kv.Value;
+            //    //释放资源
+            //    //Resources.UnloadAsset(ma);
+            //    Destroy(ma);
+            //}
         }
         _materialDict.Clear();
        

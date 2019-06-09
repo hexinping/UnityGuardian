@@ -125,11 +125,11 @@ public class HeroAttack : MonoBehaviour {
         //print(GetType() + "/heroMagicTrickB MagicTrickB");
         if (_playerEnitity != null)
         {
-            //添加后期效果
-            Vector3 playerPos = _playerEnitity._gameObject.transform.position;
-            Vector3 screenPos = Camera.main.WorldToViewportPoint(playerPos);
-            _radialPostEffect.enabled = true;
-            _radialPostEffect.setCenter(screenPos.x, screenPos.y);
+            ////添加后期效果
+            //Vector3 playerPos = _playerEnitity._gameObject.transform.position;
+            //Vector3 screenPos = Camera.main.WorldToViewportPoint(playerPos);
+            //_radialPostEffect.enabled = true;
+            //_radialPostEffect.setCenter(screenPos.x, screenPos.y);
 
             _playerEnitity.changeStateByIndex(PlayerStateEnum.MAGICTRICKD, 2.0f, false);
             startResetIdle(PlayerStateEnum.MAGICTRICKD);

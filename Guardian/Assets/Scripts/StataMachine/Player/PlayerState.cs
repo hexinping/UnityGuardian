@@ -217,6 +217,10 @@ public class PlayerMagicTrickAState : PlayerState
         Debug.Log("magicTrickA enter=============");
         base.enter(values);
         _enitity.isAttacking = true;
+         if (_enitity.attackTarget != null)
+        {
+            _enitity.attackTarget.showHpSlider();
+        }
 
     }
 
@@ -230,6 +234,10 @@ public class PlayerMagicTrickAState : PlayerState
     {
         Debug.Log("magicTrickA exit=============");
         _enitity.isAttacking = false;
+        if (_enitity.attackTarget != null)
+        {
+            _enitity.attackTarget.hideHpSlider();
+        }
     }
 
 }
@@ -249,6 +257,10 @@ public class PlayerMagicTrickBState : PlayerState
         Debug.Log("magicTrickB enter=============");
         base.enter(values);
         _enitity.isAttacking = true;
+        if (_enitity.attackTarget != null)
+        {
+            _enitity.attackTarget.showHpSlider();
+        }
     }
 
     override public void excute(params object[] values)
@@ -261,6 +273,10 @@ public class PlayerMagicTrickBState : PlayerState
     {
         Debug.Log("magicTrickB exit=============");
         _enitity.isAttacking = false;
+        if (_enitity.attackTarget != null)
+        {
+            _enitity.attackTarget.hideHpSlider();
+        }
     }
 
 }
@@ -279,6 +295,10 @@ public class PlayerMagicTrickCState : PlayerState
         Debug.Log("magicTrickC enter=============");
         base.enter(values);
         _enitity.isAttacking = true;
+        if (_enitity.attackTarget != null)
+        {
+            _enitity.attackTarget.showHpSlider();
+        }
 
     }
 
@@ -292,6 +312,10 @@ public class PlayerMagicTrickCState : PlayerState
     {
         Debug.Log("magicTrickC exit=============");
         _enitity.isAttacking = false;
+        if (_enitity.attackTarget != null)
+        {
+            _enitity.attackTarget.hideHpSlider();
+        }
     }
 
 }
@@ -310,6 +334,10 @@ public class PlayerMagicTrickDState : PlayerState
         Debug.Log("magicTrickD enter=============");
         base.enter(values);
         _enitity.isAttacking = true;
+        if (_enitity.attackTarget != null)
+        {
+            _enitity.attackTarget.showHpSlider();
+        }
     }
 
     override public void excute(params object[] values)
@@ -322,6 +350,10 @@ public class PlayerMagicTrickDState : PlayerState
     {
         Debug.Log("magicTrickD exit=============");
         _enitity.isAttacking = false;
+        if (_enitity.attackTarget != null)
+        {
+            _enitity.attackTarget.hideHpSlider();
+        }
     }
 
 }

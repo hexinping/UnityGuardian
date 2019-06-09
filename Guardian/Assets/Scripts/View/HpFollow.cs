@@ -54,8 +54,8 @@ public class HpFollow : MonoBehaviour {
 
     void initUI()
     {
-        hpSlider = GetComponentInChildren<Slider>();
-
+        GameObject hpObj = gameObject.transform.Find("Slider").gameObject;
+        hpSlider = hpObj.GetComponent<Slider>();
         //设置UI摄像机
         uiCamera = GameObject.FindGameObjectWithTag("UICamera");
         Canvas canvas = GetComponent<Canvas>();
@@ -63,9 +63,8 @@ public class HpFollow : MonoBehaviour {
         canvas.worldCamera = uiCamera.GetComponent<Camera>();
 
         canvas.sortingOrder = GlobalParams.HPOrder;
-        
-        GameObject onj = hpSlider.gameObject;
-        RectTransform rect1 = onj.GetComponent<RectTransform>();
+  
+        RectTransform rect1 = hpObj.GetComponent<RectTransform>();
         rect1.localPosition = new Vector3(offset.x, offset.y, 0);
         rectTrains = rect1;
     }
@@ -88,6 +87,7 @@ public class HpFollow : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        if (hpSlider == null) hpSlider = GetComponentInChildren<Slider>();
         hpSlider.value = value / maxValue;
         updateHpPos();
 

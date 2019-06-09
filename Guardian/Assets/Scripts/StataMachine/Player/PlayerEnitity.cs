@@ -35,6 +35,7 @@ public class PlayerEnitity:BaseEnitity  {
 
     public GameObject skillGround;
     public GameObject skillLayer;
+    private RadialBlurEffect _radialPostEffect;
 
     public PlayerEnitity()
     {
@@ -43,7 +44,8 @@ public class PlayerEnitity:BaseEnitity  {
         damageLabelOffsetY = 150.0f;
         skillGround = GameObject.Find("_Manager/_ViewManager/_Scene/SkillGround");
         skillLayer = GameObject.Find("_Manager/_ViewManager/_Scene/Skill");
-        
+        GameObject mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        _radialPostEffect = mainCamera.GetComponent<RadialBlurEffect>();
     }
 
     override public void addBaseState()
@@ -468,6 +470,12 @@ public class PlayerEnitity:BaseEnitity  {
                 startPos = _playerTransform.position + forwardOffset;
                 endPos = startPos;
                 playHitEffect(startPos, endPos, _prefabPlayerMagicD, GlobalParams.SkillGroundPool);
+
+                //添加后期效果
+                Vector3 playerPos = _gameObject.transform.position;
+                Vector3 screenPos = Camera.main.WorldToViewportPoint(playerPos);
+                _radialPostEffect.enabled = true;
+                _radialPostEffect.setCenter(screenPos.x, screenPos.y);
             }
 
         }
