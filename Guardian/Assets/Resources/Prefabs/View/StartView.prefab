@@ -530,7 +530,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u5730 \u4E0B \u5B88 \u62A4 \u795E"
+  m_Text: xxx UnityDemo
 --- !u!114 &114743100888059506
 MonoBehaviour:
   m_ObjectHideFlags: 1

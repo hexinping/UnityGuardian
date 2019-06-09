@@ -1730,8 +1730,8 @@ MonoBehaviour:
       outSlope: 2
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.7124939
-      value: 0.96875
+      time: 0.68759155
+      value: 0.42333603
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1755,8 +1755,8 @@ MonoBehaviour:
       outSlope: 2
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.6875
-      value: 0.98125076
+      time: 0.6916046
+      value: 0.601017
       inSlope: 0
       outSlope: 0
       tangentMode: 0
