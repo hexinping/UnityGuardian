@@ -18,7 +18,7 @@ public class RadialBlurEffect : PostEffectsBase {
 
     //模糊程度，不能过高
     [Range(0,0.05f)]
-    public float blurFactor = 1.0f;
+    public float blurFactor = 0.05f;
     //模糊中心（0-1）屏幕空间，默认为中心点
     public Vector2 blurCenter = new Vector2(0.5f, 0.5f);
 
@@ -77,5 +77,11 @@ public class RadialBlurEffect : PostEffectsBase {
         {
             Graphics.Blit(src, dest);
         }
+    }
+
+
+    public void setCenter(float x, float y)
+    {
+        blurCenter = new Vector2(x, y);
     }
 }

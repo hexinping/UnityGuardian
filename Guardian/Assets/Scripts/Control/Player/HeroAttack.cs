@@ -36,9 +36,12 @@ public class HeroAttack : MonoBehaviour {
     public bool _isLongPrees = false;
 
     private GameObject _skillLayer;
+    private RadialBlurEffect _radialPostEffect;
     void Start()
     {
         _skillLayer = GameObject.Find("_Manager/_ViewManager/_Scene/Skill");
+        GameObject _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        _radialPostEffect = _mainCamera.GetComponent<RadialBlurEffect>();
     }
     public void setPlayerEnitity(PlayerEnitity enitity)
     {
@@ -122,6 +125,12 @@ public class HeroAttack : MonoBehaviour {
         //print(GetType() + "/heroMagicTrickB MagicTrickB");
         if (_playerEnitity != null)
         {
+            //添加后期效果
+            Vector3 playerPos = _playerEnitity._gameObject.transform.position;
+            Vector3 screenPos = Camera.main.WorldToViewportPoint(playerPos);
+            _radialPostEffect.enabled = true;
+            _radialPostEffect.setCenter(screenPos.x, screenPos.y);
+
             _playerEnitity.changeStateByIndex(PlayerStateEnum.MAGICTRICKD, 2.0f, false);
             startResetIdle(PlayerStateEnum.MAGICTRICKD);
 
@@ -131,6 +140,7 @@ public class HeroAttack : MonoBehaviour {
     IEnumerator resetIdleState(float delayTime, PlayerStateEnum preEnum)
     {
         yield return new WaitForSeconds(delayTime);
+        _radialPostEffect.enabled = false;
         if(_playerEnitity != null)
         {
             _playerEnitity.changeStateByIndex(PlayerStateEnum.IDLE, 1.0f, true);

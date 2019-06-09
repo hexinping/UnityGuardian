@@ -209,6 +209,17 @@ public class LevelOneView : BaseView {
         _playerInfo.gameObject.SetActive(false);
     }
 
+    public void enableRadialBlur()
+    {
+        RadialBlurEffect radialBlurEffect = _mainCamera.GetComponent<RadialBlurEffect>();
+        radialBlurEffect.enabled = true;
+    }
+
+    public void disableRadialBlur()
+    {
+        RadialBlurEffect radialBlurEffect = _mainCamera.GetComponent<RadialBlurEffect>();
+        radialBlurEffect.enabled = false;
+    }
     public void enableBloom()
     {
         PostEffectBloom bloom = _mainCamera.GetComponent<PostEffectBloom>();
