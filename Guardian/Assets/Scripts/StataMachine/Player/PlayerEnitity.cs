@@ -133,7 +133,7 @@ public class PlayerEnitity:BaseEnitity  {
             hpFollow.target = _gameObject.transform;
             _hpFollow = hpFollow;
             hideHpSlider();
-            _hpFollow.setDelayTime(2.0f);
+            //_hpFollow.setDelayTime(2.0f);
 
             //添加主角出场特效
             Vector3 targetPos = _gameObject.transform.position + new Vector3(0,0.2f,0);

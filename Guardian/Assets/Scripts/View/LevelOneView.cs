@@ -181,6 +181,7 @@ public class LevelOneView : BaseView {
         _playerInfo = playerInfoObj.GetComponent<PlayerInfo>();
         _playerInfo.setPlayerEnitiy(enitity);
 
+        enitity.updateHP();
         StartCoroutine("createEnimys");
 
         //默认开启后期

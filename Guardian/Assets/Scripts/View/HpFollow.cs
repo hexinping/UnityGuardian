@@ -36,6 +36,7 @@ public class HpFollow : MonoBehaviour {
     private Camera uiCamera;
 
     private float delayTime = 0.0f; //延迟显示时间
+    private bool isShowHp = true;
 
 
     public void setDelayTime(float time)
@@ -71,11 +72,13 @@ public class HpFollow : MonoBehaviour {
     public void hideSlider()
     {
         hpSlider.gameObject.SetActive(false);
+        isShowHp = false;
     }
 
     public void showSlider()
     {
         hpSlider.gameObject.SetActive(true);
+        isShowHp = true;
     }
 
     public void updateHpValue(float tvalue, float tmaxValue)
@@ -87,6 +90,7 @@ public class HpFollow : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        if (!isShowHp) return;
         if (hpSlider == null) hpSlider = GetComponentInChildren<Slider>();
         hpSlider.value = value / maxValue;
         updateHpPos();
@@ -101,6 +105,7 @@ public class HpFollow : MonoBehaviour {
 
     void LateUpdate()
     {
+        if (!isShowHp) return;
         //updateHpPos();
     }
 
