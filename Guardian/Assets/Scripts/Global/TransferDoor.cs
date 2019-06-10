@@ -37,8 +37,8 @@ public class TransferDoor : MonoBehaviour
             _rotationDistort.enabled = true;
             endTime = GlobalParams.totalTime + time;
             isStart = true;
-            hp = playerHP.GetComponent<HpFollow>();
-            hp.hideSlider();
+            //hp = playerHP.GetComponent<HpFollow>();
+            //hp.hideSlider();
         }
 
     }
@@ -53,8 +53,9 @@ public class TransferDoor : MonoBehaviour
             //主角到到达目的位
             if (target)
             {
+                GlobalParams.isPause = true;
                 player.transform.position = target.position;
-                this.Invoke("showHp", totalTime - time);
+                this.Invoke("showHp", totalTime - time + 0.5f);
             }
 
            
@@ -63,8 +64,9 @@ public class TransferDoor : MonoBehaviour
 
     void showHp()
     {
-        hp.showSlider();
+        //hp.showSlider();
         _rotationDistort.enabled = false;
+        GlobalParams.isPause = false;
         Destroy(gameObject);
     }
 }

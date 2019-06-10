@@ -47,6 +47,8 @@ public static class GlobalParams
 
     public static bool isWindow = Application.platform == RuntimePlatform.WindowsPlayer;
 
+    public static bool isPause = false;
+
     //Input输入常量定义
     public static string Horizontal     = "Horizontal";
     public static string Vertical       = "Vertical";

@@ -483,6 +483,7 @@ public class LevelOneView : BaseView {
 
     void FixedUpdate()
     {
+        if (GlobalParams.isPause) return;
         if (_playerEnitity == null) return;
         //使用逻辑时间
         GlobalParams.frameCount++;
