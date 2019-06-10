@@ -66,9 +66,6 @@ public class HpFollow : MonoBehaviour {
 
         canvas.sortingOrder = GlobalParams.HPOrder;
   
-        RectTransform rect1 = hpObj.GetComponent<RectTransform>();
-        rect1.localPosition = new Vector3(offset.x, offset.y, 0);
-        rectTrains = rect1;
     }
 
     public void hideSlider()
