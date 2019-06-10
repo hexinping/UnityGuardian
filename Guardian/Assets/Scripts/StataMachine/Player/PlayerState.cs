@@ -54,9 +54,10 @@ public class PlayerIdleState : PlayerState
     override public  void enter(params object[] values)
     {
         Debug.Log("idle enter=============");
+        _enitity.faceToTarget();
         //切换动作
         base.enter(values);
-        _enitity.faceToTarget();
+       
         
         
     }
@@ -140,9 +141,8 @@ public class PlayerAttackState : PlayerState
     {
         Debug.Log("attack enter=============");
         _enitity.isAttacking = true;
-        base.enter(values);
         _enitity.faceToTarget();
-
+        base.enter(values);
         if (_enitity.attackTarget != null)
         {
             _enitity.attackTarget.showHpSlider();
@@ -215,8 +215,9 @@ public class PlayerMagicTrickAState : PlayerState
     override public void enter(params object[] values)
     {
         Debug.Log("magicTrickA enter=============");
-        base.enter(values);
         _enitity.isAttacking = true;
+        _enitity.faceToTarget();
+        base.enter(values);
          if (_enitity.attackTarget != null)
         {
             _enitity.attackTarget.showHpSlider();
@@ -255,8 +256,9 @@ public class PlayerMagicTrickBState : PlayerState
     override public void enter(params object[] values)
     {
         Debug.Log("magicTrickB enter=============");
-        base.enter(values);
         _enitity.isAttacking = true;
+        _enitity.faceToTarget();
+        base.enter(values);
         if (_enitity.attackTarget != null)
         {
             _enitity.attackTarget.showHpSlider();
@@ -293,8 +295,9 @@ public class PlayerMagicTrickCState : PlayerState
     override public void enter(params object[] values)
     {
         Debug.Log("magicTrickC enter=============");
-        base.enter(values);
         _enitity.isAttacking = true;
+        _enitity.faceToTarget();
+        base.enter(values);
         if (_enitity.attackTarget != null)
         {
             _enitity.attackTarget.showHpSlider();
@@ -332,8 +335,9 @@ public class PlayerMagicTrickDState : PlayerState
     override public void enter(params object[] values)
     {
         Debug.Log("magicTrickD enter=============");
-        base.enter(values);
         _enitity.isAttacking = true;
+        _enitity.faceToTarget();
+        base.enter(values);
         if (_enitity.attackTarget != null)
         {
             _enitity.attackTarget.showHpSlider();

@@ -31,8 +31,9 @@ public class HpFollow : MonoBehaviour {
     private float maxValue;
     private Vector2 offset;
 
-    private GameObject uiCamera;
+    private GameObject uiCameraObj;
     private GameObject hpLayer;
+    private Camera uiCamera;
 
     private float delayTime = 0.0f; //延迟显示时间
 
@@ -57,10 +58,11 @@ public class HpFollow : MonoBehaviour {
         GameObject hpObj = gameObject.transform.Find("Slider").gameObject;
         hpSlider = hpObj.GetComponent<Slider>();
         //设置UI摄像机
-        uiCamera = GameObject.FindGameObjectWithTag("UICamera");
+        uiCameraObj = GameObject.FindGameObjectWithTag("UICamera");
         Canvas canvas = GetComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceCamera;
-        canvas.worldCamera = uiCamera.GetComponent<Camera>();
+        uiCamera = uiCameraObj.GetComponent<Camera>();
+        canvas.worldCamera = uiCamera;
 
         canvas.sortingOrder = GlobalParams.HPOrder;
   
@@ -84,6 +86,7 @@ public class HpFollow : MonoBehaviour {
         value = tvalue;
         maxValue = tmaxValue;
     }
+
 	// Update is called once per frame
 	void Update () {
 
@@ -109,14 +112,33 @@ public class HpFollow : MonoBehaviour {
         if (target == null) return;
         Canvas canvas = GetComponent<Canvas>();
 
+
+        //方法1
         ////将世界坐标转化成屏幕坐标
         Vector3 screenPos = Camera.main.WorldToScreenPoint(target.position);
 
         ////将屏幕坐标转化成UGUI坐标
         Vector2 localPos;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, screenPos, canvas.worldCamera, out localPos);
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, screenPos, uiCamera, out localPos);
         Vector3 newPos = new Vector3(localPos.x + offset.x, localPos.y + offset.y, 0);
         hpSlider.transform.localPosition = newPos;
+
+        //方法2
+        //Vector3 screenPos = Camera.main.WorldToScreenPoint(target.position);
+        //Vector3 pos = uiCamera.ScreenToWorldPoint(screenPos);
+        //Vector3 newPos = new Vector3(pos.x + offset.x, pos.y + offset.y, pos.z);
+        //hpSlider.gameObject.transform.position = newPos;
+
+
+        //方法3
+        //获取跟随目标的世界坐标  这个手机上不会抖动
+        //Vector3 tarPos = target.transform.position;
+        //RectTransform rectTrains1 = GetComponent<RectTransform>();
+        ////将世界坐标转化成屏幕坐标
+        //Vector2 pos = RectTransformUtility.WorldToScreenPoint(Camera.main, tarPos);
+        //rectTrains1.position = pos;
+
+        
 
     }
 }
