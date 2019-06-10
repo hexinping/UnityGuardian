@@ -66,7 +66,7 @@ public class DamageLabelMove : MonoBehaviour {
         iTween.MoveTo(labelTxt.gameObject, iTween.Hash(
            //"y", 200,
            "position",targetPos,
-          "easetype", iTween.EaseType.easeInSine,
+          "easetype", iTween.EaseType.easeOutQuad,
           "time", 1.0,
            "islocal", true,
           "oncomplete", "moveEndCallBack",
