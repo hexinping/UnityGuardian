@@ -136,7 +136,8 @@ public class PlayerEnitity:BaseEnitity  {
             _hpFollow.setDelayTime(2.0f);
 
             //添加主角出场特效
-            createEffectNoPool("ParticleProps/EnemySpawnEff", _gameObject.transform.position, skillGround);
+            Vector3 targetPos = _gameObject.transform.position + new Vector3(0,0.2f,0);
+            createEffectNoPool("ParticleProps/EnemySpawnEff", targetPos, skillGround);
         }
 
        
@@ -338,28 +339,28 @@ public class PlayerEnitity:BaseEnitity  {
         //Debug.Log("testEvent======成功回调========" + GlobalParams.totalTime + " 当前帧数：" + GlobalParams.frameCount);
         float speed = 10.0f; //如果是移动技能，需要计算技能的移动到攻击目标的时间 使用itween插件暂时写死了
         //非移动技能特效直接结算
-        float damage = countDamage(attackTarget);
-        if (animationName == GlobalParams.anim_player_skillA)
-        {
-            damage *= 2;
-        }
-        else if (animationName == GlobalParams.anim_player_skillB)
-        {
-            damage *= 3;
-
-        }
-        else if (animationName == GlobalParams.anim_player_skillC)
-        {
-
-            damage *= 4;
-        }
-        else if (animationName == GlobalParams.anim_player_skillD)
-        {
-            damage *= 5;
-
-        }
         if (attackTarget != null && !attackTarget.isDead)
         {
+            float damage = countDamage(attackTarget);
+            if (animationName == GlobalParams.anim_player_skillA)
+            {
+                damage *= 2;
+            }
+            else if (animationName == GlobalParams.anim_player_skillB)
+            {
+                damage *= 3;
+
+            }
+            else if (animationName == GlobalParams.anim_player_skillC)
+            {
+
+                damage *= 4;
+            }
+            else if (animationName == GlobalParams.anim_player_skillD)
+            {
+                damage *= 5;
+
+            }
             if (!isMove)
             {
                 attackTargetHurt(attackTarget, damage);

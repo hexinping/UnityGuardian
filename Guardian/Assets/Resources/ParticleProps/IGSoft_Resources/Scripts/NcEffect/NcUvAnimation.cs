@@ -100,7 +100,7 @@ public class NcUvAnimation : NcEffectAniBehaviour
 
 	void Update()
 	{
-		if (m_Renderer == null || m_Renderer.sharedMaterial == null || m_Renderer.sharedMaterial.mainTexture == null)
+        if (m_Renderer == null || m_Renderer.sharedMaterial == null || m_Renderer.sharedMaterial.mainTexture == null || m_Timer == null)
 			return;
 
 		if (m_bFixedTileSize)

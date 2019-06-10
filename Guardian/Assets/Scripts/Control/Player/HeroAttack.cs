@@ -51,7 +51,7 @@ public class HeroAttack : MonoBehaviour {
 
     public void heroNormalAttack(bool isCheckLongPrees = true)
     {
-
+        
         //普通攻击
         //多个攻击动作区分或者整合 todo
         //print(GetType() + "/heroNormalAttack Attack");
@@ -152,6 +152,7 @@ public class HeroAttack : MonoBehaviour {
     {
         if (_resetIdleCor != null)
         {
+            _radialPostEffect.enabled = false;
             StopCoroutine(_resetIdleCor);
         }
         

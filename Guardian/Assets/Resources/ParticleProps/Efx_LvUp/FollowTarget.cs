@@ -17,11 +17,10 @@ public class FollowTarget : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		//this.transform.position = new Vector3(target.transform.position.x,transform.position.y,target.transform.position.z);
+
         if (targetTransform)
         {
-            selfTransform.position = targetTransform.position;        
+            selfTransform.position = new Vector3(targetTransform.position.x, targetTransform.position.y + 0.2f, targetTransform.position.z);      
         }
 	}
 }
