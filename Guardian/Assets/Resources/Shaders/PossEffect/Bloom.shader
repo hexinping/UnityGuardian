@@ -61,9 +61,11 @@ Shader "Guardian/PossEffect/Bloom"
 				o.uv.xy = v.texcoord;		
 				o.uv.zw = v.texcoord;
 				
+				//DirectX平台下，因为Unity开启了抗锯齿,主纹理和亮度纹理在竖直方向上是不一样的，亮部纹理需要翻转Y坐标
+				//主纹理调用Graphics.Blit这个方法，Unity默认帮我们做好了
 				#if UNITY_UV_STARTS_AT_TOP			
 				if (_MainTex_TexelSize.y < 0.0)
-					o.uv.y = 1.0 - o.uv.y;
+					o.uv.w = 1.0 - o.uv.w;
 				#endif
 					        	
 				return o; 
@@ -71,7 +73,7 @@ Shader "Guardian/PossEffect/Bloom"
 			
 			//最后得到bloom效果的像素着色器
 			fixed4 fragBloom(v2fBloom i) : SV_Target {
-				return tex2D(_MainTex, i.uv.xy) + tex2D(_Bloom, i.uv.xy);
+				return tex2D(_MainTex, i.uv.xy) + tex2D(_Bloom, i.uv.zw);
 			} 
 
 		ENDCG
