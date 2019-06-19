@@ -300,13 +300,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Guardian.CSharp.Plugins.csproj">
-      <Project>{FB451855-FBA4-5764-1328-44A539C39D9E}</Project>
-      <Name>Guardian.CSharp.Plugins</Name>
-    </ProjectReference>
     <ProjectReference Include="Guardian.CSharp.csproj">
       <Project>{05D2AA83-CC0C-A95C-D7B1-9DFE7F7DA4E6}</Project>
       <Name>Guardian.CSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="Guardian.CSharp.Plugins.csproj">
+      <Project>{FB451855-FBA4-5764-1328-44A539C39D9E}</Project>
+      <Name>Guardian.CSharp.Plugins</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -420,7 +420,6 @@
     <None Include="Assets\Scripts\View\Enemy\readMe.txt" />
     <None Include="Assets\Scripts\View\NPC\readMe.txt" />
     <None Include="Assets\Scripts\View\Prop\readMe.txt" />
-    <None Include="Assets\StreamingAssets\readMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
 </Project>

@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 1339605035
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 61585c28efc4bf1628ce8e2e946d3d25
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6f165f44e4778b6c9d85e7a145a54cb1
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/AB_Res/Scene_1/Materials/Floor.mat
+Dependencies:
+- G:/GitResponse/UnityGuardian/Guardian/Assets/StreamingAssets/Windows/scene_1/textures.ab

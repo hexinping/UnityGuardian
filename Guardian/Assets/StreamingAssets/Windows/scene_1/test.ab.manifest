@@ -1,0 +1,17 @@
+ManifestFileVersion: 0
+CRC: 3963129671
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 1ca4f0147e02752d4180d3454b35c981
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c73412a662fd4e4f36af34cbdf078b85
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/AB_Res/Scene_1/Test/Floor1.jpg
+- Assets/AB_Res/Scene_1/Test/1/Floor1_1.jpg
+Dependencies: []
